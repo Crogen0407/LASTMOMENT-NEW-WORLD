@@ -10,9 +10,9 @@ namespace Crogen.PowerfulInput
         #region Input Event
 
         public event Action<Vector2> MovePlayerEvent;
-        public event Action DashEvent;
+        public event Action<float> ChangeScrollEvent;
         public event Action AttackEvent;
-
+    
         #endregion
 
         private Controls _controls;
@@ -32,19 +32,18 @@ namespace Crogen.PowerfulInput
             _controls.Disable();
         }
 
-        public void OnDash(InputAction.CallbackContext context)
+        public void OnSpeedChange(InputAction.CallbackContext context)
         {
-            if(context.performed)
-                DashEvent?.Invoke();
+            ChangeScrollEvent?.Invoke(context.ReadValue<float>());
         }
-        
+
         public void OnAttack(InputAction.CallbackContext context)
         {
             if(context.performed)
                 AttackEvent?.Invoke();
         }
 
-        public void OnMouseMove(InputAction.CallbackContext context)
+        public void OnMoveDirection(InputAction.CallbackContext context)
         {
             Vector2 dir = context.ReadValue<Vector2>();
             MovePlayerEvent?.Invoke(dir);

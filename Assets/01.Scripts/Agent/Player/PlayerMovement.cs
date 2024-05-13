@@ -1,32 +1,40 @@
-﻿using Crogen.PowerfulInput;
+﻿using System;
+using Crogen.PowerfulInput;
 using UnityEngine;
 
 public class PlayerMovement : AgentMovement
 {
     private Vector3 _convertDir;
     [SerializeField] private InputReader _inputReader;
-
+    
     public void OnEnable()
     {
-        _inputReader.MovePlayerEvent += Move;
+        _inputReader.MovePlayerEvent += HandleMove;
+        _inputReader.ChangeScrollEvent += HandleSpeedChange;
     }
-    
+
     public void OnDisable()
     {
-        _inputReader.MovePlayerEvent -= Move;
+        _inputReader.MovePlayerEvent -= HandleMove;
+        _inputReader.ChangeScrollEvent -= HandleSpeedChange;
     }
     
-    protected override void Move(Vector2 mousePos)
+    private void HandleSpeedChange(float axis)
     {
-        Vector3 cameraPos = Camera.main.ScreenToWorldPoint(mousePos);
-        cameraPos = new Vector3(0, cameraPos.y, cameraPos.z);
+        int speedValue = (int)(MaxSpeed * ((axis / 24) * 0.01f)); 
         
-        _convertDir = (cameraPos).normalized;
-        Debug.Log(_convertDir);
-        float dis = Vector3.Distance(cameraPos, transform.position);
-        if (dis > 0.3f)
-        {
-            _rbCompo.velocity = _convertDir * Speed;
-        }
+        CurSpeed += speedValue;
+
+        CurSpeed = Mathf.Clamp(CurSpeed, 0, MaxSpeed);
+    }
+    
+    protected override void HandleMove(Vector2 vec)
+    {
+        transform.forward *= vec;
+    }
+
+    private void FixedUpdate()
+    {
+        _rbCompo.velocity = transform.forward * CurSpeed;
     }
 }

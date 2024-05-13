@@ -6,13 +6,13 @@
             "id": "885aff4d-10ac-48e3-b052-ff74ebd58c74",
             "actions": [
                 {
-                    "name": "Dash",
-                    "type": "Button",
+                    "name": "SpeedChange",
+                    "type": "Value",
                     "id": "2f32c5e7-314c-4e11-9bbb-147493b71862",
-                    "expectedControlType": "Button",
+                    "expectedControlType": "Axis",
                     "processors": "",
                     "interactions": "",
-                    "initialStateCheck": false
+                    "initialStateCheck": true
                 },
                 {
                     "name": "Attack",
@@ -24,7 +24,7 @@
                     "initialStateCheck": false
                 },
                 {
-                    "name": "MouseMove",
+                    "name": "MoveDirection",
                     "type": "Value",
                     "id": "2435dfc3-3e6c-4308-ac9b-de1eb65302c5",
                     "expectedControlType": "Vector2",
@@ -34,28 +34,6 @@
                 }
             ],
             "bindings": [
-                {
-                    "name": "",
-                    "id": "5bdf08ba-70b0-4627-851d-b6d253ea62e5",
-                    "path": "<Keyboard>/leftShift",
-                    "interactions": "",
-                    "processors": "",
-                    "groups": "",
-                    "action": "Dash",
-                    "isComposite": false,
-                    "isPartOfComposite": false
-                },
-                {
-                    "name": "",
-                    "id": "39c7527d-39c9-4d1b-a6e0-61e322d22e15",
-                    "path": "<Mouse>/rightButton",
-                    "interactions": "",
-                    "processors": "",
-                    "groups": "",
-                    "action": "Dash",
-                    "isComposite": false,
-                    "isPartOfComposite": false
-                },
                 {
                     "name": "",
                     "id": "89a8e9cd-66f1-4370-b894-737bd44b2229",
@@ -68,13 +46,46 @@
                     "isPartOfComposite": false
                 },
                 {
+                    "name": "Axis",
+                    "id": "d956156b-7523-4410-a283-07dcb34063d7",
+                    "path": "1DAxis",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "SpeedChange",
+                    "isComposite": true,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "positive",
+                    "id": "02f1f09a-fb12-4c97-b713-b03290585909",
+                    "path": "<Mouse>/scroll/up",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "SpeedChange",
+                    "isComposite": false,
+                    "isPartOfComposite": true
+                },
+                {
+                    "name": "negative",
+                    "id": "80a96f5e-a93c-443e-b96d-8277be45dc45",
+                    "path": "<Mouse>/scroll/down",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "SpeedChange",
+                    "isComposite": false,
+                    "isPartOfComposite": true
+                },
+                {
                     "name": "",
-                    "id": "ec3658f1-14df-4653-9fe1-678b44a2d3bb",
+                    "id": "9438b5a8-d4ac-4c70-b839-cf86fc43cc70",
                     "path": "<Mouse>/position",
                     "interactions": "",
                     "processors": "",
                     "groups": "",
-                    "action": "MouseMove",
+                    "action": "MoveDirection",
                     "isComposite": false,
                     "isPartOfComposite": false
                 }
