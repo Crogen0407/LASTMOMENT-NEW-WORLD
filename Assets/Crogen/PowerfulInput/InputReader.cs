@@ -5,13 +5,14 @@ using UnityEngine.InputSystem;
 namespace Crogen.PowerfulInput
 {
     [CreateAssetMenu(fileName = "InputReader", menuName = "Crogen/InputReader", order = 0)]
-    public class InputReader : ScriptableObject, Controls.IPlayerActions
+    public class InputReader : ScriptableObject, Controls.IPlayerActions, Controls.IUIActions
     {
         #region Input Event
 
-        public event Action<Vector2> MovePlayerEvent;
+        public event Action<Vector2> MoveDirectionEvent;
         public event Action<float> ChangeScrollEvent;
         public event Action AttackEvent;
+        public event Action MouseClickEvent; 
     
         #endregion
 
@@ -23,6 +24,7 @@ namespace Crogen.PowerfulInput
             {
                 _controls = new Controls();
                 _controls.Player.SetCallbacks(this);
+                _controls.UI.SetCallbacks(this);
             }
             _controls.Enable();
         }
@@ -46,7 +48,12 @@ namespace Crogen.PowerfulInput
         public void OnMoveDirection(InputAction.CallbackContext context)
         {
             Vector2 dir = context.ReadValue<Vector2>();
-            MovePlayerEvent?.Invoke(dir);
+            MoveDirectionEvent?.Invoke(dir);
+        }
+
+        public void OnMouseClick(InputAction.CallbackContext context)
+        {
+            MouseClickEvent?.Invoke();
         }
     }
 }
