@@ -28,10 +28,10 @@ public partial class @Controls: IInputActionCollection2, IDisposable
             ""id"": ""885aff4d-10ac-48e3-b052-ff74ebd58c74"",
             ""actions"": [
                 {
-                    ""name"": ""SpeedChange"",
-                    ""type"": ""Value"",
+                    ""name"": ""SpeedUp"",
+                    ""type"": ""Button"",
                     ""id"": ""2f32c5e7-314c-4e11-9bbb-147493b71862"",
-                    ""expectedControlType"": ""Axis"",
+                    ""expectedControlType"": ""Button"",
                     ""processors"": """",
                     ""interactions"": """",
                     ""initialStateCheck"": true
@@ -68,39 +68,6 @@ public partial class @Controls: IInputActionCollection2, IDisposable
                     ""isPartOfComposite"": false
                 },
                 {
-                    ""name"": ""Axis"",
-                    ""id"": ""d956156b-7523-4410-a283-07dcb34063d7"",
-                    ""path"": ""1DAxis"",
-                    ""interactions"": """",
-                    ""processors"": """",
-                    ""groups"": """",
-                    ""action"": ""SpeedChange"",
-                    ""isComposite"": true,
-                    ""isPartOfComposite"": false
-                },
-                {
-                    ""name"": ""positive"",
-                    ""id"": ""02f1f09a-fb12-4c97-b713-b03290585909"",
-                    ""path"": ""<Mouse>/scroll/up"",
-                    ""interactions"": """",
-                    ""processors"": """",
-                    ""groups"": """",
-                    ""action"": ""SpeedChange"",
-                    ""isComposite"": false,
-                    ""isPartOfComposite"": true
-                },
-                {
-                    ""name"": ""negative"",
-                    ""id"": ""80a96f5e-a93c-443e-b96d-8277be45dc45"",
-                    ""path"": ""<Mouse>/scroll/down"",
-                    ""interactions"": """",
-                    ""processors"": """",
-                    ""groups"": """",
-                    ""action"": ""SpeedChange"",
-                    ""isComposite"": false,
-                    ""isPartOfComposite"": true
-                },
-                {
                     ""name"": """",
                     ""id"": ""9438b5a8-d4ac-4c70-b839-cf86fc43cc70"",
                     ""path"": ""<Mouse>/delta"",
@@ -108,6 +75,17 @@ public partial class @Controls: IInputActionCollection2, IDisposable
                     ""processors"": """",
                     ""groups"": """",
                     ""action"": ""MoveDirection"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""5a5867f2-7257-4df2-9573-c9b9749f3124"",
+                    ""path"": ""<Keyboard>/space"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""SpeedUp"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
                 }
@@ -146,7 +124,7 @@ public partial class @Controls: IInputActionCollection2, IDisposable
 }");
         // Player
         m_Player = asset.FindActionMap("Player", throwIfNotFound: true);
-        m_Player_SpeedChange = m_Player.FindAction("SpeedChange", throwIfNotFound: true);
+        m_Player_SpeedUp = m_Player.FindAction("SpeedUp", throwIfNotFound: true);
         m_Player_Attack = m_Player.FindAction("Attack", throwIfNotFound: true);
         m_Player_MoveDirection = m_Player.FindAction("MoveDirection", throwIfNotFound: true);
         // UI
@@ -213,14 +191,14 @@ public partial class @Controls: IInputActionCollection2, IDisposable
     // Player
     private readonly InputActionMap m_Player;
     private List<IPlayerActions> m_PlayerActionsCallbackInterfaces = new List<IPlayerActions>();
-    private readonly InputAction m_Player_SpeedChange;
+    private readonly InputAction m_Player_SpeedUp;
     private readonly InputAction m_Player_Attack;
     private readonly InputAction m_Player_MoveDirection;
     public struct PlayerActions
     {
         private @Controls m_Wrapper;
         public PlayerActions(@Controls wrapper) { m_Wrapper = wrapper; }
-        public InputAction @SpeedChange => m_Wrapper.m_Player_SpeedChange;
+        public InputAction @SpeedUp => m_Wrapper.m_Player_SpeedUp;
         public InputAction @Attack => m_Wrapper.m_Player_Attack;
         public InputAction @MoveDirection => m_Wrapper.m_Player_MoveDirection;
         public InputActionMap Get() { return m_Wrapper.m_Player; }
@@ -232,9 +210,9 @@ public partial class @Controls: IInputActionCollection2, IDisposable
         {
             if (instance == null || m_Wrapper.m_PlayerActionsCallbackInterfaces.Contains(instance)) return;
             m_Wrapper.m_PlayerActionsCallbackInterfaces.Add(instance);
-            @SpeedChange.started += instance.OnSpeedChange;
-            @SpeedChange.performed += instance.OnSpeedChange;
-            @SpeedChange.canceled += instance.OnSpeedChange;
+            @SpeedUp.started += instance.OnSpeedUp;
+            @SpeedUp.performed += instance.OnSpeedUp;
+            @SpeedUp.canceled += instance.OnSpeedUp;
             @Attack.started += instance.OnAttack;
             @Attack.performed += instance.OnAttack;
             @Attack.canceled += instance.OnAttack;
@@ -245,9 +223,9 @@ public partial class @Controls: IInputActionCollection2, IDisposable
 
         private void UnregisterCallbacks(IPlayerActions instance)
         {
-            @SpeedChange.started -= instance.OnSpeedChange;
-            @SpeedChange.performed -= instance.OnSpeedChange;
-            @SpeedChange.canceled -= instance.OnSpeedChange;
+            @SpeedUp.started -= instance.OnSpeedUp;
+            @SpeedUp.performed -= instance.OnSpeedUp;
+            @SpeedUp.canceled -= instance.OnSpeedUp;
             @Attack.started -= instance.OnAttack;
             @Attack.performed -= instance.OnAttack;
             @Attack.canceled -= instance.OnAttack;
@@ -319,7 +297,7 @@ public partial class @Controls: IInputActionCollection2, IDisposable
     public UIActions @UI => new UIActions(this);
     public interface IPlayerActions
     {
-        void OnSpeedChange(InputAction.CallbackContext context);
+        void OnSpeedUp(InputAction.CallbackContext context);
         void OnAttack(InputAction.CallbackContext context);
         void OnMoveDirection(InputAction.CallbackContext context);
     }

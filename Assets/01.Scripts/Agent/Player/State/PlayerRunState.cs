@@ -1,13 +1,10 @@
 ﻿using Crogen.AgentFSM;
-using Crogen.PowerfulInput;
 using UnityEngine;
 
 public class PlayerRunState : AgentState<AgentStateEnum>
 {
     //Managers
     private GameManager _gameManager;
-    
-    //Controllers
     
     //Components
     private Rigidbody _rigidbody;
@@ -16,8 +13,9 @@ public class PlayerRunState : AgentState<AgentStateEnum>
     private Transform _playerTrm;
 
     //Value
-    private InputReader _inputReader;
     private Player _playerBase;
+    private bool _isSpeedUp = false;
+    private float _holdTime = 0f;
     
     public PlayerRunState(Agent<AgentStateEnum> agentBase, StateMachine<AgentStateEnum> stateMachine, string animBoolName) : base(agentBase, stateMachine, animBoolName)
     {
@@ -33,23 +31,28 @@ public class PlayerRunState : AgentState<AgentStateEnum>
         
         //Transforms
         _playerTrm = _playerBase.transform;
-        
-        _inputReader = _gameManager.InputReader;
-
     }
 
     public override void Enter()
     {
         base.Enter();
-        _inputReader.ChangeScrollEvent += HandleSpeedChange;
-        _inputReader.MoveDirectionEvent += HandleMoveDirection;
+        _gameManager.InputReader.SpeedUpEvent += HandleSpeedUp;
+        _gameManager.InputReader.SpeedDownEvent += HandleSpeedDown;
+        _gameManager.InputReader.MoveDirectionEvent += HandleMoveDirection;
     }
 
     public override void Exit()
     {
         base.Exit();
-        _inputReader.ChangeScrollEvent -= HandleSpeedChange;
-        _inputReader.MoveDirectionEvent -= HandleMoveDirection;
+        _gameManager.InputReader.SpeedUpEvent -= HandleSpeedUp;
+        _gameManager.InputReader.SpeedDownEvent -= HandleSpeedDown;
+        _gameManager.InputReader.MoveDirectionEvent -= HandleMoveDirection;
+    }
+
+    public override void UpdateState()
+    {
+        base.UpdateState();
+        OnSpeedChange(_isSpeedUp);
     }
 
     public override void FixedUpdateState()
@@ -57,19 +60,42 @@ public class PlayerRunState : AgentState<AgentStateEnum>
         base.FixedUpdateState();
         _rigidbody.velocity = _playerTrm.forward * _playerBase.CurSpeed;
     }
-    
-    private void HandleSpeedChange(float axis)
-    {
-        int speedValue = (int)(_playerBase.MaxSpeed * ((axis / 24) * 0.01f)); 
-        
-        _playerBase.CurSpeed += speedValue;
 
-        _playerBase.CurSpeed = Mathf.Clamp(_playerBase.CurSpeed, 0, _playerBase.MaxSpeed);
-        if (_playerBase.CurSpeed <= 0)
+    #region Speed Control
+
+    private void HandleSpeedUp()
+    {
+        Debug.Log("ㄱㄱ");
+        _isSpeedUp = true;
+    }
+    private void HandleSpeedDown()
+    {
+        Debug.Log("ㄴㄴ");
+        _isSpeedUp = false;
+    }
+    private void OnSpeedChange(bool isSpeedUp)
+    {
+        if (isSpeedUp)
         {
-            _stateMachine.ChangeState(AgentStateEnum.Idle);
+            _holdTime += Time.deltaTime;
+            Debug.Log(_holdTime);
+            _playerBase.CurSpeed = (int)(EaseInCubic(_holdTime) * _playerBase.MaxSpeed);
+
+            _playerBase.CurSpeed = Mathf.Clamp(_playerBase.CurSpeed, 0, _playerBase.MaxSpeed);
+        }
+        else
+        {
+            _holdTime -= Time.deltaTime;
+            _playerBase.CurSpeed = (int)(EaseInCubic(_holdTime) * _playerBase.MaxSpeed);
+            _playerBase.CurSpeed = Mathf.Clamp(_playerBase.CurSpeed, 0, _playerBase.MaxSpeed);
+            if (_playerBase.CurSpeed <= 0)
+            {
+                _stateMachine.ChangeState(AgentStateEnum.Idle);
+            }
         }
     }
+    
+    #endregion
 
     private void HandleMoveDirection(Vector2 mouseDelta)
     {
@@ -79,5 +105,10 @@ public class PlayerRunState : AgentState<AgentStateEnum>
             0) * Time.deltaTime * ((float)_playerBase.CurSpeed/_playerBase.MaxSpeed*0.5f);
         _playerBase.lookAngle = new Vector3(MathExtension.RotateClamp(_playerBase.lookAngle.x, -90f, 90f), _playerBase.lookAngle.y, _playerBase.lookAngle.z);
         _playerTrm.eulerAngles = _playerBase.lookAngle;
+    }
+    
+    private float EaseInCubic(float x) 
+    {
+        return x * x * x;
     }
 }

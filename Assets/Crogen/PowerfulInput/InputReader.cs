@@ -10,7 +10,8 @@ namespace Crogen.PowerfulInput
         #region Input Event
 
         public event Action<Vector2> MoveDirectionEvent;
-        public event Action<float> ChangeScrollEvent;
+        public event Action SpeedUpEvent;
+        public event Action SpeedDownEvent;
         public event Action AttackEvent;
         public event Action MouseClickEvent; 
     
@@ -34,11 +35,19 @@ namespace Crogen.PowerfulInput
             _controls.Disable();
         }
 
-        public void OnSpeedChange(InputAction.CallbackContext context)
+        public void OnSpeedUp(InputAction.CallbackContext context)
         {
-            ChangeScrollEvent?.Invoke(context.ReadValue<float>());
-        }
+            if (context.performed)
+            {
+                SpeedUpEvent?.Invoke();
+            }
 
+            if (context.canceled)
+            {
+                SpeedDownEvent?.Invoke();
+            }
+        }
+        
         public void OnAttack(InputAction.CallbackContext context)
         {
             if(context.performed)
