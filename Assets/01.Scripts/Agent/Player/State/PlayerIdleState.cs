@@ -15,18 +15,17 @@ public class PlayerIdleState : AgentState<AgentStateEnum>
     public override void Enter()
     {
         base.Enter();
-        _gameManager.InputReader.SpeedUpEvent += HandleStartMove;
+        _gameManager.InputReader.StartRunEvent += HandleStartMove;
     }
 
     public override void Exit()
     {
         base.Exit();
-        _gameManager.InputReader.SpeedUpEvent -= HandleStartMove;
+        _gameManager.InputReader.StartRunEvent -= HandleStartMove;
     }
     
     private void HandleStartMove()
     {
         _stateMachine.ChangeState(AgentStateEnum.Run);
-        Debug.Log("dfdf");
     }
 }

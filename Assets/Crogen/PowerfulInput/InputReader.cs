@@ -10,6 +10,7 @@ namespace Crogen.PowerfulInput
         #region Input Event
 
         public event Action<Vector2> MoveDirectionEvent;
+        public event Action StartRunEvent;
         public event Action SpeedUpEvent;
         public event Action SpeedDownEvent;
         public event Action AttackEvent;
@@ -37,15 +38,12 @@ namespace Crogen.PowerfulInput
 
         public void OnSpeedUp(InputAction.CallbackContext context)
         {
+            if(context.started)
+                StartRunEvent?.Invoke();
             if (context.performed)
-            {
                 SpeedUpEvent?.Invoke();
-            }
-
-            if (context.canceled)
-            {
+            if(context.canceled)
                 SpeedDownEvent?.Invoke();
-            }
         }
         
         public void OnAttack(InputAction.CallbackContext context)

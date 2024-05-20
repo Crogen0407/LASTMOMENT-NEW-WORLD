@@ -65,20 +65,18 @@ public class PlayerRunState : AgentState<AgentStateEnum>
 
     private void HandleSpeedUp()
     {
-        Debug.Log("ㄱㄱ");
         _isSpeedUp = true;
     }
     private void HandleSpeedDown()
     {
-        Debug.Log("ㄴㄴ");
         _isSpeedUp = false;
     }
     private void OnSpeedChange(bool isSpeedUp)
     {
         if (isSpeedUp)
         {
-            _holdTime += Time.deltaTime;
-            Debug.Log(_holdTime);
+            if (_playerBase.CurSpeed < _playerBase.MaxSpeed)
+                _holdTime += Time.deltaTime;
             _playerBase.CurSpeed = (int)(EaseInCubic(_holdTime) * _playerBase.MaxSpeed);
 
             _playerBase.CurSpeed = Mathf.Clamp(_playerBase.CurSpeed, 0, _playerBase.MaxSpeed);
@@ -86,7 +84,7 @@ public class PlayerRunState : AgentState<AgentStateEnum>
         else
         {
             _holdTime -= Time.deltaTime;
-            _playerBase.CurSpeed = (int)(EaseInCubic(_holdTime) * _playerBase.MaxSpeed);
+            _playerBase.CurSpeed = (int)(EaseInDefault(_holdTime) * _playerBase.MaxSpeed);
             _playerBase.CurSpeed = Mathf.Clamp(_playerBase.CurSpeed, 0, _playerBase.MaxSpeed);
             if (_playerBase.CurSpeed <= 0)
             {
@@ -110,5 +108,9 @@ public class PlayerRunState : AgentState<AgentStateEnum>
     private float EaseInCubic(float x) 
     {
         return x * x * x;
+    }
+    private float EaseInDefault(float x) 
+    {
+        return x;
     }
 }
