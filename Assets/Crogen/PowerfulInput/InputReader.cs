@@ -9,7 +9,7 @@ namespace Crogen.PowerfulInput
     {
         #region Input Event
 
-        public event Action<Vector2> MoveDirectionEvent;
+        public event Action<Vector3> MoveDirectionEvent;
         public event Action StartRunEvent;
         public event Action SpeedUpEvent;
         public event Action SpeedDownEvent;

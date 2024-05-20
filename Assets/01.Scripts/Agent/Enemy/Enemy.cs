@@ -1,18 +1,21 @@
-using System.Collections;
-using System.Collections.Generic;
+using Crogen.AgentFSM;
 using UnityEngine;
 
-public class Enemy : MonoBehaviour
+public class Enemy : Agent<AgentStateEnum>
 {
-    // Start is called before the first frame update
-    void Start()
+    public LayerMask whatIsPlayer;
+    public float recognitionRange = 50f;
+    public Transform currentTarget;
+    
+    public override void SetDead()
     {
         
     }
 
-    // Update is called once per frame
-    void Update()
+    private void OnDrawGizmos()
     {
-        
+        Gizmos.color = Color.red;
+        Gizmos.DrawWireSphere(transform.position, recognitionRange);
+        Gizmos.color = Color.white;
     }
 }

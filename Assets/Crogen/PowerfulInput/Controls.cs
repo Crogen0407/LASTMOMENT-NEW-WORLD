@@ -49,7 +49,7 @@ public partial class @Controls: IInputActionCollection2, IDisposable
                     ""name"": ""MoveDirection"",
                     ""type"": ""Value"",
                     ""id"": ""2435dfc3-3e6c-4308-ac9b-de1eb65302c5"",
-                    ""expectedControlType"": ""Vector2"",
+                    ""expectedControlType"": ""Vector3"",
                     ""processors"": """",
                     ""interactions"": """",
                     ""initialStateCheck"": true

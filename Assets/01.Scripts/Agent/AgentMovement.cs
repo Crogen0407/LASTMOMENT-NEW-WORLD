@@ -5,8 +5,6 @@ using UnityEngine;
 public class AgentMovement : MonoBehaviour
 {
     //Values
-    [HideInInspector] public Vector3 lookAngle = Vector3.zero;
-    
     [field: SerializeField] public int MaxSpeed { get; set; } = 100;
     [field:SerializeField] public int CurSpeed { get; set; } = 0;
     [field:SerializeField] public float RotateSpeedX { get; set; } = 20f;
@@ -69,23 +67,8 @@ public class AgentMovement : MonoBehaviour
 
     #endregion
 
-    public void HandleMoveDirection(Vector2 Delta)
+    public virtual void HandleMoveDirection(Vector3 Delta)
     {
-        lookAngle += new Vector3(
-            -Delta.y * RotateSpeedY, 
-            Delta.x * RotateSpeedX * 0.5f, 
-            0) * Time.deltaTime * ((float)CurSpeed/MaxSpeed*0.5f);
-
-        lookAngle.z = -Mathf.Rad2Deg * Delta.x;
-        
-        //Clamp
-        lookAngle.z = Mathf.Clamp(lookAngle.z, -89, 89);
-        lookAngle = 
-            new Vector3(
-                MathExtension.RotateClamp(lookAngle.x, -90f, 90f),
-                lookAngle.y, 
-                lookAngle.z);
-        
-        transform.DORotate(lookAngle, 0.1f);
+       
     }
 }

@@ -1,16 +1,14 @@
 ﻿using Crogen.AgentFSM;
+using Crogen.PowerfulInput;
 
 public class PlayerRunState : AgentState<AgentStateEnum>
 {
-    //Managers
-    private GameManager _gameManager;
+    private InputReader _inputReader;
     
     //Components
     private PlayerMovement _playerMovement;
     
-    //Value
     private Player _playerBase;
-    
     
     public PlayerRunState(Agent<AgentStateEnum> agentBase, StateMachine<AgentStateEnum> stateMachine, string animBoolName) : base(agentBase, stateMachine, animBoolName)
     {
@@ -18,24 +16,27 @@ public class PlayerRunState : AgentState<AgentStateEnum>
 
         //Components
         _playerMovement = _playerBase.Movement as PlayerMovement;
-        
+        _playerMovement.OnSpeedDeadEvent += () =>
+        {
+            _stateMachine.ChangeState(AgentStateEnum.Idle);
+        };
         //Managers
-        _gameManager = GameManager.Instance;
+        _inputReader = GameManager.Instance.InputReader;
     }
 
     public override void Enter()
     {
         base.Enter();
-        _gameManager.InputReader.SpeedUpEvent += _playerMovement.HandleSpeedUp;
-        _gameManager.InputReader.SpeedDownEvent += _playerMovement.HandleSpeedDown;
-        _gameManager.InputReader.MoveDirectionEvent += _playerMovement.HandleMoveDirection;
+        _inputReader.SpeedUpEvent += _playerMovement.HandleSpeedUp;
+        _inputReader.SpeedDownEvent += _playerMovement.HandleSpeedDown;
+        _inputReader.MoveDirectionEvent += _playerMovement.HandleMoveDirection;
     }
 
     public override void Exit()
     {
+        _inputReader.SpeedUpEvent -= _playerMovement.HandleSpeedUp;
+        _inputReader.SpeedDownEvent -= _playerMovement.HandleSpeedDown;
+        _inputReader.MoveDirectionEvent -= _playerMovement.HandleMoveDirection;
         base.Exit();
-        _gameManager.InputReader.SpeedUpEvent -= _playerMovement.HandleSpeedUp;
-        _gameManager.InputReader.SpeedDownEvent -= _playerMovement.HandleSpeedDown;
-        _gameManager.InputReader.MoveDirectionEvent -= _playerMovement.HandleMoveDirection;
     }
 }
