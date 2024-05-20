@@ -619,10 +619,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2e6db4792aae45288d2bce01f21841bc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  <MaxSpeed>k__BackingField: 100
+  <MaxSpeed>k__BackingField: 30
   <CurSpeed>k__BackingField: 0
   <RotateSpeedX>k__BackingField: 20
   <RotateSpeedY>k__BackingField: 100
+  rotateDelay: 0.5
 --- !u!1 &394623639
 GameObject:
   m_ObjectHideFlags: 0
