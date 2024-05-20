@@ -10,4 +10,9 @@ public class MathExtension : MonoBehaviour
 
         return angle;
     }
+    
+    public static float PowerByTwo(float x) 
+    {
+        return x * x;
+    }
 }

@@ -1,4 +1,5 @@
 using System;
+using DG.Tweening;
 using UnityEngine;
 
 public class AgentMovement : MonoBehaviour
@@ -33,6 +34,30 @@ public class AgentMovement : MonoBehaviour
     {
         OnSpeedChange(_isSpeedUp);
     }
+
+    #region Speed Change
+    
+    private void OnSpeedChange(bool isSpeedUp)
+    {
+        if (isSpeedUp)
+        {
+            if (CurSpeed < MaxSpeed)
+                _holdTime += Time.deltaTime;
+            CurSpeed = (int)(MathExtension.PowerByTwo(_holdTime) * MaxSpeed);
+
+            CurSpeed = Mathf.Clamp(CurSpeed, 0, MaxSpeed);
+        }
+        else
+        {
+            _holdTime -= Time.deltaTime;
+            CurSpeed = (int)(_holdTime * MaxSpeed);
+            CurSpeed = Mathf.Clamp(CurSpeed, 0, MaxSpeed);
+            if (CurSpeed <= 0)
+            {
+                OnSpeedDeadEvent?.Invoke();
+            }
+        }
+    }
     public void HandleSpeedUp()
     {
         _isSpeedUp = true;
@@ -41,42 +66,26 @@ public class AgentMovement : MonoBehaviour
     {
         _isSpeedUp = false;
     }
-    public void HandleMoveDirection(Vector2 mouseDelta)
+
+    #endregion
+
+    public void HandleMoveDirection(Vector2 Delta)
     {
         lookAngle += new Vector3(
-            -mouseDelta.y * RotateSpeedY, 
-            mouseDelta.x * RotateSpeedX * 0.5f, 
+            -Delta.y * RotateSpeedY, 
+            Delta.x * RotateSpeedX * 0.5f, 
             0) * Time.deltaTime * ((float)CurSpeed/MaxSpeed*0.5f);
-        lookAngle = new Vector3(MathExtension.RotateClamp(lookAngle.x, -90f, 90f), lookAngle.y, lookAngle.z);
-        transform.eulerAngles = lookAngle;
-    }
-    private void OnSpeedChange(bool isSpeedUp)
-    {
-        if (isSpeedUp)
-        {
-            if (CurSpeed < MaxSpeed)
-                _holdTime += Time.deltaTime;
-            CurSpeed = (int)(EaseInCubic(_holdTime) * MaxSpeed);
 
-            CurSpeed = Mathf.Clamp(CurSpeed, 0, MaxSpeed);
-        }
-        else
-        {
-            _holdTime -= Time.deltaTime;
-            CurSpeed = (int)(EaseInDefault(_holdTime) * MaxSpeed);
-            CurSpeed = Mathf.Clamp(CurSpeed, 0, MaxSpeed);
-            if (CurSpeed <= 0)
-            {
-                OnSpeedDeadEvent?.Invoke();
-            }
-        }
-    }
-    private float EaseInCubic(float x) 
-    {
-        return x * x * x;
-    }
-    private float EaseInDefault(float x) 
-    {
-        return x;
+        lookAngle.z = -Mathf.Rad2Deg * Delta.x;
+        
+        //Clamp
+        lookAngle.z = Mathf.Clamp(lookAngle.z, -89, 89);
+        lookAngle = 
+            new Vector3(
+                MathExtension.RotateClamp(lookAngle.x, -90f, 90f),
+                lookAngle.y, 
+                lookAngle.z);
+        
+        transform.DORotate(lookAngle, 0.1f);
     }
 }
