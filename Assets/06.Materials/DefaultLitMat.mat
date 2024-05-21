@@ -20,7 +20,7 @@ Material:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: DefaultLitMaterial
+  m_Name: DefaultLitMat
   m_Shader: {fileID: -6465566751694194690, guid: 895933795a273e04b8bb1552403d3175,
     type: 3}
   m_Parent: {fileID: 0}
@@ -60,5 +60,5 @@ Material:
     - _QueueOffset: 0
     - _Smoothness: 0.48
     m_Colors:
-    - _LightColor: {r: 0.7649907, g: 3.8761365, b: 6.0880504, a: 1}
+    - _LightColor: {r: 0.7649908, g: 3.876137, b: 6.0880513, a: 1}
   m_BuildTextureStacks: []

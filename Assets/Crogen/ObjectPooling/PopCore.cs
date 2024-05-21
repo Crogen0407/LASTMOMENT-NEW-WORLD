@@ -68,9 +68,7 @@ namespace Crogen.ObjectPooling
                 }
                 MonoPoolingObject obj = PoolManager.poolDic[type.ToString()].Dequeue();
                 obj.gameObject.SetActive(true);
-                if(useEvent)
-                    obj.OnPop();
-
+                
                 obj.transform.SetParent(_poolManager.transform);
                 obj.transform.position = targetGameObject.transform.position;
                 if (followTargetObjectRotation)
@@ -81,6 +79,8 @@ namespace Crogen.ObjectPooling
                 {
                     obj.transform.rotation = Quaternion.identity;
                 }
+                if(useEvent)
+                    obj.OnPop();
                 return obj;
             }
             catch (KeyNotFoundException e)
@@ -112,8 +112,7 @@ namespace Crogen.ObjectPooling
 
                 MonoPoolingObject obj = PoolManager.poolDic[type.ToString()].Dequeue();
                 obj.gameObject.SetActive(true);
-                if(useEvent)
-                    obj.OnPop();
+                
                 obj.transform.SetParent(_poolManager.transform);
                 if (useParentSpacePosition)
                     obj.transform.position = targetGameObject.transform.position + vec;
@@ -124,7 +123,9 @@ namespace Crogen.ObjectPooling
                     obj.transform.eulerAngles = targetGameObject.transform.eulerAngles + rot.eulerAngles;
                 else
                     obj.transform.rotation = rot;
-
+                
+                if(useEvent)
+                    obj.OnPop();
 
                 return obj;
             }

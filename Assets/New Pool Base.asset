@@ -12,4 +12,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ef843ff4ebdeee344a631d7c1ad9917f, type: 3}
   m_Name: New Pool Base
   m_EditorClassIdentifier: 
-  pairs: []
+  pairs:
+  - poolType: PlayerDefualtBullet
+    monoPoolingObjectPrefab: {fileID: 4977553696331228377, guid: 37bd9fc89ed293449b612498503f0ca2,
+      type: 3}
+    poolCount: 20
