@@ -528,8 +528,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 330585543}
   serializedVersion: 2
-  m_LocalRotation: {x: 0.25107223, y: 0.00000068762324, z: -0.00000017835612, w: 0.9679684}
-  m_LocalPosition: {x: -160.00002, y: 4.8605986, z: -222.51926}
+  m_LocalRotation: {x: 0.25107214, y: 0.0000007229543, z: -0.00000018752027, w: 0.9679684}
+  m_LocalPosition: {x: -160.00002, y: 4.860602, z: -222.51926}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -3109,8 +3109,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 956928773}
   serializedVersion: 2
-  m_LocalRotation: {x: 0.25107223, y: 0.00000068762324, z: -0.00000017835612, w: 0.9679684}
-  m_LocalPosition: {x: -160.00002, y: 4.8605986, z: -222.51926}
+  m_LocalRotation: {x: 0.25107214, y: 0.0000007229543, z: -0.00000018752027, w: 0.9679684}
+  m_LocalPosition: {x: -160.00002, y: 4.860602, z: -222.51926}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -3269,6 +3269,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 15ef2abaa22927f48a537589b8fb1cf6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _canvas: {fileID: 566164581}
 --- !u!114 &1013681102
 MonoBehaviour:
   m_ObjectHideFlags: 0
