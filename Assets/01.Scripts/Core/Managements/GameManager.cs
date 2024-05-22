@@ -14,4 +14,13 @@ public class GameManager : MonoSingleton<GameManager>
 
         InputReader.MouseClickEvent += UIManager.Init;
     }
+
+    //Debug    
+    private void Update()
+    {
+        if (Input.GetKeyDown(KeyCode.I))
+        {
+            TalkContent.Instance.OnTalk("System", "누군가 말했다.");
+        }
+    }
 }

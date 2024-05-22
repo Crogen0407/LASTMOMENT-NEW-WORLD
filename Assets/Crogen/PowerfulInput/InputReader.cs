@@ -15,6 +15,7 @@ namespace Crogen.PowerfulInput
         public event Action SpeedDownEvent;
         public event Action AttackEvent;
         public event Action MouseClickEvent; 
+        public event Action<Vector2> MoveMouseEvent; 
     
         #endregion
 
@@ -61,6 +62,11 @@ namespace Crogen.PowerfulInput
         public void OnMouseClick(InputAction.CallbackContext context)
         {
             MouseClickEvent?.Invoke();
+        }
+
+        public void OnMoveMouse(InputAction.CallbackContext context)
+        {
+            MoveMouseEvent?.Invoke(context.ReadValue<Vector2>());
         }
     }
 }

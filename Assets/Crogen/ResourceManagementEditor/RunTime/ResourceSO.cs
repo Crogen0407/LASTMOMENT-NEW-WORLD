@@ -2,5 +2,5 @@
 
 public class ResourceSO : ScriptableObject
 {
-    public string name;
+    public new string name;
 }

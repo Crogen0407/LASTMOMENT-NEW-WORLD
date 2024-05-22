@@ -20,7 +20,7 @@ Material:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: MapScanMat
+  m_Name: RadarMat
   m_Shader: {fileID: -6465566751694194690, guid: 8a78738fd1b514949be91d10a155129d,
     type: 3}
   m_Parent: {fileID: 0}
@@ -55,10 +55,11 @@ Material:
         m_Offset: {x: 0, y: 0}
     m_Ints: []
     m_Floats:
+    - _CenterGridScale: 0.09
     - _GridCount: 10
-    - _GridScale: 0.95
+    - _GridScale: 0.92
     - _QueueControl: 0
     - _QueueOffset: 0
-    - _Value: 1
+    - _Value: 0.18781531
     m_Colors: []
   m_BuildTextureStacks: []
