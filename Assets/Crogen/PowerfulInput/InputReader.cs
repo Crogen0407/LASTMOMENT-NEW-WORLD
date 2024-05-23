@@ -7,13 +7,19 @@ namespace Crogen.PowerfulInput
     [CreateAssetMenu(fileName = "InputReader", menuName = "Crogen/InputReader", order = 0)]
     public class InputReader : ScriptableObject, Controls.IPlayerActions, Controls.IUIActions
     {
+        public Vector2 mousePositionClampSize = new Vector2(1200f, 1200f);
+        
         #region Input Event
 
         public event Action<Vector3> MoveDirectionEvent;
         public event Action StartRunEvent;
         public event Action SpeedUpEvent;
         public event Action SpeedDownEvent;
-        public event Action AttackEvent;
+        
+        //Attack
+        public event Action AttackStartEvent;
+        public event Action AttackEndkEvent;
+        
         public event Action MouseClickEvent; 
         public event Action<Vector2> MoveMouseEvent; 
     
@@ -39,6 +45,8 @@ namespace Crogen.PowerfulInput
 
         public void OnSpeedUp(InputAction.CallbackContext context)
         {
+            Debug.Log(context.GetHashCode());
+
             if(context.started)
                 StartRunEvent?.Invoke();
             if (context.performed)
@@ -49,8 +57,10 @@ namespace Crogen.PowerfulInput
         
         public void OnAttack(InputAction.CallbackContext context)
         {
-            if(context.performed)
-                AttackEvent?.Invoke();
+            if(context.started)
+                AttackStartEvent?.Invoke();
+            if(context.canceled)
+                AttackEndkEvent?.Invoke();
         }
 
         public void OnMoveDirection(InputAction.CallbackContext context)
@@ -66,7 +76,14 @@ namespace Crogen.PowerfulInput
 
         public void OnMoveMouse(InputAction.CallbackContext context)
         {
-            MoveMouseEvent?.Invoke(context.ReadValue<Vector2>());
+            Vector2 mousePosition = context.ReadValue<Vector2>();
+            Vector2 screenSize = new Vector2(Screen.width, Screen.height);
+
+            Vector2 minOffset = (screenSize - mousePositionClampSize) * 0.5f;
+            Vector2 maxOffset = minOffset + mousePositionClampSize;
+            mousePosition = MathExtension.VectorClamp(mousePosition, minOffset, maxOffset);
+            
+            MoveMouseEvent?.Invoke(mousePosition);
         }
     }
 }

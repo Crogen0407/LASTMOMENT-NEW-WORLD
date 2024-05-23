@@ -7,7 +7,6 @@ public class EnemyMovement : AgentMovement
     
     public override void HandleMoveDirection(Vector3 Delta)
     {
-        base.HandleMoveDirection(Delta);
         Vector3 rotation = Quaternion.LookRotation(Delta).eulerAngles;
         transform.DORotate(rotation, rotateDelay);
     }

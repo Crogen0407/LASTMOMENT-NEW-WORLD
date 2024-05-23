@@ -10,6 +10,22 @@ public class MathExtension : MonoBehaviour
 
         return angle;
     }
+
+    public static Vector3 VectorClamp(Vector3 value, Vector3 min, Vector3 max)
+    {
+        for (short i = 0; i < 3; ++i)
+        {
+            if (value[i] > max[i])
+            {
+                value[i] = max[i];
+            }
+            if (value[i] < min[i])
+            {
+                value[i] = min[i];
+            }
+        }
+        return value;
+    }
     
     public static float PowerByTwo(float x) 
     {

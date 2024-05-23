@@ -2,9 +2,10 @@ using System;
 using DG.Tweening;
 using UnityEngine;
 
-public class AgentMovement : MonoBehaviour
+public abstract class AgentMovement : MonoBehaviour
 {
     //Values
+    [field: SerializeField] public int DefaultSpeed { get; set; } = 50; 
     [field: SerializeField] public int MaxSpeed { get; set; } = 100;
     [field:SerializeField] public int CurSpeed { get; set; } = 0;
     [field:SerializeField] public float RotateSpeedX { get; set; } = 20f;
@@ -22,6 +23,7 @@ public class AgentMovement : MonoBehaviour
     
     protected virtual void Awake()
     {
+        CurSpeed = DefaultSpeed;
         _rbCompo = GetComponent<Rigidbody>();
     }
     protected virtual void FixedUpdate()
@@ -41,15 +43,15 @@ public class AgentMovement : MonoBehaviour
         {
             if (CurSpeed < MaxSpeed)
                 _holdTime += Time.deltaTime;
-            CurSpeed = (int)(MathExtension.PowerByTwo(_holdTime) * MaxSpeed);
+            CurSpeed = (int)(MathExtension.PowerByTwo(_holdTime) * MaxSpeed) + DefaultSpeed;
 
-            CurSpeed = Mathf.Clamp(CurSpeed, 0, MaxSpeed);
+            CurSpeed = Mathf.Clamp(CurSpeed, DefaultSpeed, MaxSpeed+DefaultSpeed);
         }
         else
         {
             _holdTime -= Time.deltaTime;
-            CurSpeed = (int)(_holdTime * MaxSpeed);
-            CurSpeed = Mathf.Clamp(CurSpeed, 0, MaxSpeed);
+            CurSpeed = (int)(_holdTime * MaxSpeed) + DefaultSpeed;
+            CurSpeed = Mathf.Clamp(CurSpeed, DefaultSpeed, MaxSpeed+DefaultSpeed);
             if (CurSpeed <= 0)
             {
                 OnSpeedDeadEvent?.Invoke();
@@ -67,8 +69,5 @@ public class AgentMovement : MonoBehaviour
 
     #endregion
 
-    public virtual void HandleMoveDirection(Vector3 Delta)
-    {
-       
-    }
+    public abstract void HandleMoveDirection(Vector3 Delta);
 }

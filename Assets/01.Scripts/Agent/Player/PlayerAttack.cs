@@ -1,39 +1,36 @@
-using Crogen.ObjectPooling;
-using UnityEngine;
-
 public class PlayerAttack : AgentAttack
 {
+    private bool _isAttack = false;
+    
     protected override void Awake()
     {
         base.Awake();
-        _gameManager.InputReader.AttackEvent += HandleAttack;
+        _gameManager.InputReader.AttackStartEvent += HandleStartAttack;
+        _gameManager.InputReader.AttackEndkEvent += HandleEndAttack;
     }
 
     private void OnDestroy()
     {
-        _gameManager.InputReader.AttackEvent -= HandleAttack;
+        _gameManager.InputReader.AttackStartEvent -= HandleStartAttack;
+        _gameManager.InputReader.AttackEndkEvent -= HandleEndAttack;
     }
 
     protected override void Update()
     {
         base.Update();
-    }
-
-    private void HandleAttack()
-    {
-        OnAttack();
-    }
-
-    public override void OnAttack()
-    {
-        base.OnAttack();
-        for (int i = 0; i < _BulletSpawnPoint.Length; ++i)
+        if (_isAttack)
         {
-            PlayerDefaultBullet bullet = this.Pop(
-                        PoolType.PlayerDefualtBullet, 
-                        _BulletSpawnPoint[i].position, 
-                        _BulletSpawnPoint[i].rotation)
-                        as PlayerDefaultBullet;
+            OnAttack();
         }
+    }
+
+    private void HandleStartAttack()
+    {
+        _isAttack = true;
+    }
+
+    private void HandleEndAttack()
+    {
+        _isAttack = false;
     }
 }

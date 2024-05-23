@@ -3,26 +3,26 @@ using UnityEngine;
 
 public class PlayerMovement : AgentMovement
 {
+    public float aimingPosition;
     [HideInInspector] public Vector3 lookAngle = Vector3.zero;
 
-    
-    public override void HandleMoveDirection(Vector3 Delta)
+    public override void HandleMoveDirection(Vector3 position)
     {
-        base.HandleMoveDirection(Delta);
+        Vector3 lookDirection = transform.forward*aimingPosition;
+        
         lookAngle += new Vector3(
-            -Delta.y * RotateSpeedY, 
-            Delta.x * RotateSpeedX * 0.5f, 
+            -position.y * RotateSpeedY, 
+            position.x * RotateSpeedX * 0.5f, 
             0) * (Time.deltaTime * ((float)CurSpeed/MaxSpeed*0.5f));
 
-        lookAngle.z = -Mathf.Rad2Deg * Delta.x;
+        lookAngle.z = -Mathf.Rad2Deg * position.x;
         
         //Clamp
         lookAngle.z = Mathf.Clamp(lookAngle.z, -89, 89);
-        lookAngle = 
-            new Vector3(
-                MathExtension.RotateClamp(lookAngle.x, -90f, 90f),
-                lookAngle.y, 
-                lookAngle.z);
+        lookAngle = new Vector3(
+            MathExtension.RotateClamp(lookAngle.x, -90f, 90f),
+            lookAngle.y, 
+            lookAngle.z);
         
         transform.DORotate(lookAngle, 0.1f);
     }

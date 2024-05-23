@@ -12,3 +12,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 62b8799f1dbe44ce8cc2a7a08c9e0e76, type: 3}
   m_Name: InputReader
   m_EditorClassIdentifier: 
+  mousePositionClampSize: {x: 500, y: 500}
