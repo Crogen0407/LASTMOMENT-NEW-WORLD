@@ -2,9 +2,9 @@
 using UnityEngine;
 
 [CreateAssetMenu(menuName = "SO/WeaponList")]
-public class WeaponListSO : ScriptableObject
+public class WeaponDataListSO : ScriptableObject
 {
-    public WeaponSO[] weapons;
+    public WeaponDataSO[] weapons;
 
     [ContextMenu("ResetIndex")]
     private void ResetIndex()
