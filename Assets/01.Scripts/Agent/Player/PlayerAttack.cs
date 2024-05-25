@@ -6,13 +6,13 @@ public class PlayerAttack : AgentAttack
     {
         base.Awake();
         _gameManager.InputReader.AttackStartEvent += HandleStartAttack;
-        _gameManager.InputReader.AttackEndkEvent += HandleEndAttack;
+        _gameManager.InputReader.AttackEndEvent += HandleEndAttack;
     }
 
     private void OnDestroy()
     {
         _gameManager.InputReader.AttackStartEvent -= HandleStartAttack;
-        _gameManager.InputReader.AttackEndkEvent -= HandleEndAttack;
+        _gameManager.InputReader.AttackEndEvent -= HandleEndAttack;
     }
 
     protected override void Update()

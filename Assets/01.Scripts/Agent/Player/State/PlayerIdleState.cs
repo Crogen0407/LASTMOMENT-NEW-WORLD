@@ -28,14 +28,12 @@ public class PlayerIdleState : AgentState<AgentStateEnum>
     {
         base.Enter();
         _gameManager.InputReader.StartRunEvent += HandleStartMove;
-        _gameManager.InputReader.MoveDirectionEvent += _playerMovement.HandleMoveDirection;
     }
 
     public override void Exit()
     {
         base.Exit();
         _gameManager.InputReader.StartRunEvent -= HandleStartMove;
-        _gameManager.InputReader.MoveDirectionEvent -= _playerMovement.HandleMoveDirection;
     }
     
     private void HandleStartMove()

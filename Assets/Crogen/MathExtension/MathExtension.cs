@@ -36,4 +36,11 @@ public class MathExtension : MonoBehaviour
     {
         return outputMin + (value - inputMin) * (outputMax - outputMin) / (inputMax - inputMin);
     }
+
+    public static Vector3 ClampMagnitude(Vector3 vec, float maxValue)
+    {
+        if (vec.magnitude > maxValue)
+            vec = vec/vec.magnitude*maxValue;
+        return vec;
+    }
 }

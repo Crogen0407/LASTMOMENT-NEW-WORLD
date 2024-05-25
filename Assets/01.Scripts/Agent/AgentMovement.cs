@@ -30,6 +30,7 @@ public abstract class AgentMovement : MonoBehaviour
     {
         _rbCompo.velocity = transform.forward * CurSpeed;
     }
+    
     protected virtual void Update()
     {
         OnSpeedChange(_isSpeedUp);

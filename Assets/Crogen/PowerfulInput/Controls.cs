@@ -49,7 +49,16 @@ public partial class @Controls: IInputActionCollection2, IDisposable
                     ""name"": ""MoveDirection"",
                     ""type"": ""Value"",
                     ""id"": ""2435dfc3-3e6c-4308-ac9b-de1eb65302c5"",
-                    ""expectedControlType"": ""Vector3"",
+                    ""expectedControlType"": ""Vector2"",
+                    ""processors"": ""NormalizeVector2"",
+                    ""interactions"": """",
+                    ""initialStateCheck"": true
+                },
+                {
+                    ""name"": ""Interaction"",
+                    ""type"": ""Button"",
+                    ""id"": ""5e9c6a8d-e605-4892-b22b-e20b24a53716"",
+                    ""expectedControlType"": ""Button"",
                     ""processors"": """",
                     ""interactions"": """",
                     ""initialStateCheck"": true
@@ -69,8 +78,74 @@ public partial class @Controls: IInputActionCollection2, IDisposable
                 },
                 {
                     ""name"": """",
-                    ""id"": ""9438b5a8-d4ac-4c70-b839-cf86fc43cc70"",
-                    ""path"": ""<Mouse>/position"",
+                    ""id"": ""5a5867f2-7257-4df2-9573-c9b9749f3124"",
+                    ""path"": ""<Keyboard>/space"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""SpeedUp"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": ""WASD"",
+                    ""id"": ""e31474ee-870d-4d5c-b7a6-968aad2a9f78"",
+                    ""path"": ""2DVector"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""MoveDirection"",
+                    ""isComposite"": true,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": ""up"",
+                    ""id"": ""e35dafad-6de9-4955-85ca-fbb0a258eaec"",
+                    ""path"": ""<Keyboard>/w"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""MoveDirection"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": true
+                },
+                {
+                    ""name"": ""down"",
+                    ""id"": ""fcd63dd1-d62b-43de-940c-6cfc4e6abe09"",
+                    ""path"": ""<Keyboard>/s"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""MoveDirection"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": true
+                },
+                {
+                    ""name"": ""left"",
+                    ""id"": ""ee190aa6-6603-463d-940d-07283f3a16cb"",
+                    ""path"": ""<Keyboard>/a"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""MoveDirection"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": true
+                },
+                {
+                    ""name"": ""right"",
+                    ""id"": ""5b25e689-d685-4245-bb05-24307582702e"",
+                    ""path"": ""<Keyboard>/d"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""MoveDirection"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": true
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""1bb6d6a9-3011-493b-a47a-c604a85bb7c2"",
+                    ""path"": ""<Joystick>/stick"",
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": """",
@@ -80,12 +155,12 @@ public partial class @Controls: IInputActionCollection2, IDisposable
                 },
                 {
                     ""name"": """",
-                    ""id"": ""5a5867f2-7257-4df2-9573-c9b9749f3124"",
-                    ""path"": ""<Keyboard>/space"",
+                    ""id"": ""141c36f2-8ff7-41c1-b5d6-4b9efedafaf1"",
+                    ""path"": ""<Keyboard>/e"",
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": """",
-                    ""action"": ""SpeedUp"",
+                    ""action"": ""Interaction"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
                 }
@@ -147,6 +222,7 @@ public partial class @Controls: IInputActionCollection2, IDisposable
         m_Player_SpeedUp = m_Player.FindAction("SpeedUp", throwIfNotFound: true);
         m_Player_Attack = m_Player.FindAction("Attack", throwIfNotFound: true);
         m_Player_MoveDirection = m_Player.FindAction("MoveDirection", throwIfNotFound: true);
+        m_Player_Interaction = m_Player.FindAction("Interaction", throwIfNotFound: true);
         // UI
         m_UI = asset.FindActionMap("UI", throwIfNotFound: true);
         m_UI_MouseClick = m_UI.FindAction("MouseClick", throwIfNotFound: true);
@@ -215,6 +291,7 @@ public partial class @Controls: IInputActionCollection2, IDisposable
     private readonly InputAction m_Player_SpeedUp;
     private readonly InputAction m_Player_Attack;
     private readonly InputAction m_Player_MoveDirection;
+    private readonly InputAction m_Player_Interaction;
     public struct PlayerActions
     {
         private @Controls m_Wrapper;
@@ -222,6 +299,7 @@ public partial class @Controls: IInputActionCollection2, IDisposable
         public InputAction @SpeedUp => m_Wrapper.m_Player_SpeedUp;
         public InputAction @Attack => m_Wrapper.m_Player_Attack;
         public InputAction @MoveDirection => m_Wrapper.m_Player_MoveDirection;
+        public InputAction @Interaction => m_Wrapper.m_Player_Interaction;
         public InputActionMap Get() { return m_Wrapper.m_Player; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
@@ -240,6 +318,9 @@ public partial class @Controls: IInputActionCollection2, IDisposable
             @MoveDirection.started += instance.OnMoveDirection;
             @MoveDirection.performed += instance.OnMoveDirection;
             @MoveDirection.canceled += instance.OnMoveDirection;
+            @Interaction.started += instance.OnInteraction;
+            @Interaction.performed += instance.OnInteraction;
+            @Interaction.canceled += instance.OnInteraction;
         }
 
         private void UnregisterCallbacks(IPlayerActions instance)
@@ -253,6 +334,9 @@ public partial class @Controls: IInputActionCollection2, IDisposable
             @MoveDirection.started -= instance.OnMoveDirection;
             @MoveDirection.performed -= instance.OnMoveDirection;
             @MoveDirection.canceled -= instance.OnMoveDirection;
+            @Interaction.started -= instance.OnInteraction;
+            @Interaction.performed -= instance.OnInteraction;
+            @Interaction.canceled -= instance.OnInteraction;
         }
 
         public void RemoveCallbacks(IPlayerActions instance)
@@ -329,6 +413,7 @@ public partial class @Controls: IInputActionCollection2, IDisposable
         void OnSpeedUp(InputAction.CallbackContext context);
         void OnAttack(InputAction.CallbackContext context);
         void OnMoveDirection(InputAction.CallbackContext context);
+        void OnInteraction(InputAction.CallbackContext context);
     }
     public interface IUIActions
     {
