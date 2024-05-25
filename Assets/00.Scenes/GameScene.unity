@@ -26,7 +26,7 @@ RenderSettings:
   m_AmbientIntensity: 1
   m_AmbientMode: 3
   m_SubtractiveShadowColor: {r: 0, g: 0, b: 0, a: 1}
-  m_SkyboxMaterial: {fileID: 0}
+  m_SkyboxMaterial: {fileID: 2100000, guid: 94588ecb6af8f7a42867624bbdbff213, type: 2}
   m_HaloStrength: 0.5
   m_FlareStrength: 1
   m_FlareFadeSpeed: 3
@@ -37,7 +37,7 @@ RenderSettings:
   m_ReflectionBounces: 1
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
-  m_Sun: {fileID: 0}
+  m_Sun: {fileID: 7345890632855648744}
   m_IndirectSpecularColor: {r: 0, g: 0, b: 0, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
@@ -98,7 +98,8 @@ LightmapSettings:
     m_TrainingDataDestination: TrainingData
     m_LightProbeSampleCountMultiplier: 4
   m_LightingDataAsset: {fileID: 0}
-  m_LightingSettings: {fileID: 0}
+  m_LightingSettings: {fileID: 4890085278179872738, guid: fe5228c73d62a224985cc3bfa738d807,
+    type: 2}
 --- !u!196 &4
 NavMeshSettings:
   serializedVersion: 2
@@ -19655,7 +19656,7 @@ Camera:
   m_GameObject: {fileID: 330585543}
   m_Enabled: 1
   serializedVersion: 2
-  m_ClearFlags: 2
+  m_ClearFlags: 1
   m_BackGroundColor: {r: 0, g: 0, b: 0, a: 1}
   m_projectionMatrixMode: 1
   m_GateFitMode: 2
@@ -19705,7 +19706,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 330585543}
   serializedVersion: 2
-  m_LocalRotation: {x: 0.03272445, y: -0.000000017465341, z: 5.7184996e-10, w: 0.99946445}
+  m_LocalRotation: {x: 0.03272443, y: 0.000000017063858, z: -5.587043e-10, w: 0.99946445}
   m_LocalPosition: {x: -160, y: 2, z: -220.39}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -36789,7 +36790,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _radarMat: {fileID: 2100000, guid: 177d32abf25a3394080935604a385668, type: 2}
   _radarCamObject: {fileID: 1280190614}
-  _updateTime: 0.3
+  _updateTime: 0.7
 --- !u!225 &618535412
 CanvasGroup:
   m_ObjectHideFlags: 0
@@ -57601,7 +57602,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 956928773}
   serializedVersion: 2
-  m_LocalRotation: {x: 0.03272445, y: -0.000000017465341, z: 5.7184996e-10, w: 0.99946445}
+  m_LocalRotation: {x: 0.03272443, y: 0.000000017063858, z: -5.587043e-10, w: 0.99946445}
   m_LocalPosition: {x: -160, y: 2, z: -220.39}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -76611,8 +76612,8 @@ Camera:
   m_GameObject: {fileID: 1280190614}
   m_Enabled: 1
   serializedVersion: 2
-  m_ClearFlags: 1
-  m_BackGroundColor: {r: 0.19215687, g: 0.3019608, b: 0.4745098, a: 0}
+  m_ClearFlags: 2
+  m_BackGroundColor: {r: 1, g: 1, b: 1, a: 0}
   m_projectionMatrixMode: 1
   m_GateFitMode: 2
   m_FOVAxisMode: 0
@@ -129267,6 +129268,12 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: c1836e5daa56af64482975dbd45126ed, type: 3}
+--- !u!108 &7345890632855648744 stripped
+Light:
+  m_CorrespondingSourceObject: {fileID: 7558375888582326431, guid: c1836e5daa56af64482975dbd45126ed,
+    type: 3}
+  m_PrefabInstance: {fileID: 7345890632855648743}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &7350896432621218755
 GameObject:
   m_ObjectHideFlags: 0
