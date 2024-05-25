@@ -62,6 +62,15 @@ public partial class @Controls: IInputActionCollection2, IDisposable
                     ""processors"": """",
                     ""interactions"": """",
                     ""initialStateCheck"": true
+                },
+                {
+                    ""name"": ""ResetDirection"",
+                    ""type"": ""Button"",
+                    ""id"": ""d24a594e-f814-4c99-87cd-96a97d4051d5"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": true
                 }
             ],
             ""bindings"": [
@@ -163,6 +172,17 @@ public partial class @Controls: IInputActionCollection2, IDisposable
                     ""action"": ""Interaction"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""fa0e2335-c081-4378-b222-002d61f93ac9"",
+                    ""path"": ""<Mouse>/middleButton"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""ResetDirection"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
                 }
             ]
         },
@@ -223,6 +243,7 @@ public partial class @Controls: IInputActionCollection2, IDisposable
         m_Player_Attack = m_Player.FindAction("Attack", throwIfNotFound: true);
         m_Player_MoveDirection = m_Player.FindAction("MoveDirection", throwIfNotFound: true);
         m_Player_Interaction = m_Player.FindAction("Interaction", throwIfNotFound: true);
+        m_Player_ResetDirection = m_Player.FindAction("ResetDirection", throwIfNotFound: true);
         // UI
         m_UI = asset.FindActionMap("UI", throwIfNotFound: true);
         m_UI_MouseClick = m_UI.FindAction("MouseClick", throwIfNotFound: true);
@@ -292,6 +313,7 @@ public partial class @Controls: IInputActionCollection2, IDisposable
     private readonly InputAction m_Player_Attack;
     private readonly InputAction m_Player_MoveDirection;
     private readonly InputAction m_Player_Interaction;
+    private readonly InputAction m_Player_ResetDirection;
     public struct PlayerActions
     {
         private @Controls m_Wrapper;
@@ -300,6 +322,7 @@ public partial class @Controls: IInputActionCollection2, IDisposable
         public InputAction @Attack => m_Wrapper.m_Player_Attack;
         public InputAction @MoveDirection => m_Wrapper.m_Player_MoveDirection;
         public InputAction @Interaction => m_Wrapper.m_Player_Interaction;
+        public InputAction @ResetDirection => m_Wrapper.m_Player_ResetDirection;
         public InputActionMap Get() { return m_Wrapper.m_Player; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
@@ -321,6 +344,9 @@ public partial class @Controls: IInputActionCollection2, IDisposable
             @Interaction.started += instance.OnInteraction;
             @Interaction.performed += instance.OnInteraction;
             @Interaction.canceled += instance.OnInteraction;
+            @ResetDirection.started += instance.OnResetDirection;
+            @ResetDirection.performed += instance.OnResetDirection;
+            @ResetDirection.canceled += instance.OnResetDirection;
         }
 
         private void UnregisterCallbacks(IPlayerActions instance)
@@ -337,6 +363,9 @@ public partial class @Controls: IInputActionCollection2, IDisposable
             @Interaction.started -= instance.OnInteraction;
             @Interaction.performed -= instance.OnInteraction;
             @Interaction.canceled -= instance.OnInteraction;
+            @ResetDirection.started -= instance.OnResetDirection;
+            @ResetDirection.performed -= instance.OnResetDirection;
+            @ResetDirection.canceled -= instance.OnResetDirection;
         }
 
         public void RemoveCallbacks(IPlayerActions instance)
@@ -414,6 +443,7 @@ public partial class @Controls: IInputActionCollection2, IDisposable
         void OnAttack(InputAction.CallbackContext context);
         void OnMoveDirection(InputAction.CallbackContext context);
         void OnInteraction(InputAction.CallbackContext context);
+        void OnResetDirection(InputAction.CallbackContext context);
     }
     public interface IUIActions
     {

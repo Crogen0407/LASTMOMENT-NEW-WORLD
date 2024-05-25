@@ -17,6 +17,7 @@ namespace Crogen.PowerfulInput
         public event Action SpeedUpEvent;
         public event Action SpeedDownEvent;
         public event Action InteractionEvent;
+        public event Action ResetDirectionEvent;
         
         //Attack
         public event Action AttackStartEvent;
@@ -75,6 +76,11 @@ namespace Crogen.PowerfulInput
         public void OnInteraction(InputAction.CallbackContext context)
         {
             InteractionEvent?.Invoke();
+        }
+
+        public void OnResetDirection(InputAction.CallbackContext context)
+        {
+            ResetDirectionEvent?.Invoke();
         }
 
         public void OnMouseClick(InputAction.CallbackContext context)
