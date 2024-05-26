@@ -47,7 +47,7 @@ public class PlayerMovement : AgentMovement
     public override void HandleMoveDirection(Vector3 position)
     {
         Vector3 rotate = transform.rotation * new Vector3(
-            -position.y * RotateSpeedY,
+            -(position.y+Mathf.Abs(position.x)) * RotateSpeedY,
             0,
             -position.x * RotateSpeedX);
         transform.Rotate(rotate*Time.fixedDeltaTime, Space.World);
