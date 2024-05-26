@@ -51928,8 +51928,8 @@ MonoBehaviour:
   <DefaultSpeed>k__BackingField: 30
   <MaxSpeed>k__BackingField: 150
   <CurSpeed>k__BackingField: 0
-  <RotateSpeedX>k__BackingField: 100
-  <RotateSpeedY>k__BackingField: 80
+  <RotateSpeedX>k__BackingField: 225
+  <RotateSpeedY>k__BackingField: 240
   aimingDistance: 10
   lookAngle: {x: 0, y: 0, z: 0}
 --- !u!114 &860814161
