@@ -1,0 +1,19 @@
+﻿public enum WeaponEnum
+{
+    GuidedBullet,
+    M206_Flare,
+    MJN68_Flare,
+    MJN61_Flare,
+    DF,
+    TGA,
+    QT,
+    GUA,
+    SATAM,
+    MLATAM,
+    LATGM,
+    ARM,
+    ATGBM,
+    IDM,
+    JDAM,
+    LGB
+}

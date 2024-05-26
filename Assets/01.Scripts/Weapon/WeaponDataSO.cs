@@ -5,7 +5,7 @@ using UnityEngine.Serialization;
 public class WeaponDataSO : ScriptableObject
 {
     //Values
-    public int index;
+    public WeaponEnum WeaponEnum;
     
     [Header("Effect")]
     public int effectCount;
