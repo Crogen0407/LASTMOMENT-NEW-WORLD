@@ -2,7 +2,7 @@ using System.Collections.Generic;
 using Crogen.AgentFSM;
 using UnityEngine;
 
-public class Enemy : Agent<AgentStateEnum>
+public class Enemy : Agent<EnemyStateEnum>
 {
     public LayerMask whatIsPlayer;
     public float recognitionRange = 50f;

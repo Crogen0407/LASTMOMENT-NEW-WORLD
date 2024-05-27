@@ -1,8 +1,8 @@
 ﻿using Crogen.AgentFSM;
 
-public class EnemyDeadState : AgentState<AgentStateEnum>
+public class EnemyDeadState : AgentState<EnemyStateEnum>
 {
-    public EnemyDeadState(Agent<AgentStateEnum> agentBase, StateMachine<AgentStateEnum> stateMachine, string animBoolName) : base(agentBase, stateMachine, animBoolName)
+    public EnemyDeadState(Agent<EnemyStateEnum> agentBase, StateMachine<EnemyStateEnum> stateMachine, string animBoolName) : base(agentBase, stateMachine, animBoolName)
     {
     }
 }

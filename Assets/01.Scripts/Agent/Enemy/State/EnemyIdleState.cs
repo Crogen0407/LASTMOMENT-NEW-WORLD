@@ -1,12 +1,11 @@
 ﻿using Crogen.AgentFSM;
 using UnityEngine;
 
-public class EnemyIdleState : AgentState<AgentStateEnum>
+public class EnemyIdleState : AgentState<EnemyStateEnum>
 {
     private Enemy _enemyBase;
-    private Vector3 _lastPos;
 
-    public EnemyIdleState(Agent<AgentStateEnum> agentBase, StateMachine<AgentStateEnum> stateMachine, string animBoolName) : base(agentBase, stateMachine, animBoolName)
+    public EnemyIdleState(Agent<EnemyStateEnum> agentBase, StateMachine<EnemyStateEnum> stateMachine, string animBoolName) : base(agentBase, stateMachine, animBoolName)
     {
         _enemyBase = agentBase as Enemy;
     }
@@ -14,7 +13,6 @@ public class EnemyIdleState : AgentState<AgentStateEnum>
     public override void Enter()
     {
         base.Enter();
-        _lastPos = _enemyBase.transform.position;
         (_enemyBase.Movement as EnemyMovement)?.EnterDefaultBezierPath();
     }
 
@@ -33,8 +31,19 @@ public class EnemyIdleState : AgentState<AgentStateEnum>
 
         if (playerCol[0] != null)
         {
-            _enemyBase.currentTarget = playerCol[0].transform;
-            _stateMachine.ChangeState(AgentStateEnum.Run);
+            Transform playerTrm = playerCol[0].transform;
+            //앞 뒤 판별 (플레이어를 발견하면 도망갈지 공격할지 정함)
+            //dotValue가 음수(-)면 앞, 양수(+)면 뒤
+            float dotValue = Vector3.Dot(playerTrm.position, _enemyBase.transform.position);
+            if (dotValue < 0) //앞
+            {
+                _stateMachine.ChangeState(EnemyStateEnum.Flee);
+            }
+            else //뒤
+            {
+                _enemyBase.currentTarget = playerTrm;
+                _stateMachine.ChangeState(EnemyStateEnum.Attack);
+            }
         }
     }
 }
