@@ -27,14 +27,12 @@ public class PlayerRunState : AgentState<AgentStateEnum>
     public override void Enter()
     {
         base.Enter();
-        _inputReader.SpeedUpEvent += _playerMovement.HandleSpeedUp;
-        _inputReader.SpeedDownEvent += _playerMovement.HandleSpeedDown;
+        _inputReader.SpeedChangeEvent += _playerMovement.HandleSpeedChange;
     }
 
     public override void Exit()
     {
-        _inputReader.SpeedUpEvent -= _playerMovement.HandleSpeedUp;
-        _inputReader.SpeedDownEvent -= _playerMovement.HandleSpeedDown;
+        _inputReader.SpeedChangeEvent -= _playerMovement.HandleSpeedChange;
         base.Exit();
     }
 }

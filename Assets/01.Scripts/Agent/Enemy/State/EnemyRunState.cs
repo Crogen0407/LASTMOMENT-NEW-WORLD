@@ -28,7 +28,7 @@ public class EnemyRunState : AgentState<AgentStateEnum>
     public override void Enter()
     {
         base.Enter();
-        _enemyMovement.HandleSpeedUp();
+        _enemyMovement.HandleSpeedChange(true);
     }
 
     public override void UpdateState()

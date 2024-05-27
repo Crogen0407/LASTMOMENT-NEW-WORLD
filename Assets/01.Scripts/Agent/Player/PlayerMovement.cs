@@ -7,20 +7,31 @@ public class PlayerMovement : AgentMovement
     private GameManager _gameManager;
     private UIManager _uiManager;
 
+    //Controllers
+    
+    //Components
+    private AgentEffectGenerator _agentEffectGenerator;
+    
     public float aimingDistance;
     [HideInInspector] public Vector3 lookAngle = Vector3.zero;
     private bool _isChangeDirection;
     private Vector2 _lookDirectionAddValue;
     private bool _isResettingDirection = false;
 
+    
     protected override void Awake()
     {
         base.Awake();
+        //Managements
         _gameManager = GameManager.Instance;
         _uiManager = UIManager.Instance;
-
-        _gameManager.InputReader.StartMoveDirectionEvent += StartMoveDirection;
-        _gameManager.InputReader.EndMoveDirectionEvent += EndMoveDirection;
+        
+        //Controllers
+        
+        //Components
+        _agentEffectGenerator = GetComponent<AgentEffectGenerator>();
+        
+        _gameManager.InputReader.ChangeMoveDirectionEvent += StartMoveDirection;
         _gameManager.InputReader.ResetDirectionEvent += ResetDirection;
     }
 
@@ -33,17 +44,12 @@ public class PlayerMovement : AgentMovement
         }
     }
 
-    private void StartMoveDirection(Vector3 vec)
+    private void StartMoveDirection(Vector3 vec, bool active)
     {
-        _isChangeDirection = true;
+        _isChangeDirection = active;
         _lookDirectionAddValue = vec;
     }
     
-    private void EndMoveDirection()
-    {
-        _isChangeDirection = false;
-    }
-
     public override void HandleMoveDirection(Vector3 position)
     {
         Vector3 rotate = transform.rotation * new Vector3(
@@ -52,7 +58,13 @@ public class PlayerMovement : AgentMovement
             -position.x * RotateSpeedX);
         transform.Rotate(rotate*Time.fixedDeltaTime, Space.World);
     }
-    
+
+    public override void HandleSpeedChange(bool value)
+    {
+        base.HandleSpeedChange(value);
+        _agentEffectGenerator.SetHighBusterEffect(value);
+    }
+
     private void ResetDirection()
     {
         if (_isResettingDirection) return;

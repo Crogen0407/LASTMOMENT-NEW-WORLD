@@ -11,6 +11,7 @@ public class UIManager : MonoSingleton<UIManager>
     public void Init()
     {
         Cursor.visible = false;
+        Cursor.lockState = CursorLockMode.Locked;
     }
 
     public Vector2 ScreenConvertToCanvasSpace(Vector2 position)

@@ -1,5 +1,4 @@
 using System;
-using DG.Tweening;
 using UnityEngine;
 
 public abstract class AgentMovement : MonoBehaviour
@@ -10,7 +9,8 @@ public abstract class AgentMovement : MonoBehaviour
     [field:SerializeField] public int CurSpeed { get; set; } = 0;
     [field:SerializeField] public float RotateSpeedX { get; set; } = 20f;
     [field:SerializeField] public float RotateSpeedY { get; set; } = 100f;
-    
+    public Renderer[] busterVFXMaterials;
+    private int _busterVFXShaderID;
     private bool _isSpeedUp = false;
     private float _holdTime = 0f;
     
@@ -23,8 +23,9 @@ public abstract class AgentMovement : MonoBehaviour
     
     protected virtual void Awake()
     {
-        CurSpeed = DefaultSpeed;
         _rbCompo = GetComponent<Rigidbody>();
+        CurSpeed = DefaultSpeed;
+        _busterVFXShaderID = Shader.PropertyToID("_Scale");
     }
     protected virtual void FixedUpdate()
     {
@@ -46,26 +47,36 @@ public abstract class AgentMovement : MonoBehaviour
                 _holdTime += Time.deltaTime;
             CurSpeed = (int)(MathExtension.PowerByTwo(_holdTime) * MaxSpeed) + DefaultSpeed;
 
-            CurSpeed = Mathf.Clamp(CurSpeed, DefaultSpeed, MaxSpeed+DefaultSpeed);
+            CurSpeed = Mathf.Clamp(CurSpeed, DefaultSpeed, MaxSpeed);
+            if (Mathf.Approximately(CurSpeed, MaxSpeed))
+            {
+                foreach (var t in busterVFXMaterials)
+                {
+                    t.material.SetFloat(_busterVFXShaderID, 2f);
+                }
+            }
         }
         else
         {
             _holdTime -= Time.deltaTime;
             CurSpeed = (int)(_holdTime * MaxSpeed) + DefaultSpeed;
-            CurSpeed = Mathf.Clamp(CurSpeed, DefaultSpeed, MaxSpeed+DefaultSpeed);
+            CurSpeed = Mathf.Clamp(CurSpeed, DefaultSpeed, MaxSpeed);
             if (CurSpeed <= 0)
             {
                 OnSpeedDeadEvent?.Invoke();
             }
+            if (Mathf.Approximately(CurSpeed, DefaultSpeed))
+            {
+                foreach (var t in busterVFXMaterials)
+                {
+                    t.material.SetFloat(_busterVFXShaderID, 1f);
+                }
+            }
         }
     }
-    public void HandleSpeedUp()
+    public virtual void HandleSpeedChange(bool value)
     {
-        _isSpeedUp = true;
-    }
-    public void HandleSpeedDown()
-    {
-        _isSpeedUp = false;
+        _isSpeedUp = value;
     }
 
     #endregion
