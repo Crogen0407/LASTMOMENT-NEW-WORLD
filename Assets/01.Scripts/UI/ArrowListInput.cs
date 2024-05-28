@@ -1,20 +1,20 @@
+using System.Collections;
+using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
 using UnityEngine.Events;
 using UnityEngine.UI;
 
-public class ArrowNumberInput : MonoBehaviour
+public class ArrowListInput : MonoBehaviour
 {
     //Components
     private Button _upButton;
     private Button _downButton;
     private TextMeshProUGUI _numberText;
-
-    [SerializeField] private int _maxValue = 10; 
-    [SerializeField] private int _minValue = 0;
-    [SerializeField] private int _defaultValue = 5;
-    [HideInInspector] public int value;
-
+    
+    public List<string> list;
+    public int currentSelectedIndex;
+    
     public UnityEvent onClickEvent;
     
     private void Awake()
@@ -23,21 +23,11 @@ public class ArrowNumberInput : MonoBehaviour
         _upButton = transform.Find("UpButton").GetComponent<Button>();
         _downButton = transform.Find("DownButton").GetComponent<Button>();
         _numberText = transform.Find("NumberText").GetComponent<TextMeshProUGUI>();
-        
+        UpdateNumberText();
         _upButton.onClick.AddListener(HandleValueUp);
         _downButton.onClick.AddListener(HandleValueDown);
-
-        value = _defaultValue;
-        UpdateNumberText();
     }
-
-    private void Reset()
-    {
-        _defaultValue = (_maxValue + _minValue) / 2;
-        value = _defaultValue;
-        transform.Find("NumberText").GetComponent<TextMeshProUGUI>().text = value.ToString();
-    }
-
+    
     private void OnDestroy()
     {
         _upButton.onClick.RemoveListener(HandleValueUp);
@@ -47,21 +37,19 @@ public class ArrowNumberInput : MonoBehaviour
     private void HandleValueUp()
     {
         onClickEvent?.Invoke();
-        if (value == _maxValue) return;
-        ++value;
+        currentSelectedIndex = (currentSelectedIndex+1) % list.Count;
         UpdateNumberText();
     }
 
     private void HandleValueDown()
     {
         onClickEvent?.Invoke();
-        if (value == _minValue) return;
-        --value;
+        currentSelectedIndex = (currentSelectedIndex-1) % list.Count;
         UpdateNumberText();
     }
 
     private void UpdateNumberText()
     {
-        _numberText.text = value.ToString();
+        _numberText.text = list[currentSelectedIndex];
     }
 }

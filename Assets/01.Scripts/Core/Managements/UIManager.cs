@@ -1,10 +1,12 @@
-﻿using UnityEngine;
+﻿using TMPro;
+using UnityEngine;
 
 public class UIManager : MonoSingleton<UIManager>
 {
     [field: SerializeField] public Camera UICamera;
     [SerializeField] private Canvas _canvas;
     public SettingOptionDataSO SettingOptionData;
+    [SerializeField] private TextMeshProUGUI _settingDescriptionText;
     
     private readonly float _width = Screen.width;
     private readonly float _height = Screen.height;
@@ -22,5 +24,10 @@ public class UIManager : MonoSingleton<UIManager>
         position.y = MathExtension.Remap(position.y, 0, _height, -canvasRectSize.y * 0.5f, canvasRectSize.y * 0.5f);
         
         return position;
+    }
+
+    public void SetSettingDescription(SettingOptionType settingOptionType)
+    {
+        _settingDescriptionText.text = SettingOptionData.uiDescriptionDictionary[settingOptionType];
     }
 } 

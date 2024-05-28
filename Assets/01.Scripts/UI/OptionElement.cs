@@ -1,14 +1,22 @@
 using UnityEngine;
-using UnityEngine.Events;
 using UnityEngine.UI;
 
 public class OptionElement : MonoBehaviour
 {
+    //Managements
+    private UIManager _uiManager;
+    
+    //Components
     private Button _button;
-    public UnityEvent onClickEvent;
+
+    [SerializeField] private SettingOptionType _settingOptionType;
 
     private void Awake()
     {
+        //Managements
+        _uiManager = UIManager.Instance;
+        
+        //Components
         _button = GetComponent<Button>();
         _button.onClick.AddListener(HandleClick);
     }
@@ -20,6 +28,6 @@ public class OptionElement : MonoBehaviour
 
     private void HandleClick()
     {
-        onClickEvent?.Invoke();
+        _uiManager.SetSettingDescription(_settingOptionType);
     }
 }

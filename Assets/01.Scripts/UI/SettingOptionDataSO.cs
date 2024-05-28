@@ -1,7 +1,7 @@
 ﻿using AYellowpaper.SerializedCollections;
 using UnityEngine;
 
-public enum SettingOption
+public enum SettingOptionType
 {
     //Game
     XSensitivity,
@@ -21,5 +21,5 @@ public enum SettingOption
 [CreateAssetMenu(menuName = "SO/SettingOptionData")]
 public class SettingOptionDataSO : ScriptableObject
 {
-    public SerializedDictionary<SettingOption, string> uiDescriptionDictionary;
+    public SerializedDictionary<SettingOptionType, string> uiDescriptionDictionary;
 }
