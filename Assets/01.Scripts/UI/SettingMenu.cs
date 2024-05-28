@@ -2,11 +2,6 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public enum SettingOption
-{
-    
-}
-
 public class SettingMenu : MonoBehaviour
 {
     // Start is called before the first frame update

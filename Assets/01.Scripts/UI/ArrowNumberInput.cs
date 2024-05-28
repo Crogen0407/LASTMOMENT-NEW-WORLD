@@ -1,5 +1,7 @@
+using System;
 using TMPro;
 using UnityEngine;
+using UnityEngine.Events;
 using UnityEngine.UI;
 
 public class ArrowNumberInput : MonoBehaviour
@@ -12,6 +14,8 @@ public class ArrowNumberInput : MonoBehaviour
     [SerializeField] private int _maxValue = 10; 
     [SerializeField] private int _minValue = 0; 
     [HideInInspector] public int value;
+
+    public UnityEvent onClickEvent;
     
     private void Awake()
     {
@@ -24,8 +28,15 @@ public class ArrowNumberInput : MonoBehaviour
         _downButton.onClick.AddListener(HandleValueDown);
     }
 
+    private void OnDestroy()
+    {
+        _upButton.onClick.RemoveListener(HandleValueUp);
+        _downButton.onClick.RemoveListener(HandleValueDown);
+    }
+
     private void HandleValueUp()
     {
+        onClickEvent?.Invoke();
         if (value == _maxValue) return;
         ++value;
         UpdateNumberText(value);
@@ -33,6 +44,7 @@ public class ArrowNumberInput : MonoBehaviour
 
     private void HandleValueDown()
     {
+        onClickEvent?.Invoke();
         if (value == _minValue) return;
         --value;
         UpdateNumberText(value);

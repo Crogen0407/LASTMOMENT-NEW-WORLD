@@ -4,7 +4,8 @@ public class UIManager : MonoSingleton<UIManager>
 {
     [field: SerializeField] public Camera UICamera;
     [SerializeField] private Canvas _canvas;
-
+    public SettingOptionDataSO SettingOptionData;
+    
     private readonly float _width = Screen.width;
     private readonly float _height = Screen.height;
     
