@@ -11,7 +11,7 @@ public class GameManager : MonoSingleton<GameManager>
     
     private void Awake()
     {
-        InputReader.MouseClickEvent += UIManager.Instance.Init;
+        //InputReader.MouseClickEvent += UIManager.Instance.Init;
     }
 
     [ContextMenu("SAVEGAMERESULT")]
