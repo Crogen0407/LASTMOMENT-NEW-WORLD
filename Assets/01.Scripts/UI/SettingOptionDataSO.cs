@@ -8,9 +8,14 @@ public enum SettingOption
     YSensitivity,
     
     //Sound
-    
+    MasterVolume,
+    BGM,
+    SFX,
     
     //Graphic
+    ImageQuality,
+    FPS,
+    WindowMode
 }
 
 [CreateAssetMenu(menuName = "SO/SettingOptionData")]
