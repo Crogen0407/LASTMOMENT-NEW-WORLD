@@ -16,6 +16,7 @@ namespace Crogen.PowerfulInput
         public event Action<bool> SpeedChangeEvent;
         public event Action InteractionEvent;
         public event Action ResetDirectionEvent;
+        public event Action EscEvent;
         
         //Attack
         public event Action AttackStartEvent;
@@ -97,7 +98,10 @@ namespace Crogen.PowerfulInput
             
             MoveMouseEvent?.Invoke(mousePosition);
         }
-        
-        
+
+        public void OnEsc(InputAction.CallbackContext context)
+        {
+            EscEvent?.Invoke();
+        }
     }
 }

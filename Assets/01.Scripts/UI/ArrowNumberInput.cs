@@ -3,32 +3,18 @@ using UnityEngine;
 using UnityEngine.Events;
 using UnityEngine.UI;
 
-public class ArrowNumberInput : MonoBehaviour
+public class ArrowNumberInput : ArrowValueInput
 {
-    //Components
-    private Button _upButton;
-    private Button _downButton;
-    private TextMeshProUGUI _numberText;
-
     [SerializeField] private int _maxValue = 10; 
     [SerializeField] private int _minValue = 0;
     [SerializeField] private int _defaultValue = 5;
     [HideInInspector] public int value;
 
-    public UnityEvent onClickEvent;
-    
     private void Awake()
     {
-        //Components
-        _upButton = transform.Find("UpButton").GetComponent<Button>();
-        _downButton = transform.Find("DownButton").GetComponent<Button>();
-        _numberText = transform.Find("NumberText").GetComponent<TextMeshProUGUI>();
-        
-        _upButton.onClick.AddListener(HandleValueUp);
-        _downButton.onClick.AddListener(HandleValueDown);
-
+        base.Awake();
         value = _defaultValue;
-        UpdateNumberText();
+        UpdateNumberText(value.ToString());
     }
 
     private void Reset()
@@ -38,30 +24,19 @@ public class ArrowNumberInput : MonoBehaviour
         transform.Find("NumberText").GetComponent<TextMeshProUGUI>().text = value.ToString();
     }
 
-    private void OnDestroy()
+    protected override void HandleValueUp()
     {
-        _upButton.onClick.RemoveListener(HandleValueUp);
-        _downButton.onClick.RemoveListener(HandleValueDown);
-    }
-
-    private void HandleValueUp()
-    {
-        onClickEvent?.Invoke();
+        base.HandleValueUp();
         if (value == _maxValue) return;
         ++value;
-        UpdateNumberText();
+        UpdateNumberText(value.ToString());
     }
 
-    private void HandleValueDown()
+    protected override void HandleValueDown()
     {
-        onClickEvent?.Invoke();
+        base.HandleValueDown();
         if (value == _minValue) return;
         --value;
-        UpdateNumberText();
-    }
-
-    private void UpdateNumberText()
-    {
-        _numberText.text = value.ToString();
+        UpdateNumberText(value.ToString());
     }
 }
