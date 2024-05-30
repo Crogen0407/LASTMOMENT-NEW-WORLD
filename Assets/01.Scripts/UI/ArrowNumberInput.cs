@@ -1,19 +1,14 @@
 using TMPro;
 using UnityEngine;
-using UnityEngine.Events;
-using UnityEngine.UI;
-
-public class ArrowNumberInput : ArrowValueInput
+public class ArrowNumberInput : ArrowValueInput<int>
 {
     [SerializeField] private int _maxValue = 10; 
     [SerializeField] private int _minValue = 0;
     [SerializeField] private int _defaultValue = 5;
-    [HideInInspector] public int value;
 
     private void Awake()
     {
         base.Awake();
-        value = _defaultValue;
         UpdateNumberText(value.ToString());
     }
 
@@ -26,17 +21,23 @@ public class ArrowNumberInput : ArrowValueInput
 
     protected override void HandleValueUp()
     {
-        base.HandleValueUp();
         if (value == _maxValue) return;
         ++value;
         UpdateNumberText(value.ToString());
+        base.HandleValueUp();
     }
 
     protected override void HandleValueDown()
     {
-        base.HandleValueDown();
         if (value == _minValue) return;
         --value;
+        UpdateNumberText(value.ToString());
+        base.HandleValueDown();
+    }
+
+    public override void SetValue(int value)
+    {
+        base.SetValue(value);
         UpdateNumberText(value.ToString());
     }
 }

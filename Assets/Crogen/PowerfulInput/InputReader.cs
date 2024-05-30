@@ -1,5 +1,4 @@
 ﻿using System;
-using System.Threading.Tasks;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
@@ -8,6 +7,8 @@ namespace Crogen.PowerfulInput
     [CreateAssetMenu(fileName = "InputReader", menuName = "Crogen/InputReader", order = 0)]
     public class InputReader : ScriptableObject, Controls.IPlayerActions, Controls.IUIActions
     {
+        private GameSettingManager _gameSettingManager;
+        
         public Vector2 mousePositionClampSize = new Vector2(1200f, 1200f);
         #region Input Event
 
@@ -23,14 +24,16 @@ namespace Crogen.PowerfulInput
         public event Action AttackEndEvent;
         
         public event Action MouseClickEvent; 
-        public event Action<Vector2> MoveMouseEvent; 
     
         #endregion
 
         private Controls _controls;
 
+        private InputAction.CallbackContext _movementContext;
+        
         private void OnEnable()
         {
+            _gameSettingManager = GameSettingManager.Instance;
             if (_controls == null)
             {
                 _controls = new Controls();
@@ -65,6 +68,7 @@ namespace Crogen.PowerfulInput
 
         public void OnMoveDirection(InputAction.CallbackContext context)
         {
+            _movementContext = context;
             Vector2 position = context.ReadValue<Vector2>();
             if(context.performed)
                 ChangeMoveDirectionEvent?.Invoke(position, true);
@@ -87,21 +91,19 @@ namespace Crogen.PowerfulInput
             MouseClickEvent?.Invoke();
         }
 
-        public void OnMoveMouse(InputAction.CallbackContext context)
-        {
-            Vector2 mousePosition = context.ReadValue<Vector2>();
-            Vector2 screenSize = new Vector2(Screen.width, Screen.height);
-            
-            Vector2 minOffset = (screenSize - mousePositionClampSize) * 0.5f;
-            Vector2 maxOffset = minOffset + mousePositionClampSize;
-            mousePosition = MathExtension.VectorClamp(mousePosition, minOffset, maxOffset);
-            
-            MoveMouseEvent?.Invoke(mousePosition);
-        }
-
         public void OnEsc(InputAction.CallbackContext context)
         {
             EscEvent?.Invoke();
         }
+
+        public void ChangeMovementBindingKey(bool mouseMode)
+        {
+            InputBinding newBinding = new InputBinding("");
+        }
+        
+        public void DisablePlayerActions() => _controls.Player.Disable();
+        public void EnablePlayerActions() => _controls.Player.Enable();
+        public void DisableUIActions() => _controls.UI.Disable();
+        public void EnableUIActions() => _controls.UI.Enable();
     }
 }

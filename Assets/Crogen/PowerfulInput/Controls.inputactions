@@ -178,15 +178,6 @@
                     "initialStateCheck": false
                 },
                 {
-                    "name": "MoveMouse",
-                    "type": "Value",
-                    "id": "be8ebbff-d99d-4191-be66-ae918364d2c2",
-                    "expectedControlType": "Vector2",
-                    "processors": "",
-                    "interactions": "",
-                    "initialStateCheck": true
-                },
-                {
                     "name": "Esc",
                     "type": "Button",
                     "id": "98816c02-5f0c-40de-a231-97a05aadbf9b",
@@ -205,17 +196,6 @@
                     "processors": "",
                     "groups": "",
                     "action": "MouseClick",
-                    "isComposite": false,
-                    "isPartOfComposite": false
-                },
-                {
-                    "name": "",
-                    "id": "abff27bf-359e-4d0c-b04b-a25aa7685e85",
-                    "path": "<Mouse>/position",
-                    "interactions": "",
-                    "processors": "",
-                    "groups": "",
-                    "action": "MoveMouse",
                     "isComposite": false,
                     "isPartOfComposite": false
                 },

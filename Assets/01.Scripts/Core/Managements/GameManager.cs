@@ -1,4 +1,3 @@
-using System;
 using Crogen.JsamJson;
 using Crogen.PowerfulInput;
 using UnityEngine;
@@ -19,6 +18,7 @@ public class GameManager : MonoSingleton<GameManager>
 
     private void OnDestroy()
     {
+        InputReader.MouseClickEvent -= UIManager.Instance.Init;
         InputReader.EscEvent -= UIManager.Instance.OpenPauseWindow;
     }
 

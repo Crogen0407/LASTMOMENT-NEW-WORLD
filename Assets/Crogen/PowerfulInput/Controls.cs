@@ -200,15 +200,6 @@ public partial class @Controls: IInputActionCollection2, IDisposable
                     ""initialStateCheck"": false
                 },
                 {
-                    ""name"": ""MoveMouse"",
-                    ""type"": ""Value"",
-                    ""id"": ""be8ebbff-d99d-4191-be66-ae918364d2c2"",
-                    ""expectedControlType"": ""Vector2"",
-                    ""processors"": """",
-                    ""interactions"": """",
-                    ""initialStateCheck"": true
-                },
-                {
                     ""name"": ""Esc"",
                     ""type"": ""Button"",
                     ""id"": ""98816c02-5f0c-40de-a231-97a05aadbf9b"",
@@ -227,17 +218,6 @@ public partial class @Controls: IInputActionCollection2, IDisposable
                     ""processors"": """",
                     ""groups"": """",
                     ""action"": ""MouseClick"",
-                    ""isComposite"": false,
-                    ""isPartOfComposite"": false
-                },
-                {
-                    ""name"": """",
-                    ""id"": ""abff27bf-359e-4d0c-b04b-a25aa7685e85"",
-                    ""path"": ""<Mouse>/position"",
-                    ""interactions"": """",
-                    ""processors"": """",
-                    ""groups"": """",
-                    ""action"": ""MoveMouse"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
                 },
@@ -267,7 +247,6 @@ public partial class @Controls: IInputActionCollection2, IDisposable
         // UI
         m_UI = asset.FindActionMap("UI", throwIfNotFound: true);
         m_UI_MouseClick = m_UI.FindAction("MouseClick", throwIfNotFound: true);
-        m_UI_MoveMouse = m_UI.FindAction("MoveMouse", throwIfNotFound: true);
         m_UI_Esc = m_UI.FindAction("Esc", throwIfNotFound: true);
     }
 
@@ -409,14 +388,12 @@ public partial class @Controls: IInputActionCollection2, IDisposable
     private readonly InputActionMap m_UI;
     private List<IUIActions> m_UIActionsCallbackInterfaces = new List<IUIActions>();
     private readonly InputAction m_UI_MouseClick;
-    private readonly InputAction m_UI_MoveMouse;
     private readonly InputAction m_UI_Esc;
     public struct UIActions
     {
         private @Controls m_Wrapper;
         public UIActions(@Controls wrapper) { m_Wrapper = wrapper; }
         public InputAction @MouseClick => m_Wrapper.m_UI_MouseClick;
-        public InputAction @MoveMouse => m_Wrapper.m_UI_MoveMouse;
         public InputAction @Esc => m_Wrapper.m_UI_Esc;
         public InputActionMap Get() { return m_Wrapper.m_UI; }
         public void Enable() { Get().Enable(); }
@@ -430,9 +407,6 @@ public partial class @Controls: IInputActionCollection2, IDisposable
             @MouseClick.started += instance.OnMouseClick;
             @MouseClick.performed += instance.OnMouseClick;
             @MouseClick.canceled += instance.OnMouseClick;
-            @MoveMouse.started += instance.OnMoveMouse;
-            @MoveMouse.performed += instance.OnMoveMouse;
-            @MoveMouse.canceled += instance.OnMoveMouse;
             @Esc.started += instance.OnEsc;
             @Esc.performed += instance.OnEsc;
             @Esc.canceled += instance.OnEsc;
@@ -443,9 +417,6 @@ public partial class @Controls: IInputActionCollection2, IDisposable
             @MouseClick.started -= instance.OnMouseClick;
             @MouseClick.performed -= instance.OnMouseClick;
             @MouseClick.canceled -= instance.OnMouseClick;
-            @MoveMouse.started -= instance.OnMoveMouse;
-            @MoveMouse.performed -= instance.OnMoveMouse;
-            @MoveMouse.canceled -= instance.OnMoveMouse;
             @Esc.started -= instance.OnEsc;
             @Esc.performed -= instance.OnEsc;
             @Esc.canceled -= instance.OnEsc;
@@ -477,7 +448,6 @@ public partial class @Controls: IInputActionCollection2, IDisposable
     public interface IUIActions
     {
         void OnMouseClick(InputAction.CallbackContext context);
-        void OnMoveMouse(InputAction.CallbackContext context);
         void OnEsc(InputAction.CallbackContext context);
     }
 }

@@ -5,16 +5,18 @@ public class OptionElement : MonoBehaviour
 {
     //Managements
     private UIManager _uiManager;
+    private GameSettingManager _gameSettingManager;
     
     //Components
     private Button _button;
 
     [SerializeField] private SettingOptionType _settingOptionType;
-
+    
     private void Awake()
     {
         //Managements
         _uiManager = UIManager.Instance;
+        _gameSettingManager = GameSettingManager.Instance;
         
         //Components
         _button = GetComponent<Button>();

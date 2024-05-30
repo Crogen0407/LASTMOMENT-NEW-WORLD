@@ -1,3 +1,4 @@
+using System;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -25,6 +26,19 @@ public class SettingMenuContent : MonoBehaviour
         }
         
         _exitButton.onClick.AddListener(_uiManager.CloseSettingWindow);
+    }
+
+    private void OnEnable()
+    {
+        for (int i = 0; i < _settingPanels.Length; ++i)
+        {
+            if (i == 0)
+            {
+                _settingPanels[i].gameObject.SetActive(true);
+                continue;
+            }
+            _settingPanels[i].gameObject.SetActive(false);
+        }
     }
 
     private void ChangeTap(int btnIndex)

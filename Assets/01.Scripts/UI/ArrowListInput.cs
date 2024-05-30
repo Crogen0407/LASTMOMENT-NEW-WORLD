@@ -1,29 +1,34 @@
 using System.Collections.Generic;
 
-public class ArrowListInput : ArrowValueInput
+public class ArrowListInput : ArrowValueInput<int>
 {
     public List<string> list;
-    public int currentSelectedIndex;
     
-    private void Awake()
+    protected override void Awake()
     {
         base.Awake();
-        UpdateNumberText(list[currentSelectedIndex]);
+        UpdateNumberText(list[value]);
     }
 
     protected override void HandleValueUp()
     {
+        ++value;
+        if (value > list.Count-1) value = 0;
+        UpdateNumberText(list[value]);
         base.HandleValueUp();
-        onClickEvent?.Invoke();
-        currentSelectedIndex = (currentSelectedIndex+1) % list.Count;
-        UpdateNumberText(list[currentSelectedIndex]);
     }
 
     protected override void HandleValueDown()
     {
+        --value;
+        if (value < 0) value = list.Count - 1;
+        UpdateNumberText(list[value]);
         base.HandleValueDown();
-        onClickEvent?.Invoke();
-        currentSelectedIndex = (currentSelectedIndex-1) % list.Count;
-        UpdateNumberText(list[currentSelectedIndex]);
+    }
+    
+    public override void SetValue(int value)
+    {
+        base.SetValue(value);
+        UpdateNumberText(list[value]);
     }
 }

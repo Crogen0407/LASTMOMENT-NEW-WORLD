@@ -3,16 +3,18 @@ using UnityEngine;
 using UnityEngine.Events;
 using UnityEngine.UI;
 
-public abstract class ArrowValueInput : MonoBehaviour
+public abstract class ArrowValueInput<T> : MonoBehaviour
 {
     //Components
     private Button _upButton;
     private Button _downButton;
     private TextMeshProUGUI _numberText;
     
-    public UnityEvent onClickEvent;
+    public UnityEvent<T> onClickEvent;
+    
+    [HideInInspector] public T value;
 
-    protected void Awake()
+    protected virtual void Awake()
     {
         //Components
         _upButton = transform.Find("UpButton").GetComponent<Button>();
@@ -31,16 +33,22 @@ public abstract class ArrowValueInput : MonoBehaviour
 
     protected virtual void HandleValueUp()
     {
-        onClickEvent?.Invoke();
+        onClickEvent?.Invoke(value);
     }
 
     protected virtual void HandleValueDown()
     {
-        onClickEvent?.Invoke();
+        onClickEvent?.Invoke(value);
     }
     
     protected virtual void UpdateNumberText(string str)
     {
+        if (_numberText == null) return;
         _numberText.text = str;
+    }
+
+    public virtual void SetValue(T value)
+    {
+        this.value = value;
     }
 }

@@ -1,23 +1,57 @@
-﻿using TMPro;
+﻿using System;
+using TMPro;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class UIManager : MonoSingleton<UIManager>
 {
+    //Managements
+    private GameSettingManager _gameSettingManager;
+    
     [field: SerializeField] public Camera UICamera;
     public SettingOptionDataSO SettingOptionData;
     [SerializeField] private TextMeshProUGUI _settingDescriptionText;
     
     [Header("Canvas")]
-    //Canvas
     [SerializeField] private Canvas gameCanvas;
     [SerializeField] private Canvas settingCanvas;
     [SerializeField] private Canvas pauseCanvas;
+    
+    [Header("SettingUI")]
+    [SerializeField] private ArrowNumberInput xSensitivityInput;
+    [SerializeField] private ArrowNumberInput ySensitivityInput;
+    [SerializeField] private ArrowListInput movementModeInput;
+    
+    [SerializeField] private ArrowNumberInput masterVolumeInput;
+    [SerializeField] private ArrowNumberInput bgmInput;
+    [SerializeField] private ArrowNumberInput sfxInput;
+    
+    [SerializeField] private ArrowListInput imageQualityInput;
+    [SerializeField] private ArrowListInput fpsInput;
+    [SerializeField] private Toggle windowModeInput;
     
     private readonly float _width = Screen.width;
     private readonly float _height = Screen.height;
 
     private bool _isPause = false;
-    
+
+    private void Awake()
+    {
+        _gameSettingManager = GameSettingManager.Instance;
+        
+        xSensitivityInput.onClickEvent.AddListener(HandleXSensitivity);
+        ySensitivityInput.onClickEvent.AddListener(HandleYSensitivity);
+        movementModeInput.onClickEvent.AddListener(MovementMode);
+        
+        masterVolumeInput.onClickEvent.AddListener(HandleMasterVolume);
+        bgmInput.onClickEvent.AddListener(HandleBGM);
+        sfxInput.onClickEvent.AddListener(HandleSFX);
+        
+        imageQualityInput.onClickEvent.AddListener(HandleImageQuality);
+        fpsInput.onClickEvent.AddListener(HandleFPS);
+        windowModeInput.onValueChanged.AddListener(HandleWindowMode);
+    }
+
     public void Init()
     {
         if (_isPause)
@@ -67,13 +101,77 @@ public class UIManager : MonoSingleton<UIManager>
 
     public void OpenSettingWindow()
     {
+        _gameSettingManager = GameSettingManager.Instance;
+
         settingCanvas.gameObject.SetActive(true);
+        _gameSettingManager.LoadSetting();
+        
+        //UI Init
+        xSensitivityInput.SetValue(_gameSettingManager.SettingArray[(int)SettingOptionType.XSensitivity]);
+        ySensitivityInput.SetValue(_gameSettingManager.SettingArray[(int)SettingOptionType.YSensitivity]);
+        movementModeInput.SetValue(_gameSettingManager.SettingArray[(int)SettingOptionType.MovementMode]);
+        
+        masterVolumeInput.SetValue(_gameSettingManager.SettingArray[(int)SettingOptionType.MasterVolume]);
+        bgmInput.SetValue(_gameSettingManager.SettingArray[(int)SettingOptionType.BGM]);
+        sfxInput.SetValue(_gameSettingManager.SettingArray[(int)SettingOptionType.SFX]);
+        
+        imageQualityInput.SetValue(_gameSettingManager.SettingArray[(int)SettingOptionType.ImageQuality]);
+        fpsInput.SetValue(_gameSettingManager.SettingArray[(int)SettingOptionType.FPS]);
+        windowModeInput.isOn = Convert.ToBoolean(_gameSettingManager.SettingArray[(int)SettingOptionType.WindowMode]);
     }
     
     public void CloseSettingWindow()
     {
         settingCanvas.gameObject.SetActive(false);
+        _gameSettingManager.SaveSetting();
     }
 
+    #endregion
+    
+    #region Input Handler
+    private void HandleXSensitivity(int value)
+    {
+        _gameSettingManager.ApplySetting(SettingOptionType.XSensitivity, value);
+    }
+    
+    private void HandleYSensitivity(int value)
+    {
+        _gameSettingManager.ApplySetting(SettingOptionType.YSensitivity, value);
+    }
+
+    private void MovementMode(int value)
+    {
+        _gameSettingManager.ApplySetting(SettingOptionType.MovementMode, value);
+    }
+
+    private void HandleMasterVolume(int value)
+    {
+        _gameSettingManager.ApplySetting(SettingOptionType.MasterVolume, value);
+    }
+    
+    private void HandleBGM(int value)
+    {
+        _gameSettingManager.ApplySetting(SettingOptionType.BGM, value);
+    }
+    
+    private void HandleSFX(int value)
+    {
+        _gameSettingManager.ApplySetting(SettingOptionType.SFX, value);
+    }
+    
+    private void HandleImageQuality(int value)
+    {
+        _gameSettingManager.ApplySetting(SettingOptionType.ImageQuality, value);
+    }
+
+    private void HandleFPS(int value)
+    {
+        _gameSettingManager.ApplySetting(SettingOptionType.FPS, value);
+    }
+    
+    private void HandleWindowMode(bool value)
+    {
+        _gameSettingManager.ApplySetting(SettingOptionType.WindowMode, Convert.ToInt32(value));
+    }
     #endregion
 } 

@@ -7,8 +7,6 @@ public class PlayerMovement : AgentMovement
     private GameManager _gameManager;
     private UIManager _uiManager;
 
-    //Controllers
-    
     //Components
     private AgentEffectGenerator _agentEffectGenerator;
     
@@ -17,16 +15,14 @@ public class PlayerMovement : AgentMovement
     private bool _isChangeDirection;
     private Vector2 _lookDirectionAddValue;
     private bool _isResettingDirection = false;
-
     
     protected override void Awake()
     {
         base.Awake();
+        
         //Managements
         _gameManager = GameManager.Instance;
         _uiManager = UIManager.Instance;
-        
-        //Controllers
         
         //Components
         _agentEffectGenerator = GetComponent<AgentEffectGenerator>();
