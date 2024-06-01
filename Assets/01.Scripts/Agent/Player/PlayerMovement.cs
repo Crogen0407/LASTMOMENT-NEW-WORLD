@@ -12,14 +12,12 @@ public class PlayerMovement : AgentMovement
     
     public float aimingDistance;
     [HideInInspector] public Vector3 lookAngle = Vector3.zero;
-    private bool _isChangeDirection;
-    private Vector2 _lookDirectionAddValue;
     private bool _isResettingDirection = false;
     
     protected override void Awake()
     {
         base.Awake();
-        
+        Debug.Log(MathExtension.Remap(0.5f, 0, 1, 0, 12));
         //Managements
         _gameManager = GameManager.Instance;
         _uiManager = UIManager.Instance;
@@ -31,28 +29,21 @@ public class PlayerMovement : AgentMovement
         _gameManager.InputReader.ResetDirectionEvent += ResetDirection;
     }
 
-    protected override void FixedUpdate()
-    {
-        base.FixedUpdate();
-        if (_isChangeDirection)
-        {
-            HandleMoveDirection(_lookDirectionAddValue);
-        }
-    }
-
     private void StartMoveDirection(Vector3 vec, bool active)
     {
-        _isChangeDirection = active;
-        _lookDirectionAddValue = vec;
+        if (active)
+        {
+            HandleMoveDirection(vec);
+        }
     }
     
     public override void HandleMoveDirection(Vector3 position)
     {
-        Vector3 rotate = transform.rotation * new Vector3(
-            -position.y * RotateSpeedY,
-            0,
-            -position.x * RotateSpeedX);
-        transform.Rotate(rotate*Time.fixedDeltaTime, Space.World);
+        Debug.Log(_uiManager.ScreenConvertToCanvasSpace(position));
+        
+        Quaternion quaternion = Quaternion.Euler(new Vector3(position.y*0.1f, position.x*0.1f, 0) * Time.deltaTime);
+        transform.rotation *= Quaternion.Inverse(transform.rotation) * quaternion * transform.rotation;
+        
     }
 
     public override void HandleSpeedChange(bool value)

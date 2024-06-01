@@ -1,14 +1,16 @@
-﻿using CurvedPathGenerator;
+﻿using System.Collections;
+using CurvedPathGenerator;
 using DG.Tweening;
 using UnityEngine;
 
 public class EnemyMovement : AgentMovement
 {
-    //[SerializeField] private List<Vector3> _bezierPointPositions;
-    public float rotateDelay = 0.5f;
-    private PathFollower _pathFollower;
-    private bool _isBezierPath;
+    public Transform attackTargetTrm;
     
+    public float rotateDelay = 1f;
+    private PathFollower _pathFollower;
+    private bool _isRotating;
+
     protected override void Awake()
     {
         base.Awake();
@@ -17,17 +19,43 @@ public class EnemyMovement : AgentMovement
 
     public override void HandleMoveDirection(Vector3 Delta)
     {
-        Vector3 rotation = Quaternion.LookRotation(Delta).eulerAngles;
-        transform.DORotate(rotation, rotateDelay);
+        if (_isRotating == false)
+        {
+            Quaternion rot = Quaternion.LookRotation(Delta);
+            transform.DORotateQuaternion(rot, rotateDelay).OnStart(() => _isRotating = true).OnComplete(() => _isRotating = false);
+        }    
     }
 
+    public override void HandleSpeedChange(bool value)
+    {
+        base.HandleSpeedChange(value);
+        ExitDefaultBezierPath();
+        StartCoroutine(ChangeSpeedCoroutine());
+    }
+
+    private IEnumerator ChangeSpeedCoroutine()
+    {
+        float percentTime = 0;
+        float currentTime = 0;
+        float duration = 2f;
+        while (percentTime < 1f)
+        {
+            yield return null;
+            currentTime += Time.deltaTime;
+            percentTime = currentTime / duration;
+            CurSpeed = (int)(MaxSpeed * percentTime);
+        }
+        yield return new WaitForSeconds(duration);
+        CurSpeed = MaxSpeed;
+    }
+    
     public void EnterDefaultBezierPath()
     {
-        _isBezierPath = true;
+        _pathFollower.enabled = true;
     }
 
     public void ExitDefaultBezierPath()
     {
-        _isBezierPath = false;
+        _pathFollower.enabled = false;
     }
 }

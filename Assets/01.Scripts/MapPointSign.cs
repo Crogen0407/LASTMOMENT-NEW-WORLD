@@ -8,7 +8,7 @@ public class MapPointSign : MonoBehaviour
         if (!transform.parent) return;
         if (transform.parent.TryGetComponent(out Enemy enemy))
         {
-            transform.localScale = Vector3.one * enemy.recognitionRange * 2;
+            transform.localScale = Vector3.one * enemy.recognitionRange;
         }
     }
 

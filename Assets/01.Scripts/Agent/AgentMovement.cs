@@ -15,7 +15,7 @@ public abstract class AgentMovement : MonoBehaviour
     private float _holdTime = 0f;
     
     //Actions
-    public event Action OnSpeedDeadEvent; 
+    public event Action OnStopEvent; 
     
     #region Components
     protected Rigidbody _rbCompo { get; private set; }
@@ -63,7 +63,7 @@ public abstract class AgentMovement : MonoBehaviour
             CurSpeed = Mathf.Clamp(CurSpeed, DefaultSpeed, MaxSpeed);
             if (CurSpeed <= 0)
             {
-                OnSpeedDeadEvent?.Invoke();
+                OnStopEvent?.Invoke();
             }
             if (Mathf.Approximately(CurSpeed, DefaultSpeed))
             {

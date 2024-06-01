@@ -1,4 +1,5 @@
 ﻿using System;
+using AYellowpaper.SerializedCollections;
 using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
@@ -11,6 +12,11 @@ public class UIManager : MonoSingleton<UIManager>
     [field: SerializeField] public Camera UICamera;
     public SettingOptionDataSO SettingOptionData;
     [SerializeField] private TextMeshProUGUI _settingDescriptionText;
+
+    [Header("Item")] 
+    [SerializeField] private Image[] _itemIcons;
+    [SerializeField] private SerializedDictionary<ItemType, Sprite> _itemSpriteDictionary;
+    
     
     [Header("Canvas")]
     [SerializeField] private Canvas gameCanvas;
@@ -20,7 +26,6 @@ public class UIManager : MonoSingleton<UIManager>
     [Header("SettingUI")]
     [SerializeField] private ArrowNumberInput xSensitivityInput;
     [SerializeField] private ArrowNumberInput ySensitivityInput;
-    [SerializeField] private ArrowListInput movementModeInput;
     
     [SerializeField] private ArrowNumberInput masterVolumeInput;
     [SerializeField] private ArrowNumberInput bgmInput;
@@ -41,7 +46,6 @@ public class UIManager : MonoSingleton<UIManager>
         
         xSensitivityInput.onClickEvent.AddListener(HandleXSensitivity);
         ySensitivityInput.onClickEvent.AddListener(HandleYSensitivity);
-        movementModeInput.onClickEvent.AddListener(MovementMode);
         
         masterVolumeInput.onClickEvent.AddListener(HandleMasterVolume);
         bgmInput.onClickEvent.AddListener(HandleBGM);
@@ -56,12 +60,7 @@ public class UIManager : MonoSingleton<UIManager>
     {
         if (_isPause)
         {
-            Cursor.visible = true;
-            Cursor.lockState = CursorLockMode.None;
-            return;
         }
-        Cursor.visible = false;
-        Cursor.lockState = CursorLockMode.Locked;
     }
 
     public Vector2 ScreenConvertToCanvasSpace(Vector2 position)
@@ -77,6 +76,25 @@ public class UIManager : MonoSingleton<UIManager>
     {
         _settingDescriptionText.text = SettingOptionData.uiDescriptionDictionary[settingOptionType];
     }
+
+    #region Item
+
+    public void UpdateItemIcon(int iconIndex, ItemType itemType)
+    {
+        if (itemType == ItemType.None)
+        {
+            _itemIcons[iconIndex].color = Color.clear;
+            _itemIcons[iconIndex].sprite = null;
+        }
+        else
+        {
+            _itemIcons[iconIndex].color = Color.white;
+            _itemIcons[iconIndex].sprite = _itemSpriteDictionary[itemType];
+        }
+
+    }
+
+    #endregion
 
     #region PauseWindow
 
@@ -109,7 +127,6 @@ public class UIManager : MonoSingleton<UIManager>
         //UI Init
         xSensitivityInput.SetValue(_gameSettingManager.SettingArray[(int)SettingOptionType.XSensitivity]);
         ySensitivityInput.SetValue(_gameSettingManager.SettingArray[(int)SettingOptionType.YSensitivity]);
-        movementModeInput.SetValue(_gameSettingManager.SettingArray[(int)SettingOptionType.MovementMode]);
         
         masterVolumeInput.SetValue(_gameSettingManager.SettingArray[(int)SettingOptionType.MasterVolume]);
         bgmInput.SetValue(_gameSettingManager.SettingArray[(int)SettingOptionType.BGM]);
@@ -137,11 +154,6 @@ public class UIManager : MonoSingleton<UIManager>
     private void HandleYSensitivity(int value)
     {
         _gameSettingManager.ApplySetting(SettingOptionType.YSensitivity, value);
-    }
-
-    private void MovementMode(int value)
-    {
-        _gameSettingManager.ApplySetting(SettingOptionType.MovementMode, value);
     }
 
     private void HandleMasterVolume(int value)

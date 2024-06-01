@@ -1,6 +1,6 @@
 using UnityEngine;
 
-public class MathExtension : MonoBehaviour
+public class MathExtension
 {
     public static float RotateClamp(float value, float min, float max)
     {

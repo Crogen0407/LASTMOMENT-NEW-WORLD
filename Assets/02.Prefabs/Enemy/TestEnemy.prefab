@@ -140,6 +140,8 @@ MonoBehaviour:
     m_Bits: 64
   recognitionRange: 30
   currentTarget: {fileID: 0}
+  preferredDirection: 0
+  findNavAngle: 0
 --- !u!114 &7405499225701932381
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -152,10 +154,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2e6db4792aae45288d2bce01f21841bc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  <DefaultSpeed>k__BackingField: 50
   <MaxSpeed>k__BackingField: 30
   <CurSpeed>k__BackingField: 0
   <RotateSpeedX>k__BackingField: 20
   <RotateSpeedY>k__BackingField: 100
+  busterVFXMaterials: []
   rotateDelay: 0.5
 --- !u!54 &6412397718538149578
 Rigidbody:
@@ -259,6 +263,21 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: MapPointSign
+      objectReference: {fileID: 0}
+    - target: {fileID: 3815787363707801608, guid: 9718de74b8ee3d14e9a5489536455e81,
+        type: 3}
+      propertyPath: m_LocalScale.x
+      value: 30
+      objectReference: {fileID: 0}
+    - target: {fileID: 3815787363707801608, guid: 9718de74b8ee3d14e9a5489536455e81,
+        type: 3}
+      propertyPath: m_LocalScale.y
+      value: 30
+      objectReference: {fileID: 0}
+    - target: {fileID: 3815787363707801608, guid: 9718de74b8ee3d14e9a5489536455e81,
+        type: 3}
+      propertyPath: m_LocalScale.z
+      value: 30
       objectReference: {fileID: 0}
     - target: {fileID: 3815787363707801608, guid: 9718de74b8ee3d14e9a5489536455e81,
         type: 3}

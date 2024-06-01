@@ -16,7 +16,7 @@ public class PlayerRunState : AgentState<AgentStateEnum>
 
         //Components
         _playerMovement = _playerBase.Movement as PlayerMovement;
-        _playerMovement.OnSpeedDeadEvent += () =>
+        _playerMovement.OnStopEvent += () =>
         {
             _stateMachine.ChangeState(AgentStateEnum.Idle);
         };

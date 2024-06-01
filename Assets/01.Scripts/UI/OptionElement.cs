@@ -5,7 +5,6 @@ public class OptionElement : MonoBehaviour
 {
     //Managements
     private UIManager _uiManager;
-    private GameSettingManager _gameSettingManager;
     
     //Components
     private Button _button;
@@ -16,11 +15,19 @@ public class OptionElement : MonoBehaviour
     {
         //Managements
         _uiManager = UIManager.Instance;
-        _gameSettingManager = GameSettingManager.Instance;
         
         //Components
         _button = GetComponent<Button>();
-        _button.onClick.AddListener(HandleClick);
+
+        foreach (var button in transform.GetComponentsInChildren<Button>())
+        {
+            button.onClick.AddListener(HandleClick);
+        }
+
+        foreach (var toggle in transform.GetComponentsInChildren<Toggle>())
+        {
+            toggle.onValueChanged.AddListener(x => HandleClick());
+        }
     }
 
     private void OnDestroy()

@@ -1,3 +1,5 @@
+using UnityEngine;
+
 public class PlayerDefaultBullet : AgentBullet
 {
     public override void OnPop()

@@ -6,7 +6,6 @@ public enum SettingOptionType
     //Game
     XSensitivity,
     YSensitivity,
-    MovementMode,
     
     //Sound
     MasterVolume,

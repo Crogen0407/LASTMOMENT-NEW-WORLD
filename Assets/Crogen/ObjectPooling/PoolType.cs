@@ -1,5 +1,5 @@
 
 public enum PoolType
 {
-    PlayerDefualtBullet, 
+    PlayerDefualtBullet, EnemyDefualtBullet, 
 }  
