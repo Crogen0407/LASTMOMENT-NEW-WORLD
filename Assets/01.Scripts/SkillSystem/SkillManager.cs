@@ -5,10 +5,7 @@ using UnityEngine;
 public enum PlayerSkill
 {
     None = 0, 
-    Rolling = 1,
-    CircleOrb = 2,
-    Satellite = 3,
-    ThunderStrike = 4,
+    
 }
 
 public class SkillManager : MonoSingleton<SkillManager>

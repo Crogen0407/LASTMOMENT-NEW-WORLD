@@ -1,6 +1,3 @@
-using System;
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 namespace Crogen.HealthSystem
@@ -11,7 +8,7 @@ namespace Crogen.HealthSystem
         [SerializeField] private float _hp = 100.0f;
         public float maxHp = 100.0f;
 
-        private void Awake()
+        protected virtual void Awake()
         {
             _hp = maxHp;
         }

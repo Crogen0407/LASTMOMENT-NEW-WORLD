@@ -13,6 +13,9 @@ public enum Direction
 
 public class Enemy : Agent<EnemyStateEnum>
 {
+    //Managements
+    private StageManager _stageManager;
+    
     public LayerMask whatIsPlayer;
     public float recognitionRange = 50f;
     public Transform currentTarget;
@@ -26,10 +29,16 @@ public class Enemy : Agent<EnemyStateEnum>
     [SerializeField] private int _attackCurCount = 10;
     [SerializeField] private float _attackLoadingDelay = 5f;
     private bool _isAttacking = false;
-    
+
+    protected override void Awake()
+    {
+        base.Awake();
+        _stageManager = StageManager.Instance;
+    }
+
     public override void SetDead()
     {
-        
+        _stageManager.DeCountEnemy(this);
     }
 
     public void OnAttack()

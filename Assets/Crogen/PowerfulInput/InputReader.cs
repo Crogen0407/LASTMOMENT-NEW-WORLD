@@ -12,7 +12,7 @@ namespace Crogen.PowerfulInput
         public Vector2 mousePositionClampSize = new Vector2(1200f, 1200f);
         #region Input Event
 
-        public event Action<Vector3, bool> ChangeMoveDirectionEvent;
+        public event Action<Vector3> ChangeMoveDirectionEvent;
         public event Action StartRunEvent;
         public event Action<bool> SpeedChangeEvent;
         public event Action InteractionEvent;
@@ -29,8 +29,6 @@ namespace Crogen.PowerfulInput
 
         private Controls _controls;
 
-        private InputAction.CallbackContext _movementContext;
-        
         private void OnEnable()
         {
             _gameSettingManager = GameSettingManager.Instance;
@@ -68,12 +66,8 @@ namespace Crogen.PowerfulInput
 
         public void OnMoveDirection(InputAction.CallbackContext context)
         {
-            _movementContext = context;
             Vector2 position = context.ReadValue<Vector2>();
-            if(context.performed)
-                ChangeMoveDirectionEvent?.Invoke(position, true);
-            if(context.canceled)
-                ChangeMoveDirectionEvent?.Invoke(position, false);
+            ChangeMoveDirectionEvent?.Invoke(position);
         }
 
         public void OnInteraction(InputAction.CallbackContext context)

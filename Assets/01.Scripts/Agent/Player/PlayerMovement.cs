@@ -17,7 +17,7 @@ public class PlayerMovement : AgentMovement
     protected override void Awake()
     {
         base.Awake();
-        Debug.Log(MathExtension.Remap(0.5f, 0, 1, 0, 12));
+        
         //Managements
         _gameManager = GameManager.Instance;
         _uiManager = UIManager.Instance;
@@ -25,23 +25,14 @@ public class PlayerMovement : AgentMovement
         //Components
         _agentEffectGenerator = GetComponent<AgentEffectGenerator>();
         
-        _gameManager.InputReader.ChangeMoveDirectionEvent += StartMoveDirection;
+        _gameManager.InputReader.ChangeMoveDirectionEvent += HandleMoveDirection;
         _gameManager.InputReader.ResetDirectionEvent += ResetDirection;
     }
 
-    private void StartMoveDirection(Vector3 vec, bool active)
-    {
-        if (active)
-        {
-            HandleMoveDirection(vec);
-        }
-    }
-    
     public override void HandleMoveDirection(Vector3 position)
     {
-        Debug.Log(_uiManager.ScreenConvertToCanvasSpace(position));
-        
-        Quaternion quaternion = Quaternion.Euler(new Vector3(position.y*0.1f, position.x*0.1f, 0) * Time.deltaTime);
+        lookAngle = _uiManager.ScreenConvertToCanvasSpace((Vector2)position);
+        Quaternion quaternion = Quaternion.Euler(new Vector3(lookAngle.y*0.1f, lookAngle.x*0.1f, 0) * Time.deltaTime);
         transform.rotation *= Quaternion.Inverse(transform.rotation) * quaternion * transform.rotation;
         
     }
