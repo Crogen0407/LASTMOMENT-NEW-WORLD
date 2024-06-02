@@ -531,9 +531,12 @@ MonoBehaviour:
   <DefaultSpeed>k__BackingField: 10
   <MaxSpeed>k__BackingField: 50
   <CurSpeed>k__BackingField: 0
-  <RotateSpeedX>k__BackingField: 0
-  <RotateSpeedY>k__BackingField: 0
-  busterVFXMaterials: []
+  busterVFXMaterials:
+  - {fileID: 3811471045951972752}
+  - {fileID: 4314506092964375839}
+  - {fileID: 3853834668595754469}
+  - {fileID: 4642513212630392808}
+  - {fileID: 1072207120367508481}
   attackTargetTrm: {fileID: 0}
   rotateDelay: 1
 --- !u!54 &6412397718538149578
