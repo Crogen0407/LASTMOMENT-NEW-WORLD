@@ -1,8 +1,7 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
-public abstract class StageController : MonoBehaviour
+public class StageController : MonoSingleton<StageController>
 {
-   
+   [field:SerializeField] public float StageProgress { get; private set; }
+   [SerializeField] private StageDataSO _stageData;
 }

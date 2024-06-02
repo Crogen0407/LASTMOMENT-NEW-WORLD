@@ -1,0 +1,36 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1865a41d64744dee9bb04413319afab5, type: 3}
+  m_Name: StageData
+  m_EditorClassIdentifier: 
+  stageMentionList:
+  - mentions:
+    - "<t>3.0</t><n>System</n>\uC544\uBB34\uB798\uB3C4 \uC774\uBBF8 \uB2A6\uC740
+      \uAC83 \uAC19\uAD70\uC694."
+    - "<t>1.0</t><n>System</n>\uD30C\uC77C\uB7FF. \uBE44\uC0C1 \uBB3C\uC790\uB97C
+      \uD0C8\uCDE8\uD558\uB294 \uAC83\uC744 \uBAA9\uD45C\uB85C \uC7A1\uACA0\uC2B5\uB2C8\uB2E4."
+    - "<t>1.0</t><n>System</n>\uC9C0\uB3C4\uC5D0 \uBC29\uD5A5\uC744 \uD45C\uC2DC\uD558\uACA0\uC2B5\uB2C8\uB2E4."
+    mentionEvent:
+      m_PersistentCalls:
+        m_Calls: []
+  - mentions:
+    - 
+    - 
+    mentionEvent:
+      m_PersistentCalls:
+        m_Calls: []
+  - mentions:
+    - 
+    - 
+    mentionEvent:
+      m_PersistentCalls:
+        m_Calls: []
