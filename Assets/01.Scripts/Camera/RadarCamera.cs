@@ -16,6 +16,6 @@ public class RadarCamera : MonoBehaviour
             _followTarget.position.y + 500f,
             _followTarget.position.z);
         transform.position = pos;
-        transform.eulerAngles = new Vector3(90f, _followTarget.eulerAngles.y, _followTarget.eulerAngles.z);
+        transform.eulerAngles = new Vector3(90f, 0, 0);
     }
 }

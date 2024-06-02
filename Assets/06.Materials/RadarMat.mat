@@ -55,11 +55,12 @@ Material:
         m_Offset: {x: 0, y: 0}
     m_Ints: []
     m_Floats:
-    - _CenterGridScale: 0.09
+    - _CenterGridScale: 0.075
     - _GridCount: 10
-    - _GridScale: 0.92
+    - _GridScale: 0.906
     - _QueueControl: 0
     - _QueueOffset: 0
-    - _Value: 0.46689633
-    m_Colors: []
+    - _Value: 0.96725225
+    m_Colors:
+    - _Color: {r: 1, g: 1, b: 1, a: 0.54901963}
   m_BuildTextureStacks: []
