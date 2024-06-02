@@ -7,8 +7,6 @@ public abstract class AgentMovement : MonoBehaviour
     [field: SerializeField] public int DefaultSpeed { get; set; } = 50; 
     [field: SerializeField] public int MaxSpeed { get; set; } = 100;
     [field:SerializeField] public int CurSpeed { get; set; } = 0;
-    [field:SerializeField] public float RotateSpeedX { get; set; } = 20f;
-    [field:SerializeField] public float RotateSpeedY { get; set; } = 100f;
     public Renderer[] busterVFXMaterials;
     private int _busterVFXShaderID;
     private bool _isSpeedUp = false;
