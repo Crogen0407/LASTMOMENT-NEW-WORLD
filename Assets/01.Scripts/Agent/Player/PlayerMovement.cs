@@ -1,4 +1,5 @@
-﻿using DG.Tweening;
+﻿using System;
+using DG.Tweening;
 using UnityEngine;
 
 public class PlayerMovement : AgentMovement
@@ -10,6 +11,9 @@ public class PlayerMovement : AgentMovement
     //Components
     private AgentEffectGenerator _agentEffectGenerator;
     
+    
+    [field:SerializeField] public float RotateSpeedX { get; set; }
+    [field:SerializeField] public float RotateSpeedY { get; set; }
     public float aimingDistance;
     [HideInInspector] public Vector3 lookAngle = Vector3.zero;
     private bool _isResettingDirection = false;
@@ -29,12 +33,19 @@ public class PlayerMovement : AgentMovement
         _gameManager.InputReader.ResetDirectionEvent += ResetDirection;
     }
 
+    private void OnDestroy()
+    {
+        _gameManager.InputReader.ChangeMoveDirectionEvent -= HandleMoveDirection;
+        _gameManager.InputReader.ResetDirectionEvent -= ResetDirection;    
+    }
+
     public override void HandleMoveDirection(Vector3 position)
     {
-        lookAngle = _uiManager.ScreenConvertToCanvasSpace((Vector2)position);
-        Quaternion quaternion = Quaternion.Euler(new Vector3(lookAngle.y*0.1f, lookAngle.x*0.1f, 0) * Time.deltaTime);
-        transform.rotation *= Quaternion.Inverse(transform.rotation) * quaternion * transform.rotation;
-        
+        Vector3 rotate = transform.rotation * new Vector3(
+            -position.y * RotateSpeedY,
+            position.x * RotateSpeedX,
+            0);
+        transform.Rotate(rotate*Time.deltaTime, Space.World);
     }
 
     public override void HandleSpeedChange(bool value)

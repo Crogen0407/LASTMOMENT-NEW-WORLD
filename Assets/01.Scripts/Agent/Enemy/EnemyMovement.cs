@@ -6,9 +6,9 @@ using UnityEngine;
 public class EnemyMovement : AgentMovement
 {
     public Transform attackTargetTrm;
-    
     public float rotateDelay = 1f;
     private PathFollower _pathFollower;
+    [SerializeField] private PathGenerator _pathGenerator;
     private bool _isRotating;
 
     protected override void Awake()
@@ -30,6 +30,7 @@ public class EnemyMovement : AgentMovement
     {
         base.HandleSpeedChange(value);
         ExitDefaultBezierPath();
+        Debug.Log(value);
         StartCoroutine(ChangeSpeedCoroutine());
     }
 
@@ -51,11 +52,13 @@ public class EnemyMovement : AgentMovement
     
     public void EnterDefaultBezierPath()
     {
+        _pathFollower.Generator = _pathGenerator;
         _pathFollower.enabled = true;
     }
 
     public void ExitDefaultBezierPath()
     {
+        _pathFollower.Generator = null;
         _pathFollower.enabled = false;
     }
 }

@@ -3,4 +3,6 @@
     Idle,
     Dead,
     Run,
+    Turning,
+    Attack
 }

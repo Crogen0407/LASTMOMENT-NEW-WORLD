@@ -61,8 +61,7 @@ MeshRenderer:
   m_RayTraceProcedural: 0
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
-  m_Materials:
-  - {fileID: 0}
+  m_Materials: []
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -100,7 +99,7 @@ MonoBehaviour:
   IsLivePath: 0
   IsShowingIcons: 0
   PathDensity: 13
-  EditMode: 1
+  EditMode: 2
   CreateMeshFlag: 1
   LineMehsWidth: 0.2
   LineOpacity: 0.7
@@ -112,12 +111,12 @@ MonoBehaviour:
   PathList: []
   PathLengths: []
   NodeList:
-  - {x: 0, y: 0, z: -1267.9447}
-  - {x: 0, y: 0, z: 2209.1826}
+  - {x: -114.62219, y: 0, z: -1580.5488}
+  - {x: -114.62219, y: 0, z: 1896.5779}
   AngleList:
-  - {x: 0, y: 0, z: 208.38869}
+  - {x: -114.62219, y: 0, z: -104.2152}
   NodeList_World:
-  - {x: 0, y: 0, z: -1267.9447}
-  - {x: 0, y: 0, z: 2209.1826}
+  - {x: -114.62219, y: 0, z: -1580.5488}
+  - {x: -114.62219, y: 0, z: 1896.5779}
   AngleList_World:
-  - {x: 0, y: 0, z: 208.38869}
+  - {x: -114.62219, y: 0, z: -104.2152}

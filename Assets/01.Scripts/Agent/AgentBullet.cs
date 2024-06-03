@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections;
+using Crogen.HealthSystem;
 using DG.Tweening;
 using Unity.VisualScripting;
 using UnityEngine;
@@ -27,7 +28,10 @@ public class AgentBullet : MonoPoolingObject
     {
         if (Physics.OverlapBoxNonAlloc(transform.position, transform.localScale, _hitTarget, transform.rotation, ~_whatIsSelf) > 0)
         {
-            Debug.Log(_hitTarget[0].gameObject.name);
+            if (_hitTarget[0].TryGetComponent(out HealthSystem healthSystem))
+            {
+                --healthSystem.Hp;
+            }
         }
     }
 

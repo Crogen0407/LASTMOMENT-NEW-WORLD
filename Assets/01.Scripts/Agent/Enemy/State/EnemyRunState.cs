@@ -6,6 +6,7 @@ public class EnemyRunState : AgentState<EnemyStateEnum>
 {
     //Managers
     private GameManager _gameManager;
+    
     //Components
     private Enemy _enemyBase;
     private EnemyMovement _enemyMovement;
@@ -26,34 +27,26 @@ public class EnemyRunState : AgentState<EnemyStateEnum>
         Debug.Log(_enemyMovement.CurSpeed);
     }
 
-    public override void UpdateState()
-    {
-        base.UpdateState();
-        if (Physics.Raycast(_enemyBase.transform.position,
-                _enemyBase.transform.forward,
-                _enemyBase.recognitionRange, ~_enemyBase.whatIsPlayer))
-        {
-            _enemyMovement.transform.eulerAngles += Vector3.up;
-        }
-    }
-    
     public override void FixedUpdateState()
     {
         base.FixedUpdateState();
+        
         //회전
-        if (Vector3.Distance(_enemyMovement.transform.position, _enemyMovement.attackTargetTrm.position) > _enemyBase.recognitionRange*3)
-        {
-            Vector3 dir = _enemyMovement.attackTargetTrm.position - _enemyMovement.transform.position;
-            _enemyMovement.HandleMoveDirection(dir);
-        }
+        Vector3 dir = _enemyMovement.attackTargetTrm.position - _enemyMovement.transform.position;
+        _enemyMovement.HandleMoveDirection(dir);
 
+        //이동은 EnemyMovement에서 한다.
+
+        if (((_enemyMovement.attackTargetTrm.position - _enemyMovement.transform.position) - _enemyMovement.transform.forward).magnitude > 5)
+        {
+            _stateMachine.ChangeState(EnemyStateEnum.Attack);
+        }
+        
         //공격
-        Debug.DrawRay(_enemyBase.transform.position, _enemyBase.transform.forward * _enemyBase.recognitionRange);
-        if(Physics.BoxCast(_enemyBase.transform.position, new Vector3(2, 2, _enemyBase.recognitionRange),
+        if(Physics.BoxCast(_enemyBase.transform.position, new Vector3(5, 5, _enemyBase.recognitionRange*3),
                _enemyBase.transform.forward, _enemyBase.transform.rotation, _enemyBase.whatIsPlayer))
         {
-            Debug.Log("Attack");
-            _enemyBase.OnAttack();
+            _stateMachine.ChangeState(EnemyStateEnum.Attack);
         }
     }
 }
