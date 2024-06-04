@@ -3,7 +3,6 @@ using UnityEngine;
 public abstract class Item : MonoBehaviour
 {
     [SerializeField] private LayerMask _whatIsPlayer;
-    [Tooltip("나중에 풀링타입 다 만들기")]
     [SerializeField] private ItemType _itemType;
     
     private Collider[] _playerCollider = new Collider[1];
