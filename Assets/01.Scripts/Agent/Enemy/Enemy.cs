@@ -1,6 +1,4 @@
-using System.Collections;
 using Crogen.AgentFSM;
-using Crogen.ObjectPooling;
 using UnityEngine;
 
 public enum Direction
@@ -15,12 +13,13 @@ public class Enemy : Agent<EnemyStateEnum>
 {
     //Managements
     private StageManager _stageManager;
+    private CameraManager _cameraManager;
     
     public LayerMask whatIsPlayer;
     public float recognitionRange = 50f;
     public Transform currentTarget;
     public Direction preferredDirection;
-    [SerializeField]private int findNavAngle;
+    [SerializeField] private float _explosionRadius;
 
     [Header("Attack")] 
     public PoolType bulletType;
@@ -33,11 +32,16 @@ public class Enemy : Agent<EnemyStateEnum>
     {
         base.Awake();
         _stageManager = StageManager.Instance;
+        _cameraManager = CameraManager.Instance;
     }
 
     public override void SetDead()
     {
         _stageManager.DeCountEnemy(this);
+        if (Physics.SphereCast(transform.position, recognitionRange, Vector3.up, out RaycastHit hit, whatIsPlayer))
+        {
+            _cameraManager.SetPlayerCameraShack(1, 10, 5);
+        }
         Destroy(gameObject);
     }
     

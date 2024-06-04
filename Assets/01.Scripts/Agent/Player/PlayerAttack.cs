@@ -4,6 +4,7 @@ public class PlayerAttack : AgentAttack
 {
     //Managements
     private UIManager _uiManager;
+    private CameraManager _cameraManager;
     
     private Collider[] _aroundEnemyCols;
     private bool _isAttack = false;
@@ -12,6 +13,7 @@ public class PlayerAttack : AgentAttack
     {
         base.Awake();
         _uiManager = UIManager.Instance;
+        _cameraManager = CameraManager.Instance;
         
         _aroundEnemyCols = new Collider[20];
         _gameManager.InputReader.AttackStartEvent += HandleStartAttack;
@@ -30,6 +32,7 @@ public class PlayerAttack : AgentAttack
         if (_isAttack)
         {
             OnAttack();
+            _cameraManager.SetPlayerCameraShack(0.3f, 0.5f, 100);
         }
     }
 
