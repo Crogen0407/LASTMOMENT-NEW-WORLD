@@ -1,12 +1,14 @@
 ﻿using Crogen.HealthSystem;
 using Crogen.ObjectPooling;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class PlayerHealthSystem : HealthSystem
 {
     [SerializeField] private PoolType _healEffectType;
     [SerializeField] private PoolType _damagedEffectType;
     [SerializeField] private PoolType _dieEffectType;
+    [SerializeField] private Slider _hpSlider;
     private Player _playerBase;
     
     protected override void Awake()
@@ -17,7 +19,7 @@ public class PlayerHealthSystem : HealthSystem
 
     protected override void OnHpChange()
     {
-        
+        _hpSlider.value = (float)Hp / maxHp;
     }
 
     protected override void OnHpUp()

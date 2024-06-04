@@ -70666,6 +70666,7 @@ GameObject:
   - component: {fileID: 860814155}
   - component: {fileID: 860814157}
   - component: {fileID: 860814151}
+  - component: {fileID: 860814164}
   - component: {fileID: 860814159}
   m_Layer: 6
   m_Name: Player
@@ -70821,6 +70822,9 @@ MonoBehaviour:
   - name: BoxCollider
     component: {fileID: 860814151}
     enable: 1
+  - name: PlayerHealthSystem
+    component: {fileID: 860814164}
+    enable: 1
   - name: HierarchyInfo
     component: {fileID: 860814159}
     enable: 1
@@ -70898,6 +70902,24 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _vfxHighBusters:
   - {fileID: 1483165398}
+--- !u!114 &860814164
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 860814150}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b9020ef5f155405a829d3bb8acb85b4e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _hp: 100
+  maxHp: 100
+  _healEffectType: 0
+  _damagedEffectType: 0
+  _dieEffectType: 0
+  _hpSlider: {fileID: 1972236834}
 --- !u!1 &861597174
 GameObject:
   m_ObjectHideFlags: 0
