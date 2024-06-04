@@ -63,6 +63,11 @@ public class UIManager : MonoSingleton<UIManager>
         }
     }
 
+    public void UpdateEnemyAim(Collider[] colliders)
+    {
+        
+    }
+    
     public Vector2 ScreenConvertToCanvasSpace(Vector2 position)
     {
         Vector2 canvasRectSize = ((RectTransform)gameCanvas.transform).rect.size;

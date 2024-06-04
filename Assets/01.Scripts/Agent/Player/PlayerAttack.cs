@@ -1,10 +1,19 @@
+using UnityEngine;
+
 public class PlayerAttack : AgentAttack
 {
+    //Managements
+    private UIManager _uiManager;
+    
+    private Collider[] _aroundEnemyCols;
     private bool _isAttack = false;
     
     protected override void Awake()
     {
         base.Awake();
+        _uiManager = UIManager.Instance;
+        
+        _aroundEnemyCols = new Collider[20];
         _gameManager.InputReader.AttackStartEvent += HandleStartAttack;
         _gameManager.InputReader.AttackEndEvent += HandleEndAttack;
     }
@@ -24,6 +33,14 @@ public class PlayerAttack : AgentAttack
         }
     }
 
+    
+    private void FixedUpdate()
+    {
+        Physics.OverlapSphereNonAlloc(transform.position, _speed * _bulletLifeTime, _aroundEnemyCols, _whatIsEnemy);
+        
+        _uiManager.UpdateEnemyAim(_aroundEnemyCols);
+    }
+
     private void HandleStartAttack()
     {
         _isAttack = true;
@@ -32,5 +49,10 @@ public class PlayerAttack : AgentAttack
     private void HandleEndAttack()
     {
         _isAttack = false;
+    }
+
+    private void OnDrawGizmos()
+    {
+        Gizmos.DrawWireSphere(transform.position, _speed * _bulletLifeTime);
     }
 }

@@ -4,11 +4,12 @@ using Crogen.HealthSystem;
 using DG.Tweening;
 using Unity.VisualScripting;
 using UnityEngine;
+using UnityEngine.Serialization;
 
 public class AgentBullet : MonoPoolingObject
 {
-    [SerializeField] protected float _lifeTime = 5f;
-    [SerializeField] protected float _speed = 80f;
+    [HideInInspector] public float lifeTime = 2f;
+    [HideInInspector] public float speed = 80f;
     [SerializeField] protected LayerMask _whatIsSelf;
     [SerializeField] protected PoolType _poolType;
     
@@ -24,9 +25,9 @@ public class AgentBullet : MonoPoolingObject
 
     private Collider[] _hitTarget = new Collider[1];
     
-    private void Update()
+    private void FixedUpdate()
     {
-        if (Physics.OverlapBoxNonAlloc(transform.position, transform.localScale, _hitTarget, transform.rotation, ~_whatIsSelf) > 0)
+        if (Physics.OverlapBoxNonAlloc(transform.position, transform.localScale + Vector3.one*0.1f, _hitTarget, transform.rotation, ~_whatIsSelf) > 0)
         {
             if (_hitTarget[0].TryGetComponent(out HealthSystem healthSystem))
             {
@@ -38,10 +39,10 @@ public class AgentBullet : MonoPoolingObject
     private IEnumerator AutoDieCoroutine()
     {
         Vector3 startPos = transform.position;
-        Vector3 endPos = transform.forward * (_speed * _lifeTime);
-        transform.DOMove(endPos + startPos, _lifeTime);
+        Vector3 endPos = transform.forward * (speed * lifeTime);
+        transform.DOMove(endPos + startPos, lifeTime).SetEase(Ease.OutCubic);
         
-        yield return new WaitForSeconds(_lifeTime);
+        yield return new WaitForSeconds(lifeTime);
         Push(_poolType);
     }
 }
