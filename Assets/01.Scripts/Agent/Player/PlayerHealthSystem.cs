@@ -1,4 +1,5 @@
-﻿using Crogen.HealthSystem;
+﻿using System;
+using Crogen.HealthSystem;
 using Crogen.ObjectPooling;
 using UnityEngine;
 using UnityEngine.UI;
@@ -15,6 +16,10 @@ public class PlayerHealthSystem : HealthSystem
     {
         base.Awake();
         _playerBase = GetComponent<Player>();
+    }
+
+    private void OnCollisionEnter2D(Collision2D other)
+    {
     }
 
     protected override void OnHpChange()

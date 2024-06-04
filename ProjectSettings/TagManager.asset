@@ -17,8 +17,8 @@ TagManager:
   - MapPoint
   - Item
   - AutoAim
-  - 
-  - 
+  - EnemyBullet
+  - PlayerBullet
   - 
   - 
   - 
