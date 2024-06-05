@@ -18,7 +18,7 @@ MonoBehaviour:
       type: 3}
     poolCount: 50
   - poolType: PlayerPowerUpBullet
-    monoPoolingObjectPrefab: {fileID: 3205048830685406959, guid: 25c7aa9ad705fe143a4d71c1c8deb7d4,
+    monoPoolingObjectPrefab: {fileID: 4977553696331228377, guid: dfce48787cc03a141a45167bd330ca4f,
       type: 3}
     poolCount: 50
   - poolType: EnemyDefualtBullet
@@ -38,5 +38,25 @@ MonoBehaviour:
     poolCount: 10
   - poolType: vfx_TinyExplosion
     monoPoolingObjectPrefab: {fileID: 3205048830685406959, guid: 25c7aa9ad705fe143a4d71c1c8deb7d4,
+      type: 3}
+    poolCount: 10
+  - poolType: item_Barrier
+    monoPoolingObjectPrefab: {fileID: 5221005022514246461, guid: 4da56953f60bf3c4a99b9b2bd867b573,
+      type: 3}
+    poolCount: 10
+  - poolType: item_FloatingBomb
+    monoPoolingObjectPrefab: {fileID: 5221005022514246461, guid: 78f69f105d7741a42b757147b19abf32,
+      type: 3}
+    poolCount: 10
+  - poolType: item_HealPack
+    monoPoolingObjectPrefab: {fileID: 5221005022514246461, guid: 78f69f105d7741a42b757147b19abf32,
+      type: 3}
+    poolCount: 10
+  - poolType: item_PowerUpPack
+    monoPoolingObjectPrefab: {fileID: 5221005022514246461, guid: 78f69f105d7741a42b757147b19abf32,
+      type: 3}
+    poolCount: 10
+  - poolType: item_TemporaryObstacle
+    monoPoolingObjectPrefab: {fileID: 5221005022514246461, guid: d3348f35e69a39c4a9bce48158a8bfcb,
       type: 3}
     poolCount: 10

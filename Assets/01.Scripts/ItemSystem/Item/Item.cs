@@ -1,6 +1,6 @@
 using UnityEngine;
 
-public abstract class Item : MonoBehaviour
+public abstract class Item : MonoPoolingObject
 {
     [SerializeField] private LayerMask _whatIsPlayer;
     [SerializeField] private ItemType _itemType;

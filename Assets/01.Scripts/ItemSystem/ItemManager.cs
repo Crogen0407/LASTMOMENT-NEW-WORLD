@@ -1,4 +1,5 @@
 ﻿using AYellowpaper.SerializedCollections;
+using Crogen.ObjectPooling;
 using UnityEngine;
 using UnityEngine.Events;
 
@@ -7,7 +8,8 @@ public class ItemManager : MonoSingleton<ItemManager>
     private UIManager _uiManager;
     public ItemType[] currentItem = new ItemType[3];
     [SerializeField] private LayerMask _whatIsItem;
-    [SerializeField] private SerializedDictionary<ItemType, UnityEvent> itemEffectDictionary;
+    [SerializeField] private SerializedDictionary<ItemType, UnityEvent> _itemEffectDictionary;
+    [SerializeField] private ItemsDataSO _itemsData;
     
     private void Awake()
     {
@@ -26,10 +28,15 @@ public class ItemManager : MonoSingleton<ItemManager>
         }
     }
 
+    public void DropItem(Vector3 position, ItemType itemType)
+    {
+        if (itemType == ItemType.None) return;
+        this.Pop(_itemsData.ItemPoolDictionary[itemType], position, Quaternion.identity);
+    }
     
     public void UseItem(int itemIndex)
     {
-        itemEffectDictionary[currentItem[itemIndex]]?.Invoke();
+        _itemEffectDictionary[currentItem[itemIndex]]?.Invoke();
         _uiManager.UpdateItemIcon(itemIndex, ItemType.None);
     }
 }

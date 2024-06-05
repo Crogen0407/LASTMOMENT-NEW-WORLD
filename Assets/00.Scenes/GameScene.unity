@@ -39193,6 +39193,26 @@ MonoBehaviour:
     monoPoolingObjectPrefab: {fileID: 3205048830685406959, guid: 25c7aa9ad705fe143a4d71c1c8deb7d4,
       type: 3}
     poolCount: 10
+  - poolType: item_Barrier
+    monoPoolingObjectPrefab: {fileID: 5221005022514246461, guid: 4da56953f60bf3c4a99b9b2bd867b573,
+      type: 3}
+    poolCount: 10
+  - poolType: item_FloatingBomb
+    monoPoolingObjectPrefab: {fileID: 5221005022514246461, guid: 78f69f105d7741a42b757147b19abf32,
+      type: 3}
+    poolCount: 10
+  - poolType: item_HealPack
+    monoPoolingObjectPrefab: {fileID: 5221005022514246461, guid: 78f69f105d7741a42b757147b19abf32,
+      type: 3}
+    poolCount: 10
+  - poolType: item_PowerUpPack
+    monoPoolingObjectPrefab: {fileID: 5221005022514246461, guid: 78f69f105d7741a42b757147b19abf32,
+      type: 3}
+    poolCount: 10
+  - poolType: item_TemporaryObstacle
+    monoPoolingObjectPrefab: {fileID: 5221005022514246461, guid: d3348f35e69a39c4a9bce48158a8bfcb,
+      type: 3}
+    poolCount: 10
 --- !u!1 &463444381
 GameObject:
   m_ObjectHideFlags: 0
@@ -41344,7 +41364,7 @@ MonoBehaviour:
   _whatIsItem:
     serializedVersion: 2
     m_Bits: 512
-  itemEffectDictionary:
+  _itemEffectDictionary:
     _serializedList:
     - Key: 1
       Value:
@@ -41362,6 +41382,11 @@ MonoBehaviour:
       Value:
         m_PersistentCalls:
           m_Calls: []
+    - Key: 5
+      Value:
+        m_PersistentCalls:
+          m_Calls: []
+  _itemsData: {fileID: 11400000, guid: cb3825c64559a7e4bb47ac03453bfe43, type: 2}
 --- !u!1 &485692771
 GameObject:
   m_ObjectHideFlags: 0

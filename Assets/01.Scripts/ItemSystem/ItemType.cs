@@ -1,7 +1,7 @@
 ﻿public enum ItemType
 {
     None,
-    PowerUp,
+    PowerUpPack,
     Barrier,
     FloatingBomb,
     TemporaryObstacle,
