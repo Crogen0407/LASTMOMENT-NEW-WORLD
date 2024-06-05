@@ -25,9 +25,6 @@ MonoBehaviour:
     monoPoolingObjectPrefab: {fileID: 4977553696331228377, guid: 5480354ef62da194f9df5b06dc224645,
       type: 3}
     poolCount: 100
-  - poolType: TestNone
-    monoPoolingObjectPrefab: {fileID: 0}
-    poolCount: 1
   - poolType: vfx_PlayerDefualtBulletExplosion
     monoPoolingObjectPrefab: {fileID: 7490356064928595173, guid: 94a259b66f9b5984da915bee1c1004ae,
       type: 3}

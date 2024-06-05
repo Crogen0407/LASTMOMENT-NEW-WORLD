@@ -1,11 +1,17 @@
-﻿using AYellowpaper.SerializedCollections;
+﻿using System;
+using AYellowpaper.SerializedCollections;
 using Crogen.ObjectPooling;
+using Crogen.PowerfulInput;
 using UnityEngine;
 using UnityEngine.Events;
 
 public class ItemManager : MonoSingleton<ItemManager>
 {
+    //Managements
     private UIManager _uiManager;
+
+    private InputReader _inputReader;
+    
     public ItemType[] currentItem = new ItemType[3];
     [SerializeField] private LayerMask _whatIsItem;
     [SerializeField] private SerializedDictionary<ItemType, UnityEvent> _itemEffectDictionary;
@@ -14,6 +20,14 @@ public class ItemManager : MonoSingleton<ItemManager>
     private void Awake()
     {
         _uiManager = UIManager.Instance;
+        _inputReader = GameManager.Instance.InputReader;
+
+        _inputReader.UseItemEvent += HandleUseItem;
+    }
+
+    private void OnDestroy()
+    {
+        _inputReader.UseItemEvent -= HandleUseItem;
     }
 
     public void PushInItemArray(ItemType itemType)
@@ -24,6 +38,7 @@ public class ItemManager : MonoSingleton<ItemManager>
             {
                 currentItem[i] = itemType;  
                 _uiManager.UpdateItemIcon(i, itemType);
+                break;
             }
         }
     }
@@ -34,7 +49,7 @@ public class ItemManager : MonoSingleton<ItemManager>
         this.Pop(_itemsData.ItemPoolDictionary[itemType], position, Quaternion.identity);
     }
     
-    public void UseItem(int itemIndex)
+    public void HandleUseItem(int itemIndex)
     {
         _itemEffectDictionary[currentItem[itemIndex]]?.Invoke();
         _uiManager.UpdateItemIcon(itemIndex, ItemType.None);

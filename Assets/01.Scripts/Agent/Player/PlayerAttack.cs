@@ -67,8 +67,6 @@ public class PlayerAttack : AgentAttack
     private void FixedUpdate()
     {
         Physics.OverlapSphereNonAlloc(transform.position, _speed * _bulletLifeTime, _aroundEnemyCols, _whatIsEnemy);
-        
-        _uiManager.UpdateEnemyAim(_aroundEnemyCols);
     }
 
     private void HandleAttack(bool value)

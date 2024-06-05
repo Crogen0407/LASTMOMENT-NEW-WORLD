@@ -71,6 +71,33 @@ public partial class @Controls: IInputActionCollection2, IDisposable
                     ""processors"": """",
                     ""interactions"": """",
                     ""initialStateCheck"": true
+                },
+                {
+                    ""name"": ""UseItemOne"",
+                    ""type"": ""Button"",
+                    ""id"": ""a0983f82-5ef3-44a1-9fc3-32ff0eaa160c"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": true
+                },
+                {
+                    ""name"": ""UseItemTwo"",
+                    ""type"": ""Button"",
+                    ""id"": ""fc1e635f-b8a2-4ec8-828d-a2faf2e5c777"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": true
+                },
+                {
+                    ""name"": ""UseItemThree"",
+                    ""type"": ""Button"",
+                    ""id"": ""ee8e47ba-7496-4e32-b770-b173c7ce9858"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": true
                 }
             ],
             ""bindings"": [
@@ -126,6 +153,39 @@ public partial class @Controls: IInputActionCollection2, IDisposable
                     ""processors"": """",
                     ""groups"": """",
                     ""action"": ""MoveDirection"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""e4b33f02-1b4f-429c-8aac-ea11057f65e3"",
+                    ""path"": ""<Keyboard>/1"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""UseItemOne"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""6b2a711a-b66b-4752-80fa-7ec92e54e19a"",
+                    ""path"": ""<Keyboard>/2"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""UseItemTwo"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""fe40d898-307d-4e58-8e1a-ed8ac95ad341"",
+                    ""path"": ""<Keyboard>/3"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""UseItemThree"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
                 }
@@ -189,6 +249,9 @@ public partial class @Controls: IInputActionCollection2, IDisposable
         m_Player_MoveDirection = m_Player.FindAction("MoveDirection", throwIfNotFound: true);
         m_Player_Interaction = m_Player.FindAction("Interaction", throwIfNotFound: true);
         m_Player_ResetDirection = m_Player.FindAction("ResetDirection", throwIfNotFound: true);
+        m_Player_UseItemOne = m_Player.FindAction("UseItemOne", throwIfNotFound: true);
+        m_Player_UseItemTwo = m_Player.FindAction("UseItemTwo", throwIfNotFound: true);
+        m_Player_UseItemThree = m_Player.FindAction("UseItemThree", throwIfNotFound: true);
         // UI
         m_UI = asset.FindActionMap("UI", throwIfNotFound: true);
         m_UI_MouseClick = m_UI.FindAction("MouseClick", throwIfNotFound: true);
@@ -259,6 +322,9 @@ public partial class @Controls: IInputActionCollection2, IDisposable
     private readonly InputAction m_Player_MoveDirection;
     private readonly InputAction m_Player_Interaction;
     private readonly InputAction m_Player_ResetDirection;
+    private readonly InputAction m_Player_UseItemOne;
+    private readonly InputAction m_Player_UseItemTwo;
+    private readonly InputAction m_Player_UseItemThree;
     public struct PlayerActions
     {
         private @Controls m_Wrapper;
@@ -268,6 +334,9 @@ public partial class @Controls: IInputActionCollection2, IDisposable
         public InputAction @MoveDirection => m_Wrapper.m_Player_MoveDirection;
         public InputAction @Interaction => m_Wrapper.m_Player_Interaction;
         public InputAction @ResetDirection => m_Wrapper.m_Player_ResetDirection;
+        public InputAction @UseItemOne => m_Wrapper.m_Player_UseItemOne;
+        public InputAction @UseItemTwo => m_Wrapper.m_Player_UseItemTwo;
+        public InputAction @UseItemThree => m_Wrapper.m_Player_UseItemThree;
         public InputActionMap Get() { return m_Wrapper.m_Player; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
@@ -292,6 +361,15 @@ public partial class @Controls: IInputActionCollection2, IDisposable
             @ResetDirection.started += instance.OnResetDirection;
             @ResetDirection.performed += instance.OnResetDirection;
             @ResetDirection.canceled += instance.OnResetDirection;
+            @UseItemOne.started += instance.OnUseItemOne;
+            @UseItemOne.performed += instance.OnUseItemOne;
+            @UseItemOne.canceled += instance.OnUseItemOne;
+            @UseItemTwo.started += instance.OnUseItemTwo;
+            @UseItemTwo.performed += instance.OnUseItemTwo;
+            @UseItemTwo.canceled += instance.OnUseItemTwo;
+            @UseItemThree.started += instance.OnUseItemThree;
+            @UseItemThree.performed += instance.OnUseItemThree;
+            @UseItemThree.canceled += instance.OnUseItemThree;
         }
 
         private void UnregisterCallbacks(IPlayerActions instance)
@@ -311,6 +389,15 @@ public partial class @Controls: IInputActionCollection2, IDisposable
             @ResetDirection.started -= instance.OnResetDirection;
             @ResetDirection.performed -= instance.OnResetDirection;
             @ResetDirection.canceled -= instance.OnResetDirection;
+            @UseItemOne.started -= instance.OnUseItemOne;
+            @UseItemOne.performed -= instance.OnUseItemOne;
+            @UseItemOne.canceled -= instance.OnUseItemOne;
+            @UseItemTwo.started -= instance.OnUseItemTwo;
+            @UseItemTwo.performed -= instance.OnUseItemTwo;
+            @UseItemTwo.canceled -= instance.OnUseItemTwo;
+            @UseItemThree.started -= instance.OnUseItemThree;
+            @UseItemThree.performed -= instance.OnUseItemThree;
+            @UseItemThree.canceled -= instance.OnUseItemThree;
         }
 
         public void RemoveCallbacks(IPlayerActions instance)
@@ -389,6 +476,9 @@ public partial class @Controls: IInputActionCollection2, IDisposable
         void OnMoveDirection(InputAction.CallbackContext context);
         void OnInteraction(InputAction.CallbackContext context);
         void OnResetDirection(InputAction.CallbackContext context);
+        void OnUseItemOne(InputAction.CallbackContext context);
+        void OnUseItemTwo(InputAction.CallbackContext context);
+        void OnUseItemThree(InputAction.CallbackContext context);
     }
     public interface IUIActions
     {

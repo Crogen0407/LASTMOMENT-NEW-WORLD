@@ -178,9 +178,9 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 64
   recognitionRange: 100
-  currentTarget: {fileID: 0}
-  preferredDirection: 0
   _explosionRadius: 0
+  _droItemType: 1
+  _itemDropPercent: 50
   bulletType: 2
   attackDelay: 0.1
   attackMaxCount: 10
@@ -197,8 +197,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2e6db4792aae45288d2bce01f21841bc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  <DefaultSpeed>k__BackingField: 30
-  <MaxSpeed>k__BackingField: 100
+  <DefaultSpeed>k__BackingField: 0
+  <MaxSpeed>k__BackingField: 0
   <CurSpeed>k__BackingField: 0
   busterVFXMaterials:
   - {fileID: 6948880411185124411}
@@ -314,9 +314,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _hp: 10
   maxHp: 10
-  _healEffectType: 4
-  _damagedEffectType: 4
-  _dieEffectType: 5
+  _healEffectType: 3
+  _damagedEffectType: 3
+  _dieEffectType: 4
 --- !u!1001 &284216726325000076
 PrefabInstance:
   m_ObjectHideFlags: 0

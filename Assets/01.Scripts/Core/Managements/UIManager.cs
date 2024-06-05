@@ -16,7 +16,7 @@ public class UIManager : MonoSingleton<UIManager>
     [Header("Item")] 
     [SerializeField] private Image[] _itemIcons;
     [SerializeField] private SerializedDictionary<ItemType, Sprite> _itemSpriteDictionary;
-    
+    private Sprite _emptyImage;
     
     [Header("Canvas")]
     [SerializeField] private Canvas gameCanvas;
@@ -54,6 +54,8 @@ public class UIManager : MonoSingleton<UIManager>
         imageQualityInput.onClickEvent.AddListener(HandleImageQuality);
         fpsInput.onClickEvent.AddListener(HandleFPS);
         windowModeInput.onValueChanged.AddListener(HandleWindowMode);
+
+        _emptyImage = _itemIcons[0].sprite;
     }
 
     public void Init()
@@ -63,11 +65,6 @@ public class UIManager : MonoSingleton<UIManager>
         }
     }
 
-    public void UpdateEnemyAim(Collider[] colliders)
-    {
-        
-    }
-    
     public Vector2 ScreenConvertToCanvasSpace(Vector2 position)
     {
         Vector2 canvasRectSize = ((RectTransform)gameCanvas.transform).rect.size;
@@ -88,12 +85,10 @@ public class UIManager : MonoSingleton<UIManager>
     {
         if (itemType == ItemType.None)
         {
-            _itemIcons[iconIndex].color = Color.clear;
-            _itemIcons[iconIndex].sprite = null;
+            _itemIcons[iconIndex].sprite = _emptyImage;
         }
         else
         {
-            _itemIcons[iconIndex].color = Color.white;
             _itemIcons[iconIndex].sprite = _itemSpriteDictionary[itemType];
         }
 
