@@ -1,13 +1,13 @@
 ﻿using AYellowpaper.SerializedCollections;
-using Crogen.ObjectPooling;
 using UnityEngine;
+using UnityEngine.Events;
 
 public class ItemManager : MonoSingleton<ItemManager>
 {
     private UIManager _uiManager;
     public ItemType[] currentItem = new ItemType[3];
     [SerializeField] private LayerMask _whatIsItem;
-    [SerializeField] private SerializedDictionary<ItemType, PoolType> itemEffectDictionary;
+    [SerializeField] private SerializedDictionary<ItemType, UnityEvent> itemEffectDictionary;
     
     private void Awake()
     {
@@ -20,15 +20,16 @@ public class ItemManager : MonoSingleton<ItemManager>
         {
             if (currentItem[i] == ItemType.None)
             {
-                currentItem[i] = itemType;
+                currentItem[i] = itemType;  
                 _uiManager.UpdateItemIcon(i, itemType);
             }
         }
     }
 
+    
     public void UseItem(int itemIndex)
     {
-        this.Pop(itemEffectDictionary[currentItem[itemIndex]]);
+        itemEffectDictionary[currentItem[itemIndex]]?.Invoke();
         _uiManager.UpdateItemIcon(itemIndex, ItemType.None);
     }
 }

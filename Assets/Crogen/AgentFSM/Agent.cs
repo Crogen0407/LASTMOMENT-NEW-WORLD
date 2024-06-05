@@ -62,7 +62,10 @@ namespace Crogen.AgentFSM
             callback?.Invoke();
         }
         #endregion
-        
-        public abstract void SetDead();
+
+        public virtual void SetDead()
+        {
+            isDead = true;
+        }
     }
 }

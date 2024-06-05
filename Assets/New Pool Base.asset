@@ -16,7 +16,11 @@ MonoBehaviour:
   - poolType: PlayerDefualtBullet
     monoPoolingObjectPrefab: {fileID: 4977553696331228377, guid: 37bd9fc89ed293449b612498503f0ca2,
       type: 3}
-    poolCount: 100
+    poolCount: 50
+  - poolType: PlayerPowerUpBullet
+    monoPoolingObjectPrefab: {fileID: 3205048830685406959, guid: 25c7aa9ad705fe143a4d71c1c8deb7d4,
+      type: 3}
+    poolCount: 50
   - poolType: EnemyDefualtBullet
     monoPoolingObjectPrefab: {fileID: 4977553696331228377, guid: 5480354ef62da194f9df5b06dc224645,
       type: 3}

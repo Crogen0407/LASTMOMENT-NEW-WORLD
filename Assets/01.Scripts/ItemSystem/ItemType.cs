@@ -4,5 +4,6 @@
     PowerUp,
     Barrier,
     FloatingBomb,
-    TemporaryObstacle
+    TemporaryObstacle,
+    HealPack
 }

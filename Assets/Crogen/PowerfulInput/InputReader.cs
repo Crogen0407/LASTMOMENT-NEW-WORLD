@@ -20,8 +20,7 @@ namespace Crogen.PowerfulInput
         public event Action EscEvent;
         
         //Attack
-        public event Action AttackStartEvent;
-        public event Action AttackEndEvent;
+        public event Action<bool> AttackEvent;
         
         public event Action MouseClickEvent; 
     
@@ -59,9 +58,9 @@ namespace Crogen.PowerfulInput
         public void OnAttack(InputAction.CallbackContext context)
         {
             if(context.started)
-                AttackStartEvent?.Invoke();
+                AttackEvent?.Invoke(true);
             if(context.canceled)
-                AttackEndEvent?.Invoke();
+                AttackEvent?.Invoke(false);
         }
 
         public void OnMoveDirection(InputAction.CallbackContext context)

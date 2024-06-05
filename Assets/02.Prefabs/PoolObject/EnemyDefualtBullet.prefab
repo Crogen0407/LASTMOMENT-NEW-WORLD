@@ -10,7 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 7237065042695456507}
   - component: {fileID: 208611313199610709}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: Trail
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -157,7 +157,7 @@ GameObject:
   - component: {fileID: 5982012815977736452}
   - component: {fileID: 6841896602221680444}
   - component: {fileID: 4977553696331228377}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: EnemyDefualtBullet
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -242,9 +242,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e02e87006d07f3b4690ba2556db04034, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _lifeTime: 5
-  _speed: 250
-  _whatIsSelf:
+  lifeTime: 2
+  speed: 80
+  _whatIsOrigin:
     serializedVersion: 2
     m_Bits: 128
-  _poolType: 1
+  _poolType: 2

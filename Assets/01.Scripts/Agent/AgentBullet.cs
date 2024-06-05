@@ -8,9 +8,10 @@ using UnityEngine.Serialization;
 
 public class AgentBullet : MonoPoolingObject
 {
+    [SerializeField] private int _damaged = 1;
     [HideInInspector] public float lifeTime = 2f;
     [HideInInspector] public float speed = 80f;
-    [SerializeField] protected LayerMask _whatIsSelf;
+    [SerializeField] protected LayerMask _whatIsOrigin;
     [SerializeField] protected PoolType _poolType;
     
     public override void OnPop()
@@ -27,11 +28,11 @@ public class AgentBullet : MonoPoolingObject
     
     private void FixedUpdate()
     {
-        if (Physics.OverlapBoxNonAlloc(transform.position, transform.localScale + Vector3.one*0.1f, _hitTarget, transform.rotation, ~_whatIsSelf) > 0)
+        if (Physics.OverlapBoxNonAlloc(transform.position, transform.localScale + Vector3.one*0.1f, _hitTarget, transform.rotation, ~_whatIsOrigin) > 0)
         {
             if (_hitTarget[0].TryGetComponent(out HealthSystem healthSystem))
             {
-                --healthSystem.Hp;
+                healthSystem.Hp -= _damaged;
             }
         }
     }

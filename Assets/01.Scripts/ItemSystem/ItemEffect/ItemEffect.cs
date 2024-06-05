@@ -1,6 +1,6 @@
 ﻿using UnityEngine;
 
-public class ItemEffect : MonoBehaviour
+public abstract class ItemEffect
 {
     public void EnableEffect()
     {

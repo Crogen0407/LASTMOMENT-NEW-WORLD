@@ -1,5 +1,4 @@
-﻿using System;
-using Crogen.HealthSystem;
+﻿using Crogen.HealthSystem;
 using Crogen.ObjectPooling;
 using UnityEngine;
 using UnityEngine.UI;
@@ -18,10 +17,14 @@ public class PlayerHealthSystem : HealthSystem
         _playerBase = GetComponent<Player>();
     }
 
-    private void OnCollisionEnter2D(Collision2D other)
+    private void OnCollisionEnter(Collision other)
     {
+        if (other.transform.CompareTag("Enemy") || other.transform.CompareTag("Untagged"))
+        {
+            Hp = 0;
+        }
     }
-
+    
     protected override void OnHpChange()
     {
         _hpSlider.value = (float)Hp / maxHp;

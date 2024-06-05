@@ -8,6 +8,29 @@ public class PlayerAttack : AgentAttack
     
     private Collider[] _aroundEnemyCols;
     private bool _isAttack = false;
+
+    [Header("PowerUp")]
+    [SerializeField] private PoolType _powerUpBullet;
+    [SerializeField] private GameObject _powerUpSkinnedEffect;
+    private PoolType _defaultBulletType;
+    private bool _powerUp;
+    public bool PowerUp
+    {
+        get=>_powerUp;
+        set
+        {
+            if (value == true)
+            {
+                _bulletType = _powerUpBullet;
+            }
+            else
+            {
+                _bulletType = _defaultBulletType;
+            }
+            _powerUpSkinnedEffect.SetActive(value);
+            _powerUp = value;
+        }
+    }
     
     protected override void Awake()
     {
@@ -16,26 +39,30 @@ public class PlayerAttack : AgentAttack
         _cameraManager = CameraManager.Instance;
         
         _aroundEnemyCols = new Collider[20];
-        _gameManager.InputReader.AttackStartEvent += HandleStartAttack;
-        _gameManager.InputReader.AttackEndEvent += HandleEndAttack;
+        _gameManager.InputReader.AttackEvent += HandleAttack;
+        _defaultBulletType = _bulletType;
     }
 
     private void OnDestroy()
     {
-        _gameManager.InputReader.AttackStartEvent -= HandleStartAttack;
-        _gameManager.InputReader.AttackEndEvent -= HandleEndAttack;
+        _gameManager.InputReader.AttackEvent -= HandleAttack;
     }
 
     protected override void Update()
     {
         base.Update();
+        if (Input.GetKeyDown(KeyCode.R))
+        {
+            PowerUp = !PowerUp;
+            Debug.Log("PowerUp : " + PowerUp);
+        }
+        
         if (_isAttack)
         {
             OnAttack();
             _cameraManager.SetPlayerCameraShack(0.3f, 0.5f, 100);
         }
     }
-
     
     private void FixedUpdate()
     {
@@ -44,14 +71,9 @@ public class PlayerAttack : AgentAttack
         _uiManager.UpdateEnemyAim(_aroundEnemyCols);
     }
 
-    private void HandleStartAttack()
+    private void HandleAttack(bool value)
     {
-        _isAttack = true;
-    }
-
-    private void HandleEndAttack()
-    {
-        _isAttack = false;
+        _isAttack = value;
     }
 
     private void OnDrawGizmos()

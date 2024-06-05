@@ -17,11 +17,11 @@ public class EnemyMovement : AgentMovement
         _pathFollower = GetComponent<PathFollower>();
     }
 
-    public override void HandleMoveDirection(Vector3 Delta)
+    public override void HandleMoveDirection(Vector3 delta)
     {
         if (_isRotating == false)
         {
-            Quaternion rot = Quaternion.LookRotation(Delta);
+            Quaternion rot = Quaternion.LookRotation(delta);
             transform.DORotateQuaternion(rot, rotateDelay).OnStart(() => _isRotating = true).OnComplete(() => _isRotating = false);
         }    
     }

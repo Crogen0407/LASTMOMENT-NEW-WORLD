@@ -4,6 +4,6 @@
     {
         Idle,
         Run, 
-        Dead
+        //Dead
     }
 }
