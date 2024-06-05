@@ -7,7 +7,7 @@ namespace Crogen.HealthSystem
         [Header("Hp Option")]
         [SerializeField] private float _hp = 100.0f;
         public float maxHp = 100.0f;
-
+        public bool isImpassible; 
         protected virtual void Awake()
         {
             _hp = maxHp;
@@ -28,8 +28,11 @@ namespace Crogen.HealthSystem
                     {
                         OnHpDown();
                     }
-            
-                    _hp = value;
+
+                    if (!isImpassible || _hp <= value)
+                    {
+                        _hp = value;
+                    }
                     _hp = Mathf.Clamp(_hp, 0, maxHp);
                     
                     if (_hp <= 0.1f)

@@ -34,6 +34,8 @@ public class AgentBullet : MonoPoolingObject
             {
                 healthSystem.Hp -= _damaged;
             }
+            StopAllCoroutines();
+            Push(_poolType);
         }
     }
 

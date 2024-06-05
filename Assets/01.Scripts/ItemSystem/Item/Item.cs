@@ -20,7 +20,6 @@ public abstract class Item : MonoPoolingObject
         if (_playerCollider[0] != null)
         {
             _itemManager.PushInItemArray(_itemType);
-            Debug.Log("아이템 먹음");
             Destroy(gameObject);
         }
     }

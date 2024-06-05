@@ -38,7 +38,7 @@ Material:
         m_Offset: {x: 0, y: 0}
     m_Ints: []
     m_Floats:
-    - _Alpha: 0.233
+    - _Alpha: 0.134
     - _LineScale: 166.72
     - _QueueControl: 0
     - _QueueOffset: 0
@@ -47,7 +47,7 @@ Material:
     - _Speed: 14.39
     - _Start: 2.06
     m_Colors:
-    - _Color: {r: 0, g: 4.3301234, b: 14.754423, a: 1}
+    - _Color: {r: 0, g: 2.1650617, b: 7.3772116, a: 1}
   m_BuildTextureStacks: []
 --- !u!114 &1460617187931394458
 MonoBehaviour:

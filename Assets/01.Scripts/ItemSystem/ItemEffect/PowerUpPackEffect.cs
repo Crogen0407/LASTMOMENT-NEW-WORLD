@@ -14,8 +14,8 @@ public class PowerUpPackEffect : ItemEffect
 
     private IEnumerator CoroutinePowerUp()
     {
-        _player.PlayerAttack.PowerUp = true;
+        _player.PowerUp = true;
         yield return new WaitForSeconds(_duration);
-        _player.PlayerAttack.PowerUp = false;
+        _player.PowerUp = false;
     }
 }

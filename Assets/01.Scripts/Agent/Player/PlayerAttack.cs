@@ -9,44 +9,21 @@ public class PlayerAttack : AgentAttack
     private Collider[] _aroundEnemyCols;
     private bool _isAttack = false;
 
-    [Header("PowerUp")]
     [SerializeField] private PoolType _powerUpBullet;
-    [SerializeField] private GameObject _powerUpSkinnedEffect;
     private PoolType _defaultBulletType;
-    
-    private bool _powerUp;
-    public bool PowerUp
-    {
-        get=>_powerUp;
-        set
-        {
-            if (value == true)
-            {
-                _bulletType = _powerUpBullet;
-            }
-            else
-            {
-                _bulletType = _defaultBulletType;
-            }
-            _powerUpSkinnedEffect.SetActive(value);
-            _powerUp = value;
-        }
-    }
 
-    [Header("Barrier")] 
-    [SerializeField] private GameObject _barrierEffect;
-    
-    private bool _barrier;
-    public bool Barrier
+
+    public void ChangeBulletEffect(bool isPowerUp)
     {
-        get => _barrier;
-        set
+        if (isPowerUp)
         {
-            _barrier = value;
-            _barrierEffect.SetActive(_barrier);
+            _bulletType = _powerUpBullet;
+        }
+        else
+        {
+            _bulletType = _defaultBulletType;
         }
     }
-    
     
     protected override void Awake()
     {
@@ -67,11 +44,6 @@ public class PlayerAttack : AgentAttack
     protected override void Update()
     {
         base.Update();
-        if (Input.GetKeyDown(KeyCode.R))
-        {
-            PowerUp = !PowerUp;
-            Debug.Log("PowerUp : " + PowerUp);
-        }
         
         if (_isAttack)
         {
