@@ -19,9 +19,9 @@ public class UIManager : MonoSingleton<UIManager>
     private Sprite _emptyImage;
     
     [Header("Canvas")]
-    [SerializeField] private Canvas gameCanvas;
-    [SerializeField] private Canvas settingCanvas;
-    [SerializeField] private Canvas pauseCanvas;
+    public Canvas gameCanvas;
+    public Canvas settingCanvas;
+    public Canvas pauseCanvas;
     
     [Header("SettingUI")]
     [SerializeField] private ArrowNumberInput xSensitivityInput;

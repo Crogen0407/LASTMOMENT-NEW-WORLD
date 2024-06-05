@@ -1,3 +1,5 @@
+using System;
+using System.Collections;
 using Crogen.JsamJson;
 using Crogen.PowerfulInput;
 using UnityEngine;
@@ -15,6 +17,14 @@ public class GameManager : MonoSingleton<GameManager>
     {
         InputReader.MouseClickEvent += UIManager.Instance.Init;
         InputReader.EscEvent += UIManager.Instance.OpenPauseWindow;
+        ScreenFade.Instance.Fade(true, 1f);
+        
+        InputReader.DisablePlayerActions();
+    }
+
+    private void Start()
+    {
+        StartCoroutine(GameStart());
     }
 
     private void OnDestroy()
@@ -32,15 +42,6 @@ public class GameManager : MonoSingleton<GameManager>
         JsamJson.Save<GameData>(gameData, false);
     }
     
-    //Debug    
-    private void Update()
-    {
-        if (Input.GetKeyDown(KeyCode.I))
-        {
-            TalkContent.Instance.OnTalk("System", "누군가 말했다.");
-        }
-    }
-
     #region SceneMangement
 
     public void GotoLobbyScene()
@@ -49,5 +50,13 @@ public class GameManager : MonoSingleton<GameManager>
     }
 
     #endregion
-    
+
+    private IEnumerator GameStart()
+    {
+        InputReader.DisablePlayerActions();
+        Player.Movement.HandleSpeedChange(true);
+        yield return new WaitForSeconds(5);
+        InputReader.EnablePlayerActions();
+        Player.Movement.HandleSpeedChange(false);
+    }
 }
