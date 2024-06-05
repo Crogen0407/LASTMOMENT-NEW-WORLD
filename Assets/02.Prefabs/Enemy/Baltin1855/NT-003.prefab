@@ -179,8 +179,8 @@ MonoBehaviour:
     m_Bits: 64
   recognitionRange: 100
   _explosionRadius: 0
-  _droItemType: 1
-  _itemDropPercent: 50
+  _droItemType: 5
+  _itemDropPercent: 100
   bulletType: 2
   attackDelay: 0.1
   attackMaxCount: 10
@@ -314,7 +314,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _hp: 10
   maxHp: 10
-  _healEffectType: 3
+  _healEffectType: 11
   _damagedEffectType: 3
   _dieEffectType: 4
 --- !u!1001 &284216726325000076

@@ -1,5 +1,6 @@
 using Cinemachine;
 using Crogen.AgentFSM;
+using Crogen.HealthSystem;
 using UnityEngine;
 
 public class Player : Agent<AgentStateEnum>

@@ -22,7 +22,7 @@ public class EnemyHealthSystem : HealthSystem
 
     protected override void OnHpUp()
     {
-        this.Pop(_healEffectType, transform.position, Quaternion.identity);
+        this.Pop(_healEffectType, transform);
     }
 
     protected override void OnHpDown()

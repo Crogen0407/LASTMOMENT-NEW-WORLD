@@ -18,7 +18,6 @@ namespace Crogen.HealthSystem
             get => _hp;
             set
             {
-                OnHpChange();
                 if (gameObject.activeSelf == true)
                 {
                     if(_hp < value)
@@ -31,12 +30,14 @@ namespace Crogen.HealthSystem
                     }
             
                     _hp = value;
+                    _hp = Mathf.Clamp(_hp, 0, maxHp);
                     
                     if (_hp <= 0.1f)
                     {
                         OnDie();
                     }                
                 }
+                OnHpChange();
             }
         }
 

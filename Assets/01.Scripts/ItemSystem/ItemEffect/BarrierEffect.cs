@@ -1,6 +1,4 @@
-﻿using UnityEngine;
-
-public class BarrierEffect : ItemEffect
+﻿public class BarrierEffect : ItemEffect
 {
     public override void UseItem()
     {

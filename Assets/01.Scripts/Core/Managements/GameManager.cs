@@ -9,6 +9,7 @@ public class GameManager : MonoSingleton<GameManager>
     public int currentPreamble=0;
     
     [field:SerializeField] public InputReader InputReader { get; private set; }
+    [field:SerializeField] public Player Player { get; private set; }
     
     private void Awake()
     {

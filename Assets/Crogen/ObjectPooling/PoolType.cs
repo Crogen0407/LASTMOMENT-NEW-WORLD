@@ -1,5 +1,5 @@
 
 public enum PoolType
 {
-    PlayerDefualtBullet, PlayerPowerUpBullet, EnemyDefualtBullet, vfx_PlayerDefualtBulletExplosion, vfx_EnergyExplosion, vfx_TinyExplosion, item_Barrier, item_FloatingBomb, item_HealPack, item_PowerUpPack, item_TemporaryObstacle, 
+    PlayerDefualtBullet, PlayerPowerUpBullet, EnemyDefualtBullet, vfx_PlayerDefualtBulletExplosion, vfx_EnergyExplosion, vfx_TinyExplosion, item_Barrier, item_FloatingBomb, item_HealPack, item_PowerUpPack, item_TemporaryObstacle, vfx_HealingEffect, 
 }  

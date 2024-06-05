@@ -13,6 +13,7 @@ public class PlayerAttack : AgentAttack
     [SerializeField] private PoolType _powerUpBullet;
     [SerializeField] private GameObject _powerUpSkinnedEffect;
     private PoolType _defaultBulletType;
+    
     private bool _powerUp;
     public bool PowerUp
     {
@@ -31,6 +32,21 @@ public class PlayerAttack : AgentAttack
             _powerUp = value;
         }
     }
+
+    [Header("Barrier")] 
+    [SerializeField] private GameObject _barrierEffect;
+    
+    private bool _barrier;
+    public bool Barrier
+    {
+        get => _barrier;
+        set
+        {
+            _barrier = value;
+            _barrierEffect.SetActive(_barrier);
+        }
+    }
+    
     
     protected override void Awake()
     {

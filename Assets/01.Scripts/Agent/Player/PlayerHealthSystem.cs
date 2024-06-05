@@ -21,18 +21,18 @@ public class PlayerHealthSystem : HealthSystem
     {
         if (other.transform.CompareTag("Enemy") || other.transform.CompareTag("Untagged"))
         {
-            Hp = 0;
+            Hp -= 100;
         }
     }
     
     protected override void OnHpChange()
     {
-        _hpSlider.value = (float)Hp / maxHp;
+        _hpSlider.value = Hp / maxHp;
     }
 
     protected override void OnHpUp()
     {
-        this.Pop(_healEffectType, transform.position, Quaternion.identity);
+        this.Pop(_healEffectType, transform);
     }
 
     protected override void OnHpDown()

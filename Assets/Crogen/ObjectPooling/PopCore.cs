@@ -89,6 +89,39 @@ namespace Crogen.ObjectPooling
                 throw;
             }
         }
+        
+        public static MonoPoolingObject Pop(this MonoBehaviour targetGameObject, PoolType type, Transform parent, bool useEvent = true)
+        {
+            try
+            {
+                if (PoolManager.poolDic[type.ToString()].Count == 0)
+                {
+                    for (int i = 0; i < _poolBase.pairs.Count; i++)
+                    {
+                        if (_poolBase.pairs[i].poolType.Equals(type.ToString()))
+                        {
+                            MonoPoolingObject poolObject = PoolManager.CreateObject(_poolBase.pairs[i], Vector3.zero, Quaternion.identity);
+                            poolObject.Push(type.ToString(), false);
+                            break;
+                        }
+                    }
+                }
+                MonoPoolingObject obj = PoolManager.poolDic[type.ToString()].Dequeue();
+                obj.gameObject.SetActive(true);
+                
+                obj.transform.SetParent(parent);
+                obj.transform.localPosition = Vector3.zero;
+                obj.transform.localRotation = Quaternion.identity;
+                if(useEvent)
+                    obj.OnPop();
+                return obj;
+            }
+            catch (KeyNotFoundException e)
+            {
+                Debug.LogError($"You should make 'PoolManager'!");
+                throw;
+            }
+        }
 
         public static MonoPoolingObject Pop(this MonoBehaviour targetGameObject, PoolType type, Vector3 vec, Quaternion rot,
             bool useParentSpacePosition = false, bool useParentSpaceRotation = false, bool useEvent = true)

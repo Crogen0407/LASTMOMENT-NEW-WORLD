@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using AYellowpaper.SerializedCollections;
 using Crogen.ObjectPooling;
 using Crogen.PowerfulInput;
 using UnityEngine;
@@ -13,16 +14,26 @@ public class ItemManager : MonoSingleton<ItemManager>
     
     public ItemType[] currentItem = new ItemType[3];
     [SerializeField] private LayerMask _whatIsItem;
-    private Dictionary<ItemType, ItemEffect> _itemEffectDictionary;
+    [SerializeField] private SerializedDictionary<ItemType, ItemEffect> _itemEffectDictionary;
     [SerializeField] private ItemsDataSO _itemsData;
     
     private void Awake()
     {
-        _itemEffectDictionary = new Dictionary<ItemType, ItemEffect>();
+        _itemEffectDictionary = new SerializedDictionary<ItemType, ItemEffect>();
 
-        foreach (ItemType value in Enum.GetValues(typeof(ItemType)))
+        foreach (ItemType itemType in Enum.GetValues(typeof(ItemType)))
         {
-            _itemEffectDictionary.Add(value, transform.Find(value.ToString()).GetComponent<ItemEffect>());
+            if(itemType==ItemType.None) continue;
+            string itemName = itemType.ToString();
+            try
+            {
+                ItemEffect skillComponent = GetComponent($"{itemName}Effect") as ItemEffect;
+                _itemEffectDictionary.Add(itemType, skillComponent);
+            }
+            catch (Exception e)
+            {
+                Debug.LogError($"{itemName} is missing! check item manager");
+            }
         }
         
         _uiManager = UIManager.Instance;
@@ -59,5 +70,6 @@ public class ItemManager : MonoSingleton<ItemManager>
     {
         _itemEffectDictionary[currentItem[itemIndex]].UseItem();
         _uiManager.UpdateItemIcon(itemIndex, ItemType.None);
+        currentItem[itemIndex] = ItemType.None;
     }
 }
