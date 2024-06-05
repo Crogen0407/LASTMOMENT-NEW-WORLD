@@ -5618,6 +5618,16 @@ PrefabInstance:
       propertyPath: m_Name
       value: NT-003_12
       objectReference: {fileID: 0}
+    - target: {fileID: 8452192315514888154, guid: b1433ea55e663f2469593f9f0c87fd51,
+        type: 3}
+      propertyPath: _droItemType
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8452192315514888154, guid: b1433ea55e663f2469593f9f0c87fd51,
+        type: 3}
+      propertyPath: _itemDropPercent
+      value: 50
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -7469,6 +7479,16 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: NT-003_10
+      objectReference: {fileID: 0}
+    - target: {fileID: 8452192315514888154, guid: b1433ea55e663f2469593f9f0c87fd51,
+        type: 3}
+      propertyPath: _droItemType
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8452192315514888154, guid: b1433ea55e663f2469593f9f0c87fd51,
+        type: 3}
+      propertyPath: _itemDropPercent
+      value: 50
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -24010,6 +24030,16 @@ PrefabInstance:
       propertyPath: m_Name
       value: NT-003_14
       objectReference: {fileID: 0}
+    - target: {fileID: 8452192315514888154, guid: b1433ea55e663f2469593f9f0c87fd51,
+        type: 3}
+      propertyPath: _droItemType
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8452192315514888154, guid: b1433ea55e663f2469593f9f0c87fd51,
+        type: 3}
+      propertyPath: _itemDropPercent
+      value: 50
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -38272,6 +38302,16 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: NT-003_11
+      objectReference: {fileID: 0}
+    - target: {fileID: 8452192315514888154, guid: b1433ea55e663f2469593f9f0c87fd51,
+        type: 3}
+      propertyPath: _droItemType
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8452192315514888154, guid: b1433ea55e663f2469593f9f0c87fd51,
+        type: 3}
+      propertyPath: _itemDropPercent
+      value: 50
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -54906,6 +54946,16 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: NT-003_8
+      objectReference: {fileID: 0}
+    - target: {fileID: 8452192315514888154, guid: b1433ea55e663f2469593f9f0c87fd51,
+        type: 3}
+      propertyPath: _droItemType
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8452192315514888154, guid: b1433ea55e663f2469593f9f0c87fd51,
+        type: 3}
+      propertyPath: _itemDropPercent
+      value: 50
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -124925,6 +124975,16 @@ PrefabInstance:
       propertyPath: m_Name
       value: NT-003_7
       objectReference: {fileID: 0}
+    - target: {fileID: 8452192315514888154, guid: b1433ea55e663f2469593f9f0c87fd51,
+        type: 3}
+      propertyPath: _droItemType
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8452192315514888154, guid: b1433ea55e663f2469593f9f0c87fd51,
+        type: 3}
+      propertyPath: _itemDropPercent
+      value: 50
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -125307,6 +125367,16 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: NT-003_13
+      objectReference: {fileID: 0}
+    - target: {fileID: 8452192315514888154, guid: b1433ea55e663f2469593f9f0c87fd51,
+        type: 3}
+      propertyPath: _droItemType
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8452192315514888154, guid: b1433ea55e663f2469593f9f0c87fd51,
+        type: 3}
+      propertyPath: _itemDropPercent
+      value: 50
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -143110,6 +143180,16 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: NT-003_9
+      objectReference: {fileID: 0}
+    - target: {fileID: 8452192315514888154, guid: b1433ea55e663f2469593f9f0c87fd51,
+        type: 3}
+      propertyPath: _droItemType
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8452192315514888154, guid: b1433ea55e663f2469593f9f0c87fd51,
+        type: 3}
+      propertyPath: _itemDropPercent
+      value: 50
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

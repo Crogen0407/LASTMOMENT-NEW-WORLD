@@ -1,26 +1,23 @@
 using Crogen.AgentFSM;
 using UnityEngine;
 
-public enum Direction
-{
-    right,
-    left,
-    up, 
-    down
-}
 
 public class Enemy : Agent<EnemyStateEnum>
 {
     //Managements
     private StageManager _stageManager;
     private CameraManager _cameraManager;
+    private ItemManager _itemManager;
     
     public LayerMask whatIsPlayer;
     public float recognitionRange = 50f;
-    public Transform currentTarget;
-    public Direction preferredDirection;
     [SerializeField] private float _explosionRadius;
 
+    //Item
+    [SerializeField] private ItemType _droItemType;
+    [Range(0, 100)] 
+    [SerializeField] private float _itemDropPercent; 
+        
     [Header("Attack")] 
     public PoolType bulletType;
     public float attackDelay = 0.1f;
@@ -33,6 +30,14 @@ public class Enemy : Agent<EnemyStateEnum>
         base.Awake();
         _stageManager = StageManager.Instance;
         _cameraManager = CameraManager.Instance;
+        _itemManager = ItemManager.Instance;
+
+        //Item Percent Init
+        float rangeValue = Random.Range(0, 100);
+        if (rangeValue > _itemDropPercent)
+        {
+            _droItemType = ItemType.None;
+        }
     }
 
     public override void SetDead()
@@ -40,6 +45,7 @@ public class Enemy : Agent<EnemyStateEnum>
         _stageManager.DeCountEnemy(this);
         if (Physics.SphereCast(transform.position, recognitionRange, Vector3.up, out RaycastHit hit, whatIsPlayer))
         {
+            _itemManager.DropItem(transform.position, _droItemType);
             _cameraManager.SetPlayerCameraShack(1, 10, 5);
         }
         Destroy(gameObject);
