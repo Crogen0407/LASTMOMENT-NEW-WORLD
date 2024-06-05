@@ -1,9 +1,8 @@
-﻿using UnityEngine;
+﻿using System;
+using UnityEngine;
 
-public abstract class ItemEffect
+[Serializable]
+public abstract class ItemEffect : MonoBehaviour
 {
-    public void EnableEffect()
-    {
-        
-    }
+    public abstract void UseItem();
 }

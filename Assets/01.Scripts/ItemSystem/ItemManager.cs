@@ -1,9 +1,8 @@
 ﻿using System;
-using AYellowpaper.SerializedCollections;
+using System.Collections.Generic;
 using Crogen.ObjectPooling;
 using Crogen.PowerfulInput;
 using UnityEngine;
-using UnityEngine.Events;
 
 public class ItemManager : MonoSingleton<ItemManager>
 {
@@ -14,11 +13,18 @@ public class ItemManager : MonoSingleton<ItemManager>
     
     public ItemType[] currentItem = new ItemType[3];
     [SerializeField] private LayerMask _whatIsItem;
-    [SerializeField] private SerializedDictionary<ItemType, UnityEvent> _itemEffectDictionary;
+    private Dictionary<ItemType, ItemEffect> _itemEffectDictionary;
     [SerializeField] private ItemsDataSO _itemsData;
     
     private void Awake()
     {
+        _itemEffectDictionary = new Dictionary<ItemType, ItemEffect>();
+
+        foreach (ItemType value in Enum.GetValues(typeof(ItemType)))
+        {
+            _itemEffectDictionary.Add(value, transform.Find(value.ToString()).GetComponent<ItemEffect>());
+        }
+        
         _uiManager = UIManager.Instance;
         _inputReader = GameManager.Instance.InputReader;
 
@@ -49,9 +55,9 @@ public class ItemManager : MonoSingleton<ItemManager>
         this.Pop(_itemsData.ItemPoolDictionary[itemType], position, Quaternion.identity);
     }
     
-    public void HandleUseItem(int itemIndex)
+    private void HandleUseItem(int itemIndex)
     {
-        _itemEffectDictionary[currentItem[itemIndex]]?.Invoke();
+        _itemEffectDictionary[currentItem[itemIndex]].UseItem();
         _uiManager.UpdateItemIcon(itemIndex, ItemType.None);
     }
 }
