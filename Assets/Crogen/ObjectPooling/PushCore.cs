@@ -31,7 +31,7 @@ namespace Crogen.ObjectPooling
             target.gameObject.SetActive(false);
             if(useEvent)
                 target.OnPush();
-            PoolManager.poolDic[type].Enqueue(target.GetComponent<MonoPoolingObject>());
+            PoolManager.poolDic[type].Enqueue(target);
         }
     }
 }

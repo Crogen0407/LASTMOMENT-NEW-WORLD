@@ -6,7 +6,6 @@ using UnityEngine.UI;
 public class PlayerHealthSystem : HealthSystem
 {
     [SerializeField] private PoolType _healEffectType;
-    [SerializeField] private PoolType _damagedEffectType;
     [SerializeField] private PoolType _dieEffectType;
     [SerializeField] private Slider _hpSlider;
     private Player _playerBase;
@@ -37,7 +36,6 @@ public class PlayerHealthSystem : HealthSystem
 
     protected override void OnHpDown()
     {
-        this.Pop(_damagedEffectType, transform.position, Quaternion.identity);
     }
 
     protected override void OnDie()

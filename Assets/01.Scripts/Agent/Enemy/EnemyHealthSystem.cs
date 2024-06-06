@@ -5,7 +5,6 @@ using UnityEngine;
 public class EnemyHealthSystem : HealthSystem
 {
     [SerializeField] private PoolType _healEffectType;
-    [SerializeField] private PoolType _damagedEffectType;
     [SerializeField] private PoolType _dieEffectType;
     private Enemy _enemyBase;
     
@@ -27,7 +26,6 @@ public class EnemyHealthSystem : HealthSystem
 
     protected override void OnHpDown()
     {
-        this.Pop(_damagedEffectType, transform.position, Quaternion.identity);
     }
 
     protected override void OnDie()

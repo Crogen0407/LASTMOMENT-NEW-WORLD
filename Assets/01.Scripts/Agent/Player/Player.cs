@@ -47,15 +47,23 @@ public class Player : Agent<AgentStateEnum>
         {
             _stamina = value;
             _stamina = Mathf.Clamp(_stamina, 0, maxStamina);
-            _staminaSlider.value = _stamina;
+            _staminaSlider.value = _stamina/maxStamina;
 
             if (_stamina < maxStamina * 0.5f)
             {
-                _staminaSlider.image.color = new Color(0.9f, 0.8f, 0.4f);
+                _staminaSlider.colors = new ColorBlock()
+                {
+                    normalColor = new Color(0.9f, 0.75f, 0.2f, 1),
+                    colorMultiplier = 1
+                };
             }
             else
             {
-                _staminaSlider.image.color = Color.white;
+                _staminaSlider.colors = new ColorBlock()
+                {
+                    normalColor = Color.white,
+                    colorMultiplier = 1
+                };
             }
         }
     }

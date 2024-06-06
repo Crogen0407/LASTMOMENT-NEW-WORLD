@@ -45,7 +45,6 @@ namespace Crogen.AgentFSM
 
         protected virtual void Update()
         {
-            Debug.Log(StateMachine.CurrentState);
             StateMachine.CurrentState?.UpdateState();
         }
 

@@ -33,10 +33,10 @@ MonoBehaviour:
     monoPoolingObjectPrefab: {fileID: 4642219987168914013, guid: 9bba9cf244c53c5439505dfc96fdd11c,
       type: 3}
     poolCount: 10
-  - poolType: vfx_TinyExplosion
+  - poolType: vfx_TinyExplosionBlue
     monoPoolingObjectPrefab: {fileID: 3205048830685406959, guid: 25c7aa9ad705fe143a4d71c1c8deb7d4,
       type: 3}
-    poolCount: 10
+    poolCount: 50
   - poolType: item_Barrier
     monoPoolingObjectPrefab: {fileID: 5221005022514246461, guid: 4da56953f60bf3c4a99b9b2bd867b573,
       type: 3}
@@ -61,3 +61,7 @@ MonoBehaviour:
     monoPoolingObjectPrefab: {fileID: 6691851426799311895, guid: a85e5aba7828d6f4baf780e070a7aa3a,
       type: 3}
     poolCount: 10
+  - poolType: vfx_TinyExplosionRed
+    monoPoolingObjectPrefab: {fileID: 3205048830685406959, guid: 3f2e5b66da72f284598bf9eb40c73299,
+      type: 3}
+    poolCount: 50

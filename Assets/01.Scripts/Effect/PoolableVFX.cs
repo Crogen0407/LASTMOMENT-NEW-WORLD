@@ -17,6 +17,7 @@ public class PoolableVFX : MonoPoolingObject
     public override void OnPush()
     {
         _dieEvent?.Invoke();
+        _currentTime = 0;
     }
 
     private IEnumerator CoroutineDie()
@@ -26,6 +27,6 @@ public class PoolableVFX : MonoPoolingObject
             _currentTime += Time.deltaTime;
             yield return null;
         }
-        this.Push(_poolType);
+        Push(_poolType);
     }
 }
