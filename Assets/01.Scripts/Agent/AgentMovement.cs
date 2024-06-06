@@ -59,12 +59,9 @@ public abstract class AgentMovement : MonoBehaviour
             _holdTime -= Time.deltaTime;
             CurSpeed = (int)(_holdTime * MaxSpeed) + DefaultSpeed;
             CurSpeed = Mathf.Clamp(CurSpeed, DefaultSpeed, MaxSpeed);
-            if (CurSpeed <= 0)
-            {
-                OnStopEvent?.Invoke();
-            }
             if (Mathf.Approximately(CurSpeed, DefaultSpeed))
             {
+                OnStopEvent?.Invoke();
                 foreach (var t in busterVFXMaterials)
                 {
                     t.material.SetFloat(_busterVFXShaderID, 1f);

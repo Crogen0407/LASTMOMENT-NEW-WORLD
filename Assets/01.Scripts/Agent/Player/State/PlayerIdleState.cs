@@ -1,4 +1,5 @@
 ﻿using Crogen.AgentFSM;
+using UnityEngine;
 
 public class PlayerIdleState : AgentState<AgentStateEnum>
 {
@@ -18,10 +19,6 @@ public class PlayerIdleState : AgentState<AgentStateEnum>
         
         //Components
         _playerMovement = _playerBase.Movement as PlayerMovement;
-        _playerMovement.OnStopEvent += () =>
-        {
-            _stateMachine.ChangeState(AgentStateEnum.Idle);
-        };
     }
 
     public override void Enter()
@@ -32,12 +29,19 @@ public class PlayerIdleState : AgentState<AgentStateEnum>
 
     public override void Exit()
     {
+        _gameManager.InputReader.StartRunEvent -= HandleStartMove;       
         base.Exit();
-        _gameManager.InputReader.StartRunEvent -= HandleStartMove;
     }
-    
+
+    public override void UpdateState()
+    {
+        base.UpdateState();
+        _playerBase.Stamina += Time.deltaTime;
+    }
+
     private void HandleStartMove()
     {
-        _stateMachine.ChangeState(AgentStateEnum.Run);
+        if(_playerBase.Stamina > _playerBase.maxStamina * 0.5f)
+            _stateMachine.ChangeState(AgentStateEnum.Run);
     }
 }

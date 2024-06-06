@@ -41,7 +41,15 @@ public class GameManager : MonoSingleton<GameManager>
         gameData.preamble += currentPreamble;
         JsamJson.Save<GameData>(gameData, false);
     }
-    
+
+    private void Update()
+    {
+        if (Input.GetKeyDown(KeyCode.I))
+        {
+            SceneLoadingManager.Instance.LoadingScene(SceneUtility.GetBuildIndexByScenePath(SceneNames.TitleScene));
+        }
+    }
+
     #region SceneMangement
 
     public void GotoLobbyScene()
@@ -55,7 +63,7 @@ public class GameManager : MonoSingleton<GameManager>
     {
         InputReader.DisablePlayerActions();
         Player.Movement.HandleSpeedChange(true);
-        yield return new WaitForSeconds(5);
+        yield return new WaitForSeconds(10);
         InputReader.EnablePlayerActions();
         Player.Movement.HandleSpeedChange(false);
     }

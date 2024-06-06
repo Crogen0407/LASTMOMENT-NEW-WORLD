@@ -1,5 +1,7 @@
-﻿using Crogen.AgentFSM;
+﻿using System.Collections;
+using Crogen.AgentFSM;
 using Crogen.PowerfulInput;
+using UnityEngine;
 
 public class PlayerRunState : AgentState<AgentStateEnum>
 {
@@ -9,7 +11,7 @@ public class PlayerRunState : AgentState<AgentStateEnum>
     private PlayerMovement _playerMovement;
     
     private Player _playerBase;
-    
+
     public PlayerRunState(Agent<AgentStateEnum> agentBase, StateMachine<AgentStateEnum> stateMachine, string animBoolName) : base(agentBase, stateMachine, animBoolName)
     {
         _playerBase = agentBase as Player;
@@ -34,5 +36,16 @@ public class PlayerRunState : AgentState<AgentStateEnum>
     {
         _inputReader.SpeedChangeEvent -= _playerMovement.HandleSpeedChange;
         base.Exit();
+    }
+
+    public override void UpdateState()
+    {
+        base.UpdateState();
+        _playerBase.Stamina -= Time.deltaTime;
+        if (_playerBase.Stamina < 0.1f)
+        {
+            _playerBase.Movement.HandleSpeedChange(false);
+            _stateMachine.ChangeState(AgentStateEnum.Idle);
+        }
     }
 }

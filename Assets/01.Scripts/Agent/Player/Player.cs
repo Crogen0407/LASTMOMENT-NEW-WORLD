@@ -1,6 +1,7 @@
 using Cinemachine;
 using Crogen.AgentFSM;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class Player : Agent<AgentStateEnum>
 {
@@ -36,7 +37,31 @@ public class Player : Agent<AgentStateEnum>
             HealthSystem.isImpassible = _barrier;
         }
     }
-    
+
+    [Header("Stamina")]
+    private float _stamina = 20;
+    public float Stamina
+    {
+        get => _stamina;
+        set
+        {
+            _stamina = value;
+            _stamina = Mathf.Clamp(_stamina, 0, maxStamina);
+            _staminaSlider.value = _stamina;
+
+            if (_stamina < maxStamina * 0.5f)
+            {
+                _staminaSlider.image.color = new Color(0.9f, 0.8f, 0.4f);
+            }
+            else
+            {
+                _staminaSlider.image.color = Color.white;
+            }
+        }
+    }
+    public float maxStamina = 20;
+    [SerializeField] private Slider _staminaSlider;
+
     protected override void Awake()
     {
         base.Awake();

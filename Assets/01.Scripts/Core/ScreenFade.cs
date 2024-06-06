@@ -8,9 +8,11 @@ using UnityEngine.UI;
 public class ScreenFade : MonoSingleton<ScreenFade>
 {
     private Image _image;
+    private Transform _canvasTrm;
     
     private void InitFadeImage()
     {
+        _canvasTrm = FindObjectOfType<Canvas>().transform;
         if (_image == null)
         {
             Image fadePanel = new GameObject().AddComponent<Image>();
@@ -19,7 +21,7 @@ public class ScreenFade : MonoSingleton<ScreenFade>
             Transform rectTrm = fadePanel.transform;
 
             rectTrm.localScale = Vector2.one * 100;
-            _image = Instantiate(fadePanel, UIManager.Instance.gameCanvas.transform);
+            _image = Instantiate(fadePanel, _canvasTrm);
         }
     }
     

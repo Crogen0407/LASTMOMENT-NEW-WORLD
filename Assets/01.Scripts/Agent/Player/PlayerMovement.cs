@@ -1,6 +1,7 @@
 ﻿using System;
 using DG.Tweening;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class PlayerMovement : AgentMovement
 {
@@ -39,6 +40,7 @@ public class PlayerMovement : AgentMovement
         _gameManager.InputReader.ResetDirectionEvent -= ResetDirection;    
     }
 
+    
     public override void HandleMoveDirection(Vector3 position)
     {
         Vector3 rotate = transform.rotation * new Vector3(
@@ -47,7 +49,7 @@ public class PlayerMovement : AgentMovement
             0);
         transform.Rotate(rotate*Time.deltaTime, Space.World);
     }
-
+    
     public override void HandleSpeedChange(bool value)
     {
         base.HandleSpeedChange(value);
