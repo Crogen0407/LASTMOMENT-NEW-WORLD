@@ -1,7 +1,5 @@
 ﻿using System;
-using System.Collections.Generic;
 using AYellowpaper.SerializedCollections;
-using Crogen.ObjectPooling;
 using Crogen.PowerfulInput;
 using UnityEngine;
 
@@ -14,6 +12,7 @@ public class ItemManager : MonoSingleton<ItemManager>
     
     public ItemType[] currentItem = new ItemType[3];
     [SerializeField] private LayerMask _whatIsItem;
+    [SerializeField] private SerializedDictionary<ItemType, Item> _itemPrefabDictionary;
     [SerializeField] private SerializedDictionary<ItemType, ItemEffect> _itemEffectDictionary;
     [SerializeField] private ItemsDataSO _itemsData;
     
@@ -47,7 +46,7 @@ public class ItemManager : MonoSingleton<ItemManager>
         _inputReader.UseItemEvent -= HandleUseItem;
     }
 
-    public void PushInItemArray(ItemType itemType)
+    public bool PushInItemArray(ItemType itemType)
     {
         for (int i = 0; i < currentItem.Length; ++i)
         {
@@ -55,15 +54,16 @@ public class ItemManager : MonoSingleton<ItemManager>
             {
                 currentItem[i] = itemType;  
                 _uiManager.UpdateItemIcon(i, itemType);
-                break;
+                return true;
             }
         }
+        return false;
     }
 
     public void DropItem(Vector3 position, ItemType itemType)
     {
         if (itemType == ItemType.None) return;
-        this.Pop(_itemsData.ItemPoolDictionary[itemType], position, Quaternion.identity);
+        Instantiate(_itemPrefabDictionary[itemType], position, Quaternion.identity);
     }
     
     private void HandleUseItem(int itemIndex)

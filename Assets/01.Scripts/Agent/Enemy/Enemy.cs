@@ -1,5 +1,6 @@
 using Crogen.AgentFSM;
 using UnityEngine;
+using UnityEngine.Events;
 
 
 public class Enemy : Agent<EnemyStateEnum>
@@ -25,6 +26,9 @@ public class Enemy : Agent<EnemyStateEnum>
     public float attackLoadingDelay = 5f;
     private bool isAttacking = false;
 
+    [Header("DieEvent")] 
+    [SerializeField] private UnityEvent _dieEvent; 
+
     protected override void Awake()
     {
         base.Awake();
@@ -42,9 +46,9 @@ public class Enemy : Agent<EnemyStateEnum>
 
     public override void SetDead()
     {
-        _stageManager.DeCountEnemy(this);
         if (Physics.SphereCast(transform.position, recognitionRange, Vector3.up, out RaycastHit hit, whatIsPlayer))
         {
+            _dieEvent.Invoke();
             _itemManager.DropItem(transform.position, _droItemType);
             _cameraManager.SetPlayerCameraShack(1, 10, 5);
         }

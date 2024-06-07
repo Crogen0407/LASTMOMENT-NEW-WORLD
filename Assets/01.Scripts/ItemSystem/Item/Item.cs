@@ -1,14 +1,15 @@
 using UnityEngine;
+using UnityEngine.Events;
 
-public abstract class Item : MonoPoolingObject
+public class Item : MonoBehaviour
 {
     [SerializeField] private LayerMask _whatIsPlayer;
     [SerializeField] private ItemType _itemType;
-
+    [SerializeField] private UnityEvent _disableEvent;
     private Collider[] _playerCollider;
     protected ItemManager _itemManager;
     
-    protected virtual void Awake()
+    protected void Awake()
     {
         _itemManager = ItemManager.Instance; 
         _playerCollider = new Collider[1];
@@ -19,8 +20,15 @@ public abstract class Item : MonoPoolingObject
         Physics.OverlapSphereNonAlloc(transform.position, 6f, _playerCollider, _whatIsPlayer);
         if (_playerCollider[0] != null)
         {
-            _itemManager.PushInItemArray(_itemType);
-            Destroy(gameObject);
+            if (_itemManager.PushInItemArray(_itemType))
+            {
+                _disableEvent?.Invoke();
+                Destroy(gameObject);
+            }
+            else
+            {
+                _playerCollider[0] = null;
+            }
         }
     }
     

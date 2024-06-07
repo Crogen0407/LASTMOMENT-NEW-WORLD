@@ -15,6 +15,9 @@ public class GameManager : MonoSingleton<GameManager>
     [field:SerializeField] public InputReader InputReader { get; private set; }
     [field:SerializeField] public Player Player { get; private set; }
 
+    [Header("Scene")] 
+    [SerializeField] private string _gameOverScene = SceneNames.LobbyScene;
+    
     [Header("PP")]
     [field:SerializeField] public Volume Volum;
     [HideInInspector] public ColorAdjustments ColorAdjustments;
@@ -75,7 +78,7 @@ public class GameManager : MonoSingleton<GameManager>
         seq.AppendInterval(1f).SetUpdate(true);
         seq.AppendCallback(() =>
         {
-            SceneLoadingManager.Instance.LoadingScene(SceneNames.LobbyScene);
+            SceneLoadingManager.Instance.LoadingScene(_gameOverScene);
         }).SetUpdate(true);
     }
 

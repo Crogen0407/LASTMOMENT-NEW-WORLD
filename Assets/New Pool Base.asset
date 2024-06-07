@@ -37,26 +37,6 @@ MonoBehaviour:
     monoPoolingObjectPrefab: {fileID: 3205048830685406959, guid: 25c7aa9ad705fe143a4d71c1c8deb7d4,
       type: 3}
     poolCount: 50
-  - poolType: item_Barrier
-    monoPoolingObjectPrefab: {fileID: 5221005022514246461, guid: 4da56953f60bf3c4a99b9b2bd867b573,
-      type: 3}
-    poolCount: 10
-  - poolType: item_FloatingBomb
-    monoPoolingObjectPrefab: {fileID: 5221005022514246461, guid: 78f69f105d7741a42b757147b19abf32,
-      type: 3}
-    poolCount: 10
-  - poolType: item_HealPack
-    monoPoolingObjectPrefab: {fileID: 5221005022514246461, guid: e4821a7d04ad6b84893ad4ec0daba8c6,
-      type: 3}
-    poolCount: 10
-  - poolType: item_PowerUpPack
-    monoPoolingObjectPrefab: {fileID: 5221005022514246461, guid: f373ffc14793514499ccb78122656b8b,
-      type: 3}
-    poolCount: 10
-  - poolType: item_TemporaryObstacle
-    monoPoolingObjectPrefab: {fileID: 5221005022514246461, guid: d3348f35e69a39c4a9bce48158a8bfcb,
-      type: 3}
-    poolCount: 10
   - poolType: vfx_HealingEffect
     monoPoolingObjectPrefab: {fileID: 6691851426799311895, guid: a85e5aba7828d6f4baf780e070a7aa3a,
       type: 3}

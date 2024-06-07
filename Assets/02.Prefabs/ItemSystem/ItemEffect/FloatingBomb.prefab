@@ -120,5 +120,5 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _damage: 80
-  _explosionEffect: 0
+  _explosionEffect: 4
   _range: 25

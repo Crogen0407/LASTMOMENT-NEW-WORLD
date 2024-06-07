@@ -103,4 +103,4 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 64
   _poolType: 0
-  _explosionEffect: 12
+  _explosionEffect: 7

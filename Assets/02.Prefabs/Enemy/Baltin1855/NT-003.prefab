@@ -185,6 +185,9 @@ MonoBehaviour:
   attackDelay: 0.1
   attackMaxCount: 10
   attackLoadingDelay: 3
+  _dieEvent:
+    m_PersistentCalls:
+      m_Calls: []
 --- !u!114 &7405499225701932381
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -197,8 +200,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2e6db4792aae45288d2bce01f21841bc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  <DefaultSpeed>k__BackingField: 0
-  <MaxSpeed>k__BackingField: 0
+  <DefaultSpeed>k__BackingField: 30
+  <MaxSpeed>k__BackingField: 50
   <CurSpeed>k__BackingField: 0
   busterVFXMaterials:
   - {fileID: 6948880411185124411}
@@ -314,8 +317,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _hp: 10
   maxHp: 10
-  _healEffectType: 11
-  _damagedEffectType: 3
+  isImpassible: 0
+  isDie: 0
+  _healEffectType: 6
   _dieEffectType: 4
 --- !u!1001 &284216726325000076
 PrefabInstance:
