@@ -53,6 +53,11 @@ namespace Crogen.AgentFSM
             StateMachine.CurrentState?.FixedUpdateState();
         }
 
+        private void OnDestroy()
+        {
+            StateMachine.CurrentState?.Exit();
+        }
+
         #region Delay Callback coroutine 
         public Coroutine StartDelayCallback(float delayTime, Action callback)
         {

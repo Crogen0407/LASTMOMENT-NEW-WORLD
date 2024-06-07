@@ -93,7 +93,7 @@ public class GameManager : MonoSingleton<GameManager>
                 {
                     TalkContent.Instance.OnTalk("System", "ST-091, 본부로 귀환합니다", 1, null, () =>
                     {
-                        ScreenFadeManager.Instance.Fade(false, 5, () =>
+                        ScreenFadeManager.Instance.Fade(false, 8, () =>
                         {
                             SceneLoadingManager.Instance.LoadingScene(SceneNames.LobbyScene);
                         });

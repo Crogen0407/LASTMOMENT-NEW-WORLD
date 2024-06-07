@@ -1,13 +1,15 @@
+using System;
 using System.Collections;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
-public class SceneLoadingManager : MonoDontDestroySingleton<SceneLoadingManager>
+public class SceneLoadingManager : MonoSingleton<SceneLoadingManager>
 {
     [SerializeField] private GameObject LoadingScreenPrefab;
-    [SerializeField] private GameObject LoadingScreen;
-    [SerializeField] private Image LoadingBarFill;
+    private GameObject LoadingScreen;
+    private Image LoadingBarFill;
+    
     private int _sceneIndex;
     private string _sceneName;
     public void LoadingScene(int sceneID)
@@ -38,16 +40,17 @@ public class SceneLoadingManager : MonoDontDestroySingleton<SceneLoadingManager>
             {
                 LoadingScreen = Instantiate(LoadingScreenPrefab);
                 LoadingBarFill = LoadingScreen.transform.Find("LoadingBar/Fill").GetComponent<Image>();
-                DontDestroyOnLoad(LoadingScreen);
             }
             else
             {
                 Destroy(LoadingScreen);
             }
-            SceneManager.sceneLoaded += SceneLoadComplete;
             StartCoroutine(CoroutineLoadingScene(sceneName));
+            SceneManager.sceneLoaded += SceneLoadComplete;
         });
     }
+
+
     IEnumerator CoroutineLoadingScene(int sceneID)
     {
         LoadingBarFill.fillAmount = 0f;
@@ -116,8 +119,8 @@ public class SceneLoadingManager : MonoDontDestroySingleton<SceneLoadingManager>
         {
             ScreenFadeManager.Instance.Fade(true, 1, () =>
             {
+                SceneManager.sceneLoaded -= SceneLoadComplete;
             });
-            SceneManager.sceneLoaded -= SceneLoadComplete;
         }
     }
 }

@@ -12,6 +12,7 @@ public class PoolManager : MonoBehaviour
     public void Awake()
     {
         Instance = this;
+        poolDic = new Dictionary<string, Queue<MonoPoolingObject>>();
         PopCore.Init(poolBase, this);
         PushCore.Init(this);
         

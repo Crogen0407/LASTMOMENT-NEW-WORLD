@@ -17,6 +17,26 @@ public class TalkContent : MonoSingleton<TalkContent>
         _canvasGroup.alpha = 0;
     }
 
+    public async void OnTalk(string text)
+    {
+        if (_isTalking) return;
+
+        string[] texts = text.Split('/'); 
+        
+        await Task.Delay((int)(1000));
+        _isTalking = true;
+        _canvasGroup.alpha = 1;
+        _nickNameText.text = texts[0];
+        _talkText.text = string.Empty;
+        for (int i = 0; i < texts[1].Length; ++i)
+        {
+            await Task.Delay((int)(100));
+            _talkText.text += texts[1][i];
+        }
+        _talkText.text = texts[1];
+        await Task.Delay(1000);
+        _canvasGroup.DOFade(0, 1).OnComplete(()=>_isTalking = false).SetUpdate(true);
+    }
     
     public async void OnTalk(string name, string talk)
     {

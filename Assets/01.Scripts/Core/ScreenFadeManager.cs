@@ -6,11 +6,10 @@ using UnityEngine.UI;
 public class ScreenFadeManager : MonoSingleton<ScreenFadeManager>
 {
     private Image _image;
-    private Transform _canvasTrm;
-    
+    [SerializeField] private Transform _canvasTrm;
+
     private void InitFadeImage()
     {
-        _canvasTrm = FindFirstObjectByType<Canvas>().transform;
         if (_image == null)
         {
             Image fadePanel = new GameObject().AddComponent<Image>();
@@ -24,30 +23,18 @@ public class ScreenFadeManager : MonoSingleton<ScreenFadeManager>
         _image.transform.localScale = Vector2.one * 100;
     }
 
-    public void Fade(bool fadeType, float duration)
-    {
-        InitFadeImage();
-        _image.gameObject.SetActive(true);
-        Color startColor = new Color(0, 0, 0, Convert.ToInt32(fadeType));
-        _image.color = startColor;
-
-        _image.DOFade(1-startColor.a, duration).SetEase(Ease.InSine).SetUpdate(true).OnComplete(() =>
-        {
-            FadeObjectDestroy(_image);
-        });
-    }
-        
-    public void Fade(bool fadeType, float duration, Action endEvent)
+    public void Fade(bool fadeType, float duration, Action endEvent = null, float startDelay = 0.5f)
     { 
         InitFadeImage();
         _image.gameObject.SetActive(true);
         Color startColor = new Color(0, 0, 0, Convert.ToInt32(fadeType));
         _image.color = startColor;
-
-        _image.DOFade(1-startColor.a, duration).SetEase(Ease.InSine).SetUpdate(true).OnComplete(() =>
+        Sequence seq = DOTween.Sequence().SetUpdate(true);
+        seq.AppendInterval(startDelay);
+        seq.Append(_image.DOFade(1-startColor.a, duration).SetEase(Ease.InSine).OnComplete(() =>
         {
             FadeObjectDestroy(_image, endEvent);
-        });
+        }));
     }
 
     private void FadeObjectDestroy(Image image, Action endEvent = null)

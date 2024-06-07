@@ -10,7 +10,7 @@ public class PlayerMovement : AgentMovement
     private UIManager _uiManager;
 
     //Components
-    private AgentEffectGenerator _agentEffectGenerator;
+    [SerializeField] private AgentEffectGenerator _agentEffectGenerator;
     
     
     [field:SerializeField] public float RotateSpeedX { get; set; }
