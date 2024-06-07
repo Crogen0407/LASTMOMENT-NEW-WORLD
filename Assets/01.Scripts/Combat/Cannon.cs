@@ -13,7 +13,6 @@ public class Cannon : MonoBehaviour
     [SerializeField] private Transform _target;
     [SerializeField] private float _targetFollowDelay = 5f;
 
-
     [Header("Flip")] 
     [SerializeField] private Vector3 _flipVec = Vector3.one;
 

@@ -1,15 +1,19 @@
 using System;
+using System.Collections;
 using Crogen.HealthSystem;
 using Crogen.ObjectPooling;
 using UnityEngine;
 
-public class FloatingBomb : MonoBehaviour
+public class FloatingBomb : MonoPoolingObject
 {
     [SerializeField] private float _damage = 80f;
     [SerializeField] private PoolType _explosionEffect;
     [SerializeField] private float _range = 25f;
     
-    private void OnCollisionEnter(Collision other)
+    //Components
+    private Collider _collider;
+
+    private void HandleExplosion()
     {
         Collider[] colliders = new Collider[20];
 
@@ -24,8 +28,36 @@ public class FloatingBomb : MonoBehaviour
                 healthSystem.Hp -= _damage;
             }
         }
+        Push(PoolType.FloatingBomb);
     }
 
+    private void Awake()
+    {
+        _collider = GetComponent<Collider>();
+    }
+
+    public override void OnPop()
+    {
+        StartCoroutine(CoroutineOnPop());
+    }
+
+    public override void OnPush()
+    {
+    }
+
+    private void OnCollisionEnter(Collision other)
+    {
+        HandleExplosion();
+    }
+
+    private IEnumerator CoroutineOnPop()
+    {
+        _collider.enabled = false;
+        yield return new WaitForSeconds(1);
+        _collider.enabled = true;
+        TalkContent.Instance.OnTalk("System", "지뢰 설치 완료");
+    }
+    
     private void OnDrawGizmos()
     {
         Gizmos.color = Color.red;

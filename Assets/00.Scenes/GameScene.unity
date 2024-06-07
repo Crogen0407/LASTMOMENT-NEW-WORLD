@@ -70891,6 +70891,7 @@ MonoBehaviour:
   _hp: 100
   maxHp: 100
   isImpassible: 0
+  isDie: 0
   _healEffectType: 11
   _dieEffectType: 4
   _hpSlider: {fileID: 1972236834}

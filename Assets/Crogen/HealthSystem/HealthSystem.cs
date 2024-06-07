@@ -7,7 +7,9 @@ namespace Crogen.HealthSystem
         [Header("Hp Option")]
         [SerializeField] private float _hp = 100.0f;
         public float maxHp = 100.0f;
-        public bool isImpassible; 
+        public bool isImpassible;
+        [HideInInspector] public bool isDie = false;
+        
         protected virtual void Awake()
         {
             _hp = maxHp;
@@ -18,6 +20,7 @@ namespace Crogen.HealthSystem
             get => _hp;
             set
             {
+                if (isDie) return;
                 if (gameObject.activeSelf == true)
                 {
                     if(_hp < value)
@@ -37,6 +40,7 @@ namespace Crogen.HealthSystem
                     
                     if (_hp <= 0.1f)
                     {
+                        isDie = true;
                         OnDie();
                     }                
                 }

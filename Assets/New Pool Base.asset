@@ -65,3 +65,7 @@ MonoBehaviour:
     monoPoolingObjectPrefab: {fileID: 3205048830685406959, guid: 3f2e5b66da72f284598bf9eb40c73299,
       type: 3}
     poolCount: 50
+  - poolType: FloatingBomb
+    monoPoolingObjectPrefab: {fileID: 3010619958707486615, guid: 3f359c1e631353b44b9b7b1f1587fd7f,
+      type: 3}
+    poolCount: 10

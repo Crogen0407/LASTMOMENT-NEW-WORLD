@@ -68,6 +68,7 @@ public class ItemManager : MonoSingleton<ItemManager>
     
     private void HandleUseItem(int itemIndex)
     {
+        if (currentItem[itemIndex] == ItemType.None) return;
         _itemEffectDictionary[currentItem[itemIndex]].UseItem();
         _uiManager.UpdateItemIcon(itemIndex, ItemType.None);
         currentItem[itemIndex] = ItemType.None;

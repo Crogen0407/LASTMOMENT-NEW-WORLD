@@ -35,7 +35,6 @@ public class AgentBullet : MonoPoolingObject
             {
                 healthSystem.Hp -= _damaged;
             }
-            Debug.Log("hit");
             StopAllCoroutines();
             transform.DOKill();
             this.Pop(_explosionEffect, transform.position, Quaternion.identity);
