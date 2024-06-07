@@ -115,7 +115,7 @@ public class GameManager : MonoSingleton<GameManager>
     {
         InputReader.DisablePlayerActions();
         Player.Movement.HandleSpeedChange(true);
-        yield return new WaitForSeconds(10);
+        yield return new WaitForSeconds(5);
         InputReader.EnablePlayerActions();
         Player.Movement.HandleSpeedChange(false);
     }
