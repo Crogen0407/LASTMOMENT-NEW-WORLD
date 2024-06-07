@@ -14,6 +14,15 @@ public class EnemyHealthSystem : HealthSystem
         _enemyBase = GetComponent<Enemy>();
     }
 
+    
+    private void OnCollisionEnter(Collision other)
+    {
+        if (other.transform.CompareTag("Player") || other.transform.CompareTag("Untagged"))
+        {
+            Hp -= 100;
+        }
+    }
+    
     protected override void OnHpChange()
     {
         

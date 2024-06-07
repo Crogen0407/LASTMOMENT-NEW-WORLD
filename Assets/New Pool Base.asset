@@ -69,3 +69,7 @@ MonoBehaviour:
     monoPoolingObjectPrefab: {fileID: 3010619958707486615, guid: 3f359c1e631353b44b9b7b1f1587fd7f,
       type: 3}
     poolCount: 10
+  - poolType: TemporaryObstacle
+    monoPoolingObjectPrefab: {fileID: 576904395294336857, guid: da7676bd100b4a945bc997a03ca08340,
+      type: 3}
+    poolCount: 10

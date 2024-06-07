@@ -60,7 +60,7 @@ Material:
     - _GridScale: 0.906
     - _QueueControl: 0
     - _QueueOffset: 0
-    - _Value: 0.33227313
+    - _Value: 0.32136598
     m_Colors:
     - _Color: {r: 1, g: 1, b: 1, a: 0.54901963}
   m_BuildTextureStacks: []
