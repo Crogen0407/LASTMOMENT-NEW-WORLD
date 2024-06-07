@@ -9,9 +9,10 @@ public class SceneLoadingManager : MonoDontDestroySingleton<SceneLoadingManager>
     [SerializeField] private GameObject LoadingScreen;
     [SerializeField] private Image LoadingBarFill;
     private int _sceneIndex;
+    private string _sceneName;
     public void LoadingScene(int sceneID)
     {
-        ScreenFade.Instance.Fade(false, 1, () =>
+        ScreenFadeManager.Instance.Fade(false, 1, () =>
         {
             _sceneIndex = sceneID;
             if (LoadingScreen == null)
@@ -28,7 +29,25 @@ public class SceneLoadingManager : MonoDontDestroySingleton<SceneLoadingManager>
             StartCoroutine(CoroutineLoadingScene(sceneID));
         });
     }
-
+    public void LoadingScene(string sceneName)
+    {
+        ScreenFadeManager.Instance.Fade(false, 1, () =>
+        {
+            _sceneName = sceneName;
+            if (LoadingScreen == null)
+            {
+                LoadingScreen = Instantiate(LoadingScreenPrefab);
+                LoadingBarFill = LoadingScreen.transform.Find("LoadingBar/Fill").GetComponent<Image>();
+                DontDestroyOnLoad(LoadingScreen);
+            }
+            else
+            {
+                Destroy(LoadingScreen);
+            }
+            SceneManager.sceneLoaded += SceneLoadComplete;
+            StartCoroutine(CoroutineLoadingScene(sceneName));
+        });
+    }
     IEnumerator CoroutineLoadingScene(int sceneID)
     {
         LoadingBarFill.fillAmount = 0f;
@@ -52,6 +71,7 @@ public class SceneLoadingManager : MonoDontDestroySingleton<SceneLoadingManager>
                 LoadingBarFill.fillAmount = Mathf.Lerp(0.9f, 1f, timer);
                 if (LoadingBarFill.fillAmount >= 1f)
                 {
+                    Time.timeScale = 1;
                     operation.allowSceneActivation = true;
                     LoadingScreen.SetActive(false);
                     yield break;
@@ -59,12 +79,42 @@ public class SceneLoadingManager : MonoDontDestroySingleton<SceneLoadingManager>
             }
         }
     }
+    IEnumerator CoroutineLoadingScene(string sceneName)
+    {
+        LoadingBarFill.fillAmount = 0f;
+        LoadingScreen.SetActive(true);
+        
+        AsyncOperation operation = SceneManager.LoadSceneAsync(sceneName);
+        operation.allowSceneActivation = false;
 
+        float timer = 0;
+        while (!operation.isDone)
+        {
+            yield return null;
+
+            if (operation.progress < 0.9f)
+            {
+                LoadingBarFill.fillAmount = operation.progress;
+            }
+            else
+            {
+                timer += Time.unscaledDeltaTime;
+                LoadingBarFill.fillAmount = Mathf.Lerp(0.9f, 1f, timer);
+                if (LoadingBarFill.fillAmount >= 1f)
+                {
+                    Time.timeScale = 1;
+                    operation.allowSceneActivation = true;
+                    LoadingScreen.SetActive(false);
+                    yield break;
+                }
+            }
+        }
+    }
     private void SceneLoadComplete(Scene arg0, LoadSceneMode arg1)
     {
         if (_sceneIndex == arg0.buildIndex)
         {
-            ScreenFade.Instance.Fade(true, 1, () =>
+            ScreenFadeManager.Instance.Fade(true, 1, () =>
             {
             });
             SceneManager.sceneLoaded -= SceneLoadComplete;

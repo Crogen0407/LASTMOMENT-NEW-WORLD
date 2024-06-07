@@ -1,5 +1,6 @@
 using Cinemachine;
 using Crogen.AgentFSM;
+using DG.Tweening;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -79,6 +80,6 @@ public class Player : Agent<AgentStateEnum>
     public override void SetDead()
     {
         base.SetDead();
-        _playerDieVirtualCamera.m_Priority = 20;
+        GameManager.Instance.GameOver();
     }
 }

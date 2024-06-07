@@ -22,6 +22,7 @@ public class UIManager : MonoSingleton<UIManager>
     public Canvas gameCanvas;
     public Canvas settingCanvas;
     public Canvas pauseCanvas;
+    public Canvas aimCanvas;
     
     [Header("SettingUI")]
     [SerializeField] private ArrowNumberInput xSensitivityInput;

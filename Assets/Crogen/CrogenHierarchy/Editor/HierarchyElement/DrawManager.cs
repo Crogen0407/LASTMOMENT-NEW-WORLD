@@ -179,20 +179,23 @@ namespace Crogen.CrogenHierarchy.Editor.HierarchyElement
                 {
                     parentSettingLineColor = GetLineColor(parent, StyleEditor.DefaultLineColor);
 
-                    if (parent.GetChild(0) == gameObject.transform && i == 0)
+                    if (parent != null)
                     {
-                        EditorGUI.DrawRect(
-                            new Rect(selectionRect.position + new Vector2(-8.25f - 14 * (i + 1), 0), new Vector2(2, 8)),
-                            parentSettingLineColor);
-                    }
-                    else
-                    {
-                        EditorGUI.DrawRect(
-                            new Rect(selectionRect.position + new Vector2(-8.25f - 14 * (i + 1), -8),
-                                new Vector2(2, 16)), parentSettingLineColor);
-                    }
+                        if (parent.GetChild(0) == gameObject.transform && i == 0)
+                        {
+                            EditorGUI.DrawRect(
+                                new Rect(selectionRect.position + new Vector2(-8.25f - 14 * (i + 1), 0), new Vector2(2, 8)),
+                                parentSettingLineColor);
+                        }
+                        else
+                        {
+                            EditorGUI.DrawRect(
+                                new Rect(selectionRect.position + new Vector2(-8.25f - 14 * (i + 1), -8),
+                                    new Vector2(2, 16)), parentSettingLineColor);
+                        }
 
-                    parent = parent.parent;
+                        parent = parent.parent;
+                    }
                 }
             }
 

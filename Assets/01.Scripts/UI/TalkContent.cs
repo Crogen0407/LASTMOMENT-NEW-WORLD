@@ -33,7 +33,7 @@ public class TalkContent : MonoSingleton<TalkContent>
         }
         _talkText.text = talk;
         await Task.Delay(1000);
-        _canvasGroup.DOFade(0, 1).OnComplete(()=>_isTalking = false);
+        _canvasGroup.DOFade(0, 1).OnComplete(()=>_isTalking = false).SetUpdate(true);
     }
     
     public async void OnTalk(string name, string talk, float textTypingSpeed = 0.1f, float lifeTime = 1, float startDelayTime = 1f, Action startEvent = null, Action endEvent = null)
@@ -56,7 +56,7 @@ public class TalkContent : MonoSingleton<TalkContent>
         {
             _isTalking = false;
             endEvent?.Invoke();
-        });
+        }).SetUpdate(true);
     }
     
     public async void OnTalk(string name, string talk, float startDelayTime = 1f, Action startEvent = null, Action endEvent = null)
@@ -79,6 +79,28 @@ public class TalkContent : MonoSingleton<TalkContent>
         {
             _isTalking = false;
             endEvent?.Invoke();
-        });
+        }).SetUpdate(true);
+    }
+    
+    public async void OnTalk(string name, string talk, Action endEvent = null)
+    {
+        if (_isTalking) return;
+        await Task.Delay((int)(1000));
+        _isTalking = true;
+        _canvasGroup.alpha = 1;
+        _nickNameText.text = name;
+        _talkText.text = string.Empty;
+        for (int i = 0; i < talk.Length; ++i)
+        {
+            await Task.Delay(100);
+            _talkText.text += talk[i];
+        }
+        _talkText.text = talk;
+        await Task.Delay(1000);
+        _canvasGroup.DOFade(0, 1).OnComplete(()=>
+        {
+            _isTalking = false;
+            endEvent?.Invoke();
+        }).SetUpdate(true);
     }
 }

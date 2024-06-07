@@ -1,30 +1,29 @@
 using System;
-using System.Collections;
-using System.Collections.Generic;
 using DG.Tweening;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class ScreenFade : MonoSingleton<ScreenFade>
+public class ScreenFadeManager : MonoSingleton<ScreenFadeManager>
 {
     private Image _image;
     private Transform _canvasTrm;
     
     private void InitFadeImage()
     {
-        _canvasTrm = FindObjectOfType<Canvas>().transform;
+        _canvasTrm = FindFirstObjectByType<Canvas>().transform;
         if (_image == null)
         {
             Image fadePanel = new GameObject().AddComponent<Image>();
             fadePanel.color = Color.black;
 
-            Transform rectTrm = fadePanel.transform;
-
-            rectTrm.localScale = Vector2.one * 100;
-            _image = Instantiate(fadePanel, _canvasTrm);
+            _image = fadePanel;
         }
+        _image.gameObject.SetActive(true);
+        _image.transform.SetParent(_canvasTrm);
+        _image.rectTransform.localPosition = Vector3.zero;
+        _image.transform.localScale = Vector2.one * 100;
     }
-    
+
     public void Fade(bool fadeType, float duration)
     {
         InitFadeImage();
@@ -32,7 +31,7 @@ public class ScreenFade : MonoSingleton<ScreenFade>
         Color startColor = new Color(0, 0, 0, Convert.ToInt32(fadeType));
         _image.color = startColor;
 
-        _image.DOColor(new Color(0, 0, 0, Convert.ToInt32(!fadeType)), duration).SetEase(Ease.InSine).OnComplete(() =>
+        _image.DOFade(1-startColor.a, duration).SetEase(Ease.InSine).SetUpdate(true).OnComplete(() =>
         {
             FadeObjectDestroy(_image);
         });
@@ -45,7 +44,7 @@ public class ScreenFade : MonoSingleton<ScreenFade>
         Color startColor = new Color(0, 0, 0, Convert.ToInt32(fadeType));
         _image.color = startColor;
 
-        _image.DOColor(new Color(0, 0, 0, Convert.ToInt32(!fadeType)), duration).SetEase(Ease.InSine).OnComplete(() =>
+        _image.DOFade(1-startColor.a, duration).SetEase(Ease.InSine).SetUpdate(true).OnComplete(() =>
         {
             FadeObjectDestroy(_image, endEvent);
         });
@@ -53,9 +52,12 @@ public class ScreenFade : MonoSingleton<ScreenFade>
 
     private void FadeObjectDestroy(Image image, Action endEvent = null)
     {
-        if (_image.color.a == 0)
-        {
+        _image.transform.SetParent(null);
+        if(_image.color.a <= 0.1f)
             _image.gameObject.SetActive(false);
+        else
+        {
+            _image.gameObject.SetActive(true);
         }
         endEvent?.Invoke();
     }

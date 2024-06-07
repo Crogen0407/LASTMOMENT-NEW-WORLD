@@ -1,8 +1,10 @@
-using System;
 using System.Collections;
 using Crogen.JsamJson;
 using Crogen.PowerfulInput;
+using DG.Tweening;
 using UnityEngine;
+using UnityEngine.Rendering;
+using UnityEngine.Rendering.Universal;
 using UnityEngine.SceneManagement;
 
 public class GameManager : MonoSingleton<GameManager>
@@ -12,12 +14,22 @@ public class GameManager : MonoSingleton<GameManager>
     
     [field:SerializeField] public InputReader InputReader { get; private set; }
     [field:SerializeField] public Player Player { get; private set; }
+
+    [Header("PP")]
+    [field:SerializeField] public Volume Volum;
+    [HideInInspector] public ColorAdjustments ColorAdjustments;
     
     private void Awake()
     {
         InputReader.MouseClickEvent += UIManager.Instance.Init;
         InputReader.EscEvent += UIManager.Instance.OpenPauseWindow;
-        ScreenFade.Instance.Fade(true, 1f);
+        
+        if(Volum.profile.TryGet<ColorAdjustments>(out ColorAdjustments ca))
+        {
+            ColorAdjustments = ca;
+        }        
+        
+        ScreenFadeManager.Instance.Fade(true, 1f);
         
         InputReader.DisablePlayerActions();
     }
@@ -46,10 +58,50 @@ public class GameManager : MonoSingleton<GameManager>
     {
         if (Input.GetKeyDown(KeyCode.I))
         {
-            SceneLoadingManager.Instance.LoadingScene(SceneUtility.GetBuildIndexByScenePath(SceneNames.TitleScene));
+            GameClear();
         }
     }
 
+
+    public void GameOver()
+    {
+        UIManager.Instance.gameCanvas.gameObject.SetActive(false);
+        UIManager.Instance.aimCanvas.gameObject.SetActive(false);
+        Time.timeScale = 0;
+        float startValue = 0;
+        float endValue = -100;
+        Sequence seq = DOTween.Sequence();
+        seq.Append(DOTween.To(() => startValue, value => ColorAdjustments.saturation.value = value, endValue, 1)).SetUpdate(true);
+        seq.AppendInterval(1f).SetUpdate(true);
+        seq.AppendCallback(() =>
+        {
+            SceneLoadingManager.Instance.LoadingScene(SceneNames.LobbyScene);
+        }).SetUpdate(true);
+    }
+
+    
+    public void GameClear()
+    {
+        TalkContent.Instance.OnTalk("System", "작전 성공", () =>
+        {
+            TalkContent.Instance.OnTalk("System", "ST-091은 본부로 귀환할 것을 요청합니다", () =>
+            {
+                TalkContent.Instance.OnTalk("System", "수락됨", 2, null, () =>
+                {
+                    TalkContent.Instance.OnTalk("System", "ST-091, 본부로 귀환합니다", 1, null, () =>
+                    {
+                        ScreenFadeManager.Instance.Fade(false, 5, () =>
+                        {
+                            SceneLoadingManager.Instance.LoadingScene(SceneNames.LobbyScene);
+                        });
+                    });
+                });
+            });
+        });
+    }
+    
+    
+    
     #region SceneMangement
 
     public void GotoLobbyScene()
