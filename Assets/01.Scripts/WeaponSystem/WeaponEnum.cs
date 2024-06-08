@@ -1,5 +1,6 @@
 ﻿public enum WeaponEnum
 {
+    None,
     GuidedBullet,
     M206_Flare,
     MJN68_Flare,

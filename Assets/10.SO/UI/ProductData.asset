@@ -1,0 +1,101 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4e4eff160be60ef468a96d2da13ee81b, type: 3}
+  m_Name: ProductData
+  m_EditorClassIdentifier: 
+  weaponDataDictionary:
+    _serializedList:
+    - Key: 0
+      Value:
+        weaponIconSprite: {fileID: 0}
+        weaponName: '-'
+        weaponPrice: 0
+    - Key: 1
+      Value:
+        weaponIconSprite: {fileID: 0}
+        weaponName: "\uC720\uB3C4\uD0C4"
+        weaponPrice: 200
+    - Key: 2
+      Value:
+        weaponIconSprite: {fileID: 0}
+        weaponName: "M206 \uD50C\uB808\uC5B4"
+        weaponPrice: 300
+    - Key: 3
+      Value:
+        weaponIconSprite: {fileID: 0}
+        weaponName: "MJN-68 \uD50C\uB808\uC5B4"
+        weaponPrice: 300
+    - Key: 4
+      Value:
+        weaponIconSprite: {fileID: 0}
+        weaponName: "MJN-61 \uD50C\uB808\uC5B4"
+        weaponPrice: 320
+    - Key: 5
+      Value:
+        weaponIconSprite: {fileID: 0}
+        weaponName: "\uB4DC\uB798\uACE4 \uD30C\uC774\uC5B4"
+        weaponPrice: 400
+    - Key: 6
+      Value:
+        weaponIconSprite: {fileID: 0}
+        weaponName: "\uC5F4\uC555\uB958\uD0C4"
+        weaponPrice: 410
+    - Key: 7
+      Value:
+        weaponIconSprite: {fileID: 0}
+        weaponName: "\uC591\uC790 \uC5B4\uB8B0"
+        weaponPrice: 350
+    - Key: 8
+      Value:
+        weaponIconSprite: {fileID: 0}
+        weaponName: "\uC77C\uBC18 \uBAA9\uC801\uD0C4"
+        weaponPrice: 250
+    - Key: 9
+      Value:
+        weaponIconSprite: {fileID: 0}
+        weaponName: "\uB2E8\uAC70\uB9AC \uACF5\uB300\uACF5 \uBBF8\uC0AC\uC77C"
+        weaponPrice: 180
+    - Key: 10
+      Value:
+        weaponIconSprite: {fileID: 0}
+        weaponName: "\uC911/\uC7A5\uAC70\uB9AC \uACF5\uB300\uACF5 \uBBF8\uC0AC\uC77C"
+        weaponPrice: 280
+    - Key: 11
+      Value:
+        weaponIconSprite: {fileID: 0}
+        weaponName: "\uC7A5\uAC70\uB9AC \uACF5\uB300\uC9C0 \uBBF8\uC0AC\uC77C "
+        weaponPrice: 480
+    - Key: 12
+      Value:
+        weaponIconSprite: {fileID: 0}
+        weaponName: "\uB300\uBC29\uC0AC \uBBF8\uC0AC\uC77C"
+        weaponPrice: 600
+    - Key: 13
+      Value:
+        weaponIconSprite: {fileID: 0}
+        weaponName: "\uACF5\uB300\uC9C0 \uD0C4\uB3C4\uD0C4"
+        weaponPrice: 800
+    - Key: 14
+      Value:
+        weaponIconSprite: {fileID: 0}
+        weaponName: "\uC9C0\uB2A5\uD615 \uD655\uC0B0\uD0C4"
+        weaponPrice: 800
+    - Key: 15
+      Value:
+        weaponIconSprite: {fileID: 0}
+        weaponName: "\uD1B5\uD569\uC9C1\uACA9\uD0C4"
+        weaponPrice: 600
+    - Key: 16
+      Value:
+        weaponIconSprite: {fileID: 0}
+        weaponName: "\uB808\uC774\uC800 \uC720\uB3C4 \uD3ED\uD0C4"
+        weaponPrice: 600

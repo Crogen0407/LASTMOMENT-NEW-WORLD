@@ -18,7 +18,7 @@ public enum SettingOptionType
     WindowMode
 }
 
-[CreateAssetMenu(menuName = "SO/SettingOptionData")]
+[CreateAssetMenu(menuName = "SO/UI/SettingOptionData")]
 public class SettingOptionDataSO : ScriptableObject
 {
     public SerializedDictionary<SettingOptionType, string> uiDescriptionDictionary;

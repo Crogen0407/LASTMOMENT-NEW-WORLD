@@ -19,6 +19,7 @@ namespace Crogen.PowerfulInput
         public event Action ResetDirectionEvent;
         public event Action EscEvent;
         public event Action<int> UseItemEvent;
+        public event Action<int> UseSkillEvent;
         
         //Attack
         public event Action<bool> AttackEvent;
@@ -99,9 +100,31 @@ namespace Crogen.PowerfulInput
             if(context.started)
                 UseItemEvent?.Invoke(2);
         }
-
+        
         #endregion
 
+        #region UseWeapon
+
+        public void OnUseWeaponOne(InputAction.CallbackContext context)
+        {
+            if(context.started)
+                UseSkillEvent?.Invoke(0);
+        }
+
+        public void OnUseWeaponTwo(InputAction.CallbackContext context)
+        {
+            if(context.started)
+                UseSkillEvent?.Invoke(1);
+        }
+
+        public void OnUseWeaponThree(InputAction.CallbackContext context)
+        {
+            if(context.started)
+                UseSkillEvent?.Invoke(2);
+        }
+
+        #endregion
+        
         public void OnMouseClick(InputAction.CallbackContext context)
         {
             MouseClickEvent?.Invoke();
