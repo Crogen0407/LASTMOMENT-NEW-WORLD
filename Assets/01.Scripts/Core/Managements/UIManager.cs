@@ -61,8 +61,10 @@ public class UIManager : MonoSingleton<UIManager>
 
     public void Init()
     {
-        if (_isPause)
+        if (!_isPause)
         {
+            Cursor.visible = false;
+            Cursor.lockState = CursorLockMode.Locked;
         }
     }
 
