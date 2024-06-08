@@ -15,7 +15,7 @@ public class BuyButton : MonoBehaviour
 {
     [SerializeField] private WeaponOwnState _weaponOwnState;
     [SerializeField] private WeaponEnum _weaponEnum;
-    private WeaponData _weaponData;
+    private WeaponProductData _weaponProductData;
     
     //Components
     private TextMeshProUGUI _weaponNameText;
@@ -30,9 +30,9 @@ public class BuyButton : MonoBehaviour
         _buyButton = transform.Find("BuyButton").GetComponent<Button>();
         _buttonText = _buyButton.transform.Find("Text").GetComponent<TextMeshProUGUI>();
         
-        _weaponData = _productContent.productData.weaponDataDictionary[_weaponEnum];
+        _weaponProductData = _productContent.productData.weaponProductDataDictionary[_weaponEnum];
             
-        _weaponNameText.text = _weaponData.weaponName;
+        _weaponNameText.text = _weaponProductData.weaponName;
     }
 
     public void Init(WeaponOwnState weaponOwnState)
@@ -53,7 +53,7 @@ public class BuyButton : MonoBehaviour
         {
             case WeaponOwnState.Buy:
                 //구매
-                CommodityManager.Instance.AddGoldAndPreamble(-_weaponData.weaponPrice, 0);
+                CommodityManager.Instance.AddGoldAndPreamble(-_weaponProductData.weaponPrice, 0);
                 _weaponOwnState = WeaponOwnState.Owned;
                 break;
             case WeaponOwnState.Used:
@@ -67,7 +67,7 @@ public class BuyButton : MonoBehaviour
                 break;
         }
         UpdateButtonText(_weaponOwnState);
-        _productContent.ApplyWeaponOwnData(_weaponEnum, _weaponOwnState, _weaponData.weaponIconSprite, _weaponData.weaponName);
+        _productContent.ApplyWeaponOwnData(_weaponEnum, _weaponOwnState, _weaponProductData.weaponIconSprite, _weaponProductData.weaponName);
     }
 
     private void UpdateButtonText(WeaponOwnState weaponOwnState)
@@ -75,7 +75,7 @@ public class BuyButton : MonoBehaviour
         switch (weaponOwnState)
         {
             case WeaponOwnState.Buy:
-                _buttonText.text = $"구매 : {_weaponData.weaponPrice:000}";
+                _buttonText.text = $"구매 : {_weaponProductData.weaponPrice:000}";
                 break;
             case WeaponOwnState.Used:
                 _buttonText.text = "해제";

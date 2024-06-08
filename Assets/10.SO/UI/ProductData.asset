@@ -12,90 +12,107 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4e4eff160be60ef468a96d2da13ee81b, type: 3}
   m_Name: ProductData
   m_EditorClassIdentifier: 
-  weaponDataDictionary:
+  weaponProductDataDictionary:
     _serializedList:
     - Key: 0
       Value:
         weaponIconSprite: {fileID: 0}
         weaponName: '-'
         weaponPrice: 0
+        description: 
     - Key: 1
       Value:
         weaponIconSprite: {fileID: 0}
         weaponName: "\uC720\uB3C4\uD0C4"
-        weaponPrice: 200
+        weaponPrice: 160
+        description: 
     - Key: 2
       Value:
         weaponIconSprite: {fileID: 0}
         weaponName: "M206 \uD50C\uB808\uC5B4"
-        weaponPrice: 300
+        weaponPrice: 210
+        description: 
     - Key: 3
       Value:
         weaponIconSprite: {fileID: 0}
         weaponName: "MJN-68 \uD50C\uB808\uC5B4"
-        weaponPrice: 300
+        weaponPrice: 200
+        description: 
     - Key: 4
       Value:
         weaponIconSprite: {fileID: 0}
         weaponName: "MJN-61 \uD50C\uB808\uC5B4"
-        weaponPrice: 320
+        weaponPrice: 230
+        description: 
     - Key: 5
       Value:
         weaponIconSprite: {fileID: 0}
         weaponName: "\uB4DC\uB798\uACE4 \uD30C\uC774\uC5B4"
-        weaponPrice: 400
+        weaponPrice: 280
+        description: 
     - Key: 6
       Value:
         weaponIconSprite: {fileID: 0}
         weaponName: "\uC5F4\uC555\uB958\uD0C4"
-        weaponPrice: 410
+        weaponPrice: 260
+        description: 
     - Key: 7
       Value:
         weaponIconSprite: {fileID: 0}
         weaponName: "\uC591\uC790 \uC5B4\uB8B0"
-        weaponPrice: 350
+        weaponPrice: 320
+        description: 
     - Key: 8
       Value:
         weaponIconSprite: {fileID: 0}
         weaponName: "\uC77C\uBC18 \uBAA9\uC801\uD0C4"
         weaponPrice: 250
+        description: 
     - Key: 9
       Value:
         weaponIconSprite: {fileID: 0}
         weaponName: "\uB2E8\uAC70\uB9AC \uACF5\uB300\uACF5 \uBBF8\uC0AC\uC77C"
-        weaponPrice: 180
+        weaponPrice: 330
+        description: 
     - Key: 10
       Value:
         weaponIconSprite: {fileID: 0}
         weaponName: "\uC911/\uC7A5\uAC70\uB9AC \uACF5\uB300\uACF5 \uBBF8\uC0AC\uC77C"
-        weaponPrice: 280
+        weaponPrice: 340
+        description: 
     - Key: 11
       Value:
         weaponIconSprite: {fileID: 0}
-        weaponName: "\uC7A5\uAC70\uB9AC \uACF5\uB300\uC9C0 \uBBF8\uC0AC\uC77C "
-        weaponPrice: 480
+        weaponName: "\uC7A5\uAC70\uB9AC \uACF5\uB300\uC9C0 \uBBF8\uC0AC\uC77C"
+        weaponPrice: 400
+        description: 
     - Key: 12
       Value:
         weaponIconSprite: {fileID: 0}
         weaponName: "\uB300\uBC29\uC0AC \uBBF8\uC0AC\uC77C"
-        weaponPrice: 600
+        weaponPrice: 440
+        description: 
     - Key: 13
       Value:
         weaponIconSprite: {fileID: 0}
         weaponName: "\uACF5\uB300\uC9C0 \uD0C4\uB3C4\uD0C4"
-        weaponPrice: 800
+        weaponPrice: 450
+        description: 
     - Key: 14
       Value:
         weaponIconSprite: {fileID: 0}
         weaponName: "\uC9C0\uB2A5\uD615 \uD655\uC0B0\uD0C4"
-        weaponPrice: 800
+        weaponPrice: 600
+        description: 
     - Key: 15
       Value:
         weaponIconSprite: {fileID: 0}
         weaponName: "\uD1B5\uD569\uC9C1\uACA9\uD0C4"
-        weaponPrice: 600
+        weaponPrice: 660
+        description: 
     - Key: 16
       Value:
         weaponIconSprite: {fileID: 0}
         weaponName: "\uB808\uC774\uC800 \uC720\uB3C4 \uD3ED\uD0C4"
-        weaponPrice: 600
+        weaponPrice: 660
+        description: 

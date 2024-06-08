@@ -13,13 +13,13 @@ public class CurrentWeaponContent : MonoBehaviour
         _nameText = transform.Find("Text").GetComponent<TextMeshProUGUI>();
     }
 
-    public void ApplyCurrentWeaponData(WeaponData weaponData)
+    public void ApplyCurrentWeaponData(WeaponProductData weaponProductData)
     {
-        _iconImage.sprite = weaponData.weaponIconSprite;
-        if (weaponData.weaponIconSprite != null)
+        _iconImage.sprite = weaponProductData.weaponIconSprite;
+        if (weaponProductData.weaponIconSprite != null)
             _iconImage.color = Color.white;
         else
             _iconImage.color = Color.clear;
-        _nameText.text = weaponData.weaponName;
+        _nameText.text = weaponProductData.weaponName;
     }
 }

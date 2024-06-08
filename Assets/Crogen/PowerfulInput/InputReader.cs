@@ -19,7 +19,7 @@ namespace Crogen.PowerfulInput
         public event Action ResetDirectionEvent;
         public event Action EscEvent;
         public event Action<int> UseItemEvent;
-        public event Action<int> UseSkillEvent;
+        public event Action<int> UseWeaponEvent;
         
         //Attack
         public event Action<bool> AttackEvent;
@@ -108,19 +108,19 @@ namespace Crogen.PowerfulInput
         public void OnUseWeaponOne(InputAction.CallbackContext context)
         {
             if(context.started)
-                UseSkillEvent?.Invoke(0);
+                UseWeaponEvent?.Invoke(0);
         }
 
         public void OnUseWeaponTwo(InputAction.CallbackContext context)
         {
             if(context.started)
-                UseSkillEvent?.Invoke(1);
+                UseWeaponEvent?.Invoke(1);
         }
 
         public void OnUseWeaponThree(InputAction.CallbackContext context)
         {
             if(context.started)
-                UseSkillEvent?.Invoke(2);
+                UseWeaponEvent?.Invoke(2);
         }
 
         #endregion

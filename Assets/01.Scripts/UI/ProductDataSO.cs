@@ -3,24 +3,26 @@ using AYellowpaper.SerializedCollections;
 using UnityEngine;
 
 [Serializable]
-public struct WeaponData
+public struct WeaponProductData
 {
     public Sprite weaponIconSprite;
     public string weaponName;
     public int weaponPrice;
+    [TextArea]
+    public string description;
 }
 
 [CreateAssetMenu(menuName = "SO/UI/ProductData")]
 public class ProductDataSO : ScriptableObject
 {
-    public SerializedDictionary<WeaponEnum, WeaponData> weaponDataDictionary;
+    public SerializedDictionary<WeaponEnum, WeaponProductData> weaponProductDataDictionary;
 
     private void Reset()
     {
-        weaponDataDictionary = new SerializedDictionary<WeaponEnum, WeaponData>(); 
+        weaponProductDataDictionary = new SerializedDictionary<WeaponEnum, WeaponProductData>(); 
         foreach (WeaponEnum value in Enum.GetValues(typeof(WeaponEnum)))
         {
-            weaponDataDictionary.Add(value, new WeaponData());
+            weaponProductDataDictionary.Add(value, new WeaponProductData());
         }
     }
 }

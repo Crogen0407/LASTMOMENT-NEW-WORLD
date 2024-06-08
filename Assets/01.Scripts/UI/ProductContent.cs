@@ -26,8 +26,8 @@ public class ProductContent : MonoBehaviour
         }
         for (int i = 0; i < _curWeaponContents.Length; ++i)
         {
-            WeaponData weaponData = productData.weaponDataDictionary[(WeaponEnum)currentWeaponArray[i]];
-            _curWeaponContents[i].ApplyCurrentWeaponData(weaponData);
+            WeaponProductData weaponProductData = productData.weaponProductDataDictionary[(WeaponEnum)currentWeaponArray[i]];
+            _curWeaponContents[i].ApplyCurrentWeaponData(weaponProductData);
         }
     }
 
@@ -40,7 +40,7 @@ public class ProductContent : MonoBehaviour
             {
                 if (weaponOwnState == WeaponOwnState.Used)
                 {
-                    _curWeaponContents[i].ApplyCurrentWeaponData(new WeaponData
+                    _curWeaponContents[i].ApplyCurrentWeaponData(new WeaponProductData
                     {
                         weaponIconSprite = null, 
                         weaponName = "-"
@@ -49,7 +49,7 @@ public class ProductContent : MonoBehaviour
                 }
                 else if(weaponOwnState == WeaponOwnState.Owned)
                 {
-                    _curWeaponContents[i].ApplyCurrentWeaponData(new WeaponData
+                    _curWeaponContents[i].ApplyCurrentWeaponData(new WeaponProductData
                     {
                         weaponIconSprite = sprite,
                         weaponName = weaponName

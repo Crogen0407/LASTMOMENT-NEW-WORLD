@@ -1,0 +1,84 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: aafb41bfd95946fbab2bd5b8a525066c, type: 3}
+  m_Name: WeaponData
+  m_EditorClassIdentifier: 
+  weaponDataDictionary:
+    _serializedList:
+    - Key: 0
+      Value:
+        coolTime: -1
+        attackCount: -1
+    - Key: 1
+      Value:
+        coolTime: 2
+        attackCount: 15
+    - Key: 2
+      Value:
+        coolTime: 5
+        attackCount: 25
+    - Key: 3
+      Value:
+        coolTime: 5
+        attackCount: 25
+    - Key: 4
+      Value:
+        coolTime: 5
+        attackCount: 25
+    - Key: 5
+      Value:
+        coolTime: 20
+        attackCount: 5
+    - Key: 6
+      Value:
+        coolTime: 4
+        attackCount: 5
+    - Key: 7
+      Value:
+        coolTime: 2
+        attackCount: 5
+    - Key: 8
+      Value:
+        coolTime: 3
+        attackCount: 15
+    - Key: 9
+      Value:
+        coolTime: 10
+        attackCount: 13
+    - Key: 10
+      Value:
+        coolTime: 10
+        attackCount: 13
+    - Key: 11
+      Value:
+        coolTime: 10
+        attackCount: 13
+    - Key: 12
+      Value:
+        coolTime: 20
+        attackCount: 7
+    - Key: 13
+      Value:
+        coolTime: 12
+        attackCount: 2
+    - Key: 14
+      Value:
+        coolTime: 20
+        attackCount: 10
+    - Key: 15
+      Value:
+        coolTime: 10
+        attackCount: 8
+    - Key: 16
+      Value:
+        coolTime: 10
+        attackCount: 8
