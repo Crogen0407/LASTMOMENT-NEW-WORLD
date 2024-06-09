@@ -9,9 +9,9 @@ public class GuidedBullet : WeaponEffect
     [SerializeField] private PoolType _explosionEffectPoolType;
     [SerializeField] private float _speed = 10f;
     
-    public override void Init(Vector3 attackDirection)
+    public override void Init(Vector3 attackDirection, Transform parent)
     {
-        base.Init(attackDirection);
+        base.Init(attackDirection, null);
         Sequence seq = DOTween.Sequence();
         seq.Append(transform.DOLocalMoveY(transform.position.y-1, 1));
 
@@ -28,7 +28,6 @@ public class GuidedBullet : WeaponEffect
 
     private void OnCollisionEnter(Collision other)
     {
-        Debug.Log("dfdf");
         Destroy(gameObject);
     }
 

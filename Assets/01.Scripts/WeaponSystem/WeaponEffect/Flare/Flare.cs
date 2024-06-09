@@ -1,0 +1,27 @@
+﻿using Crogen.HealthSystem;
+using Crogen.ObjectPooling;
+using UnityEngine;
+
+public class Flare : MonoPoolingObject
+{
+    [SerializeField] private PoolType _flarePoolType;
+    [SerializeField] private PoolType _explosionPoolType;
+    [HideInInspector] public float damage;
+    public override void OnPop()
+    {
+    }
+
+    public override void OnPush()
+    {
+        this.Pop(_explosionPoolType,transform.position, Quaternion.identity);
+    }
+
+    private void OnCollisionEnter(Collision other)
+    {
+        if (other.transform.TryGetComponent(out HealthSystem healthSystem))
+        {
+            healthSystem.Hp -= damage;
+        }
+        Push(_flarePoolType);
+    }
+}

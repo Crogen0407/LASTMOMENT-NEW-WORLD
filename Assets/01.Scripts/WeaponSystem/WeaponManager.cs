@@ -74,8 +74,14 @@ public class WeaponManager : MonoBehaviour
         if (_curWeapons[value] == WeaponEnum.None || 
             _curWeaponCoolTimes[value] < _weaponCoolTimeMaxs[value]) return;
         _weaponPanels[value].SetAttackCount(--_weaponAttackCounts[value]);
-        WeaponEffect weaponEffect = Instantiate(_weaponData.weaponDataDictionary[_curWeapons[value]].weaponEffectPrefab, _playerTrm.position, Quaternion.identity).GetComponent<WeaponEffect>();
-        weaponEffect.Init(_playerTrm.forward);
+        
+        //여기서 불릿 만들고
+        WeaponEffect weaponEffect = Instantiate(
+            _weaponData.weaponDataDictionary[_curWeapons[value]].weaponEffectPrefab,
+            _playerTrm.position, 
+            Quaternion.identity).GetComponent<WeaponEffect>();
+        
+        weaponEffect.Init(_playerTrm.forward, _playerTrm);
         _curWeaponCoolTimes[value] = 0;
         Debug.Log($"Use Weapon : {_curWeapons[value]}");
     }
