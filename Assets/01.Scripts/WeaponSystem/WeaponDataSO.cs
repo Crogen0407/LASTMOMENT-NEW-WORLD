@@ -6,7 +6,8 @@ using UnityEngine;
 public struct WeaponData
 {
     public float coolTime;
-    public float attackCount;
+    public int attackCount;
+    public GameObject weaponEffectPrefab;
 }
 
 [CreateAssetMenu(menuName = "SO/WeaponSystem/WeaponData")]

@@ -18,67 +18,85 @@ MonoBehaviour:
       Value:
         coolTime: -1
         attackCount: -1
+        weaponEffectPrefab: {fileID: 0}
     - Key: 1
       Value:
         coolTime: 2
         attackCount: 15
+        weaponEffectPrefab: {fileID: 8210434154388601080, guid: eabf7a5c161b4c44a8a22307ed0a220d,
+          type: 3}
     - Key: 2
       Value:
         coolTime: 5
         attackCount: 25
+        weaponEffectPrefab: {fileID: 0}
     - Key: 3
       Value:
         coolTime: 5
         attackCount: 25
+        weaponEffectPrefab: {fileID: 0}
     - Key: 4
       Value:
         coolTime: 5
         attackCount: 25
+        weaponEffectPrefab: {fileID: 0}
     - Key: 5
       Value:
         coolTime: 20
         attackCount: 5
+        weaponEffectPrefab: {fileID: 0}
     - Key: 6
       Value:
         coolTime: 4
         attackCount: 5
+        weaponEffectPrefab: {fileID: 0}
     - Key: 7
       Value:
         coolTime: 2
         attackCount: 5
+        weaponEffectPrefab: {fileID: 0}
     - Key: 8
       Value:
         coolTime: 3
         attackCount: 15
+        weaponEffectPrefab: {fileID: 0}
     - Key: 9
       Value:
         coolTime: 10
         attackCount: 13
+        weaponEffectPrefab: {fileID: 0}
     - Key: 10
       Value:
         coolTime: 10
         attackCount: 13
+        weaponEffectPrefab: {fileID: 0}
     - Key: 11
       Value:
         coolTime: 10
         attackCount: 13
+        weaponEffectPrefab: {fileID: 0}
     - Key: 12
       Value:
         coolTime: 20
         attackCount: 7
+        weaponEffectPrefab: {fileID: 0}
     - Key: 13
       Value:
         coolTime: 12
         attackCount: 2
+        weaponEffectPrefab: {fileID: 0}
     - Key: 14
       Value:
         coolTime: 20
         attackCount: 10
+        weaponEffectPrefab: {fileID: 0}
     - Key: 15
       Value:
         coolTime: 10
         attackCount: 8
+        weaponEffectPrefab: {fileID: 0}
     - Key: 16
       Value:
         coolTime: 10
         attackCount: 8
+        weaponEffectPrefab: {fileID: 0}

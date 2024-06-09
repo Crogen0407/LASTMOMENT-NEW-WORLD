@@ -53,3 +53,11 @@ MonoBehaviour:
     monoPoolingObjectPrefab: {fileID: 576904395294336857, guid: da7676bd100b4a945bc997a03ca08340,
       type: 3}
     poolCount: 10
+  - poolType: vfx_PlayerDieExplosion
+    monoPoolingObjectPrefab: {fileID: 758120462901585393, guid: e1b08032bec16ba4eb1ae23cbd572664,
+      type: 3}
+    poolCount: 10
+  - poolType: vfx_GuidedBulletExplosion
+    monoPoolingObjectPrefab: {fileID: 4848240948997801260, guid: 37d36fc194eebf74c9f3fff741d8fbfd,
+      type: 3}
+    poolCount: 5

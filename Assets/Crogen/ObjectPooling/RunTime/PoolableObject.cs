@@ -8,7 +8,6 @@ public class PoolableObject : MonoPoolingObject
     public override void OnPop()
     {
         PopEvent?.Invoke();
-        
     }
 
     public override void OnPush()

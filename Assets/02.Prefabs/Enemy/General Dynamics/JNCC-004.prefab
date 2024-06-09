@@ -260,6 +260,7 @@ GameObject:
   - component: {fileID: 2848048870854642330}
   - component: {fileID: 250437828607565178}
   - component: {fileID: 6474675660056047047}
+  - component: {fileID: 6798895409588399894}
   m_Layer: 7
   m_Name: Cannon
   m_TagString: Untagged
@@ -333,6 +334,58 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!114 &6798895409588399894
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3432756985467332481}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6c8bc4aeacdb3424286c5fe29c1f0bd6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _surpport: {fileID: 6766511063660076840}
+  _muzzle: {fileID: 4842545515886647941}
+  _attackPoint: {fileID: 8061737040563672283}
+  _target: {fileID: 0}
+  _targetFollowDelay: 5
+  _flipVec: {x: 1, y: -1, z: 1}
+  _minRotate: -16
+  _maxRotate: 22
+  isWorking: 1
+--- !u!1 &3632128035541233681
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 8061737040563672283}
+  m_Layer: 0
+  m_Name: AttackPoint
+  m_TagString: Untagged
+  m_Icon: {fileID: 7174288486110832750, guid: 0000000000000000d000000000000000, type: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &8061737040563672283
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3632128035541233681}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0.3652, z: 1.1588}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 4842545515886647941}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &4483483043417957980
 GameObject:
   m_ObjectHideFlags: 0
@@ -399,7 +452,8 @@ Transform:
   m_LocalPosition: {x: 0, y: 0.252, z: -0.217}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
-  m_Children: []
+  m_Children:
+  - {fileID: 8061737040563672283}
   m_Father: {fileID: 6766511063660076840}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!33 &7919475171732484485
@@ -758,14 +812,16 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 64
   recognitionRange: 2000
-  currentTarget: {fileID: 0}
-  preferredDirection: 0
-  findNavAngle: 0
-  _bulletType: 1
-  _attackDelay: 0.1
-  _attackMaxCount: 10
-  _attackCurCount: 10
-  _attackLoadingDelay: 5
+  _explosionRadius: 0
+  _droItemType: 0
+  _itemDropPercent: 0
+  bulletType: 0
+  attackDelay: 0.1
+  attackMaxCount: 10
+  attackLoadingDelay: 5
+  _dieEvent:
+    m_PersistentCalls:
+      m_Calls: []
 --- !u!114 &7405499225701932381
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -781,11 +837,10 @@ MonoBehaviour:
   <DefaultSpeed>k__BackingField: 0
   <MaxSpeed>k__BackingField: 1
   <CurSpeed>k__BackingField: 0
-  <RotateSpeedX>k__BackingField: 0
-  <RotateSpeedY>k__BackingField: 0
   busterVFXMaterials: []
   attackTargetTrm: {fileID: 0}
   rotateDelay: 1
+  _pathGenerator: {fileID: 0}
 --- !u!54 &6412397718538149578
 Rigidbody:
   m_ObjectHideFlags: 0
