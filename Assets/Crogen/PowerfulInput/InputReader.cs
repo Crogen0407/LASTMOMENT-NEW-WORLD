@@ -20,6 +20,7 @@ namespace Crogen.PowerfulInput
         public event Action EscEvent;
         public event Action<int> UseItemEvent;
         public event Action<int> UseWeaponEvent;
+        public event Action TutorialNextEvent;
         
         //Attack
         public event Action<bool> AttackEvent;
@@ -122,8 +123,14 @@ namespace Crogen.PowerfulInput
             if(context.started)
                 UseWeaponEvent?.Invoke(2);
         }
-
+        
         #endregion
+        
+        public void OnTutorialNext(InputAction.CallbackContext context)
+        {
+            if(context.started)
+                TutorialNextEvent?.Invoke();
+        }
         
         public void OnMouseClick(InputAction.CallbackContext context)
         {

@@ -125,6 +125,15 @@ public partial class @Controls: IInputActionCollection2, IDisposable
                     ""processors"": """",
                     ""interactions"": """",
                     ""initialStateCheck"": true
+                },
+                {
+                    ""name"": ""TutorialNext"",
+                    ""type"": ""Button"",
+                    ""id"": ""021d3e6e-bd92-4d4e-a349-846071188a7d"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": true
                 }
             ],
             ""bindings"": [
@@ -248,6 +257,28 @@ public partial class @Controls: IInputActionCollection2, IDisposable
                     ""action"": ""UseWeaponThree"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""76f3f7d9-7be2-4390-871e-e03f02ecb73b"",
+                    ""path"": ""<Mouse>/press"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""TutorialNext"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""f4fcfb43-b371-4da0-a8ba-b87949e9b20e"",
+                    ""path"": ""<Keyboard>/space"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""TutorialNext"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
                 }
             ]
         },
@@ -315,6 +346,7 @@ public partial class @Controls: IInputActionCollection2, IDisposable
         m_Player_UseWeaponOne = m_Player.FindAction("UseWeaponOne", throwIfNotFound: true);
         m_Player_UseWeaponTwo = m_Player.FindAction("UseWeaponTwo", throwIfNotFound: true);
         m_Player_UseWeaponThree = m_Player.FindAction("UseWeaponThree", throwIfNotFound: true);
+        m_Player_TutorialNext = m_Player.FindAction("TutorialNext", throwIfNotFound: true);
         // UI
         m_UI = asset.FindActionMap("UI", throwIfNotFound: true);
         m_UI_MouseClick = m_UI.FindAction("MouseClick", throwIfNotFound: true);
@@ -391,6 +423,7 @@ public partial class @Controls: IInputActionCollection2, IDisposable
     private readonly InputAction m_Player_UseWeaponOne;
     private readonly InputAction m_Player_UseWeaponTwo;
     private readonly InputAction m_Player_UseWeaponThree;
+    private readonly InputAction m_Player_TutorialNext;
     public struct PlayerActions
     {
         private @Controls m_Wrapper;
@@ -406,6 +439,7 @@ public partial class @Controls: IInputActionCollection2, IDisposable
         public InputAction @UseWeaponOne => m_Wrapper.m_Player_UseWeaponOne;
         public InputAction @UseWeaponTwo => m_Wrapper.m_Player_UseWeaponTwo;
         public InputAction @UseWeaponThree => m_Wrapper.m_Player_UseWeaponThree;
+        public InputAction @TutorialNext => m_Wrapper.m_Player_TutorialNext;
         public InputActionMap Get() { return m_Wrapper.m_Player; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
@@ -448,6 +482,9 @@ public partial class @Controls: IInputActionCollection2, IDisposable
             @UseWeaponThree.started += instance.OnUseWeaponThree;
             @UseWeaponThree.performed += instance.OnUseWeaponThree;
             @UseWeaponThree.canceled += instance.OnUseWeaponThree;
+            @TutorialNext.started += instance.OnTutorialNext;
+            @TutorialNext.performed += instance.OnTutorialNext;
+            @TutorialNext.canceled += instance.OnTutorialNext;
         }
 
         private void UnregisterCallbacks(IPlayerActions instance)
@@ -485,6 +522,9 @@ public partial class @Controls: IInputActionCollection2, IDisposable
             @UseWeaponThree.started -= instance.OnUseWeaponThree;
             @UseWeaponThree.performed -= instance.OnUseWeaponThree;
             @UseWeaponThree.canceled -= instance.OnUseWeaponThree;
+            @TutorialNext.started -= instance.OnTutorialNext;
+            @TutorialNext.performed -= instance.OnTutorialNext;
+            @TutorialNext.canceled -= instance.OnTutorialNext;
         }
 
         public void RemoveCallbacks(IPlayerActions instance)
@@ -569,6 +609,7 @@ public partial class @Controls: IInputActionCollection2, IDisposable
         void OnUseWeaponOne(InputAction.CallbackContext context);
         void OnUseWeaponTwo(InputAction.CallbackContext context);
         void OnUseWeaponThree(InputAction.CallbackContext context);
+        void OnTutorialNext(InputAction.CallbackContext context);
     }
     public interface IUIActions
     {

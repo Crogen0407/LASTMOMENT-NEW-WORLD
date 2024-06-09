@@ -103,6 +103,15 @@
                     "processors": "",
                     "interactions": "",
                     "initialStateCheck": true
+                },
+                {
+                    "name": "TutorialNext",
+                    "type": "Button",
+                    "id": "021d3e6e-bd92-4d4e-a349-846071188a7d",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": true
                 }
             ],
             "bindings": [
@@ -224,6 +233,28 @@
                     "processors": "",
                     "groups": "",
                     "action": "UseWeaponThree",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "76f3f7d9-7be2-4390-871e-e03f02ecb73b",
+                    "path": "<Mouse>/press",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "TutorialNext",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "f4fcfb43-b371-4da0-a8ba-b87949e9b20e",
+                    "path": "<Keyboard>/space",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "TutorialNext",
                     "isComposite": false,
                     "isPartOfComposite": false
                 }
