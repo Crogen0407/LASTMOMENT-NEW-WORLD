@@ -22,25 +22,29 @@ MonoBehaviour:
         description: 
     - Key: 1
       Value:
-        weaponIconSprite: {fileID: 0}
+        weaponIconSprite: {fileID: -15560317, guid: 451125f74276ea04e89126d17e50ce3d,
+          type: 3}
         weaponName: "\uC720\uB3C4\uD0C4"
         weaponPrice: 160
         description: 
     - Key: 2
       Value:
-        weaponIconSprite: {fileID: 0}
+        weaponIconSprite: {fileID: 937308335, guid: 451125f74276ea04e89126d17e50ce3d,
+          type: 3}
         weaponName: "M206 \uD50C\uB808\uC5B4"
         weaponPrice: 210
         description: 
     - Key: 3
       Value:
-        weaponIconSprite: {fileID: 0}
+        weaponIconSprite: {fileID: -806560430, guid: 451125f74276ea04e89126d17e50ce3d,
+          type: 3}
         weaponName: "MJN-68 \uD50C\uB808\uC5B4"
         weaponPrice: 200
         description: 
     - Key: 4
       Value:
-        weaponIconSprite: {fileID: 0}
+        weaponIconSprite: {fileID: -1837622833, guid: 451125f74276ea04e89126d17e50ce3d,
+          type: 3}
         weaponName: "MJN-61 \uD50C\uB808\uC5B4"
         weaponPrice: 230
         description: 
