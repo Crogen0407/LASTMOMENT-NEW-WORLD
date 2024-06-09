@@ -65,3 +65,11 @@ MonoBehaviour:
     monoPoolingObjectPrefab: {fileID: 2693397925638125192, guid: b75e039e8b0f64f47a56263a71b59e23,
       type: 3}
     poolCount: 50
+  - poolType: MJN68Flare
+    monoPoolingObjectPrefab: {fileID: 2693397925638125192, guid: dfba7dd7dbf81c84b8e2186d9be25c8c,
+      type: 3}
+    poolCount: 80
+  - poolType: MJN61Flare
+    monoPoolingObjectPrefab: {fileID: 2693397925638125192, guid: eea126e326a2c0942a7e9ab953f33660,
+      type: 3}
+    poolCount: 80

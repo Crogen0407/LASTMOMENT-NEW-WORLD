@@ -3103,6 +3103,14 @@ MonoBehaviour:
     monoPoolingObjectPrefab: {fileID: 2693397925638125192, guid: b75e039e8b0f64f47a56263a71b59e23,
       type: 3}
     poolCount: 50
+  - poolType: MJN68Flare
+    monoPoolingObjectPrefab: {fileID: 2693397925638125192, guid: dfba7dd7dbf81c84b8e2186d9be25c8c,
+      type: 3}
+    poolCount: 80
+  - poolType: MJN61Flare
+    monoPoolingObjectPrefab: {fileID: 2693397925638125192, guid: eea126e326a2c0942a7e9ab953f33660,
+      type: 3}
+    poolCount: 80
 --- !u!1 &485147530
 GameObject:
   m_ObjectHideFlags: 0
@@ -7114,7 +7122,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _weaponData: {fileID: 11400000, guid: 6f004f589d84be24888bf86bce488e76, type: 2}
-  _curWeapons: 010000000200000000000000
+  _curWeapons: 040000000200000003000000
   _weaponCoolTimeMaxs:
   - 0
   - 0

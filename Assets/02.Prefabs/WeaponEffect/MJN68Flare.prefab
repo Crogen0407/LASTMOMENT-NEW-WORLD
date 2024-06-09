@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 4056517728758327045}
   - component: {fileID: 2693397925638125192}
   m_Layer: 15
-  m_Name: M206Flare
+  m_Name: MJN68Flare
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -64,7 +64,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: a4e9d2da9c1258344b617ba904bce19a, type: 2}
+  - {fileID: 2100000, guid: 518b227c12c98264c9351ce1d313c155, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0

@@ -22,25 +22,27 @@ MonoBehaviour:
     - Key: 1
       Value:
         coolTime: 2
-        attackCount: 15
+        attackCount: 10
         weaponEffectPrefab: {fileID: 8210434154388601080, guid: eabf7a5c161b4c44a8a22307ed0a220d,
           type: 3}
     - Key: 2
       Value:
         coolTime: 5
-        attackCount: 25
+        attackCount: 7
         weaponEffectPrefab: {fileID: 6046699502353669075, guid: 41b4aaa72114fb443a4f7eb25541334e,
           type: 3}
     - Key: 3
       Value:
         coolTime: 5
-        attackCount: 25
-        weaponEffectPrefab: {fileID: 0}
+        attackCount: 7
+        weaponEffectPrefab: {fileID: 6046699502353669075, guid: a8588f1ac65183f408f0c085f38ec394,
+          type: 3}
     - Key: 4
       Value:
         coolTime: 5
-        attackCount: 25
-        weaponEffectPrefab: {fileID: 0}
+        attackCount: 7
+        weaponEffectPrefab: {fileID: 6046699502353669075, guid: 121890a0857e805438696fb75fb1efe2,
+          type: 3}
     - Key: 5
       Value:
         coolTime: 20
