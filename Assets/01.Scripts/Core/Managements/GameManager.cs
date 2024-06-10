@@ -116,9 +116,11 @@ public class GameManager : MonoSingleton<GameManager>
 
     private IEnumerator GameStart()
     {
+        TargetPointContent.Instance.IsActive = false;
         InputReader.DisablePlayerActions();
         Player.Movement.HandleSpeedChange(true);
         yield return new WaitForSeconds(5);
+        TargetPointContent.Instance.IsActive = true;
         InputReader.EnablePlayerActions();
         Player.Movement.HandleSpeedChange(false);
     }

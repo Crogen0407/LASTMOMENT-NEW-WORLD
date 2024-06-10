@@ -24,7 +24,6 @@ public class EnemyRunState : AgentState<EnemyStateEnum>
     {
         base.Enter();
         _enemyMovement.HandleSpeedChange(true);
-        Debug.Log(_enemyMovement.CurSpeed);
     }
 
     public override void FixedUpdateState()

@@ -1,5 +1,4 @@
 using System.Collections.Generic;
-using System.Linq;
 using UnityEngine;
 
 public class StageManager : MonoSingleton<StageManager>
@@ -10,6 +9,7 @@ public class StageManager : MonoSingleton<StageManager>
    [Header("Check Point")]
    [SerializeField] private List<Transform> _checkPointList;
    [SerializeField] private int _currentCheckPoint;
+   public Transform currentTargetTrm;
 
    private bool _gameClear = false;
    
@@ -21,6 +21,7 @@ public class StageManager : MonoSingleton<StageManager>
    private void InitCheckPoint()
    {
       _checkPointList[0].gameObject.SetActive(true);
+      currentTargetTrm = _checkPointList[0];
       for (int i = 1; i < _checkPointList.Count; ++i)
          _checkPointList[i].gameObject.SetActive(false);
    }
@@ -36,7 +37,12 @@ public class StageManager : MonoSingleton<StageManager>
          _gameClear = true;
          return;
       }
+
       for (int i = 0; i < _checkPointList.Count; ++i)
+      {
          _checkPointList[i].gameObject.SetActive(_currentCheckPoint == i);
+         if (_checkPointList[i].gameObject.activeSelf)
+            currentTargetTrm = _checkPointList[i];
+      }
    }
 }

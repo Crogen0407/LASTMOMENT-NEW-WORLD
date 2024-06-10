@@ -21,7 +21,6 @@ public class Item : MonoBehaviour
         {
             if (_itemManager.PushInItemArray(_itemType))
             {
-                Debug.Log("뭔데 진짜");
                 _disableEvent?.Invoke();
                 Destroy(gameObject);
             }

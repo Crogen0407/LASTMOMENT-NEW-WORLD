@@ -30,7 +30,6 @@ public class EnemyMovement : AgentMovement
     {
         base.HandleSpeedChange(value);
         ExitDefaultBezierPath();
-        Debug.Log(value);
         StartCoroutine(ChangeSpeedCoroutine());
     }
 
