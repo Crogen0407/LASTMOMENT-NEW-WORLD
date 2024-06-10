@@ -6,7 +6,7 @@ public class CheckPoint : MonoBehaviour
 {
     [SerializeField] private LayerMask _whatIsPlayer;
     [SerializeField] private float _radius=40f;
-    [Range(0f, 1f)] public float clearGauge = 1f;
+    [Range(0f, 1f)] [SerializeField] private float clearGauge;
     [SerializeField] private UnityEvent _clearEvent;
     private Collider[] _colliders;
 

@@ -10,8 +10,7 @@ public class AutoAim : MonoBehaviour
     {
         _playerCameraTrm = GameObject.Find("PlayerVirtualCamera").transform;
         _meshRenderer = GetComponent<MeshRenderer>();
-        Player player;
-        player = FindObjectOfType<Player>();
+        Player player = FindObjectOfType<Player>();;
         _dieDistance = player.PlayerAttack.GetAttackRange();
     }
 

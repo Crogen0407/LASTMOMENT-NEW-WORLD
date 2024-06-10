@@ -53,6 +53,6 @@ MonoBehaviour:
   _flarePoolType: 14
   _cycleCount: 20
   _shootDelay: 0.32
-  _bulletDuration: 10
+  _bulletDuration: 1
   _bulletSpeed: 10
   _bulletDamage: 5

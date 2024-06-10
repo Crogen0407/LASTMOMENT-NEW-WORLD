@@ -7,7 +7,7 @@ public class Item : MonoBehaviour
     [SerializeField] private ItemType _itemType;
     [SerializeField] private UnityEvent _disableEvent;
     private Collider[] _playerCollider;
-    protected ItemManager _itemManager;
+    private ItemManager _itemManager;
     
     protected void Awake()
     {
@@ -17,11 +17,11 @@ public class Item : MonoBehaviour
 
     private void FixedUpdate()
     {
-        Physics.OverlapSphereNonAlloc(transform.position, 6f, _playerCollider, _whatIsPlayer);
-        if (_playerCollider[0] != null)
+        if (Physics.OverlapSphereNonAlloc(transform.position, 6f, _playerCollider, _whatIsPlayer) > 0)
         {
             if (_itemManager.PushInItemArray(_itemType))
             {
+                Debug.Log("뭔데 진짜");
                 _disableEvent?.Invoke();
                 Destroy(gameObject);
             }

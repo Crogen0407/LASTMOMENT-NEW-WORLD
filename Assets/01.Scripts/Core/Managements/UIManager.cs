@@ -62,10 +62,10 @@ public class UIManager : MonoSingleton<UIManager>
     public void Init()
     {
         if (!_isPause)
-        {
-            Cursor.visible = false;
             Cursor.lockState = CursorLockMode.Locked;
-        }
+        else
+            Cursor.lockState = CursorLockMode.Confined;
+        Cursor.visible = _isPause;
     }
 
     public Vector2 ScreenConvertToCanvasSpace(Vector2 position)

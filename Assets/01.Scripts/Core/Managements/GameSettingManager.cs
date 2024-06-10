@@ -1,6 +1,5 @@
 ﻿using System;
 using Crogen.JsamJson;
-using UnityEditor;
 using UnityEngine;
 using UnityEngine.Rendering;
 
@@ -20,7 +19,7 @@ public class GameSettingManager : MonoSingleton<GameSettingManager>
     {
         Array arr = Enum.GetValues(typeof(SettingOptionType));
         SettingArray = new int[arr.Length];
-    }
+    } 
 
     public void ApplySetting(SettingOptionType settingOptionType, int value)
     {
@@ -36,14 +35,17 @@ public class GameSettingManager : MonoSingleton<GameSettingManager>
 
     public void LoadSetting()
     {
-        OnSettingDataLoadEvent?.Invoke();
         GameData gameData = JsamJson.Load<GameData>(false);
-        if(gameData.settingArray != null)
+        if(gameData.settingArray.Length != 0)
                 SettingArray = gameData.settingArray;
+        else
+        {
+            SettingArray = new int[Enum.GetNames(typeof(SettingOptionType)).Length];
+        }
+        OnSettingDataLoadEvent?.Invoke();
         
         //게임 적용
         //소리 적용
-
         #region Graphic
         
         //ImageQuality

@@ -48,6 +48,7 @@ public class Enemy : Agent<EnemyStateEnum>
     {
         if (Physics.SphereCast(transform.position, recognitionRange, Vector3.up, out RaycastHit hit, whatIsPlayer))
         {
+            Debug.Log("Die");
             _dieEvent.Invoke();
             _itemManager.DropItem(transform.position, _droItemType);
             _cameraManager.SetPlayerCameraShack(1, 10, 5);

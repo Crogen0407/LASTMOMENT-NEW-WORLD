@@ -83,7 +83,6 @@ public class WeaponManager : MonoBehaviour
         
         weaponEffect.Init(_playerTrm.forward, _playerTrm);
         _curWeaponCoolTimes[value] = 0;
-        Debug.Log($"Use Weapon : {_curWeapons[value]}");
     }
     
     private void Update()
