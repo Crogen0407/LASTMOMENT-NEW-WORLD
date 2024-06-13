@@ -97,8 +97,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _damaged: 1
-  lifeTime: 2
-  speed: 80
+  lifeTime: 1
+  speed: 300
   _whatIsOrigin:
     serializedVersion: 2
     m_Bits: 64

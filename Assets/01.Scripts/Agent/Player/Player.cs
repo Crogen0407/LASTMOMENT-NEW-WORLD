@@ -8,6 +8,8 @@ public class Player : Agent<AgentStateEnum>
 {
     public PlayerAttack PlayerAttack { get; private set; }
     [SerializeField] private CinemachineVirtualCamera _playerDieVirtualCamera;
+
+    private Transform _visualTrm;
     
     [Header("PowerUp")]
     [SerializeField] private GameObject _powerUpSkinnedEffect;
@@ -74,12 +76,14 @@ public class Player : Agent<AgentStateEnum>
     protected override void Awake()
     {
         base.Awake();
+        _visualTrm = transform.Find("Visual");
         PlayerAttack = GetComponent<PlayerAttack>();
     }
 
     public override void SetDead()
     {
         base.SetDead();
+        _visualTrm.gameObject.SetActive(false);
         GameManager.Instance.GameOver();
     }
 }

@@ -7,8 +7,7 @@ public class CameraManager : MonoSingleton<CameraManager>
     private CinemachineVirtualCamera _playerVirtualCamera;
     private CinemachineBasicMultiChannelPerlin _perlin;
     private bool _isShacking;
-    private float amplitude;
-    private float frequency;
+    
     private void Awake()
     {
         _playerVirtualCamera = GameObject.Find("PlayerVirtualCamera").GetComponent<CinemachineVirtualCamera>();
@@ -17,18 +16,16 @@ public class CameraManager : MonoSingleton<CameraManager>
 
     public void SetPlayerCameraShack(float duration, float amplitude, float frequency)
     {
-        if (_isShacking) return;
+        Debug.Log(amplitude);
         StartCoroutine(CoroutinePlayerCameraShack(duration, amplitude, frequency));
     }
 
     private IEnumerator CoroutinePlayerCameraShack(float duration, float amplitude, float frequency)
     {
-        _isShacking = true;
-        _perlin.m_AmplitudeGain += this.amplitude;
-        _perlin.m_FrequencyGain += this.frequency;
+        _perlin.m_AmplitudeGain += amplitude;
+        _perlin.m_FrequencyGain += frequency;
         yield return new WaitForSeconds(duration);
-        _isShacking = false;
-        _perlin.m_AmplitudeGain -= this.amplitude;
-        _perlin.m_FrequencyGain -= this.frequency;
+        _perlin.m_AmplitudeGain -= amplitude;
+        _perlin.m_FrequencyGain -= frequency;
     }
 }

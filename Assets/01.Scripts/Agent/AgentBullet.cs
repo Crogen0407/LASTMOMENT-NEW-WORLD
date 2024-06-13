@@ -10,8 +10,8 @@ using UnityEngine.Serialization;
 public class AgentBullet : MonoPoolingObject
 {
     [SerializeField] private int _damaged = 1;
-    [HideInInspector] public float lifeTime = 2f;
-    [HideInInspector] public float speed = 80f;
+    public float lifeTime = 2f;
+    public float speed = 80f;
     [SerializeField] protected LayerMask _whatIsOrigin;
     [SerializeField] protected PoolType _poolType;
     [SerializeField] protected PoolType _explosionEffect;
@@ -20,11 +20,19 @@ public class AgentBullet : MonoPoolingObject
     public override void OnPop()
     {
         _hitTarget = new Collider[1];
+        StopAllCoroutines();
+        
+        Vector3 startPos = transform.position;
+        Vector3 endPos = transform.forward.normalized * (speed * lifeTime);
+        transform.DOMove(endPos + startPos, lifeTime).SetEase(Ease.OutCubic);
         StartCoroutine(AutoDieCoroutine());
     }
 
     public override void OnPush()
     { 
+        StopAllCoroutines();
+        transform.DOKill();
+        this.Pop(_explosionEffect, transform.position, Quaternion.identity);
     }
     
     private void FixedUpdate()
@@ -35,19 +43,12 @@ public class AgentBullet : MonoPoolingObject
             {
                 healthSystem.Hp -= _damaged;
             }
-            StopAllCoroutines();
-            transform.DOKill();
-            this.Pop(_explosionEffect, transform.position, Quaternion.identity);
             Push(_poolType);
         }
     }
 
     private IEnumerator AutoDieCoroutine()
     {
-        Vector3 startPos = transform.position;
-        Vector3 endPos = transform.forward.normalized * (speed * lifeTime);
-        transform.DOMove(endPos + startPos, lifeTime).SetEase(Ease.OutCubic);
-        
         yield return new WaitForSeconds(lifeTime);
         Push(_poolType);
     }

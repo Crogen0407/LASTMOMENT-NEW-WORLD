@@ -1,6 +1,7 @@
 using System;
 using UnityEngine;
 
+[RequireComponent(typeof(Rigidbody))]
 public abstract class AgentMovement : MonoBehaviour
 {
     //Values
@@ -9,7 +10,7 @@ public abstract class AgentMovement : MonoBehaviour
     [field:SerializeField] public int CurSpeed { get; set; } = 0;
     public Renderer[] busterVFXMaterials;
     private int _busterVFXShaderID;
-    private bool _isSpeedUp = false;
+    protected bool _isSpeedUp = false;
     private float _holdTime = 0f;
     
     //Actions

@@ -8,7 +8,8 @@ public class PlayerMovement : AgentMovement
     //Managements
     private GameManager _gameManager;
     private UIManager _uiManager;
-
+    private GameDataManager _gameDataManager;
+    private CameraManager _cameraManager;
     //Components
     [SerializeField] private AgentEffectGenerator _agentEffectGenerator;
     
@@ -26,7 +27,8 @@ public class PlayerMovement : AgentMovement
         //Managements
         _gameManager = GameManager.Instance;
         _uiManager = UIManager.Instance;
-        
+        _gameDataManager = GameDataManager.Instance;
+        _cameraManager = CameraManager.Instance;
         //Components
         _agentEffectGenerator = GetComponent<AgentEffectGenerator>();
         
@@ -44,8 +46,8 @@ public class PlayerMovement : AgentMovement
     public override void HandleMoveDirection(Vector3 position)
     {
         Vector3 rotate = transform.rotation * new Vector3(
-            -position.y * RotateSpeedY,
-            position.x * RotateSpeedX,
+            -position.y * RotateSpeedY * _gameDataManager.SettingArray[(int)SettingOptionType.YSensitivity],
+            position.x * RotateSpeedX * _gameDataManager.SettingArray[(int)SettingOptionType.XSensitivity],
             0);
         transform.Rotate(rotate*Time.deltaTime, Space.World);
     }
@@ -64,5 +66,14 @@ public class PlayerMovement : AgentMovement
         {
             _isResettingDirection = false;
         });
+    }
+
+    protected override void FixedUpdate()
+    {
+        base.FixedUpdate();
+        if (_isSpeedUp)
+        {
+            _cameraManager.SetPlayerCameraShack(Time.fixedDeltaTime, 0.25f, 0.5f);
+        }
     }
 }

@@ -49,7 +49,7 @@ public class PlayerAttack : AgentAttack
         if (_isAttack)
         {
             OnAttack();
-            _cameraManager.SetPlayerCameraShack(0.3f, 0.5f, 100);
+            _cameraManager.SetPlayerCameraShack(Time.deltaTime, 0.3f, 0.4f);
         }
     }
     

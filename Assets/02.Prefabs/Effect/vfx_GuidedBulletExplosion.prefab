@@ -4942,7 +4942,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 695c09a87da14424e84f0edd61148bed, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _poolType: 0
+  _poolType: 11
   _lifeTime: 2
   _attackRange: 5
   _attackAbleCount: 10

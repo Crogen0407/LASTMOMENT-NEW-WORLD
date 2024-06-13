@@ -25,7 +25,7 @@ public class TargetPointContent : MonoSingleton<TargetPointContent>
     private void FixedUpdate()
     {
         _image.gameObject.SetActive(_stageManager.currentTargetTrm != null && IsActive);
-            
+        if (_stageManager.currentTargetTrm == null) return;
         float minX = _image.GetPixelAdjustedRect().width / 2;
         float maxX = Screen.width - minX;
         

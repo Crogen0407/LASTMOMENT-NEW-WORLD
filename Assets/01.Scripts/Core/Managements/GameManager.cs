@@ -53,7 +53,6 @@ public class GameManager : MonoSingleton<GameManager>
     {
         GameData gameData = JsamJson.Load<GameData>(false);
         gameData.gold += currentGold;
-        gameData.preamble += currentPreamble;
         JsamJson.Save<GameData>(gameData, false);
     }
 
@@ -70,11 +69,17 @@ public class GameManager : MonoSingleton<GameManager>
     {
         UIManager.Instance.gameCanvas.gameObject.SetActive(false);
         UIManager.Instance.aimCanvas.gameObject.SetActive(false);
-        Time.timeScale = 0;
+        
         float startValue = 0;
         float endValue = -100;
         Sequence seq = DOTween.Sequence();
+        
+        seq.AppendInterval(1f).SetUpdate(true);
         seq.Append(DOTween.To(() => startValue, value => ColorAdjustments.saturation.value = value, endValue, 1)).SetUpdate(true);
+        seq.AppendCallback(() =>
+        {
+            Time.timeScale = 0;
+        }).SetUpdate(true);
         seq.AppendInterval(1f).SetUpdate(true);
         seq.AppendCallback(() =>
         {

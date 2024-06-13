@@ -1,6 +1,7 @@
 using System;
 using System.Collections;
 using UnityEngine;
+using UnityEngine.Events;
 
 namespace Crogen.AgentFSM
 {
@@ -11,6 +12,9 @@ namespace Crogen.AgentFSM
         public HealthSystem.HealthSystem HealthSystem { get; private set; }
         //public Animator Animator { get; private set; }
         public bool CanStateChangeable { get; protected set; } = true;
+        
+        [Header("DieEvent")] 
+        [SerializeField] protected UnityEvent _dieEvent;
         public bool isDead;
         
         protected virtual void Awake()
@@ -73,6 +77,7 @@ namespace Crogen.AgentFSM
         public virtual void SetDead()
         {
             isDead = true;
+            _dieEvent?.Invoke();
         }
     }
 }

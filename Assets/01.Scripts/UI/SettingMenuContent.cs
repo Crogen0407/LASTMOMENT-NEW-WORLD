@@ -1,11 +1,10 @@
-using System;
 using UnityEngine;
 using UnityEngine.UI;
 
 public class SettingMenuContent : MonoBehaviour
 {
     //Managements
-    private UIManager _uiManager;
+    private GameSettingManager _gameSettingManager;
     
     [SerializeField] private Button[] _settingElementButtons;
     [SerializeField] private RectTransform[] _settingPanels;
@@ -15,7 +14,7 @@ public class SettingMenuContent : MonoBehaviour
     
     private void Awake()
     {
-        _uiManager = UIManager.Instance;
+        _gameSettingManager = GameSettingManager.Instance;
         for (int i = 0; i < _settingElementButtons.Length; ++i)
         {
             int index = i;
@@ -25,7 +24,7 @@ public class SettingMenuContent : MonoBehaviour
             });
         }
         
-        _exitButton.onClick.AddListener(_uiManager.CloseSettingWindow);
+        _exitButton.onClick.AddListener(_gameSettingManager.CloseSettingWindow);
     }
 
     private void OnEnable()

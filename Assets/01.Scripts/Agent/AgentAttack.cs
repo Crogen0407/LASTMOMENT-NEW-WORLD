@@ -31,8 +31,6 @@ public class AgentAttack : MonoBehaviour
                     _bulletType, 
                     _BulletSpawnPoint[i].position, 
                     _BulletSpawnPoint[i].rotation) as AgentBullet;
-            bullet.lifeTime = _bulletLifeTime;
-            bullet.speed = _speed;
         }
     }
 

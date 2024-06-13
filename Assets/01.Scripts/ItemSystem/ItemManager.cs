@@ -1,4 +1,4 @@
-﻿using System;
+﻿                                          using System;
 using AYellowpaper.SerializedCollections;
 using Crogen.PowerfulInput;
 using UnityEngine;
@@ -35,7 +35,7 @@ public class ItemManager : MonoSingleton<ItemManager>
             }
         }
         
-        _uiManager = UIManager.Instance;
+        _uiManager = UIManager.Instance;                                                                                                                         
         _inputReader = GameManager.Instance.InputReader;
 
         _inputReader.UseItemEvent += HandleUseItem;

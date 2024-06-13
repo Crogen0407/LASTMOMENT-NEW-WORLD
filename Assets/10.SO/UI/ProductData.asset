@@ -17,7 +17,7 @@ MonoBehaviour:
     - Key: 0
       Value:
         weaponIconSprite: {fileID: 0}
-        weaponName: '-'
+        weaponName: ---
         weaponPrice: 0
         description: 
     - Key: 1

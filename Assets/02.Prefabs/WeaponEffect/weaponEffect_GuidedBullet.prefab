@@ -159,9 +159,9 @@ MonoBehaviour:
     m_Bits: 128
   _attackPossiableCount: 1
   attackRange: 20
-  duration: 10
+  duration: 5
   _explosionEffectPoolType: 11
-  _speed: 200
+  _speed: 350
 --- !u!54 &7466721032965774018
 Rigidbody:
   m_ObjectHideFlags: 0

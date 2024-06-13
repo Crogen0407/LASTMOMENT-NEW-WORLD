@@ -13,6 +13,7 @@ public class Enemy : Agent<EnemyStateEnum>
     public LayerMask whatIsPlayer;
     public float recognitionRange = 50f;
     [SerializeField] private float _explosionRadius;
+    public EnemyType enemyType;
 
     //Item
     [SerializeField] private ItemType _droItemType;
@@ -25,9 +26,6 @@ public class Enemy : Agent<EnemyStateEnum>
     public int attackMaxCount = 10;
     public float attackLoadingDelay = 5f;
     private bool isAttacking = false;
-
-    [Header("DieEvent")] 
-    [SerializeField] private UnityEvent _dieEvent; 
 
     protected override void Awake()
     {
@@ -49,7 +47,6 @@ public class Enemy : Agent<EnemyStateEnum>
         if (Physics.SphereCast(transform.position, recognitionRange, Vector3.up, out RaycastHit hit, whatIsPlayer))
         {
             Debug.Log("Die");
-            _dieEvent.Invoke();
             _itemManager.DropItem(transform.position, _droItemType);
             _cameraManager.SetPlayerCameraShack(1, 10, 5);
         }
