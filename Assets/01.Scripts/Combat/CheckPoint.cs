@@ -39,7 +39,7 @@ public class CheckPoint : MonoBehaviour
     private void OnClear()
     {
         Debug.Log("Clear"); 
-        _isClear = true;
+        _isClear = true; 
         _clearEvent?.Invoke();
         StageManager.Instance.UpdateCurrentCheckPoint();      
     }
