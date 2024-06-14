@@ -58,7 +58,7 @@ MonoBehaviour:
       type: 3}
     poolCount: 10
   - poolType: vfx_GuidedBulletExplosion
-    monoPoolingObjectPrefab: {fileID: 4848240948997801260, guid: 37d36fc194eebf74c9f3fff741d8fbfd,
+    monoPoolingObjectPrefab: {fileID: 4642219987168914013, guid: 9bba9cf244c53c5439505dfc96fdd11c,
       type: 3}
     poolCount: 5
   - poolType: M206Flare

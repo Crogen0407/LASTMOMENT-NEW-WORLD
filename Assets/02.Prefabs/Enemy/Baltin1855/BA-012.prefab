@@ -466,6 +466,7 @@ GameObject:
   - component: {fileID: 6989597739401391444}
   - component: {fileID: 4099514269298255065}
   - component: {fileID: 1736153715012377168}
+  - component: {fileID: 7300393131842370822}
   m_Layer: 7
   m_Name: BA-012
   m_TagString: Enemy
@@ -516,7 +517,7 @@ MonoBehaviour:
   enemyType: 0
   _droItemType: 0
   _itemDropPercent: 0
-  bulletType: 0
+  bulletType: 2
   attackDelay: 0.1
   attackMaxCount: 10
   attackLoadingDelay: 5
@@ -635,6 +636,24 @@ MonoBehaviour:
   IsLoop: 1
   IsMove: 1
   IsEndEventEnable: 0
+--- !u!114 &7300393131842370822
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8050658350802216660}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2194dd8f27ee63f4aadf96345848c02b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _hp: 14
+  maxHp: 14
+  isImpassible: 0
+  isDie: 0
+  _healEffectType: 0
+  _dieEffectType: 0
 --- !u!1 &9197751755269707690
 GameObject:
   m_ObjectHideFlags: 0

@@ -30,6 +30,7 @@ public class UIManager : MonoSingleton<UIManager>
     private bool _isPause = false;
 
     [Header("BossUI")] 
+    [SerializeField] private RectTransform _bossContent;
     [SerializeField] private Slider _bossHealthBarl;
     [SerializeField] private TextMeshProUGUI _bossNameText;
     private HealthSystem _bossHealthSystem;
@@ -65,6 +66,7 @@ public class UIManager : MonoSingleton<UIManager>
 
     public void ShowBossUI(Boss boss)
     {
+        _bossContent.gameObject.SetActive(true);
         _bossHealthSystem = boss.HealthSystem;
         _bossNameText.text = boss.enemyType.ToString().Replace('_', '-');
     }

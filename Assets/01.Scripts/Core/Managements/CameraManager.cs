@@ -16,7 +16,6 @@ public class CameraManager : MonoSingleton<CameraManager>
 
     public void SetPlayerCameraShack(float duration, float amplitude, float frequency)
     {
-        Debug.Log(amplitude);
         StartCoroutine(CoroutinePlayerCameraShack(duration, amplitude, frequency));
     }
 

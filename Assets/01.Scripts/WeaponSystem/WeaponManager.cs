@@ -1,6 +1,4 @@
-﻿using System;
-using Crogen.JsamJson;
-using Crogen.ObjectPooling;
+﻿using Crogen.JsamJson;
 using UnityEngine;
 
 public class WeaponManager : MonoBehaviour

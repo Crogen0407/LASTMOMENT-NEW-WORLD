@@ -50,7 +50,7 @@ public class Enemy : Agent<EnemyStateEnum>
             _itemManager.DropItem(transform.position, _droItemType);
             _cameraManager.SetPlayerCameraShack(1, 10, 5);
         }
-        Destroy(gameObject);
+        base.SetDead();
     }
     
     private void OnDrawGizmos()

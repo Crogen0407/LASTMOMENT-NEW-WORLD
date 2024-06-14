@@ -41,5 +41,6 @@ public class EnemyHealthSystem : HealthSystem
     {
         this.Pop(_dieEffectType, transform.position, Quaternion.identity);
         _enemyBase.SetDead();
+        Destroy(gameObject);
     }
 }

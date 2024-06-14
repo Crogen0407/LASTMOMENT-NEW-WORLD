@@ -64,7 +64,6 @@ public class GameManager : MonoSingleton<GameManager>
         }
     }
 
-
     public void GameOver()
     {
         UIManager.Instance.gameCanvas.gameObject.SetActive(false);

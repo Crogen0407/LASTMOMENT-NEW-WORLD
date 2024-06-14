@@ -82,8 +82,8 @@ public class Player : Agent<AgentStateEnum>
 
     public override void SetDead()
     {
-        base.SetDead();
         _visualTrm.gameObject.SetActive(false);
         GameManager.Instance.GameOver();
+        base.SetDead();
     }
 }

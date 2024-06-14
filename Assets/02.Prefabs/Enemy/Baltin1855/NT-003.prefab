@@ -173,21 +173,22 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e9dcf2abbcd85ea44a08b5a0103b6099, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _dieEvent:
+    m_PersistentCalls:
+      m_Calls: []
   isDead: 0
   whatIsPlayer:
     serializedVersion: 2
     m_Bits: 64
   recognitionRange: 100
   _explosionRadius: 0
+  enemyType: 0
   _droItemType: 5
   _itemDropPercent: 100
   bulletType: 2
   attackDelay: 0.1
   attackMaxCount: 10
   attackLoadingDelay: 3
-  _dieEvent:
-    m_PersistentCalls:
-      m_Calls: []
 --- !u!114 &7405499225701932381
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -315,8 +316,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2194dd8f27ee63f4aadf96345848c02b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _hp: 10
-  maxHp: 10
+  _hp: 4
+  maxHp: 4
   isImpassible: 0
   isDie: 0
   _healEffectType: 6

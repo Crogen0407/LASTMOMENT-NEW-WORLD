@@ -20,7 +20,7 @@ public class PlayerHealthSystem : HealthSystem
     {
         if (other.transform.CompareTag("Enemy") || other.transform.CompareTag("Untagged"))
         {
-            Hp -= 100;
+            Hp -= 10;
         }
     }
     

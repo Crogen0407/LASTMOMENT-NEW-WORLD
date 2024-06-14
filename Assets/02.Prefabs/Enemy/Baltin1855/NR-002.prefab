@@ -294,6 +294,7 @@ GameObject:
   - component: {fileID: 2363175753869141150}
   - component: {fileID: 8452192315514888154}
   - component: {fileID: 7405499225701932381}
+  - component: {fileID: 7172827816067983843}
   - component: {fileID: 6412397718538149578}
   - component: {fileID: 6989597739401391444}
   - component: {fileID: 4099514269298255065}
@@ -348,7 +349,7 @@ MonoBehaviour:
   enemyType: 0
   _droItemType: 0
   _itemDropPercent: 0
-  bulletType: 0
+  bulletType: 2
   attackDelay: 0.1
   attackMaxCount: 10
   attackLoadingDelay: 5
@@ -372,6 +373,24 @@ MonoBehaviour:
   attackTargetTrm: {fileID: 0}
   rotateDelay: 1
   _pathGenerator: {fileID: 0}
+--- !u!114 &7172827816067983843
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8050658350802216660}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2194dd8f27ee63f4aadf96345848c02b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _hp: 8
+  maxHp: 8
+  isImpassible: 0
+  isDie: 0
+  _healEffectType: 0
+  _dieEffectType: 0
 --- !u!54 &6412397718538149578
 Rigidbody:
   m_ObjectHideFlags: 0
