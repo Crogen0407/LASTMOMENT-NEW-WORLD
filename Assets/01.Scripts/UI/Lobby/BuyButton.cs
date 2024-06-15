@@ -17,6 +17,7 @@ public class BuyButton : MonoBehaviour
         _buyButton.onClick.AddListener(action);
     }
 
+    //UIData 적용시키는 거
     public void SetWeaponData(WeaponOwnState weaponOwnState, int weaponPrice = 0)
     {
         if (_buyButton == null || _buttonText == null)

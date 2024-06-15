@@ -40,6 +40,19 @@ public class GameDataManager : MonoSingleton<GameDataManager>
         get => GameData.settingArray;
         set => GameData.settingArray = value;
     }
+
+    public int[] WeaponOwnStateArray
+    {
+        get => GameData.weaponOwnStateArray;
+        set => GameData.weaponOwnStateArray = value;
+    }
+
+    public int[] CurrentWeaponArray
+    {
+        get => GameData.currentWeaponArray;
+        set => GameData.currentWeaponArray = value;
+    }
+    
     public void AddGold(int goldValue)
     {
         GameData gameData = JsamJson.Load<GameData>(false);
