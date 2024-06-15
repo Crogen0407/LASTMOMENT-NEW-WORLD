@@ -11,4 +11,6 @@ public class Boss : Agent<BossStateEnum>
     public float recognitionRange = 50f;
     
     public EnemyType enemyType;
+
+    public BossAttack bossAttack;
 }

@@ -652,8 +652,8 @@ MonoBehaviour:
   maxHp: 14
   isImpassible: 0
   isDie: 0
-  _healEffectType: 0
-  _dieEffectType: 0
+  _healEffectType: 6
+  _dieEffectType: 4
 --- !u!1 &9197751755269707690
 GameObject:
   m_ObjectHideFlags: 0

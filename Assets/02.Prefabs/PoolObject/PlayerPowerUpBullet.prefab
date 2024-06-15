@@ -5170,6 +5170,6 @@ MonoBehaviour:
   speed: 300
   _whatIsOrigin:
     serializedVersion: 2
-    m_Bits: 64
+    m_Bits: 37440
   _poolType: 1
   _explosionEffect: 5

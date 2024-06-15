@@ -3,6 +3,7 @@ using AYellowpaper.SerializedCollections;
 using Crogen.HealthSystem;
 using TMPro;
 using UnityEngine;
+using UnityEngine.Serialization;
 using UnityEngine.UI;
 
 public class UIManager : MonoSingleton<UIManager>
@@ -31,7 +32,7 @@ public class UIManager : MonoSingleton<UIManager>
 
     [Header("BossUI")] 
     [SerializeField] private RectTransform _bossContent;
-    [SerializeField] private Slider _bossHealthBarl;
+    [SerializeField] private Slider _bossHealthBar;
     [SerializeField] private TextMeshProUGUI _bossNameText;
     private HealthSystem _bossHealthSystem;
     
@@ -69,6 +70,11 @@ public class UIManager : MonoSingleton<UIManager>
         _bossContent.gameObject.SetActive(true);
         _bossHealthSystem = boss.HealthSystem;
         _bossNameText.text = boss.enemyType.ToString().Replace('_', '-');
+    }
+
+    public void SetBossUI()
+    {
+        _bossHealthBar.value = _bossHealthSystem.Hp/_bossHealthBar.maxValue;
     }
 
     #region Item

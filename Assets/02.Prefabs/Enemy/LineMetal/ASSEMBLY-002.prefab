@@ -43,6 +43,7 @@ GameObject:
   - component: {fileID: 5010213640072770291}
   - component: {fileID: 238463770606260871}
   - component: {fileID: 5288298908543496483}
+  - component: {fileID: 3038679950567517953}
   m_Layer: 7
   m_Name: Visual
   m_TagString: Untagged
@@ -115,6 +116,28 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!64 &3038679950567517953
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2986003066883824675}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 5
+  m_Convex: 0
+  m_CookingOptions: 30
+  m_Mesh: {fileID: -7006361350099537272, guid: 327bad988d5eff44eb008faec2ef022e, type: 3}
 --- !u!1 &4483483043417957980
 GameObject:
   m_ObjectHideFlags: 0
@@ -160,7 +183,6 @@ GameObject:
   - component: {fileID: 4838546382371583155}
   - component: {fileID: 6724341959390068535}
   - component: {fileID: 6412397718538149578}
-  - component: {fileID: 3063747459018113434}
   m_Layer: 7
   m_Name: ASSEMBLY-002
   m_TagString: Enemy
@@ -205,9 +227,10 @@ MonoBehaviour:
   isDead: 0
   whatIsPlayer:
     serializedVersion: 2
-    m_Bits: 0
+    m_Bits: 64
   recognitionRange: 50
   enemyType: 0
+  bossAttack: {fileID: 0}
 --- !u!114 &8127522459876754361
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -220,6 +243,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 81372ce9416043038dee190e193873ce, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  currentPattern: {fileID: 0}
+  patterns: []
   _attackTrms: []
   _attackEffectPoolType: 0
 --- !u!114 &4838546382371583155
@@ -234,8 +259,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 659b0d4acd8dc284890e2c2e6b6aac23, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _hp: 100
-  maxHp: 100
+  _hp: 200
+  maxHp: 200
   isImpassible: 0
   isDie: 0
 --- !u!114 &6724341959390068535
@@ -281,28 +306,6 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 112
   m_CollisionDetection: 0
---- !u!64 &3063747459018113434
-MeshCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8050658350802216660}
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_LayerOverridePriority: 0
-  m_IsTrigger: 0
-  m_ProvidesContacts: 0
-  m_Enabled: 1
-  serializedVersion: 5
-  m_Convex: 0
-  m_CookingOptions: 30
-  m_Mesh: {fileID: -7006361350099537272, guid: 327bad988d5eff44eb008faec2ef022e, type: 3}
 --- !u!1 &8605300377804734351
 GameObject:
   m_ObjectHideFlags: 0

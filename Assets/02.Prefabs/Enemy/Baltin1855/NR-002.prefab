@@ -389,8 +389,8 @@ MonoBehaviour:
   maxHp: 8
   isImpassible: 0
   isDie: 0
-  _healEffectType: 0
-  _dieEffectType: 0
+  _healEffectType: 6
+  _dieEffectType: 4
 --- !u!54 &6412397718538149578
 Rigidbody:
   m_ObjectHideFlags: 0
