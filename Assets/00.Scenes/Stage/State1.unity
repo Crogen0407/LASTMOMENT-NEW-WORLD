@@ -6296,7 +6296,7 @@ MonoBehaviour:
   pauseCanvas: {fileID: 2013983390}
   aimCanvas: {fileID: 1948209509}
   _bossContent: {fileID: 32520344}
-  _bossHealthBarl: {fileID: 604528683}
+  _bossHealthBar: {fileID: 0}
   _bossNameText: {fileID: 282933558}
 --- !u!1 &416318447
 GameObject:

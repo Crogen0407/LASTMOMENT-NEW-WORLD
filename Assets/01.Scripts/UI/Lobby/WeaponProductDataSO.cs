@@ -12,8 +12,8 @@ public struct WeaponProductData
     public string description;
 }
 
-[CreateAssetMenu(menuName = "SO/UI/ProductData")]
-public class ProductDataSO : ScriptableObject
+[CreateAssetMenu(menuName = "SO/UI/WeaponProductData")]
+public class WeaponProductDataSO : ScriptableObject
 {
     public SerializedDictionary<WeaponEnum, WeaponProductData> weaponProductDataDictionary;
 

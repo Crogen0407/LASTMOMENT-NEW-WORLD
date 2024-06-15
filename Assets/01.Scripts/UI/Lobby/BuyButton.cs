@@ -7,7 +7,7 @@ public class BuyButton : MonoBehaviour
 {
     private Button _buyButton;
     private TextMeshProUGUI _buttonText;
-    
+
     public void AddListener(UnityAction action)
     {
         if (_buyButton == null)
@@ -17,7 +17,7 @@ public class BuyButton : MonoBehaviour
         _buyButton.onClick.AddListener(action);
     }
 
-    public void ChangeState(WeaponOwnState weaponOwnState, int weaponPrice = 0)
+    public void SetWeaponData(WeaponOwnState weaponOwnState, int weaponPrice = 0)
     {
         if (_buyButton == null || _buttonText == null)
         {

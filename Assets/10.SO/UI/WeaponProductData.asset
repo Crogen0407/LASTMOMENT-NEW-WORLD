@@ -10,7 +10,7 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 4e4eff160be60ef468a96d2da13ee81b, type: 3}
-  m_Name: ProductData
+  m_Name: WeaponProductData
   m_EditorClassIdentifier: 
   weaponProductDataDictionary:
     _serializedList:

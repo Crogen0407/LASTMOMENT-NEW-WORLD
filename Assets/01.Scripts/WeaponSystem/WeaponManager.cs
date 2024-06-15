@@ -1,5 +1,6 @@
 ﻿using Crogen.JsamJson;
 using UnityEngine;
+using UnityEngine.Serialization;
 
 public class WeaponManager : MonoBehaviour
 {
@@ -14,7 +15,7 @@ public class WeaponManager : MonoBehaviour
 
     [Header("UI")] 
     [SerializeField] private WeaponPanel[] _weaponPanels;
-    [SerializeField] private ProductDataSO _productData;
+    [FormerlySerializedAs("_productData")] [SerializeField] private WeaponProductDataSO weaponProductData;
 
     private Transform _playerTrm;
     
@@ -51,7 +52,7 @@ public class WeaponManager : MonoBehaviour
         //UI
         for (int i = 0; i < _weaponPanels.Length; ++i)
         {
-            _weaponPanels[i].Init(_productData.weaponProductDataDictionary[_curWeapons[i]]);
+            _weaponPanels[i].Init(weaponProductData.weaponProductDataDictionary[_curWeapons[i]]);
             _weaponPanels[i].SetAttackCount(_weaponAttackCounts[i]);
         }
 

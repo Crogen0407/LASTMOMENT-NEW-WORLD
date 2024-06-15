@@ -558,7 +558,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c3b7fc134f5cb28438d4192aa4c1f708, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  weaponEnum: 0
+  _iconImage: {fileID: 6961652044988385565}
+  _nameText: {fileID: 6821333462813142678}
+  _deleteBtn: {fileID: 6368003909804773591}
 --- !u!1 &7402480973732141483
 GameObject:
   m_ObjectHideFlags: 0
