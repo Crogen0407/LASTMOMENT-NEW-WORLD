@@ -15604,7 +15604,7 @@ MonoBehaviour:
   - {fileID: 893709364}
   - {fileID: 2023242807}
   - {fileID: 1534467659}
-  _productData: {fileID: 11400000, guid: e487f644a22d8d8459e12164b2f70d23, type: 2}
+  weaponProductData: {fileID: 11400000, guid: e487f644a22d8d8459e12164b2f70d23, type: 2}
 --- !u!1001 &951894204
 PrefabInstance:
   m_ObjectHideFlags: 0

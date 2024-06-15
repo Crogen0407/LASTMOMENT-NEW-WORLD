@@ -275,10 +275,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f8be3158f1bb4c198f6196dd2a5e17f2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  <DefaultSpeed>k__BackingField: 50
-  <MaxSpeed>k__BackingField: 100
+  <DefaultSpeed>k__BackingField: 10
+  <MaxSpeed>k__BackingField: 10
   <CurSpeed>k__BackingField: 0
   busterVFXMaterials: []
+  _rotateSpeed: 2
 --- !u!54 &6412397718538149578
 Rigidbody:
   m_ObjectHideFlags: 0
