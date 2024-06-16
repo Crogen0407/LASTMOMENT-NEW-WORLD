@@ -1,3 +1,4 @@
+using System;
 using Crogen.AgentFSM;
 using UnityEngine;
 
@@ -13,4 +14,10 @@ public class Boss : Agent<BossStateEnum>
     public EnemyType enemyType;
 
     public BossAttack bossAttack;
+
+
+    private void OnDrawGizmos()
+    {
+        Gizmos.DrawWireSphere(transform.position, recognitionRange);
+    }
 }
