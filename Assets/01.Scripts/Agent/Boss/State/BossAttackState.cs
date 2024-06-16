@@ -11,14 +11,7 @@ public class BossAttackState : AgentState<BossStateEnum>
     public override void Enter()
     {
         base.Enter();
-        (_agentBase as Boss)?.bossAttack.currentPattern.EnterPattern();
         _agentBase.StartCoroutine(CoroutineAttack());
-    }
-
-    public override void Exit()
-    {
-        (_agentBase as Boss)?.bossAttack.currentPattern.ExitPattern();
-        base.Exit();
     }
 
     private IEnumerator CoroutineAttack()
