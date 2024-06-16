@@ -24,6 +24,7 @@ public class TargetPointContent : MonoSingleton<TargetPointContent>
 
     private void FixedUpdate()
     {
+        IsActive = Mathf.Approximately(Time.timeScale, 0) == false;
         _image.gameObject.SetActive(_stageManager.currentTargetTrm != null && IsActive);
         if (_stageManager.currentTargetTrm == null) return;
         float minX = _image.GetPixelAdjustedRect().width / 2;
