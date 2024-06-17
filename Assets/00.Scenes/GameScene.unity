@@ -3522,7 +3522,7 @@ MonoBehaviour:
       type: 3}
     poolCount: 10
   - poolType: vfx_GuidedBulletExplosion
-    monoPoolingObjectPrefab: {fileID: 4848240948997801260, guid: 37d36fc194eebf74c9f3fff741d8fbfd,
+    monoPoolingObjectPrefab: {fileID: 4642219987168914013, guid: 9bba9cf244c53c5439505dfc96fdd11c,
       type: 3}
     poolCount: 5
   - poolType: M206Flare
@@ -3537,6 +3537,10 @@ MonoBehaviour:
     monoPoolingObjectPrefab: {fileID: 2693397925638125192, guid: eea126e326a2c0942a7e9ab953f33660,
       type: 3}
     poolCount: 80
+  - poolType: vfx_SpawnPortalEffect
+    monoPoolingObjectPrefab: {fileID: 8354125214277401520, guid: 436592859895ecf4aaf53d8684a51d4f,
+      type: 3}
+    poolCount: 30
 --- !u!1 &485147530
 GameObject:
   m_ObjectHideFlags: 0
@@ -4436,6 +4440,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: adfb131a19764884da172067f3c619f1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _playerVirtualCamera: {fileID: 956928774}
 --- !u!114 &538360157 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 5099511438887980436, guid: 2b9bda793e03d0b4ea9d938d54099f5b,

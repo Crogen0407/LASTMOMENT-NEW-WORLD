@@ -29,7 +29,7 @@ public class PlayerHealthSystem : HealthSystem
     }
     
     protected override void OnHpChange()
-    {
+    {   
         _hpSlider.value = Hp / maxHp;
     }
 

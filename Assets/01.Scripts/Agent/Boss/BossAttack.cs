@@ -38,14 +38,13 @@ public class BossAttack : MonoBehaviour
         foreach (var t in _laserGroups)
             t.ChargeEffectActive(false);
         
-        CameraManager.Instance.SetPlayerCameraShack(2f, 10f, 10f);
+        CameraManager.Instance.FadePlayerCameraShack(duration + 5f, 10f, 10f);
         
         //Shoot
         foreach (var t in _laserGroups)
-            t.SetLaserActive(true);
+            t.FadeLaserEffect(1f, duration);
         yield return new WaitForSeconds(duration);
-        foreach (var t in _laserGroups)
-            t.SetLaserActive(false);
+        
         endEvent?.Invoke();
     }
     

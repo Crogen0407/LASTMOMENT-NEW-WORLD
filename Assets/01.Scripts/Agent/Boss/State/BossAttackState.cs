@@ -11,17 +11,7 @@ public class BossAttackState : AgentState<BossStateEnum>
     public override void Enter()
     {
         base.Enter();
-        int range = Random.Range(0, 2);
-
-        switch (range)
-        {
-            case 0:
-                _agentBase.StartCoroutine(CoroutineBulletAttack());
-                break;
-            default:
-                (_agentBase as Boss)?.bossAttack.ShootLaser(10, ()=>_stateMachine.ChangeState(BossStateEnum.SpawnEnemy));                
-                break;
-        }
+        (_agentBase as Boss)?.bossAttack.ShootLaser(10, ()=>_stateMachine.ChangeState(BossStateEnum.SpawnEnemy));                
     }
     
     private IEnumerator CoroutineBulletAttack()
@@ -33,6 +23,6 @@ public class BossAttackState : AgentState<BossStateEnum>
         }
 
         yield return new WaitForSeconds(5f);
-        _stateMachine.ChangeState(BossStateEnum.SpawnEnemy);
+        _stateMachine.ChangeState(BossStateEnum.Idle);
     }
 }

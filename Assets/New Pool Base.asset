@@ -73,3 +73,7 @@ MonoBehaviour:
     monoPoolingObjectPrefab: {fileID: 2693397925638125192, guid: eea126e326a2c0942a7e9ab953f33660,
       type: 3}
     poolCount: 80
+  - poolType: vfx_SpawnPortalEffect
+    monoPoolingObjectPrefab: {fileID: 8354125214277401520, guid: 436592859895ecf4aaf53d8684a51d4f,
+      type: 3}
+    poolCount: 30

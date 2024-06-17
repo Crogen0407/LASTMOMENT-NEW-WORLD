@@ -6,7 +6,7 @@ public class Boss : Agent<BossStateEnum>
 {
     //Managements
     private StageManager _stageManager;
-    private UIManager _uiManager;
+    private UIManager _uiManager;  
     
     public LayerMask whatIsPlayer;
     public float recognitionRange = 50f;
@@ -14,7 +14,14 @@ public class Boss : Agent<BossStateEnum>
     public EnemyType enemyType;
 
     public BossAttack bossAttack;
+    public EnemySpawner enemySpawner;
 
+    protected override void Awake()
+    {
+        base.Awake();
+        bossAttack = GetComponent<BossAttack>();
+        enemySpawner = GetComponent<EnemySpawner>();
+    }
 
     private void OnDrawGizmos()
     {
