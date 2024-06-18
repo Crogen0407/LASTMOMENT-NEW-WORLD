@@ -22,7 +22,7 @@ MonoBehaviour:
       type: 3}
     poolCount: 50
   - poolType: EnemyDefualtBullet
-    monoPoolingObjectPrefab: {fileID: 4977553696331228377, guid: 5480354ef62da194f9df5b06dc224645,
+    monoPoolingObjectPrefab: {fileID: 628076009879456907, guid: 5480354ef62da194f9df5b06dc224645,
       type: 3}
     poolCount: 100
   - poolType: vfx_PlayerDefualtBulletExplosion
@@ -77,3 +77,7 @@ MonoBehaviour:
     monoPoolingObjectPrefab: {fileID: 8354125214277401520, guid: 436592859895ecf4aaf53d8684a51d4f,
       type: 3}
     poolCount: 30
+  - poolType: EnemyGuidedBullet
+    monoPoolingObjectPrefab: {fileID: 2197264051113128562, guid: d50358777eab84a4aa3aaa6a7423c0f8,
+      type: 3}
+    poolCount: 40

@@ -2,5 +2,6 @@
 {
     Idle, 
     SpawnEnemy,
-    Attack,
+    BulletAttack,
+    LaserAttack
 }

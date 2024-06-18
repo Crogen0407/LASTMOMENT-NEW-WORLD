@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 6298394101276459247}
   - component: {fileID: 5982012815977736452}
   - component: {fileID: 6841896602221680444}
-  - component: {fileID: 4977553696331228377}
+  - component: {fileID: 628076009879456907}
   m_Layer: 11
   m_Name: EnemyDefualtBullet
   m_TagString: Untagged
@@ -84,7 +84,7 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!114 &4977553696331228377
+--- !u!114 &628076009879456907
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -93,14 +93,14 @@ MonoBehaviour:
   m_GameObject: {fileID: 6918873909751949603}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e02e87006d07f3b4690ba2556db04034, type: 3}
+  m_Script: {fileID: 11500000, guid: 03f795617457aa04e81d8f811676953c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   _damaged: 1
   lifeTime: 2
-  speed: 80
+  speed: 300
   _whatIsOrigin:
     serializedVersion: 2
-    m_Bits: 128
+    m_Bits: 35456
   _poolType: 2
   _explosionEffect: 5

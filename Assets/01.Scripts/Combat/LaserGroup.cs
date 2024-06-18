@@ -31,16 +31,26 @@ public class LaserGroup : MonoBehaviour
         
     }
     
-    public void SetLaserActive(bool active)
+    public void SetDissolveLaserShooterActive(bool active)
     {
         _lasers ??= GetComponentsInChildren<LaserShooter>();
 
         for (int i = 0; i < _lasers.Length; ++i)
         {
-            _lasers[i].SetLaserEffectActive(active);
+            _lasers[i].SetDissolveActive(active);
         }
     }
-    
+
+    public void SetLaserShooterActive(bool active)
+    {
+        _lasers ??= GetComponentsInChildren<LaserShooter>();
+
+        for (int i = 0; i < _lasers.Length; ++i)
+        {
+            _lasers[i].gameObject.SetActive(active);
+        }
+    }
+
     private void FixedUpdate()
     {
         transform.Rotate(Vector3.forward * _rotateSpeed, Space.Self);

@@ -27,6 +27,7 @@ public class BossIdleState : AgentState<BossStateEnum>
 
     private void SetStateByRandom()
     {
+        //_stateMachine.ChangeState(BossStateEnum.LaserAttack);
         _stateMachine.ChangeState((BossStateEnum)Random.Range(1, _stateCount));
     }
 }

@@ -1,6 +1,6 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!114 &-6146441736724139957
+--- !u!114 &-8685170597885719893
 MonoBehaviour:
   m_ObjectHideFlags: 11
   m_CorrespondingSourceObject: {fileID: 0}
@@ -20,14 +20,14 @@ Material:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: RadarMat
-  m_Shader: {fileID: -6465566751694194690, guid: 8a78738fd1b514949be91d10a155129d,
+  m_Name: DefaultSpawnMat
+  m_Shader: {fileID: -6465566751694194690, guid: ef695d415ec159048b892e852df08dee,
     type: 3}
   m_Parent: {fileID: 0}
   m_ModifiedSerializedProperties: 0
   m_ValidKeywords: []
   m_InvalidKeywords: []
-  m_LightmapFlags: 4
+  m_LightmapFlags: 2
   m_EnableInstancingVariants: 0
   m_DoubleSidedGI: 0
   m_CustomRenderQueue: -1
@@ -37,8 +37,8 @@ Material:
   m_SavedProperties:
     serializedVersion: 3
     m_TexEnvs:
-    - _MainTex:
-        m_Texture: {fileID: 0}
+    - _BaseMap:
+        m_Texture: {fileID: 2800000, guid: b979f2eba6ba84843aeecfdd1ddea2fb, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - unity_Lightmaps:
@@ -55,12 +55,12 @@ Material:
         m_Offset: {x: 0, y: 0}
     m_Ints: []
     m_Floats:
-    - _CenterGridScale: 0.075
-    - _GridCount: 10
-    - _GridScale: 0.906
+    - _Metallic: 0
     - _QueueControl: 0
     - _QueueOffset: 0
-    - _Value: 0.18933457
+    - _Smoothness: 0.5
+    - _Value: 0
     m_Colors:
-    - _Color: {r: 1, g: 1, b: 1, a: 0.54901963}
+    - _Emission: {r: 0, g: 4, b: 4, a: 1}
+    - _LightColor: {r: 0, g: 8, b: 8, a: 1}
   m_BuildTextureStacks: []

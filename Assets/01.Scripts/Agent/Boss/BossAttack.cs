@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using Crogen.ObjectPooling;
 using DG.Tweening;
 using UnityEngine;
@@ -7,10 +8,8 @@ using UnityEngine.Events;
 public class BossAttack : MonoBehaviour
 {
     [Header("Bullet")]
-    [SerializeField] private Transform[] _attackTrms;
+    [SerializeField] private Transform[] _bulletAttackTrms;
     [SerializeField] private PoolType _attackBulletPoolType;
-    [SerializeField] private float _bulletSpeed = 150f;
-    [SerializeField] private float _bulletDuration = 10f;
 
     [Header("Laser")] 
     [SerializeField] private LaserGroup[] _laserGroups;
@@ -19,8 +18,8 @@ public class BossAttack : MonoBehaviour
     {
         for (int i = 0; i < _laserGroups.Length; ++i)
         {
-            _laserGroups[i].SetLaserActive(false);
             _laserGroups[i].ChargeEffectActive(false);
+            _laserGroups[i].SetLaserShooterActive(false);
         }
     }
 
@@ -31,6 +30,11 @@ public class BossAttack : MonoBehaviour
 
     private IEnumerator CoroutineShootLaser(float duration, UnityAction endEvent)
     {
+        //Active
+        foreach (var t in _laserGroups)
+            t.SetDissolveLaserShooterActive(true);
+        yield return new WaitForSeconds(3f);
+        
         //Charge
         foreach (var t in _laserGroups)
             t.ChargeEffectActive(true);
@@ -45,18 +49,39 @@ public class BossAttack : MonoBehaviour
             t.FadeLaserEffect(1f, duration);
         yield return new WaitForSeconds(duration);
         
+        //Active
+        foreach (var t in _laserGroups)
+            t.SetDissolveLaserShooterActive(false);
+        yield return new WaitForSeconds(3f);
+        
         endEvent?.Invoke();
     }
     
-    public void ShootBullet()
+    public void ShootBullet(float attackDelay, float duration, Action endEvent = null)
     {
-        foreach (var t in _attackTrms)
+        StartCoroutine(CoroutineShootBullet(attackDelay, duration, endEvent));
+    }
+
+    private IEnumerator CoroutineShootBullet(float attackDelay, float duration, Action endEvent = null)
+    {
+        float currentTime = 0f;
+        float delayTime = 0;
+        while(currentTime < duration)
         {
-            AgentBullet bullet = this.Pop(_attackBulletPoolType, t.position, t.rotation) as AgentBullet;
+            currentTime += Time.deltaTime;
+            delayTime += Time.deltaTime;
+            if (delayTime > attackDelay)
+            {
+                foreach (var t in _bulletAttackTrms)
+                {
+                    this.Pop(_attackBulletPoolType, t.position+t.forward, t.localRotation);
+                }                
+                delayTime = 0;
+            }
 
-            bullet.transform.forward = t.transform.forward;
-
-            bullet.transform.DOMove(transform.position + transform.forward * _bulletSpeed, _bulletDuration);
+            yield return null;
         }
+        yield return new WaitForSeconds(duration);
+        endEvent?.Invoke();
     }
 }
