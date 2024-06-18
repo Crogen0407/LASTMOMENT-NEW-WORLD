@@ -4,4 +4,6 @@ public class GameData
     public int[] settingArray;
     public int[] currentWeaponArray;
     public int[] weaponOwnStateArray;
+    public string userName;
+    public bool playedGame;
 }
