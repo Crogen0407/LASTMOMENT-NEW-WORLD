@@ -33,8 +33,6 @@ public class GameManager : MonoSingleton<GameManager>
         }        
         
         ScreenFadeManager.Instance.Fade(true, 1f);
-        
-        InputReader.DisablePlayerActions();
     }
 
     private void Start()
@@ -53,15 +51,7 @@ public class GameManager : MonoSingleton<GameManager>
     {
         GameData gameData = JsamJson.Load<GameData>(false);
         gameData.gold += currentGold;
-        JsamJson.Save<GameData>(gameData, false);
-    }
-
-    private void Update()
-    {
-        if (Input.GetKeyDown(KeyCode.I))
-        {
-            GameClear();
-        }
+        JsamJson.Save<GameData>(gameData, false, false);
     }
 
     public void GameOver()
@@ -113,7 +103,7 @@ public class GameManager : MonoSingleton<GameManager>
 
     public void GotoLobbyScene()
     {
-        SceneManager.LoadScene(SceneNames.LobbyScene);
+        SceneLoadingManager.Instance.LoadingScene(SceneNames.LobbyScene);
     }
 
     #endregion

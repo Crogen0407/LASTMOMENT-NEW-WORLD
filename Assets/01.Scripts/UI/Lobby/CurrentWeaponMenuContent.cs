@@ -16,9 +16,10 @@ public class CurrentWeaponMenuContent : MonoBehaviour
         
         //데이터 불러오는 거
         _gameDataManager.LoadData();
+        //_currentWeaponContents = new CurrentWeaponContent[_gameDataManager.CurrentWeaponArray.Length];
         for (int i = 0; i < _currentWeaponContents.Length; ++i)
         {
-            SetCurrentWeaponContent(i, (WeaponEnum)_gameDataManager.CurrentWeaponArray[i]);
+            SetCurrentWeaponContent(i, (WeaponEnum)_gameDataManager.CurrentWeaponArray[i]);//------------------------
         }
 
         WeaponProductManager.Instance.IsFullCurrentWeaponContainer = _gameDataManager.CurrentWeaponArray.All(x => x != 0);

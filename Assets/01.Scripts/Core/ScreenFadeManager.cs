@@ -34,18 +34,13 @@ public class ScreenFadeManager : MonoSingleton<ScreenFadeManager>
         seq.Append(_image.DOFade(1-startColor.a, duration).SetEase(Ease.InSine).OnComplete(() =>
         {
             FadeObjectDestroy(_image, endEvent);
-        }));
+        })).SetUpdate(true);
     }
 
     private void FadeObjectDestroy(Image image, Action endEvent = null)
     {
-        _image.transform.SetParent(null);
-        if(_image.color.a <= 0.1f)
-            _image.gameObject.SetActive(false);
-        else
-        {
-            _image.gameObject.SetActive(true);
-        }
+        image.transform.SetParent(null);
+        image.gameObject.SetActive(_image.color.a != 0);
         endEvent?.Invoke();
     }
 }

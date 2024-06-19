@@ -10,7 +10,7 @@ public class WeaponProductContent : MonoBehaviour
         GameDataManager.Instance.LoadData();
         for (int i = 0; i < weaponElementContents.Length; ++i)
         {
-            weaponElementContents[i].Init((WeaponEnum)(i+1), (WeaponOwnState)GameDataManager.Instance.GameData.weaponOwnStateArray[i]);
+            weaponElementContents[i].Init((WeaponEnum)(i+1), (WeaponOwnState)GameDataManager.Instance.GameData.weaponOwnStateArray[i+1]);
         }
     }
 }

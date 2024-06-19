@@ -6,7 +6,7 @@ public class GameDataManager : MonoSingleton<GameDataManager>
 
     public void SaveData()
     {
-        JsamJson.Save(_gameData, false);
+        JsamJson.Save(_gameData, false, true);
         _gameData = JsamJson.Load<GameData>(false);
     }
     
@@ -15,11 +15,16 @@ public class GameDataManager : MonoSingleton<GameDataManager>
         _gameData = JsamJson.Load<GameData>(false);
         if (_gameData == null)
         {
-            JsamJson.Save(new GameData(), false);
+            JsamJson.Save(new GameData(), false, true);
             _gameData = JsamJson.Load<GameData>(false);
         }
     }
 
+    public void ResetSettingArray()
+    {
+        GameData.settingArray = new GameData().settingArray;
+    }
+    
     public GameData GameData
     {
         get
@@ -58,6 +63,6 @@ public class GameDataManager : MonoSingleton<GameDataManager>
         GameData gameData = JsamJson.Load<GameData>(false);
         if(gameData.gold + goldValue >= 0)
             gameData.gold += goldValue;
-        JsamJson.Save(gameData, false);
+        JsamJson.Save(gameData, false, false);
     }
 }

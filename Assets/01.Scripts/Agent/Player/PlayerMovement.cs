@@ -49,6 +49,7 @@ public class PlayerMovement : AgentMovement
             -position.y * RotateSpeedY * _gameDataManager.SettingArray[(int)SettingOptionType.YSensitivity],
             position.x * RotateSpeedX * _gameDataManager.SettingArray[(int)SettingOptionType.XSensitivity],
             0);
+        
         transform.Rotate(rotate*Time.deltaTime, Space.World);
     }
     

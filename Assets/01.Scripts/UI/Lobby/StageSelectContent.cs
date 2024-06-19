@@ -9,7 +9,6 @@ public class StageSelectContent : MonoBehaviour
     [Header("Movement")]
     [SerializeField] private float _minPos;
     [SerializeField] private float _maxPos;
-    private bool _isActive;
 
     [SerializeField] private RectTransform _scrollContent;
     [SerializeField] private StageElement _stageElementPrefab;
@@ -55,14 +54,8 @@ public class StageSelectContent : MonoBehaviour
     public void SetActiveStageSelectContent()
     {
         float endPos = 0f;
-        _isActive = !_isActive;
-        endPos = _isActive ? _minPos : _maxPos;
+        endPos = Mathf.Approximately(_rectTransform.anchoredPosition.x, _minPos) ? _maxPos : _minPos;
         _rectTransform.DOAnchorPosX(endPos, 0.5f);
-        GameDataManager.Instance.SaveData();
-    }
-
-    private void OnDisable()
-    {
         GameDataManager.Instance.SaveData();
     }
 }

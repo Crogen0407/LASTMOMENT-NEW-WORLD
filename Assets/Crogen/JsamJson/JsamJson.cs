@@ -52,7 +52,7 @@ namespace Crogen.JsamJson
             }
             catch (FileNotFoundException e)
             {
-                Save<T>(new T(), false, true);
+                Save<T>(new T(), false, false);
                 fs = new FileStream(currentFilePath, FileMode.Open, FileAccess.Read);
                 sr = new StreamReader(fs);
             }

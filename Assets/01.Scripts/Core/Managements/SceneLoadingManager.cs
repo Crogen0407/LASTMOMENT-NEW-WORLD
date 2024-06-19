@@ -74,9 +74,8 @@ public class SceneLoadingManager : MonoSingleton<SceneLoadingManager>
                 LoadingBarFill.fillAmount = Mathf.Lerp(0.9f, 1f, timer);
                 if (LoadingBarFill.fillAmount >= 1f)
                 {
-                    Time.timeScale = 1;
                     operation.allowSceneActivation = true;
-                    LoadingScreen.SetActive(false);
+                    //LoadingScreen.SetActive(false);
                     yield break;
                 }
             }
@@ -105,9 +104,8 @@ public class SceneLoadingManager : MonoSingleton<SceneLoadingManager>
                 LoadingBarFill.fillAmount = Mathf.Lerp(0.9f, 1f, timer);
                 if (LoadingBarFill.fillAmount >= 1f)
                 {
-                    Time.timeScale = 1;
                     operation.allowSceneActivation = true;
-                    LoadingScreen.SetActive(false);
+                    //LoadingScreen.SetActive(false);
                     yield break;
                 }
             }
@@ -119,6 +117,7 @@ public class SceneLoadingManager : MonoSingleton<SceneLoadingManager>
         {
             ScreenFadeManager.Instance.Fade(true, 1, () =>
             {
+                Time.timeScale = 1;
                 SceneManager.sceneLoaded -= SceneLoadComplete;
             });
         }

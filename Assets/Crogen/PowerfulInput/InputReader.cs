@@ -9,7 +9,6 @@ namespace Crogen.PowerfulInput
     {
         private GameSettingManager _gameSettingManager;
         
-        public Vector2 mousePositionClampSize = new Vector2(1200f, 1200f);
         #region Input Event
 
         public event Action<Vector3> ChangeMoveDirectionEvent;

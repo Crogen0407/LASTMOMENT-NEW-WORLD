@@ -21,10 +21,10 @@ public class WeaponManager : MonoBehaviour
     
     private void LoadCurWeaponData() 
     {
-        GameData gameData = JsamJson.Load<GameData>();
-        for (int i = 0; i < gameData.currentWeaponArray.Length; ++i)
+        GameDataManager.Instance.LoadData();
+        for (int i = 0; i < GameDataManager.Instance.CurrentWeaponArray.Length; ++i)
         {
-            _curWeapons[i] = (WeaponEnum)gameData.currentWeaponArray[i];    
+            _curWeapons[i] = (WeaponEnum)GameDataManager.Instance.CurrentWeaponArray[i];    
         }
         
     }
@@ -32,7 +32,7 @@ public class WeaponManager : MonoBehaviour
     private void Awake()
     {
         //빌드할 떄 풀기
-        //LoadCurWeaponData();
+        LoadCurWeaponData();
         
         //Managements
         _gameManager = GameManager.Instance;
