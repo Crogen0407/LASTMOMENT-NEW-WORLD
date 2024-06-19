@@ -2,13 +2,16 @@ using UnityEngine;
 
 public class EnemyAttack : AgentAttack
 {
-    //Managers
-    private GameManager _gameManager;
-    
     //Components
     private Enemy _enemyBase;
     private EnemyMovement _enemyMovement;
-    
+
+    private void Reset()
+    {
+        _bulletSpawnPoint = new Transform[1];
+        _bulletSpawnPoint[0] = transform;
+    }
+
     protected override void Awake()
     {
         base.Awake();

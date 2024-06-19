@@ -1,9 +1,10 @@
+using System.Collections;
 using Crogen.ObjectPooling;
 using UnityEngine;
 
 public class AgentAttack : MonoBehaviour
 {
-    [SerializeField] protected Transform[] _BulletSpawnPoint;
+    [SerializeField] protected Transform[] _bulletSpawnPoint;
     [SerializeField] protected PoolType _bulletType;
     
     [SerializeField] protected float _speed = 160f;
@@ -24,12 +25,19 @@ public class AgentAttack : MonoBehaviour
     public virtual void OnAttack()
     {
         if (_currentDelayTime < delayTime) return;
+        StopAllCoroutines();
         _currentDelayTime = 0;
-        for (int i = 0; i < _BulletSpawnPoint.Length; ++i)
+        StartCoroutine(CoroutineAttack());
+    }
+
+    private IEnumerator CoroutineAttack()
+    {
+        for (int i = 0; i < _bulletSpawnPoint.Length; ++i)
         {
             this.Pop(_bulletType, 
-                    _BulletSpawnPoint[i].position, 
-                    _BulletSpawnPoint[i].rotation);
+                _bulletSpawnPoint[i].position, 
+                _bulletSpawnPoint[i].rotation);
+            yield return new WaitForSeconds(Time.deltaTime);
         }
     }
 

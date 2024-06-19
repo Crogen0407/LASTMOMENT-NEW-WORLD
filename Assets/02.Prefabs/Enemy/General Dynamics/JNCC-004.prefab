@@ -1565,10 +1565,6 @@ MonoBehaviour:
   enemyType: 0
   _droItemType: 0
   _itemDropPercent: 0
-  bulletType: 0
-  attackDelay: 0.1
-  attackMaxCount: 10
-  attackLoadingDelay: 5
 --- !u!114 &7405499225701932381
 MonoBehaviour:
   m_ObjectHideFlags: 0

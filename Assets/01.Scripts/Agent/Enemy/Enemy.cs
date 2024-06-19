@@ -14,17 +14,10 @@ public class Enemy : Agent<EnemyStateEnum>
     public EnemyType enemyType;
 
     //Item
-    [SerializeField] private ItemType _droItemType;
+    [SerializeField] private ItemType _dropItemType;
     [Range(0, 100)] 
-    [SerializeField] private float _itemDropPercent; 
-        
-    [Header("Attack")] 
-    public PoolType bulletType;
-    public float attackDelay = 0.1f;
-    public int attackMaxCount = 10;
-    public float attackLoadingDelay = 5f;
-    private bool isAttacking = false;
-
+    [SerializeField] private float _itemDropPercent;
+    
     protected override void Awake()
     {
         base.Awake();
@@ -36,7 +29,7 @@ public class Enemy : Agent<EnemyStateEnum>
         float rangeValue = Random.Range(0, 100);
         if (rangeValue > _itemDropPercent)
         {
-            _droItemType = ItemType.None;
+            _dropItemType = ItemType.None;
         }
     }
 
@@ -45,7 +38,7 @@ public class Enemy : Agent<EnemyStateEnum>
         if (Physics.SphereCast(transform.position, recognitionRange, Vector3.up, out RaycastHit hit, whatIsPlayer))
         {
             Debug.Log("Die");
-            _itemManager.DropItem(transform.position, _droItemType);
+            _itemManager.DropItem(transform.position, _dropItemType);
             _cameraManager.SetPlayerCameraShack(1, 10, 5);
         }
         base.SetDead();

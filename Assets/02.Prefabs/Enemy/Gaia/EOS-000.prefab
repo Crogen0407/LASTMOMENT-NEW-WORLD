@@ -346,13 +346,9 @@ MonoBehaviour:
     m_Bits: 64
   recognitionRange: 100
   _explosionRadius: 0
-  enemyType: 0
-  _droItemType: 0
-  _itemDropPercent: 0
-  bulletType: 2
-  attackDelay: 0.2
-  attackMaxCount: 20
-  attackLoadingDelay: 1
+  enemyType: 15
+  _dropItemType: 2
+  _itemDropPercent: 61.9
 --- !u!114 &7405499225701932381
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -495,8 +491,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: adce3a7898509c74caf9d04fead01d1f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _BulletSpawnPoint:
-  - {fileID: 2363175753869141150}
+  _bulletSpawnPoint: []
   _bulletType: 2
   _speed: 160
   _bulletLifeTime: 2

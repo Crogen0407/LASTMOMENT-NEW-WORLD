@@ -467,6 +467,7 @@ GameObject:
   - component: {fileID: 4099514269298255065}
   - component: {fileID: 1736153715012377168}
   - component: {fileID: 7300393131842370822}
+  - component: {fileID: 3149137380150013426}
   m_Layer: 7
   m_Name: BA-012
   m_TagString: Enemy
@@ -514,13 +515,9 @@ MonoBehaviour:
     m_Bits: 64
   recognitionRange: 100
   _explosionRadius: 0
-  enemyType: 0
-  _droItemType: 0
-  _itemDropPercent: 0
-  bulletType: 2
-  attackDelay: 0.1
-  attackMaxCount: 10
-  attackLoadingDelay: 5
+  enemyType: 5
+  _dropItemType: 5
+  _itemDropPercent: 33.4
 --- !u!114 &7405499225701932381
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -654,6 +651,27 @@ MonoBehaviour:
   isDie: 0
   _healEffectType: 6
   _dieEffectType: 4
+--- !u!114 &3149137380150013426
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8050658350802216660}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: adce3a7898509c74caf9d04fead01d1f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _bulletSpawnPoint:
+  - {fileID: 2363175753869141150}
+  _bulletType: 2
+  _speed: 160
+  _bulletLifeTime: 2
+  delayTime: 0.1
+  _whatIsEnemy:
+    serializedVersion: 2
+    m_Bits: 64
 --- !u!1 &9197751755269707690
 GameObject:
   m_ObjectHideFlags: 0
