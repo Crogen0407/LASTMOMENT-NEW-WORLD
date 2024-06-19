@@ -1,4 +1,5 @@
 ﻿using System;
+using TMPro;
 using UnityEngine;
 using UnityEngine.Rendering;
 using UnityEngine.UI;
@@ -18,6 +19,9 @@ public class GameSettingManager : MonoSingleton<GameSettingManager>
     [SerializeField] private ArrowListInput imageQualityInput;
     [SerializeField] private ArrowListInput fpsInput;
     [SerializeField] private Toggle windowModeInput;
+    
+    public SettingOptionDataSO SettingOptionData;
+    [SerializeField] private TextMeshProUGUI _settingDescriptionText;
     
     //Managements
     private GameDataManager _gameDataManager;
@@ -156,5 +160,10 @@ public class GameSettingManager : MonoSingleton<GameSettingManager>
 
         #endregion
 
+    }
+    
+    public void SetSettingDescription(SettingOptionType settingOptionType)
+    {
+        _settingDescriptionText.text = SettingOptionData.uiDescriptionDictionary[settingOptionType];
     }
 }

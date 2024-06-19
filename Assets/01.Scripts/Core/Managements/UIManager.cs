@@ -12,8 +12,6 @@ public class UIManager : MonoSingleton<UIManager>
     private GameSettingManager _gameSettingManager;
     
     [field: SerializeField] public Camera UICamera;
-    public SettingOptionDataSO SettingOptionData;
-    [SerializeField] private TextMeshProUGUI _settingDescriptionText;
 
     [Header("Item")] 
     [SerializeField] private Image[] _itemIcons;
@@ -58,11 +56,6 @@ public class UIManager : MonoSingleton<UIManager>
         position.y = MathExtension.Remap(position.y, 0, _height, -canvasRectSize.y * 0.5f, canvasRectSize.y * 0.5f);
         
         return position;
-    }
-
-    public void SetSettingDescription(SettingOptionType settingOptionType)
-    {
-        _settingDescriptionText.text = SettingOptionData.uiDescriptionDictionary[settingOptionType];
     }
 
     public void ShowBossUI(Boss boss)

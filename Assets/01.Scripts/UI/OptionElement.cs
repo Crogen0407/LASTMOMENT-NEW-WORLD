@@ -4,7 +4,7 @@ using UnityEngine.UI;
 public class OptionElement : MonoBehaviour
 {
     //Managements
-    private UIManager _uiManager;
+    private GameSettingManager _gameSettingManager;
     
     //Components
     private Button _button;
@@ -14,7 +14,7 @@ public class OptionElement : MonoBehaviour
     private void Awake()
     {
         //Managements
-        _uiManager = UIManager.Instance;
+        _gameSettingManager = GameSettingManager.Instance;
         
         //Components
         _button = GetComponent<Button>();
@@ -37,6 +37,6 @@ public class OptionElement : MonoBehaviour
 
     private void HandleClick()
     {
-        _uiManager.SetSettingDescription(_settingOptionType);
+        _gameSettingManager.SetSettingDescription(_settingOptionType);
     }
 }
