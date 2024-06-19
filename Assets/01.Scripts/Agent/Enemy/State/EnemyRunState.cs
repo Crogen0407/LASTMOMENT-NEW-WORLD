@@ -36,16 +36,11 @@ public class EnemyRunState : AgentState<EnemyStateEnum>
 
         //이동은 EnemyMovement에서 한다.
 
-        if (((_enemyMovement.attackTargetTrm.position - _enemyMovement.transform.position) - _enemyMovement.transform.forward).magnitude > 5)
-        {
-            _stateMachine.ChangeState(EnemyStateEnum.Attack);
-        }
-        
         //공격
         if(Physics.BoxCast(_enemyBase.transform.position, new Vector3(5, 5, _enemyBase.recognitionRange*3),
                _enemyBase.transform.forward, _enemyBase.transform.rotation, _enemyBase.whatIsPlayer))
         {
-            _stateMachine.ChangeState(EnemyStateEnum.Attack);
+            _stateMachine.ChangeState(EnemyStateEnum.Turning);
         }
     }
 }

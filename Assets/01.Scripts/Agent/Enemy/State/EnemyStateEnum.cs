@@ -4,5 +4,4 @@
     Dead,
     Run,
     Turning,
-    Attack
 }

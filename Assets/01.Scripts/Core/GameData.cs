@@ -18,7 +18,7 @@ public class GameData
         0,
         0
     };
-    public int[] weaponOwnStateArray=
+    public int[] weaponOwnStateArray =
     {
         0,
         0,
@@ -39,6 +39,12 @@ public class GameData
         0
     };
     public string userName;
-    public bool playedGame;
-    public int[] clearStageArray;
+    public bool playedGame = false;
+    public int[] clearStageArray =
+    {
+        0,
+        0,
+        0,
+        0
+    };
 }

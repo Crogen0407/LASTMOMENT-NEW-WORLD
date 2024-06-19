@@ -27,10 +27,9 @@ public class AgentAttack : MonoBehaviour
         _currentDelayTime = 0;
         for (int i = 0; i < _BulletSpawnPoint.Length; ++i)
         {
-            AgentBullet bullet = this.Pop(
-                    _bulletType, 
+            this.Pop(_bulletType, 
                     _BulletSpawnPoint[i].position, 
-                    _BulletSpawnPoint[i].rotation) as AgentBullet;
+                    _BulletSpawnPoint[i].rotation);
         }
     }
 

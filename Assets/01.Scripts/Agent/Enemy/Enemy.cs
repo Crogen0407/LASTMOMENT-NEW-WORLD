@@ -1,7 +1,5 @@
 using Crogen.AgentFSM;
 using UnityEngine;
-using UnityEngine.Events;
-
 
 public class Enemy : Agent<EnemyStateEnum>
 {
