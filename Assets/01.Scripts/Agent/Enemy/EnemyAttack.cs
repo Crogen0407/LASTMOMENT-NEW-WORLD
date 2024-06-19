@@ -1,4 +1,3 @@
-using System;
 using UnityEngine;
 
 public class EnemyAttack : AgentAttack
@@ -10,11 +9,6 @@ public class EnemyAttack : AgentAttack
     private Enemy _enemyBase;
     private EnemyMovement _enemyMovement;
     
-    private bool _isAttackReady = false;
-    private int _attackCurCount = 10;
-    private float _currentDelayTime = 0;
-    private bool _endAttack = false;
-
     protected override void Awake()
     {
         base.Awake();
