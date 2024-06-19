@@ -1,0 +1,23 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5f0a35991b6a44d28d3e164ca12b42d0, type: 3}
+  m_Name: StageListData
+  m_EditorClassIdentifier: 
+  list:
+  - stageName: TutorialStageScene
+    uiStageName: "\uD29C\uD1A0\uB9AC\uC5BC"
+  - stageName: Stage1
+    uiStageName: "\uBC1C\uD2F4 \uAE30\uC5C5\uC758 \uBE44\uBC00 \uBCD1\uAE30"
+  - stageName: Stage2
+    uiStageName: "\uCE90\uD50C\uB7EC-667CC \uB300\uAE30\uAD8C \uCCAD\uC18C"
+  - stageName: Stage3
+    uiStageName: "\uC2DC\uAC04\uC758 \uC911\uC694\uC131"

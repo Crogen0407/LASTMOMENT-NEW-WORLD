@@ -6,4 +6,5 @@ public class GameData
     public int[] weaponOwnStateArray;
     public string userName;
     public bool playedGame;
+    public int[] clearStageArray;
 }
