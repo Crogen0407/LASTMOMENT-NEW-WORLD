@@ -18,9 +18,25 @@ public class PlayerHealthSystem : HealthSystem
 
     private void OnCollisionEnter(Collision other)
     {
-        if (other.transform.CompareTag("Enemy"))
+        if (other.transform.TryGetComponent(out HealthSystem otherHealth))
         {
-            Hp -= 10;
+            if (otherHealth.Hp > Hp) //내가 터지고
+            {
+                var temp = Hp;
+                Hp -= maxHp/2f;
+                otherHealth.Hp -= temp / 2f;
+            }
+            else if (otherHealth.Hp < Hp) //상대가 터지고
+            {
+                var temp = otherHealth.Hp;
+                otherHealth.Hp -= otherHealth.maxHp/2f;
+                Hp -= temp / 2f;
+            }
+            else //둘다 터진다.
+            {
+                Hp -= maxHp / 2f;
+                otherHealth.Hp -= otherHealth.maxHp / 2f;
+            }
         }
         else if (other.transform.CompareTag("Untagged"))
         {

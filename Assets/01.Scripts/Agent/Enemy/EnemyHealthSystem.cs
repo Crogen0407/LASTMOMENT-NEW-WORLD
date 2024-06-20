@@ -17,11 +17,7 @@ public class EnemyHealthSystem : HealthSystem
     
     private void OnCollisionEnter(Collision other)
     {
-        if (other.transform.CompareTag("Player"))
-        {
-            --Hp;
-        }
-        else if (other.transform.CompareTag("Untagged"))
+        if (other.transform.CompareTag("Untagged"))
         {
             Hp -= 1000;
         }
