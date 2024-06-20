@@ -36749,8 +36749,9 @@ MonoBehaviour:
   imageQualityInput: {fileID: 538360157}
   fpsInput: {fileID: 2011915154}
   windowModeInput: {fileID: 1654785888}
-  SettingOptionData: {fileID: 0}
-  _settingDescriptionText: {fileID: 0}
+  SettingOptionData: {fileID: 11400000, guid: b628e275fe2948b46a9d40031cfa0942, type: 2}
+  _settingDescriptionText: {fileID: 2044935604}
+  _audioMixer: {fileID: 24100000, guid: 817208c2e3232734dad4737ea7f342ae, type: 2}
   _pipelines:
   - {fileID: 11400000, guid: 54f0445581098854ab8aefb6bf868152, type: 2}
   - {fileID: 11400000, guid: 7b7fd9122c28c4d15b667c7040e3b3fd, type: 2}

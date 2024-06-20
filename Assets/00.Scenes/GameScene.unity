@@ -7611,10 +7611,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   <StageProgress>k__BackingField: 0
-  _stageData: {fileID: 11400000, guid: 238166eb930ed334691a6e1d94fd92bb, type: 2}
-  _checkPointList: []
+  _stageListData: {fileID: 11400000, guid: 2bcaa8064faa2c540aab116eb16bee66, type: 2}
+  _checkPointList:
+  - {fileID: 0}
+  - {fileID: 0}
   _currentCheckPoint: 0
   currentTargetTrm: {fileID: 0}
+  gameClear: 0
 --- !u!1001 &1117054516
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -8107,6 +8110,7 @@ MonoBehaviour:
   windowModeInput: {fileID: 1654785888}
   SettingOptionData: {fileID: 11400000, guid: b628e275fe2948b46a9d40031cfa0942, type: 2}
   _settingDescriptionText: {fileID: 2044935604}
+  _audioMixer: {fileID: 24100000, guid: 817208c2e3232734dad4737ea7f342ae, type: 2}
   _pipelines:
   - {fileID: 11400000, guid: 54f0445581098854ab8aefb6bf868152, type: 2}
   - {fileID: 11400000, guid: 7b7fd9122c28c4d15b667c7040e3b3fd, type: 2}
