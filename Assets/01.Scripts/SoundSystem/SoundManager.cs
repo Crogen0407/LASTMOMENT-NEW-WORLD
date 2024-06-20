@@ -25,7 +25,6 @@ public class SoundManager : MonoSingleton<SoundManager>
       for (int i = 0; i < allButtons.Length; i++)
       {
          allButtons[i].onClick.AddListener(PlayUISFX);
-         Debug.Log(allButtons[i].name);
       }
    }
 

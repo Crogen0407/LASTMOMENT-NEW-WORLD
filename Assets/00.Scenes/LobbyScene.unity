@@ -18947,10 +18947,10 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1777577239}
-        m_TargetAssemblyTypeName: UnityEngine.GameObject, UnityEngine
-        m_MethodName: SetActive
-        m_Mode: 6
+      - m_Target: {fileID: 307872164}
+        m_TargetAssemblyTypeName: GameSettingManager, Assembly-CSharp
+        m_MethodName: OpenSettingWindow
+        m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
@@ -19685,12 +19685,6 @@ LineRenderer:
   m_UseWorldSpace: 0
   m_Loop: 0
   m_ApplyActiveColorSpace: 1
---- !u!1 &1777577239 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 1088701353504932912, guid: c3dedf833e2c8d4419073f19ac2d0b7f,
-    type: 3}
-  m_PrefabInstance: {fileID: 1600785007}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1787663041
 GameObject:
   m_ObjectHideFlags: 0

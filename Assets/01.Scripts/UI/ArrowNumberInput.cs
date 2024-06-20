@@ -1,5 +1,6 @@
 using TMPro;
 using UnityEngine;
+
 public class ArrowNumberInput : ArrowValueInput<int>
 {
     [SerializeField] private int _maxValue = 10; 

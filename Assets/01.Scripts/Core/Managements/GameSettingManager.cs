@@ -49,6 +49,7 @@ public class GameSettingManager : MonoSingleton<GameSettingManager>
     private void Start()
     {
         _gameDataManager = GameDataManager.Instance;
+        _gameDataManager.LoadData();
         LoadSetting();
     }
 
@@ -57,6 +58,7 @@ public class GameSettingManager : MonoSingleton<GameSettingManager>
     public void OpenSettingWindow()
     {
         settingCanvas.gameObject.SetActive(true);
+        _gameDataManager.LoadData();
         LoadSetting();
         
         //UI Init
@@ -76,7 +78,7 @@ public class GameSettingManager : MonoSingleton<GameSettingManager>
     {
         LoadSetting();
         settingCanvas.gameObject.SetActive(false);
-        GameDataManager.Instance.SaveData();
+        _gameDataManager.SaveData();
     }
 
     private void HandleXSensitivity(int value)
@@ -140,11 +142,9 @@ public class GameSettingManager : MonoSingleton<GameSettingManager>
 
     public void LoadSetting()
     {
-        _gameDataManager.LoadData();
-        
         if(_gameDataManager.SettingArray.Length == 0)
         {
-            _gameDataManager.SettingArray = new int[Enum.GetNames(typeof(SettingOptionType)).Length];
+            _gameDataManager.SettingArray = new GameData().settingArray;
             _gameDataManager.SaveData();
         }
         OnSettingDataLoadEvent?.Invoke();
