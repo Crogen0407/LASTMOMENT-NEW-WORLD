@@ -10,6 +10,7 @@ public class CheckPoint : MonoBehaviour
     [SerializeField] private bool _isOnlyGaugeCanClear;
     [SerializeField] private UnityEvent _clearEvent;
     private Collider[] _colliders;
+    private bool _isClear = false;
 
     private void Awake()
     {
@@ -18,9 +19,11 @@ public class CheckPoint : MonoBehaviour
                  
     public void AddClearGauge(float value)
     {
+        if (_isClear) return; 
         _clearGauge += value;
         if (_clearGauge >= 1f && _isOnlyGaugeCanClear)
         {
+            _isClear = true;
             _clearEvent?.Invoke();
             StageManager.Instance.UpdateCurrentCheckPoint();            
         }
@@ -28,6 +31,7 @@ public class CheckPoint : MonoBehaviour
     
     private void FixedUpdate()
     {
+        if (_isClear) return; 
         if (_isOnlyGaugeCanClear) return;
         if (Physics.OverlapSphereNonAlloc(transform.position, _radius, _colliders, _whatIsPlayer) > 0 && _clearGauge >= 1f)
         {

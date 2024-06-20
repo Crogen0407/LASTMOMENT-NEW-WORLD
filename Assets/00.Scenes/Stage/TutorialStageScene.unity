@@ -35077,6 +35077,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   <StageProgress>k__BackingField: 0
+  _stageListData: {fileID: 11400000, guid: 2bcaa8064faa2c540aab116eb16bee66, type: 2}
   _checkPointList:
   - {fileID: 3815787362466921023}
   - {fileID: 411740801}

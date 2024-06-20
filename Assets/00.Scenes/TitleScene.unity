@@ -1473,7 +1473,7 @@ MonoBehaviour:
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
   m_fontSizeMax: 72
-  m_fontStyle: 0
+  m_fontStyle: 16
   m_HorizontalAlignment: 1
   m_VerticalAlignment: 256
   m_textAlignment: 65535
@@ -2383,62 +2383,6 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 782107282}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!1 &974818226
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 974818228}
-  - component: {fileID: 974818227}
-  m_Layer: 0
-  m_Name: GameSettingManager
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!114 &974818227
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 974818226}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b8094da8573a409293f2a3191709c41e, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  settingCanvas: {fileID: 0}
-  xSensitivityInput: {fileID: 0}
-  ySensitivityInput: {fileID: 0}
-  masterVolumeInput: {fileID: 0}
-  bgmInput: {fileID: 0}
-  sfxInput: {fileID: 0}
-  imageQualityInput: {fileID: 0}
-  fpsInput: {fileID: 0}
-  windowModeInput: {fileID: 0}
-  SettingOptionData: {fileID: 0}
-  _settingDescriptionText: {fileID: 0}
-  _pipelines: []
---- !u!4 &974818228
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 974818226}
-  serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &992564881
 GameObject:
@@ -4774,6 +4718,7 @@ PrefabInstance:
     m_RemovedGameObjects:
     - {fileID: 3102976226361893122, guid: e2690dc479e74594c833f9a0fbee8ac8, type: 3}
     - {fileID: 4483483043417957980, guid: e2690dc479e74594c833f9a0fbee8ac8, type: 3}
+    - {fileID: 1539000310965880092, guid: e2690dc479e74594c833f9a0fbee8ac8, type: 3}
     m_AddedGameObjects:
     - targetCorrespondingSourceObject: {fileID: 8061737040563672283, guid: e2690dc479e74594c833f9a0fbee8ac8,
         type: 3}
@@ -5135,5 +5080,4 @@ SceneRoots:
   - {fileID: 1837457202}
   - {fileID: 1382163622}
   - {fileID: 2000188278}
-  - {fileID: 974818228}
   - {fileID: 617790573}

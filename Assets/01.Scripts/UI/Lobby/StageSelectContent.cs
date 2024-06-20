@@ -1,4 +1,3 @@
-using System;
 using DG.Tweening;
 using UnityEngine;
 
@@ -23,6 +22,7 @@ public class StageSelectContent : MonoBehaviour
         {
             GameDataManager.Instance.GameData.clearStageArray = new int[_stageListData.list.Count];
             clearStageArray = GameDataManager.Instance.GameData.clearStageArray;
+            GameDataManager.Instance.SaveData();
         }
         
         //데이터 읽기
@@ -44,6 +44,7 @@ public class StageSelectContent : MonoBehaviour
             int index = i;
             StageElement stageElement = Instantiate(_stageElementPrefab, _scrollContent);
             stageElement.SetText(_stageListData.list[index].uiStageName);
+            stageElement.SetMissionClear(i<maxClearStageIndex-1);
             stageElement.AddListener(() =>
             {
                 SceneLoadingManager.Instance.LoadingScene(_stageListData.list[index].stageName);

@@ -6,6 +6,7 @@ using UnityEngine.UI;
 public class StageElement : MonoBehaviour
 {
     [SerializeField] private TextMeshProUGUI _text;
+    [SerializeField] private TextMeshProUGUI _clearText;
     private Button _button;
     
     public void SetText(string text)
@@ -18,5 +19,10 @@ public class StageElement : MonoBehaviour
         _button ??= GetComponent<Button>();
         
         _button.onClick.AddListener(action);
+    }
+
+    public void SetMissionClear(bool active)
+    {
+        _clearText.gameObject.SetActive(active);
     }
 }

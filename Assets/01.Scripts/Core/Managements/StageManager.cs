@@ -1,11 +1,11 @@
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.Serialization;
+using UnityEngine.SceneManagement;
 
 public class StageManager : MonoSingleton<StageManager>
 {
    [field:SerializeField] public float StageProgress { get; private set; }
-   
+   [SerializeField] private StageListDataSO _stageListData;
    [Header("Check Point")]
    [SerializeField] private List<Transform> _checkPointList;
    [SerializeField] private int _currentCheckPoint;
@@ -53,15 +53,13 @@ public class StageManager : MonoSingleton<StageManager>
    {
       TalkContent.Instance.OnTalk("System", "작전 성공", () =>
       {
-         TalkContent.Instance.OnTalk("System", "ST-091은 본부로 귀환할 것을 요청합니다", () =>
+         TalkContent.Instance.OnTalk("System", "ST-091, 본부로 귀환합니다", 1, null, () =>
          {
-            TalkContent.Instance.OnTalk("System", "수락됨", 2, null, () =>
-            {
-               TalkContent.Instance.OnTalk("System", "ST-091, 본부로 귀환합니다", 1, null, () =>
-               {
-                     SceneLoadingManager.Instance.LoadingScene(SceneNames.LobbyScene, 5f);
-               });
-            });
+            int sceneIndex = _stageListData.list.FindIndex(x => x.stageName == SceneManager.GetActiveScene().name);
+            Debug.Log(sceneIndex);
+            GameDataManager.Instance.GameData.clearStageArray[sceneIndex] = 1;
+            GameDataManager.Instance.SaveData();
+            SceneLoadingManager.Instance.LoadingScene(SceneNames.LobbyScene, 5f);
          });
       });
    }
