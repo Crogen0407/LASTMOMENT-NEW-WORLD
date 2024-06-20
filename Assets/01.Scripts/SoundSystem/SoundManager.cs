@@ -64,8 +64,6 @@ public class SoundManager : MonoSingleton<SoundManager>
       else
          audioObj.gameObject.SetActive(true);
       
-      Debug.Log(audioObj.name);
-      
       audioObj.spatialBlend = 0f;
       audioObj.clip = _soundData.audioClipDictionary[AudioType.SFX_UIClick];
       StartCoroutine(AddElementList(audioObj, false));

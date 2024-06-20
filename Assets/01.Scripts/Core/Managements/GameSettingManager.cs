@@ -1,6 +1,7 @@
 ﻿using System;
 using TMPro;
 using UnityEngine;
+using UnityEngine.Audio;
 using UnityEngine.Rendering;
 using UnityEngine.UI;
 
@@ -22,6 +23,7 @@ public class GameSettingManager : MonoSingleton<GameSettingManager>
     
     public SettingOptionDataSO SettingOptionData;
     [SerializeField] private TextMeshProUGUI _settingDescriptionText;
+    [SerializeField] private AudioMixer _audioMixer;
     
     //Managements
     private GameDataManager _gameDataManager;
@@ -72,6 +74,7 @@ public class GameSettingManager : MonoSingleton<GameSettingManager>
     
     public void CloseSettingWindow()
     {
+        LoadSetting();
         settingCanvas.gameObject.SetActive(false);
         GameDataManager.Instance.SaveData();
     }
@@ -89,16 +92,28 @@ public class GameSettingManager : MonoSingleton<GameSettingManager>
     private void HandleMasterVolume(int value)
     {
         ApplySetting(SettingOptionType.MasterVolume, value);
+        if(value!=0)
+            _audioMixer.SetFloat("Master", Mathf.Log10(value*0.1f) * 20);
+        else
+            _audioMixer.SetFloat("Master", -80);
     }
     
     private void HandleBGM(int value)
     {
         ApplySetting(SettingOptionType.BGM, value);
+        if(value!=0)
+            _audioMixer.SetFloat("BGM", Mathf.Log10(value*0.1f) * 20);
+        else
+            _audioMixer.SetFloat("BGM", -80);
     }
     
     private void HandleSFX(int value)
     {
         ApplySetting(SettingOptionType.SFX, value);
+        if(value!=0)
+            _audioMixer.SetFloat("SFX", Mathf.Log10(value*0.1f) * 20);
+        else
+            _audioMixer.SetFloat("SFX", -80);
     }
     
     private void HandleImageQuality(int value)
@@ -136,6 +151,20 @@ public class GameSettingManager : MonoSingleton<GameSettingManager>
         
         //게임 적용
         //소리 적용
+        if(_gameDataManager.SettingArray[(int)SettingOptionType.MasterVolume]!=0)
+            _audioMixer.SetFloat("Master", Mathf.Log10(_gameDataManager.SettingArray[(int)SettingOptionType.MasterVolume]*0.1f) * 20);
+        else
+            _audioMixer.SetFloat("Master", -80);
+        
+        if(_gameDataManager.SettingArray[(int)SettingOptionType.BGM]!=0)
+            _audioMixer.SetFloat("BGM", Mathf.Log10(_gameDataManager.SettingArray[(int)SettingOptionType.BGM]*0.1f) * 20);
+        else
+            _audioMixer.SetFloat("BGM", -80);
+        
+        if(_gameDataManager.SettingArray[(int)SettingOptionType.MasterVolume]!=0)
+            _audioMixer.SetFloat("SFX", Mathf.Log10(_gameDataManager.SettingArray[(int)SettingOptionType.SFX]*0.1f) * 20);
+        else
+            _audioMixer.SetFloat("SFX", -80);
         #region Graphic
         
         //ImageQuality
