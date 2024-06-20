@@ -1,6 +1,5 @@
 using Cinemachine;
 using Crogen.AgentFSM;
-using DG.Tweening;
 using UnityEngine;
 using UnityEngine.UI;
 

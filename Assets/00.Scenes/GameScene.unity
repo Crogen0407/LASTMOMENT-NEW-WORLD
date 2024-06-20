@@ -2928,9 +2928,7 @@ MonoBehaviour:
   gameCanvas: {fileID: 566164581}
   pauseCanvas: {fileID: 2013983390}
   aimCanvas: {fileID: 526637739}
-  _bossContent: {fileID: 0}
-  _bossHealthBar: {fileID: 0}
-  _bossNameText: {fileID: 0}
+  _bossContent: {fileID: 32520344}
 --- !u!1 &422118598
 GameObject:
   m_ObjectHideFlags: 0
@@ -6504,8 +6502,6 @@ GameObject:
   - component: {fileID: 860814162}
   - component: {fileID: 860814163}
   - component: {fileID: 860814155}
-  - component: {fileID: 860814157}
-  - component: {fileID: 860814151}
   - component: {fileID: 860814164}
   - component: {fileID: 860814159}
   m_Layer: 6
@@ -6515,27 +6511,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!65 &860814151
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 860814150}
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_LayerOverridePriority: 0
-  m_IsTrigger: 0
-  m_ProvidesContacts: 0
-  m_Enabled: 1
-  serializedVersion: 3
-  m_Size: {x: 4.07, y: 1.22, z: 4.3185854}
-  m_Center: {x: 0, y: 0, z: 0}
 --- !u!4 &860814154
 Transform:
   m_ObjectHideFlags: 0
@@ -6557,6 +6532,7 @@ Transform:
   - {fileID: 886351914}
   - {fileID: 422118599}
   - {fileID: 526637740}
+  - {fileID: 1573830177}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!54 &860814155
@@ -6586,27 +6562,6 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 112
   m_CollisionDetection: 0
---- !u!65 &860814157
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 860814150}
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_LayerOverridePriority: 0
-  m_IsTrigger: 0
-  m_ProvidesContacts: 0
-  m_Enabled: 1
-  serializedVersion: 3
-  m_Size: {x: 2.47, y: 0.86, z: 1.46}
-  m_Center: {x: 0, y: 0, z: 2.87}
 --- !u!114 &860814158
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -6641,7 +6596,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   backgroundType: 1
-  backgroundColor: {r: 0, g: 1, b: 0, a: 1}
+  backgroundColor: {r: 0, g: 0, b: 1, a: 1}
   componentIcons:
   - name: Transform
     component: {fileID: 860814154}
@@ -6651,28 +6606,22 @@ MonoBehaviour:
     enable: 1
   - name: PlayerMovement
     component: {fileID: 860814160}
-    enable: 0
+    enable: 1
   - name: PlayerAttack
     component: {fileID: 860814161}
-    enable: 0
+    enable: 1
   - name: ACMSystem
     component: {fileID: 860814162}
-    enable: 0
+    enable: 1
   - name: AgentEffectGenerator
     component: {fileID: 860814163}
-    enable: 0
+    enable: 1
   - name: Rigidbody
     component: {fileID: 860814155}
-    enable: 0
-  - name: BoxCollider
-    component: {fileID: 860814157}
-    enable: 0
-  - name: BoxCollider
-    component: {fileID: 860814151}
-    enable: 0
+    enable: 1
   - name: PlayerHealthSystem
     component: {fileID: 860814164}
-    enable: 0
+    enable: 1
   - name: HierarchyInfo
     component: {fileID: 860814159}
     enable: 1
@@ -6714,7 +6663,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2003db824c6c75c4e807782c4594f073, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _bulletSpawnPoint: []
+  _bulletSpawnPoint:
+  - {fileID: 1888941771}
+  - {fileID: 1382659099}
   _bulletType: 0
   _speed: 300
   _bulletLifeTime: 1
@@ -6771,6 +6722,7 @@ MonoBehaviour:
   maxHp: 10
   isImpassible: 0
   isDie: 0
+  _collider: {fileID: 1573830173}
   _healEffectType: 6
   _dieEffectType: 10
   _hpSlider: {fileID: 1972236834}
@@ -10467,6 +10419,111 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1d6c5b325f7d7fd4d8cff6c59b370700, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!1 &1573830173
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1573830177}
+  - component: {fileID: 1573830176}
+  - component: {fileID: 1573830175}
+  - component: {fileID: 1573830174}
+  m_Layer: 6
+  m_Name: Collider
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1573830174
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1573830173}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 83ad243ec7bdc504886059c217fb1429, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  backgroundType: 1
+  backgroundColor: {r: 0, g: 0.9748427, b: 0.26449698, a: 1}
+  componentIcons:
+  - name: Transform
+    component: {fileID: 1573830177}
+    enable: 0
+  - name: BoxCollider
+    component: {fileID: 1573830176}
+    enable: 1
+  - name: BoxCollider
+    component: {fileID: 1573830175}
+    enable: 1
+  - name: HierarchyInfo
+    component: {fileID: 1573830174}
+    enable: 1
+  lineColor: {r: 1, g: 1, b: 1, a: 1}
+  textColor: {r: 1, g: 1, b: 1, a: 1}
+--- !u!65 &1573830175
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1573830173}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 4.07, y: 1.22, z: 4.3185854}
+  m_Center: {x: 0, y: 0, z: 0}
+--- !u!65 &1573830176
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1573830173}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 2.47, y: 0.86, z: 1.46}
+  m_Center: {x: 0, y: 0, z: 2.87}
+--- !u!4 &1573830177
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1573830173}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 860814154}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1621066204
 GameObject:
   m_ObjectHideFlags: 0

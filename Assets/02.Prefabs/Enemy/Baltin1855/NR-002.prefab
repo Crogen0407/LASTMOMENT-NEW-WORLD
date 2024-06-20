@@ -492,7 +492,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _bulletSpawnPoint:
-  - {fileID: 2363175753869141150}
+  - {fileID: 7115426784786412720}
+  - {fileID: 3109872602611879583}
   _bulletType: 2
   _speed: 160
   _bulletLifeTime: 2

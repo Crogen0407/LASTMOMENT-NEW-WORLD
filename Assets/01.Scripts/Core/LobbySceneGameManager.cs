@@ -6,7 +6,7 @@ public class LobbySceneGameManager : MonoSingleton<LobbySceneGameManager>
     {
         Time.timeScale = 1;
         Cursor.lockState = CursorLockMode.Confined;
-        
+        Cursor.visible = true;
         ScreenFadeManager.Instance.Fade(true, 1f);
     }
 

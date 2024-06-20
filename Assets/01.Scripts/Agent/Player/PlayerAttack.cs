@@ -51,9 +51,11 @@ public class PlayerAttack : AgentAttack
             OnAttack();
             _cameraManager.SetPlayerCameraShack(Time.deltaTime, 0.3f, 0.4f);
         }
+
+        SetAimPos();
     }
     
-    private void FixedUpdate()
+    private void SetAimPos()
     {
         Physics.OverlapSphereNonAlloc(transform.position, _speed * _bulletLifeTime, _aroundEnemyCols, _whatIsEnemy);
 

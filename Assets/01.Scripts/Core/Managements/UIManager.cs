@@ -1,9 +1,7 @@
-﻿using System;
-using AYellowpaper.SerializedCollections;
+﻿using AYellowpaper.SerializedCollections;
 using Crogen.HealthSystem;
 using TMPro;
 using UnityEngine;
-using UnityEngine.Serialization;
 using UnityEngine.UI;
 
 public class UIManager : MonoSingleton<UIManager>
@@ -30,14 +28,17 @@ public class UIManager : MonoSingleton<UIManager>
 
     [Header("BossUI")] 
     [SerializeField] private RectTransform _bossContent;
-    [SerializeField] private Slider _bossHealthBar;
-    [SerializeField] private TextMeshProUGUI _bossNameText;
+    private Slider _bossHealthBar;
+    private TextMeshProUGUI _bossNameText;
     private HealthSystem _bossHealthSystem;
     
     private void Awake()
     {
         _gameSettingManager = GameSettingManager.Instance;
         _emptyImage = _itemIcons[0].sprite;
+
+        _bossHealthBar = _bossContent.GetComponentInChildren<Slider>();
+        _bossNameText = _bossContent.GetComponentInChildren<TextMeshProUGUI>();
     }
 
     public void Init()
