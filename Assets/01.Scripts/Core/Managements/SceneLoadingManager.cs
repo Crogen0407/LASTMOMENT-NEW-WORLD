@@ -31,9 +31,9 @@ public class SceneLoadingManager : MonoSingleton<SceneLoadingManager>
             StartCoroutine(CoroutineLoadingScene(sceneID));
         });
     }
-    public void LoadingScene(string sceneName)
+    public void LoadingScene(string sceneName, float fadeDuration = 1f)
     {
-        ScreenFadeManager.Instance.Fade(false, 1, () =>
+        ScreenFadeManager.Instance.Fade(false, fadeDuration, () =>
         {
             _sceneName = sceneName;
             if (LoadingScreen == null)

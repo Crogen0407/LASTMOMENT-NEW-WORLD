@@ -3989,7 +3989,7 @@ PrefabInstance:
     - target: {fileID: 2848546890526572729, guid: b4f470194abd8a74f8f3093b5e6b4508,
         type: 3}
       propertyPath: _isOnlyGaugeCanClear
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 2848546890526572729, guid: b4f470194abd8a74f8f3093b5e6b4508,
         type: 3}
@@ -4035,7 +4035,7 @@ PrefabInstance:
     - target: {fileID: 4862946183874561898, guid: b4f470194abd8a74f8f3093b5e6b4508,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: 3382
+      value: 3314
       objectReference: {fileID: 0}
     - target: {fileID: 4862946183874561898, guid: b4f470194abd8a74f8f3093b5e6b4508,
         type: 3}
@@ -4045,7 +4045,7 @@ PrefabInstance:
     - target: {fileID: 4862946183874561898, guid: b4f470194abd8a74f8f3093b5e6b4508,
         type: 3}
       propertyPath: m_LocalPosition.z
-      value: 2025
+      value: 2005
       objectReference: {fileID: 0}
     - target: {fileID: 4862946183874561898, guid: b4f470194abd8a74f8f3093b5e6b4508,
         type: 3}
@@ -5485,7 +5485,7 @@ PrefabInstance:
     - target: {fileID: -3164730758349721091, guid: 4da56953f60bf3c4a99b9b2bd867b573,
         type: 3}
       propertyPath: _disableEvent.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_FloatArgument
-      value: 0.2
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: -3164730758349721091, guid: 4da56953f60bf3c4a99b9b2bd867b573,
         type: 3}
@@ -35077,7 +35077,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   <StageProgress>k__BackingField: 0
-  _stageData: {fileID: 11400000, guid: 238166eb930ed334691a6e1d94fd92bb, type: 2}
   _checkPointList:
   - {fileID: 3815787362466921023}
   - {fileID: 411740801}
@@ -35087,6 +35086,7 @@ MonoBehaviour:
   - {fileID: 1561968472}
   _currentCheckPoint: 0
   currentTargetTrm: {fileID: 0}
+  gameClear: 0
 --- !u!1 &1089700779
 GameObject:
   m_ObjectHideFlags: 0
@@ -42004,7 +42004,7 @@ PrefabInstance:
     - target: {fileID: 1505861543826262177, guid: 78f69f105d7741a42b757147b19abf32,
         type: 3}
       propertyPath: _disableEvent.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_FloatArgument
-      value: 0.2
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 1505861543826262177, guid: 78f69f105d7741a42b757147b19abf32,
         type: 3}
@@ -47222,7 +47222,7 @@ PrefabInstance:
     - target: {fileID: 3351478721400118717, guid: d3348f35e69a39c4a9bce48158a8bfcb,
         type: 3}
       propertyPath: _disableEvent.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_FloatArgument
-      value: 0.2
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 3351478721400118717, guid: d3348f35e69a39c4a9bce48158a8bfcb,
         type: 3}
@@ -48039,7 +48039,7 @@ PrefabInstance:
     - target: {fileID: -723184348435238513, guid: f373ffc14793514499ccb78122656b8b,
         type: 3}
       propertyPath: _disableEvent.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_FloatArgument
-      value: 0.2
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: -723184348435238513, guid: f373ffc14793514499ccb78122656b8b,
         type: 3}
@@ -48867,18 +48867,18 @@ PrefabInstance:
     - target: {fileID: 2848546890526572729, guid: b4f470194abd8a74f8f3093b5e6b4508,
         type: 3}
       propertyPath: _clearEvent.m_PersistentCalls.m_Calls.Array.size
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 2848546890526572729, guid: b4f470194abd8a74f8f3093b5e6b4508,
         type: 3}
       propertyPath: _clearEvent.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
-      value: 2
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 2848546890526572729, guid: b4f470194abd8a74f8f3093b5e6b4508,
         type: 3}
       propertyPath: _clearEvent.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
-      objectReference: {fileID: 1432207530}
+      objectReference: {fileID: 1087223601}
     - target: {fileID: 2848546890526572729, guid: b4f470194abd8a74f8f3093b5e6b4508,
         type: 3}
       propertyPath: _clearEvent.m_PersistentCalls.m_Calls.Array.data[0].m_CallState
@@ -48887,23 +48887,22 @@ PrefabInstance:
     - target: {fileID: 2848546890526572729, guid: b4f470194abd8a74f8f3093b5e6b4508,
         type: 3}
       propertyPath: _clearEvent.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
-      value: OnTalk
+      value: GameClear
       objectReference: {fileID: 0}
     - target: {fileID: 2848546890526572729, guid: b4f470194abd8a74f8f3093b5e6b4508,
         type: 3}
       propertyPath: _clearEvent.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
-      value: TalkContent, Assembly-CSharp
+      value: StageManager, Assembly-CSharp
       objectReference: {fileID: 0}
     - target: {fileID: 2848546890526572729, guid: b4f470194abd8a74f8f3093b5e6b4508,
         type: 3}
       propertyPath: _clearEvent.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgument
       value: 
-      objectReference: {fileID: 11400000, guid: 4a2e55e2f8ebd0145bc172880d0ebdc2,
-        type: 2}
+      objectReference: {fileID: 0}
     - target: {fileID: 2848546890526572729, guid: b4f470194abd8a74f8f3093b5e6b4508,
         type: 3}
       propertyPath: _clearEvent.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
-      value: TalkListDataSO, Assembly-CSharp
+      value: UnityEngine.Object, UnityEngine
       objectReference: {fileID: 0}
     - target: {fileID: 4862946183874561898, guid: b4f470194abd8a74f8f3093b5e6b4508,
         type: 3}
@@ -52348,7 +52347,7 @@ PrefabInstance:
     - target: {fileID: -2647682038593753639, guid: e4821a7d04ad6b84893ad4ec0daba8c6,
         type: 3}
       propertyPath: _disableEvent.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_FloatArgument
-      value: 0.2
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: -2647682038593753639, guid: e4821a7d04ad6b84893ad4ec0daba8c6,
         type: 3}
@@ -65596,6 +65595,47 @@ PrefabInstance:
         type: 3}
       propertyPath: _clearGauge
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2848546890526572729, guid: b4f470194abd8a74f8f3093b5e6b4508,
+        type: 3}
+      propertyPath: _clearEvent.m_PersistentCalls.m_Calls.Array.size
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2848546890526572729, guid: b4f470194abd8a74f8f3093b5e6b4508,
+        type: 3}
+      propertyPath: _clearEvent.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 2848546890526572729, guid: b4f470194abd8a74f8f3093b5e6b4508,
+        type: 3}
+      propertyPath: _clearEvent.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 1432207530}
+    - target: {fileID: 2848546890526572729, guid: b4f470194abd8a74f8f3093b5e6b4508,
+        type: 3}
+      propertyPath: _clearEvent.m_PersistentCalls.m_Calls.Array.data[0].m_CallState
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 2848546890526572729, guid: b4f470194abd8a74f8f3093b5e6b4508,
+        type: 3}
+      propertyPath: _clearEvent.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: OnTalk
+      objectReference: {fileID: 0}
+    - target: {fileID: 2848546890526572729, guid: b4f470194abd8a74f8f3093b5e6b4508,
+        type: 3}
+      propertyPath: _clearEvent.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
+      value: TalkContent, Assembly-CSharp
+      objectReference: {fileID: 0}
+    - target: {fileID: 2848546890526572729, guid: b4f470194abd8a74f8f3093b5e6b4508,
+        type: 3}
+      propertyPath: _clearEvent.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgument
+      value: 
+      objectReference: {fileID: 11400000, guid: 7c3bcd4cee0dc4a42b5335734dd2673f,
+        type: 2}
+    - target: {fileID: 2848546890526572729, guid: b4f470194abd8a74f8f3093b5e6b4508,
+        type: 3}
+      propertyPath: _clearEvent.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: TalkListDataSO, Assembly-CSharp
       objectReference: {fileID: 0}
     - target: {fileID: 4862946183874561898, guid: b4f470194abd8a74f8f3093b5e6b4508,
         type: 3}

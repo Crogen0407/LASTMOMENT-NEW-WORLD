@@ -30,11 +30,6 @@ public class OptionElement : MonoBehaviour
         }
     }
 
-    private void OnDestroy()
-    {
-        _button.onClick.RemoveListener(HandleClick);
-    }
-
     private void HandleClick()
     {
         _gameSettingManager.SetSettingDescription(_settingOptionType);

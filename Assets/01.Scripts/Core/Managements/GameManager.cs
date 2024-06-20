@@ -75,29 +75,6 @@ public class GameManager : MonoSingleton<GameManager>
             SceneLoadingManager.Instance.LoadingScene(_gameOverScene);
         }).SetUpdate(true);
     }
-
-    
-    public void GameClear()
-    {
-        TalkContent.Instance.OnTalk("System", "작전 성공", () =>
-        {
-            TalkContent.Instance.OnTalk("System", "ST-091은 본부로 귀환할 것을 요청합니다", () =>
-            {
-                TalkContent.Instance.OnTalk("System", "수락됨", 2, null, () =>
-                {
-                    TalkContent.Instance.OnTalk("System", "ST-091, 본부로 귀환합니다", 1, null, () =>
-                    {
-                        ScreenFadeManager.Instance.Fade(false, 8, () =>
-                        {
-                            SceneLoadingManager.Instance.LoadingScene(SceneNames.LobbyScene);
-                        });
-                    });
-                });
-            });
-        });
-    }
-    
-    
     
     #region SceneMangement
 
