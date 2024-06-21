@@ -21,7 +21,7 @@ public class GameManager : MonoSingleton<GameManager>
     [Header("PP")]
     [field:SerializeField] public Volume Volum;
     [HideInInspector] public ColorAdjustments ColorAdjustments;
-    
+
     private void Awake()
     {
         InputReader.MouseClickEvent += UIManager.Instance.Init;
@@ -87,6 +87,7 @@ public class GameManager : MonoSingleton<GameManager>
 
     private IEnumerator GameStart()
     {
+        SoundManager.Instance.PlayBGM(true, 3f, 5f);
         TargetPointContent.Instance.IsActive = false;
         InputReader.DisablePlayerActions();
         Player.Movement.HandleSpeedChange(true);

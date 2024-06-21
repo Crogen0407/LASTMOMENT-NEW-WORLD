@@ -1,11 +1,8 @@
-﻿using System;
-using System.Collections;
+﻿using System.Collections;
 using Crogen.HealthSystem;
 using Crogen.ObjectPooling;
 using DG.Tweening;
-using Unity.VisualScripting;
 using UnityEngine;
-using UnityEngine.Serialization;
 
 public class AgentBullet : MonoPoolingObject
 {
@@ -15,12 +12,19 @@ public class AgentBullet : MonoPoolingObject
     [SerializeField] protected LayerMask _whatIsOrigin;
     [SerializeField] protected PoolType _poolType;
     [SerializeField] protected PoolType _explosionEffect;
+
+    [Header("Sound Effect")] 
+    [SerializeField] protected AudioType _enableSoundEffect;
+    [SerializeField] protected AudioType _disableSoundEffect;
+    
     private Collider[] _hitTarget;
     
     public override void OnPop()
     {
         _hitTarget = new Collider[1];
         StopAllCoroutines();
+        
+        SoundManager.Instance.PlaySFX(_enableSoundEffect, transform.position);
         
         Vector3 startPos = transform.position;
         Vector3 endPos = transform.forward.normalized * (speed * lifeTime);
@@ -32,6 +36,9 @@ public class AgentBullet : MonoPoolingObject
     { 
         StopAllCoroutines();
         transform.DOKill();
+        
+        SoundManager.Instance.PlaySFX(_disableSoundEffect, transform.position);
+        
         this.Pop(_explosionEffect, transform.position, Quaternion.identity);
     }
     

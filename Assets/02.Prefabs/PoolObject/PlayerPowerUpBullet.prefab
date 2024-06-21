@@ -5173,3 +5173,5 @@ MonoBehaviour:
     m_Bits: 37440
   _poolType: 1
   _explosionEffect: 5
+  _enableSoundEffect: 9
+  _disableSoundEffect: 6
