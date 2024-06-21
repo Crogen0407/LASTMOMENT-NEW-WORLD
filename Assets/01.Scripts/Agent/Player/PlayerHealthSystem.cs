@@ -20,6 +20,7 @@ public class PlayerHealthSystem : HealthSystem
 
     private void OnCollisionEnter(Collision other)
     {
+        if (other.transform.CompareTag("Boss")) return;
         if (other.transform.TryGetComponent(out HealthSystem otherHealth))
         {
             if (otherHealth.Hp > Hp) //내가 터지고

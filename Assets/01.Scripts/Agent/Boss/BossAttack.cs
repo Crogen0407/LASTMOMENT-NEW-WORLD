@@ -47,7 +47,7 @@ public class BossAttack : MonoBehaviour
         //Shoot
         foreach (var t in _laserGroups)
             t.FadeLaserEffect(1f, duration);
-        yield return new WaitForSeconds(duration);
+        yield return new WaitForSeconds(duration + 3f);
         
         //Active
         foreach (var t in _laserGroups)

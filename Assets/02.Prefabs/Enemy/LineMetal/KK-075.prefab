@@ -527,6 +527,7 @@ GameObject:
   - component: {fileID: 1736153715012377168}
   - component: {fileID: 8294379153258002837}
   - component: {fileID: 8746323150377033539}
+  - component: {fileID: -508811359411838475}
   m_Layer: 7
   m_Name: KK-075
   m_TagString: Enemy
@@ -693,6 +694,24 @@ MonoBehaviour:
   _whatIsEnemy:
     serializedVersion: 2
     m_Bits: 64
+--- !u!114 &-508811359411838475
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8050658350802216660}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2194dd8f27ee63f4aadf96345848c02b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _hp: 15
+  maxHp: 15
+  isImpassible: 0
+  isDie: 0
+  _healEffectType: 6
+  _dieEffectType: 4
 --- !u!1 &9129219223850107035
 GameObject:
   m_ObjectHideFlags: 0

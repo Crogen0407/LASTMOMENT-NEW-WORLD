@@ -43,8 +43,8 @@ public class AgentBullet : MonoPoolingObject
             {
                 healthSystem.Hp -= _damaged;
             }
-            else
-                _hitTarget[0].GetComponentInParent<HealthSystem>().Hp -= _damaged;
+            // else
+            //     _hitTarget[0].GetComponentInParent<HealthSystem>().Hp -= _damaged;
             Push(_poolType);
         }
     }

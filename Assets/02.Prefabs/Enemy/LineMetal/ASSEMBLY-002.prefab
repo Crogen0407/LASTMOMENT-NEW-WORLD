@@ -736,7 +736,7 @@ GameObject:
   - component: {fileID: 6412397718538149578}
   m_Layer: 7
   m_Name: ASSEMBLY-002
-  m_TagString: Untagged
+  m_TagString: Boss
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -851,8 +851,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 659b0d4acd8dc284890e2c2e6b6aac23, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _hp: 200
-  maxHp: 200
+  _hp: 400
+  maxHp: 400
   isImpassible: 0
   isDie: 0
 --- !u!114 &6724341959390068535
@@ -966,7 +966,7 @@ GameObject:
   - component: {fileID: 238981709282994164}
   m_Layer: 7
   m_Name: Collider
-  m_TagString: Untagged
+  m_TagString: Boss
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

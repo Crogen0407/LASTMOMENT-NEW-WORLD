@@ -11,7 +11,6 @@ GameObject:
   - component: {fileID: 7128669208278419764}
   - component: {fileID: 7461050452708288789}
   - component: {fileID: 3385274761271770999}
-  - component: {fileID: 3190388137768285383}
   m_Layer: 8
   m_Name: MapEnablePoint
   m_TagString: Untagged
@@ -85,19 +84,6 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!114 &3190388137768285383
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1399374540496450707}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 185a40832911aca4cb3e48ee45e9a786, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _mapEnablePoint: {fileID: 7128669208278419764}
 --- !u!1 &2036252004741415198
 GameObject:
   m_ObjectHideFlags: 0

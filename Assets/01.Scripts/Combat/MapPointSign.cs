@@ -21,7 +21,7 @@ public class MapPointSign : MonoBehaviour
         }
     }
 
-    private void FixedUpdate()
+    private void Update()
     {
         transform.forward = -Vector3.up;
 

@@ -1232,6 +1232,7 @@ GameObject:
   - component: {fileID: 1736153715012377168}
   - component: {fileID: 8294379153258002837}
   - component: {fileID: 5487894016249238365}
+  - component: {fileID: -5672835370971878630}
   m_Layer: 7
   m_Name: Nexter-059
   m_TagString: Enemy
@@ -1406,6 +1407,24 @@ MonoBehaviour:
   _whatIsEnemy:
     serializedVersion: 2
     m_Bits: 64
+--- !u!114 &-5672835370971878630
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8050658350802216660}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2194dd8f27ee63f4aadf96345848c02b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _hp: 10
+  maxHp: 10
+  isImpassible: 0
+  isDie: 0
+  _healEffectType: 6
+  _dieEffectType: 4
 --- !u!1001 &3985056856426045468
 PrefabInstance:
   m_ObjectHideFlags: 0

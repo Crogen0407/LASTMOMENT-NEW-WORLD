@@ -53,6 +53,7 @@ public class LaserGroup : MonoBehaviour
 
     private void FixedUpdate()
     {
-        transform.Rotate(Vector3.forward * _rotateSpeed, Space.Self);
+        if(Mathf.Approximately(_rotateSpeed, 0) == false)
+            transform.Rotate(Vector3.forward * _rotateSpeed, Space.Self);
     }
 }

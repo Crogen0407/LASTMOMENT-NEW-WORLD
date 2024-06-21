@@ -208,7 +208,7 @@ MonoBehaviour:
   - {fileID: 4030045527141258652}
   - {fileID: 4444417518674338484}
   attackTargetTrm: {fileID: 0}
-  rotateDelay: 1
+  rotateDelay: 3
   _pathGenerator: {fileID: 0}
 --- !u!54 &6412397718538149578
 Rigidbody:

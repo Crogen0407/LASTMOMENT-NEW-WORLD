@@ -7,12 +7,14 @@ public class LaserShooter : MonoBehaviour
    private GameObject _laserEffect;
    private GameObject _chargeEffect;
    private Renderer _renderer;
+   private Collider _collider;
    private int _dissolveValueID;
    
    private void Init()
    {
       _chargeEffect ??= transform.Find("ChargeEffect").gameObject;
       _laserEffect ??= transform.Find("Laser").gameObject;
+      _collider ??= GetComponent<Collider>();
       if (_renderer == null)
       {
          _renderer = GetComponent<Renderer>();
@@ -28,8 +30,21 @@ public class LaserShooter : MonoBehaviour
    {
       Init();
       CoroutineDissolveActive(active);
+      _collider.enabled = active;
    }
-   
+
+   private void OnDisable()
+   {
+      _collider ??= GetComponent<Collider>();
+      _collider.enabled = false;
+   }
+
+   private void OnEnable()
+   {
+      _collider ??= GetComponent<Collider>();
+      _collider.enabled = true;
+   }
+
    public void ChargeEffectActive(bool active)
    {
       Init();
