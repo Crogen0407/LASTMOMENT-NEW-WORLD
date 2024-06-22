@@ -69,7 +69,7 @@ public class UIManager : MonoSingleton<UIManager>
     public void SetBossUI()
     {
         _bossHealthBar ??= _bossContent.GetComponentInChildren<Slider>();
-        _bossHealthBar.value = _bossHealthSystem.Hp/_bossHealthBar.maxValue;
+        _bossHealthBar.value = _bossHealthSystem.Hp/_bossHealthSystem.maxHp;
     }
 
     #region Item

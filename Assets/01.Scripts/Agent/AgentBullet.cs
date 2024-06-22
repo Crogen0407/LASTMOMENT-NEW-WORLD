@@ -37,7 +37,7 @@ public class AgentBullet : MonoPoolingObject
         StopAllCoroutines();
         transform.DOKill();
         
-        SoundManager.Instance.PlaySFX(_disableSoundEffect, transform.position);
+        SoundManager.Instance.PlaySFX(_disableSoundEffect, transform.position, true, 0.05f, true, 50f);
         
         this.Pop(_explosionEffect, transform.position, Quaternion.identity);
     }
@@ -50,8 +50,10 @@ public class AgentBullet : MonoPoolingObject
             {
                 healthSystem.Hp -= _damaged;
             }
-            // else
-            //     _hitTarget[0].GetComponentInParent<HealthSystem>().Hp -= _damaged;
+            else if (_hitTarget[0].transform.parent.TryGetComponent(out HealthSystem healthSystemInParent))
+            {
+                healthSystemInParent.Hp -= _damaged;
+            }
             Push(_poolType);
         }
     }

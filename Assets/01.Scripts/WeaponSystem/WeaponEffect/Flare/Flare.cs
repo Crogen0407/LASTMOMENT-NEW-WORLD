@@ -22,6 +22,10 @@ public class Flare : MonoPoolingObject
         {
             healthSystem.Hp -= damage;
         }
+        else if (other.transform.transform.parent.TryGetComponent(out HealthSystem healthSystemInParent))
+        {
+            healthSystemInParent.Hp -= damage;
+        }
         Push(_flarePoolType);
     }
 }

@@ -1,4 +1,4 @@
-using System;
+using Crogen.HealthSystem;
 using Crogen.ObjectPooling;
 using DG.Tweening;
 using UnityEngine;
@@ -8,6 +8,7 @@ public class GuidedBullet : WeaponEffect
     private Collider _attackTarget;
     [SerializeField] private PoolType _explosionEffectPoolType;
     [SerializeField] private float _speed = 10f;
+    [SerializeField] private float _damaged = 10f;
     
     public override void Init(Vector3 attackDirection, Transform parent)
     {
@@ -29,6 +30,15 @@ public class GuidedBullet : WeaponEffect
     private void OnCollisionEnter(Collision other)
     {
         Destroy(gameObject);
+
+        if (other.transform.TryGetComponent(out HealthSystem healthSystem))
+        {
+            healthSystem.Hp -= _damaged;
+        }
+        else if (other.transform.transform.parent.TryGetComponent(out HealthSystem healthSystemInParent))
+        {
+            healthSystemInParent.Hp -= _damaged;
+        }
     }
 
     private void FixedUpdate()
