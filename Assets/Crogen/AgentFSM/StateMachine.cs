@@ -1,7 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using UnityEngine;
 
 namespace Crogen.AgentFSM
 {
@@ -28,6 +27,13 @@ namespace Crogen.AgentFSM
             CurrentState.Enter();
         }
 
+        public void StopImmediately()
+        {
+            CurrentState.Exit();
+            CurrentState = null;
+        }
+        
+        
         public void AddState(T stateEnum, AgentState<T> enemyState)
         {
             StateDictionary.Add(stateEnum, enemyState);

@@ -591,7 +591,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   <DefaultSpeed>k__BackingField: 10
-  <MaxSpeed>k__BackingField: 30
+  <MaxSpeed>k__BackingField: 75
   <CurSpeed>k__BackingField: 0
   busterVFXMaterials:
   - {fileID: 3811471045951972752}
@@ -599,7 +599,7 @@ MonoBehaviour:
   - {fileID: 4133216083905363006}
   - {fileID: 4089915285936070095}
   attackTargetTrm: {fileID: 0}
-  rotateDelay: 1
+  rotateDelay: 3
   _pathGenerator: {fileID: 0}
 --- !u!54 &6412397718538149578
 Rigidbody:

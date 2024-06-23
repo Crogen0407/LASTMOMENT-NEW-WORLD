@@ -1,5 +1,5 @@
-using System;
 using Crogen.AgentFSM;
+using DG.Tweening;
 using UnityEngine;
 
 public class Boss : Agent<BossStateEnum>
@@ -16,6 +16,8 @@ public class Boss : Agent<BossStateEnum>
     public BossAttack bossAttack;
     public EnemySpawner enemySpawner;
 
+    public Transform visualTrm;
+    
     protected override void Awake()
     {
         base.Awake();
@@ -26,5 +28,23 @@ public class Boss : Agent<BossStateEnum>
     private void OnDrawGizmos()
     {
         Gizmos.DrawWireSphere(transform.position, recognitionRange);
+    }
+    
+    public override void SetDead()
+    {
+        base.SetDead();
+        CameraManager.Instance.SetPlayerCameraShack(30, 300, 200);
+        visualTrm.DOShakePosition(100, Vector3.zero * 2f);
+        Sequence seq = DOTween.Sequence();
+
+        seq.AppendCallback(() =>
+        {
+            SoundManager.Instance.PlaySFX(AudioType.SFX_ExploisonNoise, transform.position, true, 0.3f);
+        });
+        seq.AppendInterval(2f);
+        seq.AppendCallback(() =>
+        {
+            SoundManager.Instance.PlaySFX(AudioType.SFX_BossExplosion, transform.position);
+        });
     }
 }

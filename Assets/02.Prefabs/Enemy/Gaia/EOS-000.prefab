@@ -368,7 +368,7 @@ MonoBehaviour:
   - {fileID: 3811471045951972752}
   - {fileID: 6055996906741548614}
   attackTargetTrm: {fileID: 0}
-  rotateDelay: 1
+  rotateDelay: 8
   _pathGenerator: {fileID: 0}
 --- !u!54 &6412397718538149578
 Rigidbody:
@@ -473,8 +473,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2194dd8f27ee63f4aadf96345848c02b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _hp: 2
-  maxHp: 2
+  _hp: 1
+  maxHp: 1
   isImpassible: 0
   isDie: 0
   _healEffectType: 6

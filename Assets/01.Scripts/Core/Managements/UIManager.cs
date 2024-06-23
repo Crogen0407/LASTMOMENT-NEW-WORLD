@@ -66,6 +66,11 @@ public class UIManager : MonoSingleton<UIManager>
         _bossNameText.text = boss.enemyType.ToString().Replace('_', '-');
     }
 
+    public void CloseBossUI()
+    {
+        _bossContent.gameObject.SetActive(false);
+    }
+    
     public void SetBossUI()
     {
         _bossHealthBar ??= _bossContent.GetComponentInChildren<Slider>();

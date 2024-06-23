@@ -1,9 +1,12 @@
 using Crogen.HealthSystem;
+using UnityEngine;
 
 public class BossHealthSystem : HealthSystem
 {
     private UIManager _uiManager;
-
+    private Boss _bossBase;
+    [SerializeField] private ParticleSystem _dieEffect;
+    
     protected override void Awake()
     {
         base.Awake();
@@ -25,5 +28,8 @@ public class BossHealthSystem : HealthSystem
 
     protected override void OnDie()
     {
+        _dieEffect.Play(true);
+        UIManager.Instance.CloseBossUI();
+        _bossBase.SetDead();
     }
 }

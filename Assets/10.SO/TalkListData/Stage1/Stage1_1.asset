@@ -15,7 +15,5 @@ MonoBehaviour:
   list:
   - owner: System
     talk: "\uBCF4\uAE09 \uC218\uB839 \uC644\uB8CC"
-  - owner: System
-    talk: "\uBC1C\uD2F4 \uAE30\uC5C5\uC758 \uBE44\uBC00 \uBCD1\uAE30\uC5D0 \uB300\uD55C
-      \uC815\uBCF4\uB97C \uC218\uC9D1\uD558\uB294 \uAC83\uC744 \uC644\uB8CC\uD560
-      \uAC83"
+    textDelay: 0.1
+    talkDelay: 1
