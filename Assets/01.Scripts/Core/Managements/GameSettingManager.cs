@@ -46,6 +46,20 @@ public class GameSettingManager : MonoSingleton<GameSettingManager>
         windowModeInput.onValueChanged.AddListener(HandleWindowMode);
     }
 
+    private void OnDestroy()
+    {
+        xSensitivityInput.onClickEvent?.RemoveAllListeners();
+        ySensitivityInput.onClickEvent?.RemoveAllListeners();
+        
+        masterVolumeInput.onClickEvent?.RemoveAllListeners();
+        bgmInput.onClickEvent?.RemoveAllListeners();
+        sfxInput.onClickEvent?.RemoveAllListeners();
+        
+        imageQualityInput.onClickEvent?.RemoveAllListeners();
+        fpsInput.onClickEvent?.RemoveAllListeners();
+        windowModeInput.onValueChanged?.RemoveAllListeners();
+    }
+
     private void Start()
     {
         _gameDataManager = GameDataManager.Instance;

@@ -45725,6 +45725,11 @@ PrefabInstance:
       propertyPath: m_Convex
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 3102976226361893122, guid: 009da7c5c84959644830ad2e4cf998ba,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 8050658350802216660, guid: 009da7c5c84959644830ad2e4cf998ba,
         type: 3}
       propertyPath: m_Name
@@ -45765,6 +45770,11 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.x
       value: 10
       objectReference: {fileID: 0}
+    - target: {fileID: 9150509543536601642, guid: 009da7c5c84959644830ad2e4cf998ba,
+        type: 3}
+      propertyPath: visualTrm
+      value: 
+      objectReference: {fileID: 1955317744}
     - target: {fileID: 9150509543536601642, guid: 009da7c5c84959644830ad2e4cf998ba,
         type: 3}
       propertyPath: _dieEvent.m_PersistentCalls.m_Calls.Array.size
@@ -45814,6 +45824,12 @@ PrefabInstance:
 --- !u!4 &1955317743 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 2363175753869141150, guid: 009da7c5c84959644830ad2e4cf998ba,
+    type: 3}
+  m_PrefabInstance: {fileID: 1955317742}
+  m_PrefabAsset: {fileID: 0}
+--- !u!4 &1955317744 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 5010213640072770291, guid: 009da7c5c84959644830ad2e4cf998ba,
     type: 3}
   m_PrefabInstance: {fileID: 1955317742}
   m_PrefabAsset: {fileID: 0}

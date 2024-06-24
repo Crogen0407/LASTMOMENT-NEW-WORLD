@@ -33,10 +33,7 @@ public class EnemyRunState : AgentState<EnemyStateEnum>
         //회전
         Vector3 dir = _enemyMovement.attackTargetTrm.position - _enemyMovement.transform.position;
         _enemyMovement.HandleMoveDirection(dir);
-
-        //이동은 EnemyMovement에서 한다.
-
-        //공격
+        
         if(Physics.BoxCast(_enemyBase.transform.position, new Vector3(5, 5, _enemyBase.recognitionRange*3),
                _enemyBase.transform.forward, _enemyBase.transform.rotation, _enemyBase.whatIsPlayer))
         {

@@ -38,8 +38,6 @@ public class GameData
         0,
         0
     };
-    public string userName;
-    public bool playedGame = false;
     public int[] clearStageArray =
     {
         0,

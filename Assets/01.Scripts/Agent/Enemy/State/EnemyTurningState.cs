@@ -24,7 +24,8 @@ public class EnemyTurningState : AgentState<EnemyStateEnum>
     {
         base.Enter();
         Vector3 dir = _enemyMovement.attackTargetTrm.position - _enemyMovement.transform.position;
-        _enemyBase.transform.DORotateQuaternion(Quaternion.LookRotation(dir), _enemyMovement.rotateDelay).OnComplete(()=>_stateMachine.ChangeState(EnemyStateEnum.Run));
+        _enemyBase.transform.DORotateQuaternion(Quaternion.LookRotation(dir), 
+            _enemyMovement.rotateDelay).OnComplete(()=>_stateMachine.ChangeState(EnemyStateEnum.Run));
     }
 
     public override void Exit()

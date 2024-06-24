@@ -10,7 +10,7 @@ public class CurrentWeaponContent : MonoBehaviour
 
     private WeaponEnum _weaponEnum;
 
-    public WeaponEnum WeaponEnum
+    public WeaponEnum WeaponEnum    
     {
         get => _weaponEnum;
         set
