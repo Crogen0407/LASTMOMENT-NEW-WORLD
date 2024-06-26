@@ -1,7 +1,7 @@
 using Crogen.AgentFSM;
 using UnityEngine;
 
-public class Enemy : Agent<EnemyStateEnum>
+public class Enemy : Agent<EnemyStateEnum>, IInteractable
 {
     //Managements
     private StageManager _stageManager;
@@ -47,5 +47,12 @@ public class Enemy : Agent<EnemyStateEnum>
     private void OnDrawGizmos()
     {
         Gizmos.DrawWireSphere(transform.position, recognitionRange);
+    }
+
+    public CheckPoint _checkPoint { get; set; }
+
+    public void OnInteract()
+    {
+        
     }
 }
