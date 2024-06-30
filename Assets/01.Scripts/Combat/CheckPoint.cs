@@ -22,9 +22,7 @@ public class CheckPoint : MonoBehaviour
         _clearGauge += value;
         if (_clearGauge >= 1f && _isOnlyGaugeCanClear)
         {
-            _isClear = true;
-            _clearEvent?.Invoke();
-            StageManager.Instance.UpdateCurrentCheckPoint();            
+            OnClear();
         }
     }
     
@@ -34,9 +32,15 @@ public class CheckPoint : MonoBehaviour
         if (_isOnlyGaugeCanClear) return;
         if (Physics.OverlapSphereNonAlloc(transform.position, _radius, _colliders, _whatIsPlayer) > 0 && _clearGauge >= 1f)
         {
-            _clearEvent?.Invoke();
-            StageManager.Instance.UpdateCurrentCheckPoint();            
+            OnClear();
         }
+    }
+
+    private void OnClear()
+    {
+        _isClear = true;
+        _clearEvent?.Invoke();
+        StageManager.Instance.UpdateCurrentCheckPoint();      
     }
 
     private void OnDrawGizmos()

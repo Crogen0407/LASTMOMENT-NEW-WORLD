@@ -1,10 +1,9 @@
 using Crogen.AgentFSM;
 using UnityEngine;
 
-public class Enemy : Agent<EnemyStateEnum>, IInteractable
+public class Enemy : Agent<EnemyStateEnum>
 {
     //Managements
-    private StageManager _stageManager;
     private CameraManager _cameraManager;
     private ItemManager _itemManager;
     
@@ -21,7 +20,6 @@ public class Enemy : Agent<EnemyStateEnum>, IInteractable
     protected override void Awake()
     {
         base.Awake();
-        _stageManager = StageManager.Instance;
         _cameraManager = CameraManager.Instance;
         _itemManager = ItemManager.Instance;
 
@@ -47,12 +45,5 @@ public class Enemy : Agent<EnemyStateEnum>, IInteractable
     private void OnDrawGizmos()
     {
         Gizmos.DrawWireSphere(transform.position, recognitionRange);
-    }
-
-    public CheckPoint _checkPoint { get; set; }
-
-    public void OnInteract()
-    {
-        
     }
 }

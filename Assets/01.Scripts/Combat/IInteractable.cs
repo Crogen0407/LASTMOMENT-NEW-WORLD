@@ -1,7 +1,4 @@
-﻿using UnityEngine;
-
-public interface IInteractable
+﻿public interface IInteractable
 {
-    [field:SerializeField] public CheckPoint _checkPoint { get; set; }
-    public void OnInteract();
+    public bool IsInteracted { get; set; }
 }
