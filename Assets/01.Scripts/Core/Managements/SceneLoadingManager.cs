@@ -11,25 +11,7 @@ public class SceneLoadingManager : MonoSingleton<SceneLoadingManager>
     
     private int _sceneIndex;
     private string _sceneName;
-    public void LoadingScene(int sceneID)
-    {
-        ScreenFadeManager.Instance.Fade(false, 1, () =>
-        {
-            _sceneIndex = sceneID;
-            if (LoadingScreen == null)
-            {
-                LoadingScreen = Instantiate(LoadingScreenPrefab);
-                LoadingBarFill = LoadingScreen.transform.Find("LoadingBar/Fill").GetComponent<Image>();
-                DontDestroyOnLoad(LoadingScreen);
-            }
-            else
-            {
-                Destroy(LoadingScreen);
-            }
-            SceneManager.sceneLoaded += SceneLoadComplete;
-            StartCoroutine(CoroutineLoadingScene(sceneID));
-        });
-    }
+
     public void LoadingScene(string sceneName, float fadeDuration = 1f)
     {
         ScreenFadeManager.Instance.Fade(false, fadeDuration, () =>
@@ -49,37 +31,6 @@ public class SceneLoadingManager : MonoSingleton<SceneLoadingManager>
         });
     }
 
-
-    IEnumerator CoroutineLoadingScene(int sceneID)
-    {
-        LoadingBarFill.fillAmount = 0f;
-        LoadingScreen.SetActive(true);
-        
-        AsyncOperation operation = SceneManager.LoadSceneAsync(sceneID);
-        operation.allowSceneActivation = false;
-
-        float timer = 0;
-        while (!operation.isDone)
-        {
-            yield return null;
-
-            if (operation.progress < 0.9f)
-            {
-                LoadingBarFill.fillAmount = operation.progress;
-            }
-            else
-            {
-                timer += Time.unscaledDeltaTime;
-                LoadingBarFill.fillAmount = Mathf.Lerp(0.9f, 1f, timer);
-                if (LoadingBarFill.fillAmount >= 1f)
-                {
-                    operation.allowSceneActivation = true;
-                    //LoadingScreen.SetActive(false);
-                    yield break;
-                }
-            }
-        }
-    }
     IEnumerator CoroutineLoadingScene(string sceneName)
     {
         LoadingBarFill.fillAmount = 0f;
