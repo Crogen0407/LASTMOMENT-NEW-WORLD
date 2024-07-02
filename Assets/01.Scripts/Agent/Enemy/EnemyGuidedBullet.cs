@@ -1,7 +1,4 @@
-using System;
 using System.Collections;
-using System.Collections.Generic;
-using Crogen.HealthSystem;
 using Crogen.ObjectPooling;
 using DG.Tweening;
 using UnityEngine;
@@ -9,6 +6,8 @@ using UnityEngine;
 public class EnemyGuidedBullet : MonoPoolingObject
 {
     [SerializeField] private int _damaged = 1;
+    public float readyLifeTime = 0.8f;
+    public float readyMoveLength = 3f;
     public float lifeTime = 2f;
     public float speed = 80f;
     [SerializeField] protected LayerMask _whatIsOrigin;
@@ -36,14 +35,28 @@ public class EnemyGuidedBullet : MonoPoolingObject
         transform.DOMove(endPos + startPos, lifeTime).SetEase(Ease.OutCubic);
         StartCoroutine(AutoDieCoroutine());
     }
-
-
+    
     private IEnumerator GuidedMove(Vector3 startPos, Vector3 endPos)
     {
         float currentTime = 0;
         float percent = 0;
-        float lifeTime = Vector3.Distance(startPos, endPos)/speed;
         Vector3 lastPos = transform.position;
+
+        Vector3 firstEndPos = transform.forward * readyMoveLength;
+        
+        while (percent < 1f)
+        {
+            currentTime += Time.deltaTime;
+            percent = currentTime / lifeTime;
+            transform.position = Vector3.Lerp(startPos, firstEndPos, percent);
+            transform.forward = -(lastPos - transform.position).normalized;
+            yield return null;
+        }
+        
+        currentTime = 0;
+        percent = 0;
+        
+        
         while (percent < 1f)
         {
             currentTime += Time.deltaTime;
