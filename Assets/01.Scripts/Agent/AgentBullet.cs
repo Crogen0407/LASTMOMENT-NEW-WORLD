@@ -36,10 +36,6 @@ public class AgentBullet : MonoPoolingObject
     { 
         StopAllCoroutines();
         transform.DOKill();
-        
-        SoundManager.Instance.PlaySFX(_disableSoundEffect, transform.position, true, 0.05f, true, 50f);
-        
-        this.Pop(_explosionEffect, transform.position, Quaternion.identity);
     }
     
     private void FixedUpdate()
@@ -54,6 +50,8 @@ public class AgentBullet : MonoPoolingObject
             {
                 healthSystemInParent.Hp -= _damaged;
             }
+            SoundManager.Instance.PlaySFX(_disableSoundEffect, transform.position, true, 0.05f, true, 50f);
+            this.Pop(_explosionEffect, transform.position, Quaternion.identity);
             Push(_poolType);
         }
     }
