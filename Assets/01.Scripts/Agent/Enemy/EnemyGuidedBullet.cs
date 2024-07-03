@@ -5,47 +5,33 @@ using UnityEngine;
 
 public class EnemyGuidedBullet : MonoPoolingObject
 {
-    public float readyLifeTime = 0.8f;
-    public float readyMoveLength = 3f;
     public float lifeTime = 2f;
+    private float _currentLifeTime = 0;
     public float speed = 80f;
     [SerializeField] private LayerMask _whatIsPlayer;
     [SerializeField] protected PoolType _poolType;
     [SerializeField] protected PoolType _explosionEffect;
     [SerializeField] private float _findRadius = 200f;
-    [SerializeField] private Collider[] _findTarget;
-    
+    private Transform _findTargetTrm;
+    private Vector3 _targetPos;
+
+    private float _currentTargetFindTime = 0f;
+    [SerializeField] private float _targetFindCoolTime = 1f;
+    [SerializeField] private float _findRotateDelay = 1f;
+
+    private Vector3 _moveDir;
+    private bool _isChangingTargetPos = false;
+
     public override void OnPop()
     {
-        _findTarget = new Collider[1];
-
-        if (Physics.OverlapSphereNonAlloc(transform.position, _findRadius, _findTarget, _whatIsPlayer) > 0)
-        {
-            GuidedMove(transform.position, _findTarget[0].transform);
-            return;
-        }
-        
-        Vector3 startPos = transform.position;
-        Vector3 endPos = transform.forward.normalized * (speed * lifeTime);
-        transform.DOMove(endPos + startPos, lifeTime).SetEase(Ease.OutCubic);
-        StartCoroutine(AutoDieCoroutine());
+        _isChangingTargetPos = false;
+        _currentLifeTime = 0;
+        _currentTargetFindTime = 0;
+        _moveDir = transform.forward.normalized;
+        _findTargetTrm = GameManager.Instance.Player.transform;
+        _targetPos = _findTargetTrm.position;
     }
     
-    private void GuidedMove(Vector3 startPos, Transform targetTrm)
-    {
-        //Ready
-        Sequence seq = DOTween.Sequence();
-        Vector3 endPos = transform.forward.normalized * (speed * lifeTime);
-        seq.Append(transform.DOMove(endPos + startPos, lifeTime).SetEase(Ease.OutCubic));
-
-        //Attack
-        startPos = transform.position;
-        endPos = targetTrm.position;
-        seq.Append(transform.DOMove(startPos + endPos, lifeTime));
-        seq.OnUpdate()
-
-        seq.AppendCallback(() => Push(_poolType));
-    }
     
     public override void OnPush()
     { 
@@ -59,14 +45,42 @@ public class EnemyGuidedBullet : MonoPoolingObject
         Push(_poolType);
     }
 
-    private IEnumerator AutoDieCoroutine()
+    private void Update()
     {
-        yield return new WaitForSeconds(lifeTime);
-        Push(_poolType);
+        _currentLifeTime += Time.deltaTime;
+        if(_currentLifeTime > lifeTime)
+            Push(_poolType);
+
+        _currentTargetFindTime += Time.deltaTime;
+        //Å¸°Ù °»½Å
+        if (_currentTargetFindTime > _targetFindCoolTime)
+		{
+            if (_isChangingTargetPos == false)
+			{
+                _targetPos = _findTargetTrm.position;
+                StartCoroutine(CoroutineTargetPosSmoothChange());
+            }
+            _currentTargetFindTime = 0;
+		}
+
+        transform.position += _moveDir * speed * Time.deltaTime;
     }
 
-    private void OnDrawGizmos()
-    {
-        //Gizmos.DrawWireSphere(transform.position, _findRadius);
+    private IEnumerator CoroutineTargetPosSmoothChange()
+	{
+        _isChangingTargetPos = true;
+        Vector3 currentDir = transform.forward.normalized;
+        Vector3 endDir = (_targetPos - transform.position).normalized;
+        float currentTime = 0;
+        float duration = _findRotateDelay;
+        while(duration > currentTime)
+		{
+            _moveDir = Vector3.Lerp(currentDir, endDir, currentTime / duration);
+            transform.forward = _moveDir;
+            currentTime += Time.deltaTime;
+            yield return null;
+		}
+        yield return new WaitForSeconds(duration);
+        _isChangingTargetPos = false;
     }
 }
