@@ -9,7 +9,18 @@ namespace Crogen.AgentFSM
     {
         public StateMachine<T> StateMachine { get; private set; }
         public AgentMovement Movement { get; private set; }
-        public HealthSystem.HealthSystem HealthSystem { get; private set; }
+        private HealthSystem.HealthSystem _healthSystem;
+
+        public HealthSystem.HealthSystem HealthSystem
+        {
+            get
+            {
+                _healthSystem ??= GetComponent<HealthSystem.HealthSystem>();
+                return _healthSystem;
+            }
+            private set => _healthSystem = value;
+        }
+
         //public Animator Animator { get; private set; }
         public bool CanStateChangeable { get; protected set; } = true;
         
@@ -21,7 +32,6 @@ namespace Crogen.AgentFSM
         {
             Transform visualTrm = transform.Find("Visual");
             Movement = GetComponent<AgentMovement>();
-            HealthSystem = GetComponent<HealthSystem.HealthSystem>();
             //Animator = visualTrm.GetComponent<Animator>();
         
             StateMachine = new StateMachine<T>();

@@ -5,28 +5,23 @@ using UnityEngine;
 
 public class EnemyGuidedBullet : MonoPoolingObject
 {
-    [SerializeField] private int _damaged = 1;
     public float readyLifeTime = 0.8f;
     public float readyMoveLength = 3f;
     public float lifeTime = 2f;
     public float speed = 80f;
-    [SerializeField] protected LayerMask _whatIsOrigin;
     [SerializeField] private LayerMask _whatIsPlayer;
     [SerializeField] protected PoolType _poolType;
     [SerializeField] protected PoolType _explosionEffect;
-    private Collider[] _hitTarget;
     [SerializeField] private float _findRadius = 200f;
     [SerializeField] private Collider[] _findTarget;
     
     public override void OnPop()
     {
-        _hitTarget = new Collider[1];
         _findTarget = new Collider[1];
 
         if (Physics.OverlapSphereNonAlloc(transform.position, _findRadius, _findTarget, _whatIsPlayer) > 0)
         {
-            Vector3 findPos = _findTarget[0].transform.position;
-            StartCoroutine(GuidedMove(transform.position, findPos));
+            GuidedMove(transform.position, _findTarget[0].transform);
             return;
         }
         
@@ -36,39 +31,20 @@ public class EnemyGuidedBullet : MonoPoolingObject
         StartCoroutine(AutoDieCoroutine());
     }
     
-    private IEnumerator GuidedMove(Vector3 startPos, Vector3 endPos)
+    private void GuidedMove(Vector3 startPos, Transform targetTrm)
     {
-        float currentTime = 0;
-        float percent = 0;
-        Vector3 lastPos = transform.position;
+        //Ready
+        Sequence seq = DOTween.Sequence();
+        Vector3 endPos = transform.forward.normalized * (speed * lifeTime);
+        seq.Append(transform.DOMove(endPos + startPos, lifeTime).SetEase(Ease.OutCubic));
 
-        Vector3 firstEndPos = transform.forward * readyMoveLength;
-        
-        while (percent < 1f)
-        {
-            currentTime += Time.deltaTime;
-            percent = currentTime / lifeTime;
-            transform.position = Vector3.Lerp(startPos, firstEndPos, percent);
-            transform.forward = -(lastPos - transform.position).normalized;
-            yield return null;
-        }
-        
-        currentTime = 0;
-        percent = 0;
-        
-        
-        while (percent < 1f)
-        {
-            currentTime += Time.deltaTime;
-            percent = currentTime / lifeTime;
-            transform.position = Vector3.Slerp(startPos, endPos, percent);
-            transform.forward = -(lastPos - transform.position).normalized;
-            yield return null;
-        }
-        transform.position = endPos;
-        
-        yield return new WaitForSeconds(lifeTime);
-        Push(_poolType);
+        //Attack
+        startPos = transform.position;
+        endPos = targetTrm.position;
+        seq.Append(transform.DOMove(startPos + endPos, lifeTime));
+        seq.OnUpdate()
+
+        seq.AppendCallback(() => Push(_poolType));
     }
     
     public override void OnPush()
@@ -78,7 +54,7 @@ public class EnemyGuidedBullet : MonoPoolingObject
         this.Pop(_explosionEffect, transform.position, Quaternion.identity);
     }
 
-    private void OnCollisionEnter(Collision other)
+    private void OnCollisionEnter()
     {
         Push(_poolType);
     }

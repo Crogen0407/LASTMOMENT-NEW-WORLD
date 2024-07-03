@@ -7621,6 +7621,7 @@ MonoBehaviour:
   _stageListData: {fileID: 11400000, guid: 2bcaa8064faa2c540aab116eb16bee66, type: 2}
   _checkPointList:
   - {fileID: 2121430806}
+  - {fileID: 1764360604}
   _currentCheckPoint: 0
   currentTargetTrm: {fileID: 0}
   gameClear: 0
@@ -9071,7 +9072,7 @@ PrefabInstance:
     - target: {fileID: 2363175753869141150, guid: 009da7c5c84959644830ad2e4cf998ba,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: 0
+      value: 0.0000006574004
       objectReference: {fileID: 0}
     - target: {fileID: 2363175753869141150, guid: 009da7c5c84959644830ad2e4cf998ba,
         type: 3}
@@ -9086,22 +9087,22 @@ PrefabInstance:
     - target: {fileID: 2363175753869141150, guid: 009da7c5c84959644830ad2e4cf998ba,
         type: 3}
       propertyPath: m_LocalRotation.w
-      value: 0.7071068
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 2363175753869141150, guid: 009da7c5c84959644830ad2e4cf998ba,
         type: 3}
       propertyPath: m_LocalRotation.x
-      value: 0.7071068
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 2363175753869141150, guid: 009da7c5c84959644830ad2e4cf998ba,
         type: 3}
       propertyPath: m_LocalRotation.y
-      value: 0
+      value: -0.70710677
       objectReference: {fileID: 0}
     - target: {fileID: 2363175753869141150, guid: 009da7c5c84959644830ad2e4cf998ba,
         type: 3}
       propertyPath: m_LocalRotation.z
-      value: 0
+      value: 0.70710677
       objectReference: {fileID: 0}
     - target: {fileID: 2363175753869141150, guid: 009da7c5c84959644830ad2e4cf998ba,
         type: 3}
@@ -9111,17 +9112,27 @@ PrefabInstance:
     - target: {fileID: 2363175753869141150, guid: 009da7c5c84959644830ad2e4cf998ba,
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.y
-      value: 0
+      value: -90
       objectReference: {fileID: 0}
     - target: {fileID: 2363175753869141150, guid: 009da7c5c84959644830ad2e4cf998ba,
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
-      value: 0
+      value: 90
+      objectReference: {fileID: 0}
+    - target: {fileID: 6412397718538149578, guid: 009da7c5c84959644830ad2e4cf998ba,
+        type: 3}
+      propertyPath: m_IsKinematic
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 8050658350802216660, guid: 009da7c5c84959644830ad2e4cf998ba,
         type: 3}
       propertyPath: m_Name
       value: ASSEMBLY-002
+      objectReference: {fileID: 0}
+    - target: {fileID: 9150509543536601642, guid: 009da7c5c84959644830ad2e4cf998ba,
+        type: 3}
+      propertyPath: _dieEvent.m_PersistentCalls.m_Calls.Array.size
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
