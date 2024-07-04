@@ -23,7 +23,7 @@ public class MapPointSign : MonoBehaviour
 
     private void Update()
     {
-        transform.forward = -Vector3.up;
+        transform.rotation = Quaternion.Euler(90, 0, 0);
 
         Vector3 camPos = new Vector3(_radarCam.position.x, _mapEnablePoint.position.y, _radarCam.position.z);
         Vector3 selfPos =  _mapEnablePoint.position;

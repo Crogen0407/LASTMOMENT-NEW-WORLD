@@ -1,8 +1,9 @@
 ﻿using Crogen.JsamJson;
+using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Serialization;
 
-public class WeaponManager : MonoBehaviour
+public class WeaponManager : MonoSingleton<WeaponManager>
 {
     //Managements
     private GameManager _gameManager;
@@ -15,10 +16,12 @@ public class WeaponManager : MonoBehaviour
 
     [Header("UI")] 
     [SerializeField] private WeaponPanel[] _weaponPanels;
-    [FormerlySerializedAs("_productData")] [SerializeField] private WeaponProductDataSO weaponProductData;
+    [SerializeField] private WeaponProductDataSO weaponProductData;
 
     private Transform _playerTrm;
-    
+
+    public Stack<WeaponEffect> currentWeaponStack;
+
     private void LoadCurWeaponData() 
     {
         GameDataManager.Instance.LoadData();
@@ -26,7 +29,6 @@ public class WeaponManager : MonoBehaviour
         {
             _curWeapons[i] = (WeaponEnum)GameDataManager.Instance.CurrentWeaponArray[i];    
         }
-        
     }
     
     private void Awake()
@@ -36,8 +38,10 @@ public class WeaponManager : MonoBehaviour
         
         //Managements
         _gameManager = GameManager.Instance;
-        
+
         //Values
+        currentWeaponStack = new Stack<WeaponEffect>();
+
         _weaponCoolTimeMaxs = new float[_curWeapons.Length];
         _curWeaponCoolTimes = new float[_curWeapons.Length];
         _weaponAttackCounts = new int[_curWeapons.Length];
@@ -60,6 +64,17 @@ public class WeaponManager : MonoBehaviour
         
         //Events
         _gameManager.InputReader.UseWeaponEvent += HandleUseWeapon;
+    }
+
+    public void OnAllWeaponDestroy()
+	{
+        if (currentWeaponStack == null) return;
+		for (int i = 0; i < currentWeaponStack.Count; ++i)
+		{
+            WeaponEffect effect = currentWeaponStack.Pop();
+            Destroy(effect.gameObject);
+		}
+        currentWeaponStack.Clear();
     }
 
     private void OnDestroy()

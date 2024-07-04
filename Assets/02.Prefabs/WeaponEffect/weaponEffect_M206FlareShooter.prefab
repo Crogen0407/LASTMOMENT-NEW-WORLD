@@ -9,9 +9,9 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1438791212608034573}
-  - component: {fileID: -4115684691304796366}
+  - component: {fileID: 2275882361312170513}
   m_Layer: 0
-  m_Name: MJN68Shooter
+  m_Name: weaponEffect_M206FlareShooter
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -32,7 +32,7 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &-4115684691304796366
+--- !u!114 &2275882361312170513
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -41,18 +41,18 @@ MonoBehaviour:
   m_GameObject: {fileID: 6046699502353669075}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 0c7e6b71985948a6987247242da24d58, type: 3}
+  m_Script: {fileID: 11500000, guid: b22ed993d8ad76147b82e4c001b9115f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   _whatIsEnemy:
     serializedVersion: 2
-    m_Bits: 0
+    m_Bits: 128
   _attackPossiableCount: 10
   attackRange: 30
   duration: 10
-  _flarePoolType: 13
+  _flarePoolType: 12
   _cycleCount: 30
-  _shootDelay: 0.15
-  _bulletDuration: 1
-  _bulletSpeed: 8
-  _bulletDamage: 8
+  _shootDelay: 0.3
+  _bulletDuration: 3
+  _bulletSpeed: 10
+  _bulletDamage: 5

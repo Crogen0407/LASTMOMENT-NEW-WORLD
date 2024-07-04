@@ -12,7 +12,13 @@ public class FlareShooter : WeaponEffect
     [SerializeField] private float _bulletDuration;
     [SerializeField] private float _bulletSpeed;
     [SerializeField] private float _bulletDamage = 5f;
-    private void Update()
+
+	public override void Init(Vector3 attackDirection, Transform parent = null)
+	{
+		base.Init(attackDirection, parent);
+	}
+
+	private void Update()
     {
         _curDelay += Time.deltaTime;
         if (_curDelay > _shootDelay)

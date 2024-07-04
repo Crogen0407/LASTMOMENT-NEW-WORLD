@@ -10,7 +10,7 @@ public class GuidedBullet : WeaponEffect
     [SerializeField] private float _speed = 10f;
     [SerializeField] private float _damaged = 10f;
     
-    public override void Init(Vector3 attackDirection, Transform parent)
+    public override void Init(Vector3 attackDirection, Transform parent = null)
     {
         base.Init(attackDirection, null);
         Sequence seq = DOTween.Sequence();

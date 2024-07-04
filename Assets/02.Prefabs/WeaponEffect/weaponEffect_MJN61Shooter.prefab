@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 1438791212608034573}
   - component: {fileID: -4115684691304796366}
   m_Layer: 0
-  m_Name: MJN61Shooter
+  m_Name: weaponEffect_MJN61Shooter
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -53,6 +53,6 @@ MonoBehaviour:
   _flarePoolType: 14
   _cycleCount: 20
   _shootDelay: 0.32
-  _bulletDuration: 1
+  _bulletDuration: 3
   _bulletSpeed: 10
   _bulletDamage: 5
