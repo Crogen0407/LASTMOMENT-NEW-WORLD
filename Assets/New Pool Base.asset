@@ -81,3 +81,7 @@ MonoBehaviour:
     monoPoolingObjectPrefab: {fileID: 2197264051113128562, guid: d50358777eab84a4aa3aaa6a7423c0f8,
       type: 3}
     poolCount: 40
+  - poolType: TargetPointContent
+    monoPoolingObjectPrefab: {fileID: 437682491622165728, guid: 56a824af05cbde44f8c6cc5f471aa1d6,
+      type: 3}
+    poolCount: 20

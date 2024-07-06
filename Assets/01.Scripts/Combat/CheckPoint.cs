@@ -15,7 +15,7 @@ public class CheckPoint : MonoBehaviour
     {
         _colliders = new Collider[1];
     }
-                 
+
     public void AddClearGauge(float value)
     {
         if (_isClear) return; 
@@ -38,6 +38,7 @@ public class CheckPoint : MonoBehaviour
 
     private void OnClear()
     {
+        Debug.Log("Clear");
         _isClear = true;
         _clearEvent?.Invoke();
         StageManager.Instance.UpdateCurrentCheckPoint();      

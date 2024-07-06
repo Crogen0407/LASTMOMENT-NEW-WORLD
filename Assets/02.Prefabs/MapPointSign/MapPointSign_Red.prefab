@@ -182,6 +182,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _mapEnablePoint: {fileID: 7128669208278419764}
+  _color: {r: 1, g: 0, b: 0, a: 1}
 --- !u!1 &5803842192255505255
 GameObject:
   m_ObjectHideFlags: 0

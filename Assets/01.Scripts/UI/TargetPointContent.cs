@@ -2,12 +2,20 @@ using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class TargetPointContent : MonoSingleton<TargetPointContent>
+public class TargetPointContent : MonoPoolingObject
 {
-    [field:SerializeField] public bool IsActive { get; set; }
-    
-    private StageManager _stageManager;
-    
+    public Transform targetTrasform;
+    private Color _imageColor;
+    public Color ImageColor
+    {
+        set
+        {
+            _imageColor = value;
+            _image.color = _imageColor;
+        }
+        get => _imageColor;
+	}
+
     private Transform _playerCameraTrm;
     private Transform _playerTrm;    
     
@@ -16,26 +24,23 @@ public class TargetPointContent : MonoSingleton<TargetPointContent>
     
     private void Awake()
     {
-        _stageManager = StageManager.Instance;
-        
         _playerCameraTrm = GameObject.Find("PlayerVirtualCamera").transform;
         _playerTrm = GameManager.Instance.Player.transform;
     }
 
     private void FixedUpdate()
     {
-        IsActive = Mathf.Approximately(Time.timeScale, 0) == false && !_stageManager.gameClear;
-        _image.gameObject.SetActive(_stageManager.currentTargetTrm != null && IsActive);
-        if (_stageManager.currentTargetTrm == null) return;
+        _image.enabled = targetTrasform != null;
+        if (targetTrasform == null) return;
         float minX = _image.GetPixelAdjustedRect().width / 2;
         float maxX = Screen.width - minX;
         
         float minY = _image.GetPixelAdjustedRect().height / 2;
         float maxY = Screen.height - minY;
         
-        Vector2 pos = Camera.main.WorldToScreenPoint(_stageManager.currentTargetTrm.position);
+        Vector2 pos = Camera.main.WorldToScreenPoint(targetTrasform.position);
 
-        if (Vector3.Dot((_stageManager.currentTargetTrm.position - _playerCameraTrm.position),  _playerCameraTrm.forward) < 0)
+        if (Vector3.Dot((targetTrasform.position - _playerCameraTrm.position),  _playerCameraTrm.forward) < 0)
         {
             if (pos.x < Screen.width / 2)
             {
@@ -48,10 +53,18 @@ public class TargetPointContent : MonoSingleton<TargetPointContent>
         }
 
         pos.x = Mathf.Clamp(pos.x, minX, maxX);
-        pos.y = Mathf.Clamp(pos.y, minY, maxY);
+        pos.y = Mathf.Clamp(pos.y, minY + 37.4f, maxY);
 
-        _distanceText.text = $"{(int)Vector3.Distance(_stageManager.currentTargetTrm.position, _playerTrm.position)}m";
+        _distanceText.text = $"{(int)Vector3.Distance(targetTrasform.position, _playerTrm.position)}m";
         
         _image.transform.position = pos;
     }
+
+	public override void OnPop()
+	{
+	}
+
+	public override void OnPush()
+	{
+	}
 }

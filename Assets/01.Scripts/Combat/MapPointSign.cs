@@ -5,7 +5,18 @@ public class MapPointSign : MonoBehaviour
     private Transform _radarCam;
     private float _camSize;
     [SerializeField] private Transform _mapEnablePoint;
-    
+    [SerializeField] private Color _color;
+
+    private void OnEnable()
+    {
+        TargetPointManager.Instance.ShowTargetPoint(transform, _color);
+    }
+
+    private void OnDisable()
+    {
+        TargetPointManager.Instance.CloseTargetPoint(transform);
+    }
+
     private void Awake()
     {
         _radarCam = GameObject.Find("RadarCamera").transform;

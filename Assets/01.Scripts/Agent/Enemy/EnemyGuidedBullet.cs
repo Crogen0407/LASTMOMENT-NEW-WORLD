@@ -24,6 +24,8 @@ public class EnemyGuidedBullet : MonoPoolingObject
 
     public override void OnPop()
     {
+        TargetPointManager.Instance.ShowTargetPoint(transform, Color.red);
+
         _isChangingTargetPos = false;
         _currentLifeTime = 0;
         _currentTargetFindTime = 0;
@@ -34,7 +36,9 @@ public class EnemyGuidedBullet : MonoPoolingObject
     
     
     public override void OnPush()
-    { 
+    {
+        TargetPointManager.Instance.CloseTargetPoint(transform);
+
         StopAllCoroutines();
         transform.DOKill();
         this.Pop(_explosionEffect, transform.position, Quaternion.identity);
