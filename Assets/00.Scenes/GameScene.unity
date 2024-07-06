@@ -6647,7 +6647,7 @@ MonoBehaviour:
   - {fileID: 1058230381}
   - {fileID: 508291291}
   - {fileID: 1225091906}
-  _agentEffectGenerator: {fileID: 0}
+  _agentEffectGenerator: {fileID: 860814163}
   <RotateSpeedX>k__BackingField: 2
   <RotateSpeedY>k__BackingField: 2
   aimingDistance: 10
@@ -9119,20 +9119,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 90
       objectReference: {fileID: 0}
-    - target: {fileID: 6412397718538149578, guid: 009da7c5c84959644830ad2e4cf998ba,
-        type: 3}
-      propertyPath: m_IsKinematic
-      value: 1
-      objectReference: {fileID: 0}
     - target: {fileID: 8050658350802216660, guid: 009da7c5c84959644830ad2e4cf998ba,
         type: 3}
       propertyPath: m_Name
       value: ASSEMBLY-002
-      objectReference: {fileID: 0}
-    - target: {fileID: 9150509543536601642, guid: 009da7c5c84959644830ad2e4cf998ba,
-        type: 3}
-      propertyPath: _dieEvent.m_PersistentCalls.m_Calls.Array.size
-      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

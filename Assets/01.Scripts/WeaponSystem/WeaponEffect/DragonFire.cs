@@ -20,6 +20,8 @@ public class DragonFire : WeaponEffect
 		transform.forward = attackDirection.normalized;
 		CameraManager.Instance.SetPlayerCameraShack(0.5f, 10f, 10f);
 		CameraManager.Instance.SetPlayerCameraShack(duration, 4f, 4f);
+
+		SoundManager.Instance.PlaySFX(_fireAudioType, transform.position);
 	}
 
 	private void Update()
@@ -39,6 +41,7 @@ public class DragonFire : WeaponEffect
 
 	private void OnDamage()
 	{
+		//SoundManager.Instance.PlaySFX(_attackAudioType, transform.position);
 		Physics.OverlapCapsuleNonAlloc(transform.position, transform.position + transform.rotation * (Vector3.forward * _attackOverlapScale.z) + _attackOverlapOffset, 5f, _attackTargets, _whatIsEnemy);
 		if (_attackTargets == null) return;
 

@@ -21,7 +21,8 @@ public enum AudioType
     SFX_PlayerDie,
     SFX_SpaceShipMove,
     SFX_UIClick,
-    SFX_BossExplosion
+    SFX_BossExplosion,
+    SFX_FlareFire
     
 }
 

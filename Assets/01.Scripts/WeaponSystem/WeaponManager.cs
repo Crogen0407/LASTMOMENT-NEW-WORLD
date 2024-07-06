@@ -72,7 +72,8 @@ public class WeaponManager : MonoSingleton<WeaponManager>
 		for (int i = 0; i < currentWeaponStack.Count; ++i)
 		{
             WeaponEffect effect = currentWeaponStack.Pop();
-            Destroy(effect.gameObject);
+            if(effect)
+                Destroy(effect.gameObject);
 		}
         currentWeaponStack.Clear();
     }

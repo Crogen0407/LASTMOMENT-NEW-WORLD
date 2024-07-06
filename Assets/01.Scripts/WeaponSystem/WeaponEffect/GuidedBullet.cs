@@ -25,6 +25,7 @@ public class GuidedBullet : WeaponEffect
                 _attackTarget = _attackTargets[i];
             }
         }
+        SoundManager.Instance.PlaySFX(_fireAudioType, transform.position);
     }
 
     private void OnCollisionEnter(Collision other)
@@ -66,6 +67,7 @@ public class GuidedBullet : WeaponEffect
 
     private void OnDestroy()
     {
+        SoundManager.Instance.PlaySFX(_attackAudioType, transform.position);
         this.Pop(_explosionEffectPoolType, transform.position, Quaternion.identity);
         transform.DOKill();
     }

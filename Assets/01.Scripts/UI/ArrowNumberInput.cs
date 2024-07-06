@@ -7,7 +7,7 @@ public class ArrowNumberInput : ArrowValueInput<int>
     [SerializeField] private int _minValue = 0;
     [SerializeField] private int _defaultValue = 5;
 
-    private void Awake()
+    protected override void Awake()
     {
         base.Awake();
         UpdateNumberText(value.ToString());

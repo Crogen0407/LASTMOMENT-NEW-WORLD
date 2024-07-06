@@ -44,9 +44,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0c7e6b71985948a6987247242da24d58, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _attackAudioType: 0
+  _fireAudioType: 16
   _whatIsEnemy:
     serializedVersion: 2
-    m_Bits: 0
+    m_Bits: 128
   _attackPossiableCount: 10
   attackRange: 30
   duration: 10

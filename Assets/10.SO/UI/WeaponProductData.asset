@@ -50,7 +50,8 @@ MonoBehaviour:
         description: 
     - Key: 5
       Value:
-        weaponIconSprite: {fileID: 0}
+        weaponIconSprite: {fileID: -1886483878, guid: 451125f74276ea04e89126d17e50ce3d,
+          type: 3}
         weaponName: "\uB4DC\uB798\uACE4 \uD30C\uC774\uC5B4"
         weaponPrice: 280
         description: 

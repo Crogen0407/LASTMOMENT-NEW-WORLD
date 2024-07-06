@@ -35,9 +35,9 @@ public class FlareShooter : WeaponEffect
 
     protected virtual void UpdateAttackCycles()
     {
-        
+        SoundManager.Instance.PlaySFX(_fireAudioType, transform.position);
     }
-    
+
     protected void ShootFlare(Vector3 attackDirection)
     {
         Flare flare = this.Pop(_flarePoolType, transform.position, Quaternion.identity) as Flare;

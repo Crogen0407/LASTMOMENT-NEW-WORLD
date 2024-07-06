@@ -9896,13 +9896,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ca00da62296df79449e7de10b21b989f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _attackAudioType: 0
+  _fireAudioType: 11
   _whatIsEnemy:
     serializedVersion: 2
     m_Bits: 128
   _attackPossiableCount: 100
   attackRange: 30
   duration: 10
-  _attackDelay: 2
+  _attackDelay: 0.1
   _attackOverlapScale: {x: 2, y: 2, z: 200}
   _attackOverlapOffset: {x: 0, y: 0, z: 100}
-  _damage: 5
+  _damage: 20

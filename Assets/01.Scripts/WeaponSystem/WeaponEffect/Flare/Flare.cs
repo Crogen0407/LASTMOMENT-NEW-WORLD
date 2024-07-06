@@ -7,6 +7,7 @@ public class Flare : MonoPoolingObject
     [SerializeField] private PoolType _flarePoolType;
     [SerializeField] private PoolType _explosionPoolType;
     [HideInInspector] public float damage;
+
     public override void OnPop()
     {
     }

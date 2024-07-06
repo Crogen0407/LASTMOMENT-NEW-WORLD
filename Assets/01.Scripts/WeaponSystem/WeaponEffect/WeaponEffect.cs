@@ -2,6 +2,9 @@
 
 public abstract class WeaponEffect : MonoBehaviour
 {
+    [SerializeField] protected AudioType _attackAudioType;
+    [SerializeField] protected AudioType _fireAudioType;
+
     protected Collider[] _attackTargets;
     [SerializeField] protected LayerMask _whatIsEnemy;
     [SerializeField] protected int _attackPossiableCount = 10;
