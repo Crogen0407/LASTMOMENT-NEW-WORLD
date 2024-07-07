@@ -73,7 +73,7 @@ namespace Crogen.AgentFSM
             StateMachine.CurrentState?.Exit();
             var trailRenderers = GetComponentsInChildren<TrailRenderer>();
             if (trailRenderers == null || trailRenderers.Length == 0) return;
-
+             
             for (int i = 0; i < trailRenderers.Length; ++i)
             {
                 trailRenderers[i].transform.parent = null;
