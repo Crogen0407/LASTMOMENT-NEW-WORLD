@@ -30,7 +30,6 @@ public class TargetPointContent : MonoPoolingObject
 
     private void FixedUpdate()
     {
-        _image.enabled = targetTrasform != null;
         if (targetTrasform == null) return;
         float minX = _image.GetPixelAdjustedRect().width / 2;
         float maxX = Screen.width - minX;

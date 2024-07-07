@@ -41,7 +41,15 @@ public class ItemManager : MonoSingleton<ItemManager>
         _inputReader.UseItemEvent += HandleUseItem;
     }
 
-    private void OnDestroy()
+	private void Start()
+	{
+        for (int i = 0; i < currentItem.Length; ++i)
+        {
+            _uiManager.UpdateItemIcon(i, currentItem[i]);
+        }
+    }
+
+	private void OnDestroy()
     {
         _inputReader.UseItemEvent -= HandleUseItem;
     }

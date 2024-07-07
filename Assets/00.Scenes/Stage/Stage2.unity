@@ -6940,7 +6940,7 @@ PrefabInstance:
     - target: {fileID: 8452192315514888154, guid: 5285fb6ccb2febd418ddb6ff7f8cc0ff,
         type: 3}
       propertyPath: _dieEvent.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_FloatArgument
-      value: 1.12
+      value: 0.125
       objectReference: {fileID: 0}
     - target: {fileID: 8452192315514888154, guid: 5285fb6ccb2febd418ddb6ff7f8cc0ff,
         type: 3}
@@ -10880,6 +10880,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: MapPointSign_Yellow_03
       objectReference: {fileID: 0}
+    - target: {fileID: 8095110219992775805, guid: b4f470194abd8a74f8f3093b5e6b4508,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -12870,7 +12875,7 @@ PrefabInstance:
     - target: {fileID: 8452192315514888154, guid: b4f2f4902a3f46a40acb36a090ab1817,
         type: 3}
       propertyPath: _dieEvent.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_FloatArgument
-      value: 1.12
+      value: 0.125
       objectReference: {fileID: 0}
     - target: {fileID: 8452192315514888154, guid: b4f2f4902a3f46a40acb36a090ab1817,
         type: 3}
@@ -14746,7 +14751,7 @@ PrefabInstance:
     - target: {fileID: 8452192315514888154, guid: 3828473503a9536408c89ddebd1d7df4,
         type: 3}
       propertyPath: _dieEvent.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_FloatArgument
-      value: 1.25
+      value: 0.125
       objectReference: {fileID: 0}
     - target: {fileID: 8452192315514888154, guid: 3828473503a9536408c89ddebd1d7df4,
         type: 3}
@@ -20149,7 +20154,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a66dedc6219a4b0ab1e6bfd188bd89ef, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  currentItem: 010000000300000005000000
+  currentItem: 000000000000000000000000
   _whatIsItem:
     serializedVersion: 2
     m_Bits: 512
@@ -21318,7 +21323,7 @@ PrefabInstance:
     - target: {fileID: 2848546890526572729, guid: b4f470194abd8a74f8f3093b5e6b4508,
         type: 3}
       propertyPath: _clearGauge
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 2848546890526572729, guid: b4f470194abd8a74f8f3093b5e6b4508,
         type: 3}
@@ -21379,6 +21384,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: MapPointSign_Yellow_02
+      objectReference: {fileID: 0}
+    - target: {fileID: 8095110219992775805, guid: b4f470194abd8a74f8f3093b5e6b4508,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -25629,7 +25639,7 @@ PrefabInstance:
     - target: {fileID: 8452192315514888154, guid: b4f2f4902a3f46a40acb36a090ab1817,
         type: 3}
       propertyPath: _dieEvent.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_FloatArgument
-      value: 1.12
+      value: 0.125
       objectReference: {fileID: 0}
     - target: {fileID: 8452192315514888154, guid: b4f2f4902a3f46a40acb36a090ab1817,
         type: 3}
@@ -26471,7 +26481,7 @@ PrefabInstance:
     - target: {fileID: 8452192315514888154, guid: b4f2f4902a3f46a40acb36a090ab1817,
         type: 3}
       propertyPath: _dieEvent.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_FloatArgument
-      value: 1.12
+      value: 0.125
       objectReference: {fileID: 0}
     - target: {fileID: 8452192315514888154, guid: b4f2f4902a3f46a40acb36a090ab1817,
         type: 3}
@@ -31574,7 +31584,7 @@ PrefabInstance:
     - target: {fileID: 8452192315514888154, guid: 1465e1016dc577f41bb122775d7c0d76,
         type: 3}
       propertyPath: _dieEvent.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_FloatArgument
-      value: 1.12
+      value: 0.125
       objectReference: {fileID: 0}
     - target: {fileID: 8452192315514888154, guid: 1465e1016dc577f41bb122775d7c0d76,
         type: 3}
@@ -35646,7 +35656,7 @@ PrefabInstance:
     - target: {fileID: 8452192315514888154, guid: f7dbebda188366b4497769ade7c51e75,
         type: 3}
       propertyPath: _dieEvent.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_FloatArgument
-      value: 1.25
+      value: 0.125
       objectReference: {fileID: 0}
     - target: {fileID: 8452192315514888154, guid: f7dbebda188366b4497769ade7c51e75,
         type: 3}
@@ -43391,7 +43401,7 @@ PrefabInstance:
     - target: {fileID: 8452192315514888154, guid: f7dbebda188366b4497769ade7c51e75,
         type: 3}
       propertyPath: _dieEvent.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_FloatArgument
-      value: 1.25
+      value: 0.125
       objectReference: {fileID: 0}
     - target: {fileID: 8452192315514888154, guid: f7dbebda188366b4497769ade7c51e75,
         type: 3}
@@ -45310,7 +45320,7 @@ PrefabInstance:
     - target: {fileID: 8452192315514888154, guid: 3828473503a9536408c89ddebd1d7df4,
         type: 3}
       propertyPath: _dieEvent.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_FloatArgument
-      value: 1.25
+      value: 0.125
       objectReference: {fileID: 0}
     - target: {fileID: 8452192315514888154, guid: 3828473503a9536408c89ddebd1d7df4,
         type: 3}
@@ -58600,7 +58610,7 @@ PrefabInstance:
     - target: {fileID: 8452192315514888154, guid: 1465e1016dc577f41bb122775d7c0d76,
         type: 3}
       propertyPath: _dieEvent.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_FloatArgument
-      value: 1.12
+      value: 0.125
       objectReference: {fileID: 0}
     - target: {fileID: 8452192315514888154, guid: 1465e1016dc577f41bb122775d7c0d76,
         type: 3}
@@ -60216,6 +60226,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: MapPointSign_Yellow
+      objectReference: {fileID: 0}
+    - target: {fileID: 8095110219992775805, guid: b4f470194abd8a74f8f3093b5e6b4508,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -63696,7 +63711,7 @@ PrefabInstance:
     - target: {fileID: 8452192315514888154, guid: f7dbebda188366b4497769ade7c51e75,
         type: 3}
       propertyPath: _dieEvent.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_FloatArgument
-      value: 1.25
+      value: 0.125
       objectReference: {fileID: 0}
     - target: {fileID: 8452192315514888154, guid: f7dbebda188366b4497769ade7c51e75,
         type: 3}
@@ -68108,7 +68123,7 @@ PrefabInstance:
     - target: {fileID: 8452192315514888154, guid: 3828473503a9536408c89ddebd1d7df4,
         type: 3}
       propertyPath: _dieEvent.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_FloatArgument
-      value: 1.25
+      value: 0.125
       objectReference: {fileID: 0}
     - target: {fileID: 8452192315514888154, guid: 3828473503a9536408c89ddebd1d7df4,
         type: 3}
@@ -70938,6 +70953,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: MapPointSign_Yellow_01
+      objectReference: {fileID: 0}
+    - target: {fileID: 8095110219992775805, guid: b4f470194abd8a74f8f3093b5e6b4508,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -82809,7 +82829,7 @@ PrefabInstance:
     - target: {fileID: 8452192315514888154, guid: 5285fb6ccb2febd418ddb6ff7f8cc0ff,
         type: 3}
       propertyPath: _dieEvent.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_FloatArgument
-      value: 1.12
+      value: 0.125
       objectReference: {fileID: 0}
     - target: {fileID: 8452192315514888154, guid: 5285fb6ccb2febd418ddb6ff7f8cc0ff,
         type: 3}
@@ -86149,7 +86169,7 @@ PrefabInstance:
     - target: {fileID: 8452192315514888154, guid: f7dbebda188366b4497769ade7c51e75,
         type: 3}
       propertyPath: _dieEvent.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_FloatArgument
-      value: 1.25
+      value: 0.125
       objectReference: {fileID: 0}
     - target: {fileID: 8452192315514888154, guid: f7dbebda188366b4497769ade7c51e75,
         type: 3}
@@ -88788,6 +88808,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: MapPointSign_Yellow_04
+      objectReference: {fileID: 0}
+    - target: {fileID: 8095110219992775805, guid: b4f470194abd8a74f8f3093b5e6b4508,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -91817,7 +91842,7 @@ PrefabInstance:
     - target: {fileID: 8452192315514888154, guid: 5285fb6ccb2febd418ddb6ff7f8cc0ff,
         type: 3}
       propertyPath: _dieEvent.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_FloatArgument
-      value: 1.12
+      value: 0.125
       objectReference: {fileID: 0}
     - target: {fileID: 8452192315514888154, guid: 5285fb6ccb2febd418ddb6ff7f8cc0ff,
         type: 3}
@@ -95182,7 +95207,7 @@ PrefabInstance:
     - target: {fileID: 8452192315514888154, guid: 1465e1016dc577f41bb122775d7c0d76,
         type: 3}
       propertyPath: _dieEvent.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_FloatArgument
-      value: 1.12
+      value: 0.125
       objectReference: {fileID: 0}
     - target: {fileID: 8452192315514888154, guid: 1465e1016dc577f41bb122775d7c0d76,
         type: 3}
@@ -100231,7 +100256,7 @@ PrefabInstance:
     - target: {fileID: 8452192315514888154, guid: 3828473503a9536408c89ddebd1d7df4,
         type: 3}
       propertyPath: _dieEvent.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_FloatArgument
-      value: 1.25
+      value: 0.125
       objectReference: {fileID: 0}
     - target: {fileID: 8452192315514888154, guid: 3828473503a9536408c89ddebd1d7df4,
         type: 3}
