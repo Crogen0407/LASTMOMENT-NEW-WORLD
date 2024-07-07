@@ -33,18 +33,19 @@ public class Boss : Agent<BossStateEnum>
     public override void SetDead()
     {
         base.SetDead();
-        CameraManager.Instance.SetPlayerCameraShack(30, 300, 200);
+
+        CameraManager.Instance.FadePlayerCameraShack(10, 300, 200);
         visualTrm.DOShakePosition(100, Vector3.zero * 2f);
         Sequence seq = DOTween.Sequence();
-
         seq.AppendCallback(() =>
         {
-            SoundManager.Instance.PlaySFX(AudioType.SFX_ExploisonNoise, transform.position, true, 0.3f);
+            SoundManager.Instance.PlaySFX(AudioType.SFX_ExploisonNoise, transform.position);
         });
         seq.AppendInterval(2f);
         seq.AppendCallback(() =>
         {
             SoundManager.Instance.PlaySFX(AudioType.SFX_BossExplosion, transform.position);
+            Destroy(gameObject);
         });
     }
 }

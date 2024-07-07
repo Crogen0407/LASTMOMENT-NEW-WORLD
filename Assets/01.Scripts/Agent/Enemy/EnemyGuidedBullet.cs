@@ -46,7 +46,7 @@ public class EnemyGuidedBullet : MonoPoolingObject
 
     private void OnCollisionEnter()
     {
-        Push(_poolType);
+        DestroyImmdately();
     }
 
     private void Update()
@@ -86,5 +86,10 @@ public class EnemyGuidedBullet : MonoPoolingObject
 		}
         yield return new WaitForSeconds(duration);
         _isChangingTargetPos = false;
+    }
+
+    public void DestroyImmdately()
+	{
+        Push(_poolType);
     }
 }

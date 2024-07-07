@@ -42,19 +42,24 @@ public class DragonFire : WeaponEffect
 	private void OnDamage()
 	{
 		//SoundManager.Instance.PlaySFX(_attackAudioType, transform.position);
-		Physics.OverlapCapsuleNonAlloc(transform.position, transform.position + transform.rotation * (Vector3.forward * _attackOverlapScale.z) + _attackOverlapOffset, 5f, _attackTargets, _whatIsEnemy);
-		if (_attackTargets == null) return;
-
-		foreach (var enemy in _attackTargets)
+		if (Physics.OverlapCapsuleNonAlloc(
+			transform.position,
+			transform.position + transform.rotation * (Vector3.forward * _attackOverlapScale.z) + _attackOverlapOffset,
+			5f, _attackTargets, _whatIsEnemy) > 0)
 		{
-			if (enemy == null) continue;
-			HealthSystem hs = enemy.GetComponent<HealthSystem>();
-			if (hs == null)
-				hs = enemy.GetComponentInParent<HealthSystem>();
-			if (hs!=null)
-				hs.Hp -= _damage*_attackDelay / duration;
+			foreach (var enemy in _attackTargets)
+			{
+				if (enemy == null) continue;
+				HealthSystem hs = enemy.GetComponent<HealthSystem>();
+				if (hs == null)
+					hs = enemy.GetComponentInParent<HealthSystem>();
+				if (hs != null)
+					hs.Hp -= _damage * _attackDelay / duration;
+			}
+			_attackTargets = new Collider[_attackPossiableCount];
 		}
 	}
+		
 
 	protected override void OnDrawGizmos()
 	{

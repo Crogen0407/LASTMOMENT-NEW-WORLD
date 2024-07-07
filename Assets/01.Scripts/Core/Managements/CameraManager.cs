@@ -16,9 +16,15 @@ public class CameraManager : MonoSingleton<CameraManager>
 
     public void FadePlayerCameraShack(float duration, float amplitude, float frequency)
     {
+        float currentAmplitude = _perlin.m_AmplitudeGain;
+        float currentFrequency = _perlin.m_FrequencyGain;
+
+        float maxAmplitude = _perlin.m_AmplitudeGain + amplitude;
+        float maxFrequency = _perlin.m_FrequencyGain + frequency;
+
         Sequence seq = DOTween.Sequence();
-        seq.Append(DOTween.To(x => _perlin.m_AmplitudeGain = x, amplitude, 0f, duration));
-        seq.Join(DOTween.To(x => _perlin.m_FrequencyGain = x, frequency, 0f, duration));
+        seq.Append(DOTween.To(x => _perlin.m_AmplitudeGain = x, maxAmplitude, currentAmplitude, duration));
+        seq.Join(DOTween.To(x => _perlin.m_FrequencyGain = x, maxFrequency, currentFrequency, duration));
     }
 
     public void SetPlayerCameraShack(float duration, float amplitude, float frequency)

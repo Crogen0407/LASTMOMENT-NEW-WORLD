@@ -27,6 +27,10 @@ public class Flare : MonoPoolingObject
         {
             healthSystemInParent.Hp -= damage;
         }
+        else if (other.transform.TryGetComponent(out EnemyGuidedBullet enemyGuidedBullet))
+		{
+            enemyGuidedBullet.DestroyImmdately();
+        }
         Push(_flarePoolType);
     }
 }
