@@ -2,6 +2,7 @@ using System;
 using System.Collections;
 using UnityEngine;
 using UnityEngine.Events;
+using DG.Tweening;
 
 namespace Crogen.AgentFSM
 {
@@ -70,6 +71,13 @@ namespace Crogen.AgentFSM
         protected virtual void OnDestroy()
         {
             StateMachine.CurrentState?.Exit();
+            var trailRenderers = GetComponentsInChildren<TrailRenderer>();
+            if (trailRenderers == null || trailRenderers.Length == 0) return;
+
+            for (int i = 0; i < trailRenderers.Length; ++i)
+            {
+                trailRenderers[i].transform.parent = null;
+            }
         }
 
         #region Delay Callback coroutine 
