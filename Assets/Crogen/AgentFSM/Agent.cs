@@ -67,7 +67,7 @@ namespace Crogen.AgentFSM
             StateMachine.CurrentState?.FixedUpdateState();
         }
 
-        private void OnDestroy()
+        protected virtual void OnDestroy()
         {
             StateMachine.CurrentState?.Exit();
         }

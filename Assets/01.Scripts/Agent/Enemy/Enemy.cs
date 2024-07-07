@@ -46,4 +46,17 @@ public class Enemy : Agent<EnemyStateEnum>
     {
         Gizmos.DrawWireSphere(transform.position, recognitionRange);
     }
+
+	protected override void OnDestroy()
+	{
+        base.OnDestroy();
+
+        var lineRenderers = GetComponentsInChildren<LineRenderer>();
+
+		for (int i = 0; i < lineRenderers.Length; ++i)
+		{
+            lineRenderers[i].transform.parent = null;
+		}
+        
+	}
 }
