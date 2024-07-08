@@ -17,7 +17,3 @@ MonoBehaviour:
     uiStageName: "\uD29C\uD1A0\uB9AC\uC5BC"
   - stageName: Stage1
     uiStageName: "\uBC1C\uD2F4 \uAE30\uC5C5\uC758 \uBE44\uBC00 \uBCD1\uAE30"
-  - stageName: Stage2
-    uiStageName: "\uCE90\uD50C\uB7EC-667CC \uC778\uADFC \uCCAD\uC18C"
-  - stageName: Stage3
-    uiStageName: "\uC2DC\uAC04\uC758 \uC911\uC694\uC131"
