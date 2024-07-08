@@ -645,8 +645,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2194dd8f27ee63f4aadf96345848c02b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _hp: 14
-  maxHp: 14
+  _hp: 7
+  maxHp: 7
   isImpassible: 0
   isDie: 0
   _healEffectType: 6

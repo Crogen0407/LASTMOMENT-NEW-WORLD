@@ -793,8 +793,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2194dd8f27ee63f4aadf96345848c02b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _hp: 10
-  maxHp: 10
+  _hp: 3
+  maxHp: 3
   isImpassible: 0
   isDie: 0
   _healEffectType: 6
