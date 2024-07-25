@@ -9,6 +9,12 @@ public class EnemySpawner : MonoBehaviour
     
     public void SpawnEnemy(float spawnDelay, float duration, UnityAction endEvent)
     {
+        if(_enemyPrefabs == null || _spawnPoints == null)
+		{
+            endEvent?.Invoke();
+            return;
+        }
+
         StartCoroutine(CoroutineEnemySpawn(spawnDelay, duration, endEvent));
     }
 

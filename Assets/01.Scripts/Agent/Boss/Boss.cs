@@ -1,5 +1,6 @@
 using Crogen.AgentFSM;
 using DG.Tweening;
+using System;
 using UnityEngine;
 
 public class Boss : Agent<BossStateEnum>
@@ -17,7 +18,7 @@ public class Boss : Agent<BossStateEnum>
     public EnemySpawner enemySpawner;
 
     public Transform visualTrm;
-    
+
     protected override void Awake()
     {
         base.Awake();

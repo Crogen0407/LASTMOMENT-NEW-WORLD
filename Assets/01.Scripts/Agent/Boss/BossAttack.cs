@@ -16,6 +16,7 @@ public class BossAttack : MonoBehaviour
 
     private void Awake()
     {
+        if (_laserGroups == null) return;
         for (int i = 0; i < _laserGroups.Length; ++i)
         {
             _laserGroups[i].ChargeEffectActive(false);
@@ -25,6 +26,12 @@ public class BossAttack : MonoBehaviour
 
     public void ShootLaser(float duration, UnityAction endEvent)
     {
+        if (_laserGroups == null)
+		{
+            endEvent?.Invoke();
+            return;
+        }
+
         StartCoroutine(CoroutineShootLaser(duration, endEvent));
     }
 
@@ -59,6 +66,11 @@ public class BossAttack : MonoBehaviour
     
     public void ShootBullet(float attackDelay, float duration, Action endEvent = null)
     {
+        if(_bulletAttackTrms==null)
+		{
+            endEvent?.Invoke();
+            return;
+		}
         StartCoroutine(CoroutineShootBullet(attackDelay, duration, endEvent));
     }
 

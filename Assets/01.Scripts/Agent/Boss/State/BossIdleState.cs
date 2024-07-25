@@ -27,7 +27,7 @@ public class BossIdleState : AgentState<BossStateEnum>
 
     private void SetStateByRandom()
     {
-        //_stateMachine.ChangeState(BossStateEnum.BulletAttack);
-        _stateMachine.ChangeState((BossStateEnum)Random.Range(1, _stateCount));
+        int boolCount = Random.Range(1, _stateCount);
+        _stateMachine.ChangeState((BossStateEnum)boolCount);
     }
 }
