@@ -1,5 +1,36 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
+--- !u!1 &383100219620132489
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 6373324605578392153}
+  m_Layer: 0
+  m_Name: BulletCannonPoint_01
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &6373324605578392153
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 383100219620132489}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0.43533835, y: 0.5572078, z: 0.43533835, w: 0.5572078}
+  m_LocalPosition: {x: 5.69, y: 8.15, z: 14.23}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 6832133581000587796}
+  m_LocalEulerAnglesHint: {x: -76, y: 90, z: 0}
 --- !u!1 &438707079499675368
 GameObject:
   m_ObjectHideFlags: 0
@@ -83,6 +114,45 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!1 &678407279895446213
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 6832133581000587796}
+  m_Layer: 0
+  m_Name: BulletCannonPoints
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &6832133581000587796
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 678407279895446213}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children:
+  - {fileID: 4038295403170413386}
+  - {fileID: 6373324605578392153}
+  - {fileID: 9207171705086760761}
+  - {fileID: 8465239821934334925}
+  - {fileID: 1136915013975287136}
+  - {fileID: 1016638792921252382}
+  - {fileID: 8233181239612422675}
+  - {fileID: 2655554785172752683}
+  m_Father: {fileID: 2363175753869141150}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &2136852309095534936
 GameObject:
   m_ObjectHideFlags: 0
@@ -267,6 +337,37 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!1 &3188900400094771787
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 9207171705086760761}
+  m_Layer: 0
+  m_Name: BulletCannonPoint_02
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &9207171705086760761
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3188900400094771787}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0.43533835, y: 0.5572078, z: 0.43533835, w: 0.5572078}
+  m_LocalPosition: {x: 5.69, y: 8.15, z: 25.72}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 6832133581000587796}
+  m_LocalEulerAnglesHint: {x: -76, y: 90, z: 0}
 --- !u!1 &3622379506045537231
 GameObject:
   m_ObjectHideFlags: 0
@@ -546,6 +647,37 @@ Transform:
   - {fileID: 3092031106737615587}
   m_Father: {fileID: 2363175753869141150}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &4615026386872414830
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 8233181239612422675}
+  m_Layer: 0
+  m_Name: BulletCannonPoint_06
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &8233181239612422675
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4615026386872414830}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0.5572078, y: -0.43533832, z: -0.5572078, w: -0.43533832}
+  m_LocalPosition: {x: -5.6999993, y: 8.15, z: 25.72}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 6832133581000587796}
+  m_LocalEulerAnglesHint: {x: 256, y: 90, z: 0}
 --- !u!1 &4760128979628609780
 GameObject:
   m_ObjectHideFlags: 0
@@ -577,6 +709,68 @@ Transform:
   m_Children: []
   m_Father: {fileID: 7957659731890566833}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &4990040595557466363
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1016638792921252382}
+  m_Layer: 0
+  m_Name: BulletCannonPoint_05
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1016638792921252382
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4990040595557466363}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0.5572078, y: -0.43533832, z: -0.5572078, w: -0.43533832}
+  m_LocalPosition: {x: -5.6999993, y: 8.15, z: 14.23}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 6832133581000587796}
+  m_LocalEulerAnglesHint: {x: 256, y: 90, z: 0}
+--- !u!1 &5217267824878074065
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 2655554785172752683}
+  m_Layer: 0
+  m_Name: BulletCannonPoint_07
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &2655554785172752683
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5217267824878074065}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0.5572078, y: -0.43533832, z: -0.5572078, w: -0.43533832}
+  m_LocalPosition: {x: -5.6999993, y: 8.15, z: 34.23998}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 6832133581000587796}
+  m_LocalEulerAnglesHint: {x: 256, y: 90, z: 0}
 --- !u!1 &5400543645729224060
 GameObject:
   m_ObjectHideFlags: 0
@@ -774,6 +968,68 @@ Transform:
   m_Children: []
   m_Father: {fileID: 7957659731890566833}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &7584659090277272454
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 4038295403170413386}
+  m_Layer: 0
+  m_Name: BulletCannonPoint
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &4038295403170413386
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7584659090277272454}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0.43533835, y: 0.5572078, z: 0.43533835, w: 0.5572078}
+  m_LocalPosition: {x: 5.69, y: 8.15, z: 5.79}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 6832133581000587796}
+  m_LocalEulerAnglesHint: {x: -76, y: 90, z: 0}
+--- !u!1 &7663593121498429849
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1136915013975287136}
+  m_Layer: 0
+  m_Name: BulletCannonPoint_04
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1136915013975287136
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7663593121498429849}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0.5572078, y: -0.43533832, z: -0.5572078, w: -0.43533832}
+  m_LocalPosition: {x: -5.7, y: 8.15, z: 5.79}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 6832133581000587796}
+  m_LocalEulerAnglesHint: {x: 256, y: 90, z: 0}
 --- !u!1 &8013771127862925826
 GameObject:
   m_ObjectHideFlags: 0
@@ -846,6 +1102,7 @@ Transform:
   - {fileID: 1683939394794004052}
   - {fileID: 2320741191665255906}
   - {fileID: 7957659731890566833}
+  - {fileID: 6832133581000587796}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!54 &6412397718538149578
@@ -921,7 +1178,6 @@ MonoBehaviour:
   bossAttack: {fileID: 6377946874077388949}
   enemySpawner: {fileID: 9222517608492269485}
   visualTrm: {fileID: 0}
-  ablePattern: 010101
 --- !u!114 &6377946874077388949
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -934,7 +1190,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 81372ce9416043038dee190e193873ce, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _bulletAttackTrms: []
+  _bulletAttackTrms:
+  - {fileID: 4038295403170413386}
+  - {fileID: 6373324605578392153}
+  - {fileID: 9207171705086760761}
+  - {fileID: 8465239821934334925}
+  - {fileID: 1136915013975287136}
+  - {fileID: 1016638792921252382}
+  - {fileID: 8233181239612422675}
+  - {fileID: 2655554785172752683}
   _attackBulletPoolType: 16
   _laserGroups: []
 --- !u!114 &6320814697897854149
@@ -983,8 +1247,17 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1fbb9d3b66a849ccab8c6825c440f112, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _enemyPrefabs: []
-  _spawnPoints: []
+  _enemyPrefabs:
+  - {fileID: 8452192315514888154, guid: b4f2f4902a3f46a40acb36a090ab1817, type: 3}
+  _spawnPoints:
+  - {fileID: 6862508981096809255}
+  - {fileID: 7245786220010487456}
+  - {fileID: 2770881438993604524}
+  - {fileID: 1300751717013167513}
+  - {fileID: 9150241706476116553}
+  - {fileID: 5086000210290535415}
+  - {fileID: 3782308941320782554}
+  - {fileID: 5370426959417765381}
 --- !u!1 &8195101135049767792
 GameObject:
   m_ObjectHideFlags: 0
@@ -1016,6 +1289,37 @@ Transform:
   m_Children: []
   m_Father: {fileID: 7957659731890566833}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &8457333673190993256
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 8465239821934334925}
+  m_Layer: 0
+  m_Name: BulletCannonPoint_03
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &8465239821934334925
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8457333673190993256}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0.43533835, y: 0.5572078, z: 0.43533835, w: 0.5572078}
+  m_LocalPosition: {x: 5.69, y: 8.15, z: 34.23998}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 6832133581000587796}
+  m_LocalEulerAnglesHint: {x: -76, y: 90, z: 0}
 --- !u!1 &8492450267454307772
 GameObject:
   m_ObjectHideFlags: 0
