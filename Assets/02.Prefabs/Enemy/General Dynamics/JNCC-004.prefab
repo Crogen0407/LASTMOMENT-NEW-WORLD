@@ -1510,10 +1510,13 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2363175753869141150}
-  - component: {fileID: 8452192315514888154}
-  - component: {fileID: 7405499225701932381}
   - component: {fileID: 6412397718538149578}
   - component: {fileID: 1736153715012377168}
+  - component: {fileID: 2842366497483829902}
+  - component: {fileID: 1922870755457577809}
+  - component: {fileID: 2558254242669095184}
+  - component: {fileID: 4042202508518627748}
+  - component: {fileID: 8284233180224902368}
   m_Layer: 7
   m_Name: JNCC-004
   m_TagString: Enemy
@@ -1541,49 +1544,6 @@ Transform:
   - {fileID: 3798594219573462420}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &8452192315514888154
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8050658350802216660}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e9dcf2abbcd85ea44a08b5a0103b6099, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _dieEvent:
-    m_PersistentCalls:
-      m_Calls: []
-  isDead: 0
-  whatIsPlayer:
-    serializedVersion: 2
-    m_Bits: 64
-  recognitionRange: 2000
-  _explosionRadius: 0
-  enemyType: 0
-  _droItemType: 0
-  _itemDropPercent: 0
---- !u!114 &7405499225701932381
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8050658350802216660}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 2e6db4792aae45288d2bce01f21841bc, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  <DefaultSpeed>k__BackingField: 0
-  <MaxSpeed>k__BackingField: 1
-  <CurSpeed>k__BackingField: 0
-  busterVFXMaterials: []
-  attackTargetTrm: {fileID: 0}
-  rotateDelay: 1
-  _pathGenerator: {fileID: 0}
 --- !u!54 &6412397718538149578
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -1633,6 +1593,93 @@ MonoBehaviour:
   IsLoop: 1
   IsMove: 1
   IsEndEventEnable: 0
+--- !u!114 &2842366497483829902
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8050658350802216660}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 862c5a7303b75484494e2b968c2c7ded, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _dieEvent:
+    m_PersistentCalls:
+      m_Calls: []
+  isDead: 0
+  whatIsPlayer:
+    serializedVersion: 2
+    m_Bits: 0
+  recognitionRange: 50
+  enemyType: 0
+  bossAttack: {fileID: 0}
+  enemySpawner: {fileID: 0}
+  visualTrm: {fileID: 0}
+--- !u!114 &1922870755457577809
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8050658350802216660}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 81372ce9416043038dee190e193873ce, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _bulletAttackTrms: []
+  _attackBulletPoolType: 0
+  _laserGroups: []
+--- !u!114 &2558254242669095184
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8050658350802216660}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 659b0d4acd8dc284890e2c2e6b6aac23, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _hp: 100
+  maxHp: 100
+  isImpassible: 0
+  isDie: 0
+  _dieEffect: {fileID: 0}
+--- !u!114 &4042202508518627748
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8050658350802216660}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f8be3158f1bb4c198f6196dd2a5e17f2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  <DefaultSpeed>k__BackingField: 50
+  <MaxSpeed>k__BackingField: 100
+  <CurSpeed>k__BackingField: 0
+  busterVFXMaterials: []
+  _rotateSpeed: 5
+--- !u!114 &8284233180224902368
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8050658350802216660}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1fbb9d3b66a849ccab8c6825c440f112, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _enemyPrefabs: []
+  _spawnPoints: []
 --- !u!1 &9111699075374421583
 GameObject:
   m_ObjectHideFlags: 0
