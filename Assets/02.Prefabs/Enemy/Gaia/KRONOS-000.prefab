@@ -413,6 +413,7 @@ MonoBehaviour:
   enemyType: 16
   bossAttack: {fileID: 7335732115385497631}
   enemySpawner: {fileID: 6814131205788309707}
+  visualTrm: {fileID: 0}
 --- !u!114 &7335732115385497631
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -758,6 +759,7 @@ MonoBehaviour:
   maxHp: 100
   isImpassible: 0
   isDie: 0
+  _dieEffect: {fileID: 0}
 --- !u!135 &2466600638481185208
 SphereCollider:
   m_ObjectHideFlags: 0
@@ -821,7 +823,15 @@ MonoBehaviour:
   _enemyPrefabs:
   - {fileID: 8452192315514888154, guid: 29904785952b43543aff008e699d105e, type: 3}
   - {fileID: 8452192315514888154, guid: 21ef6afd9b8b9f14190f63b5d8c536e1, type: 3}
-  _spawnPoints: []
+  _spawnPoints:
+  - {fileID: 2204407022090174659}
+  - {fileID: 506032454875088941}
+  - {fileID: 7010052102134312538}
+  - {fileID: 4187545784531558227}
+  - {fileID: 830308400672277939}
+  - {fileID: 8105507302684310995}
+  - {fileID: 8556408625755646190}
+  - {fileID: 3006209376605944257}
 --- !u!1 &8093414166012210836
 GameObject:
   m_ObjectHideFlags: 0
