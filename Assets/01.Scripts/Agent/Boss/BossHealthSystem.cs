@@ -29,7 +29,7 @@ public class BossHealthSystem : HealthSystem
 
     protected override void OnDie()
     {
-        var dieEffect =  Instantiate(_dieEffect, transform.position, Quaternion.identity);
+        var dieEffect = Instantiate(_dieEffect, transform.position, Quaternion.identity);
         dieEffect.Play(true);
         UIManager.Instance.CloseBossUI();
         _bossBase.SetDead();
