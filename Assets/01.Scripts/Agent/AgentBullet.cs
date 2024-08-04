@@ -33,7 +33,6 @@ public class AgentBullet : MonoPoolingObject
 
     public override void OnPush()
     {
-        Debug.Log("Die");
         StopAllCoroutines();
         transform.DOKill();
     }

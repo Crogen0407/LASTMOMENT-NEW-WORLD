@@ -9,7 +9,7 @@ public class EnemySpawner : MonoBehaviour
     
     public void SpawnEnemy(float spawnDelay, float duration, UnityAction endEvent)
     {
-        if(_enemyPrefabs == null || _spawnPoints == null)
+        if(_enemyPrefabs.Length == 0 || _spawnPoints.Length == 0)
 		{
             endEvent?.Invoke();
             return;
