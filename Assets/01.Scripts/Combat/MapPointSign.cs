@@ -21,16 +21,7 @@ public class MapPointSign : MonoBehaviour
     {
         _radarCam = GameObject.Find("RadarCamera").transform;
         _camSize = _radarCam.GetComponent<Camera>().orthographicSize-50;
-    }
-
-    private void OnValidate()
-    {
-        if (!transform.parent) return;
-        if (transform.parent.TryGetComponent(out Enemy enemy))
-        {
-            transform.localScale = Vector3.one * enemy.recognitionRange;
-        }
-    }
+    } 
 
     private void Update()
     {

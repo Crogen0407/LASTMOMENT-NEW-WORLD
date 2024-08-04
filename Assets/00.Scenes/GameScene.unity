@@ -6473,6 +6473,84 @@ RectTransform:
     type: 3}
   m_PrefabInstance: {fileID: 811947843}
   m_PrefabAsset: {fileID: 0}
+--- !u!1001 &860129961
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 2363175753869141150, guid: e2690dc479e74594c833f9a0fbee8ac8,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -151.6
+      objectReference: {fileID: 0}
+    - target: {fileID: 2363175753869141150, guid: e2690dc479e74594c833f9a0fbee8ac8,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2363175753869141150, guid: e2690dc479e74594c833f9a0fbee8ac8,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -324.1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2363175753869141150, guid: e2690dc479e74594c833f9a0fbee8ac8,
+        type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2363175753869141150, guid: e2690dc479e74594c833f9a0fbee8ac8,
+        type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2363175753869141150, guid: e2690dc479e74594c833f9a0fbee8ac8,
+        type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2363175753869141150, guid: e2690dc479e74594c833f9a0fbee8ac8,
+        type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2363175753869141150, guid: e2690dc479e74594c833f9a0fbee8ac8,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2363175753869141150, guid: e2690dc479e74594c833f9a0fbee8ac8,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2363175753869141150, guid: e2690dc479e74594c833f9a0fbee8ac8,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6798895409588399894, guid: e2690dc479e74594c833f9a0fbee8ac8,
+        type: 3}
+      propertyPath: _target
+      value: 
+      objectReference: {fileID: 860814154}
+    - target: {fileID: 8050658350802216660, guid: e2690dc479e74594c833f9a0fbee8ac8,
+        type: 3}
+      propertyPath: m_Name
+      value: JNCC-004
+      objectReference: {fileID: 0}
+    - target: {fileID: 8050658350802216660, guid: e2690dc479e74594c833f9a0fbee8ac8,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: e2690dc479e74594c833f9a0fbee8ac8, type: 3}
 --- !u!1 &860814150
 GameObject:
   m_ObjectHideFlags: 0
@@ -11442,6 +11520,21 @@ PrefabInstance:
         type: 3}
       propertyPath: _clearEvent.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
       value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 4862946183874561898, guid: b4f470194abd8a74f8f3093b5e6b4508,
+        type: 3}
+      propertyPath: m_LocalScale.x
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4862946183874561898, guid: b4f470194abd8a74f8f3093b5e6b4508,
+        type: 3}
+      propertyPath: m_LocalScale.y
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4862946183874561898, guid: b4f470194abd8a74f8f3093b5e6b4508,
+        type: 3}
+      propertyPath: m_LocalScale.z
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 4862946183874561898, guid: b4f470194abd8a74f8f3093b5e6b4508,
         type: 3}
@@ -17780,6 +17873,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: MapPointSign_Yellow
       objectReference: {fileID: 0}
+    - target: {fileID: 8095110219992775805, guid: b4f470194abd8a74f8f3093b5e6b4508,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -23539,3 +23637,4 @@ SceneRoots:
   - {fileID: 2135522520}
   - {fileID: 703207869}
   - {fileID: 1117054516}
+  - {fileID: 860129961}

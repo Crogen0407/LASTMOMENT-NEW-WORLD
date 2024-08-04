@@ -18,7 +18,6 @@ public class AgentBullet : MonoPoolingObject
     [SerializeField] protected AudioType _disableSoundEffect;
     
     private Collider[] _hitTarget;
-    
     public override void OnPop()
     {
         _hitTarget = new Collider[1];
@@ -33,7 +32,8 @@ public class AgentBullet : MonoPoolingObject
     }
 
     public override void OnPush()
-    { 
+    {
+        Debug.Log("Die");
         StopAllCoroutines();
         transform.DOKill();
     }

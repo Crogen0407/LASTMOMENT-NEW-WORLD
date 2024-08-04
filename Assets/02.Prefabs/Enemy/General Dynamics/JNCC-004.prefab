@@ -943,7 +943,6 @@ GameObject:
   - component: {fileID: 5010213640072770291}
   - component: {fileID: 238463770606260871}
   - component: {fileID: 5288298908543496483}
-  - component: {fileID: 2530936352050831673}
   m_Layer: 0
   m_Name: Visual
   m_TagString: Untagged
@@ -1016,28 +1015,6 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!64 &2530936352050831673
-MeshCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2986003066883824675}
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_LayerOverridePriority: 0
-  m_IsTrigger: 0
-  m_ProvidesContacts: 0
-  m_Enabled: 1
-  serializedVersion: 5
-  m_Convex: 0
-  m_CookingOptions: 30
-  m_Mesh: {fileID: 2773774709343607489, guid: 327bad988d5eff44eb008faec2ef022e, type: 3}
 --- !u!1 &3432756985467332481
 GameObject:
   m_ObjectHideFlags: 0
@@ -1144,7 +1121,7 @@ MonoBehaviour:
   _targetFollowDelay: 5
   _flipVec: {x: 1, y: -1, z: 1}
   _minRotate: -16
-  _maxRotate: 22
+  _maxRotate: 12
   isWorking: 1
 --- !u!114 &7168124632405770375
 MonoBehaviour:
@@ -2012,7 +1989,6 @@ GameObject:
   m_Component:
   - component: {fileID: 2363175753869141150}
   - component: {fileID: 6412397718538149578}
-  - component: {fileID: 1736153715012377168}
   - component: {fileID: 2842366497483829902}
   - component: {fileID: 1922870755457577809}
   - component: {fileID: 2558254242669095184}
@@ -2073,28 +2049,6 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 112
   m_CollisionDetection: 0
---- !u!114 &1736153715012377168
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8050658350802216660}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 539089cfe4dd8c149854dff36789b0b4, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  EndEvent:
-    m_PersistentCalls:
-      m_Calls: []
-  Generator: {fileID: 0}
-  Speed: 197
-  DistanceThreshold: 44
-  TurningSpeed: 10
-  IsLoop: 1
-  IsMove: 1
-  IsEndEventEnable: 0
 --- !u!114 &2842366497483829902
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2777,22 +2731,22 @@ PrefabInstance:
     - target: {fileID: 2036252004741415198, guid: 9718de74b8ee3d14e9a5489536455e81,
         type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 3815787363707801608, guid: 9718de74b8ee3d14e9a5489536455e81,
         type: 3}
       propertyPath: m_LocalScale.x
-      value: 2000
+      value: 100
       objectReference: {fileID: 0}
     - target: {fileID: 3815787363707801608, guid: 9718de74b8ee3d14e9a5489536455e81,
         type: 3}
       propertyPath: m_LocalScale.y
-      value: 2000
+      value: 100
       objectReference: {fileID: 0}
     - target: {fileID: 3815787363707801608, guid: 9718de74b8ee3d14e9a5489536455e81,
         type: 3}
       propertyPath: m_LocalScale.z
-      value: 2000
+      value: 100
       objectReference: {fileID: 0}
     - target: {fileID: 3815787363707801608, guid: 9718de74b8ee3d14e9a5489536455e81,
         type: 3}
