@@ -506,7 +506,7 @@ MonoBehaviour:
   recognitionRange: 1000
   _explosionRadius: 0
   enemyType: 10
-  _dropItemType: 3
+  _dropItemType: 5
   _itemDropPercent: 36.8
 --- !u!114 &7405499225701932381
 MonoBehaviour:
