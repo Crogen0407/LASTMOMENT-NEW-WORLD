@@ -20159,7 +20159,22 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 512
   _itemPrefabDictionary:
-    _serializedList: []
+    _serializedList:
+    - Key: 1
+      Value: {fileID: -723184348435238513, guid: f373ffc14793514499ccb78122656b8b,
+        type: 3}
+    - Key: 2
+      Value: {fileID: -3164730758349721091, guid: 4da56953f60bf3c4a99b9b2bd867b573,
+        type: 3}
+    - Key: 3
+      Value: {fileID: 1505861543826262177, guid: 78f69f105d7741a42b757147b19abf32,
+        type: 3}
+    - Key: 4
+      Value: {fileID: 3351478721400118717, guid: d3348f35e69a39c4a9bce48158a8bfcb,
+        type: 3}
+    - Key: 5
+      Value: {fileID: -2647682038593753639, guid: e4821a7d04ad6b84893ad4ec0daba8c6,
+        type: 3}
   _itemEffectDictionary:
     _serializedList: []
   _itemsData: {fileID: 11400000, guid: cb3825c64559a7e4bb47ac03453bfe43, type: 2}
@@ -37825,7 +37840,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 773b6e4f7e3e47ca91b2d1619058011c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  <DefaultSpeed>k__BackingField: 50
+  <DefaultSpeed>k__BackingField: 55
   <MaxSpeed>k__BackingField: 100
   <CurSpeed>k__BackingField: 0
   busterVFXMaterials:

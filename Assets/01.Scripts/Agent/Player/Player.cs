@@ -47,8 +47,12 @@ public class Player : Agent<AgentStateEnum>
         get => _stamina;
         set
         {
-            _stamina = value;
-            _stamina = Mathf.Clamp(_stamina, 0, maxStamina);
+            if (PowerUp) _stamina = maxStamina;
+            else
+			{
+                _stamina = value;
+                _stamina = Mathf.Clamp(_stamina, 0, maxStamina);
+			}
             _staminaSlider.value = _stamina/maxStamina;
 
             if (_stamina < maxStamina * 0.5f)

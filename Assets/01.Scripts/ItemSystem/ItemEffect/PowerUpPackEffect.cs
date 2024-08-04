@@ -14,6 +14,7 @@ public class PowerUpPackEffect : ItemEffect
 
     private IEnumerator CoroutinePowerUp()
     {
+        _player.Stamina = _player.maxStamina;
         _player.PowerUp = true;
         yield return new WaitForSeconds(_duration);
         _player.PowerUp = false;

@@ -318,7 +318,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   <DefaultSpeed>k__BackingField: 10
-  <MaxSpeed>k__BackingField: 100
+  <MaxSpeed>k__BackingField: 80
   <CurSpeed>k__BackingField: 0
   busterVFXMaterials:
   - {fileID: 2111616969893846364}
@@ -432,8 +432,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2194dd8f27ee63f4aadf96345848c02b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _hp: 3
-  maxHp: 3
+  _hp: 2
+  maxHp: 2
   isImpassible: 0
   isDie: 0
   _healEffectType: 6

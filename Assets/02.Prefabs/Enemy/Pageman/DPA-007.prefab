@@ -456,7 +456,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   <DefaultSpeed>k__BackingField: 20
-  <MaxSpeed>k__BackingField: 110
+  <MaxSpeed>k__BackingField: 80
   <CurSpeed>k__BackingField: 0
   busterVFXMaterials:
   - {fileID: 3811471045951972752}
