@@ -4926,7 +4926,7 @@ GameObject:
   - component: {fileID: 7466721032965774018}
   - component: {fileID: -4977489044171086811}
   m_Layer: 15
-  m_Name: weaponEffect_TGA
+  m_Name: weaponEffect_GUA
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

@@ -59,7 +59,8 @@ MonoBehaviour:
       Value:
         coolTime: 2
         attackCount: 5
-        weaponEffectPrefab: {fileID: 0}
+        weaponEffectPrefab: {fileID: 8210434154388601080, guid: f3242cf29410d1b44a78d3add2d8b11a,
+          type: 3}
     - Key: 8
       Value:
         coolTime: 3

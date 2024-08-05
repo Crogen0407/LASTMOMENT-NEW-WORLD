@@ -1,3 +1,4 @@
+using Crogen.HealthSystem;
 using Crogen.ObjectPooling;
 using DG.Tweening;
 using System.Collections;
@@ -37,6 +38,14 @@ public class DefaultMissile : WeaponEffect
 
     private void OnDestroy()
     {
+        Collider[] enemyCollider = Physics.OverlapSphere(transform.position, attackRange, _whatIsEnemy);
+		foreach (var enemyCol in enemyCollider)
+		{
+            if (enemyCol.TryGetComponent<HealthSystem>(out HealthSystem healthSystem))
+			{
+                healthSystem.Hp -= _damaged;
+			}
+		}
         SoundManager.Instance.PlaySFX(_attackAudioType, transform.position);
         this.Pop(_explosionEffectPoolType, transform.position, Quaternion.identity);
         transform.DOKill();
@@ -44,6 +53,7 @@ public class DefaultMissile : WeaponEffect
 
     protected override void OnDrawGizmos()
     {
+        Gizmos.DrawWireSphere(transform.position, attackRange);
         Gizmos.color = Color.red;
         Gizmos.DrawRay(transform.position, transform.forward * _speed);
         Gizmos.color = Color.white;
