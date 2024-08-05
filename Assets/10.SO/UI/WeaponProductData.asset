@@ -22,102 +22,113 @@ MonoBehaviour:
         description: 
     - Key: 1
       Value:
-        weaponIconSprite: {fileID: -15560317, guid: 451125f74276ea04e89126d17e50ce3d,
+        weaponIconSprite: {fileID: 281646276, guid: 451125f74276ea04e89126d17e50ce3d,
           type: 3}
         weaponName: "\uC720\uB3C4\uD0C4"
         weaponPrice: 160
         description: 
     - Key: 2
       Value:
-        weaponIconSprite: {fileID: 937308335, guid: 451125f74276ea04e89126d17e50ce3d,
+        weaponIconSprite: {fileID: -958168467, guid: 451125f74276ea04e89126d17e50ce3d,
           type: 3}
         weaponName: "M206 \uD50C\uB808\uC5B4"
         weaponPrice: 210
         description: 
     - Key: 3
       Value:
-        weaponIconSprite: {fileID: -806560430, guid: 451125f74276ea04e89126d17e50ce3d,
+        weaponIconSprite: {fileID: 1792578634, guid: 451125f74276ea04e89126d17e50ce3d,
           type: 3}
         weaponName: "MJN-68 \uD50C\uB808\uC5B4"
         weaponPrice: 200
         description: 
     - Key: 4
       Value:
-        weaponIconSprite: {fileID: -1837622833, guid: 451125f74276ea04e89126d17e50ce3d,
+        weaponIconSprite: {fileID: -729112534, guid: 451125f74276ea04e89126d17e50ce3d,
           type: 3}
         weaponName: "MJN-61 \uD50C\uB808\uC5B4"
         weaponPrice: 230
         description: 
     - Key: 5
       Value:
-        weaponIconSprite: {fileID: -1886483878, guid: 451125f74276ea04e89126d17e50ce3d,
+        weaponIconSprite: {fileID: -259124140, guid: 451125f74276ea04e89126d17e50ce3d,
           type: 3}
         weaponName: "\uB4DC\uB798\uACE4 \uD30C\uC774\uC5B4"
         weaponPrice: 280
         description: 
     - Key: 6
       Value:
-        weaponIconSprite: {fileID: 0}
+        weaponIconSprite: {fileID: 1688924207, guid: 451125f74276ea04e89126d17e50ce3d,
+          type: 3}
         weaponName: "\uC5F4\uC555\uB958\uD0C4"
         weaponPrice: 260
         description: 
     - Key: 7
       Value:
-        weaponIconSprite: {fileID: 0}
+        weaponIconSprite: {fileID: -1542686118, guid: 451125f74276ea04e89126d17e50ce3d,
+          type: 3}
         weaponName: "\uC591\uC790 \uC5B4\uB8B0"
         weaponPrice: 320
         description: 
     - Key: 8
       Value:
-        weaponIconSprite: {fileID: 0}
+        weaponIconSprite: {fileID: -266086079, guid: 451125f74276ea04e89126d17e50ce3d,
+          type: 3}
         weaponName: "\uC77C\uBC18 \uBAA9\uC801\uD0C4"
         weaponPrice: 250
         description: 
     - Key: 9
       Value:
-        weaponIconSprite: {fileID: 0}
+        weaponIconSprite: {fileID: -1544519007, guid: 451125f74276ea04e89126d17e50ce3d,
+          type: 3}
         weaponName: "\uB2E8\uAC70\uB9AC \uACF5\uB300\uACF5 \uBBF8\uC0AC\uC77C"
         weaponPrice: 330
         description: 
     - Key: 10
       Value:
-        weaponIconSprite: {fileID: 0}
+        weaponIconSprite: {fileID: -948670328, guid: 451125f74276ea04e89126d17e50ce3d,
+          type: 3}
         weaponName: "\uC911/\uC7A5\uAC70\uB9AC \uACF5\uB300\uACF5 \uBBF8\uC0AC\uC77C"
         weaponPrice: 340
         description: 
     - Key: 11
       Value:
-        weaponIconSprite: {fileID: 0}
+        weaponIconSprite: {fileID: -541075229, guid: 451125f74276ea04e89126d17e50ce3d,
+          type: 3}
         weaponName: "\uC7A5\uAC70\uB9AC \uACF5\uB300\uC9C0 \uBBF8\uC0AC\uC77C"
         weaponPrice: 400
         description: 
     - Key: 12
       Value:
-        weaponIconSprite: {fileID: 0}
+        weaponIconSprite: {fileID: 1701357568, guid: 451125f74276ea04e89126d17e50ce3d,
+          type: 3}
         weaponName: "\uB300\uBC29\uC0AC \uBBF8\uC0AC\uC77C"
         weaponPrice: 440
         description: 
     - Key: 13
       Value:
-        weaponIconSprite: {fileID: 0}
+        weaponIconSprite: {fileID: -1256832810, guid: 451125f74276ea04e89126d17e50ce3d,
+          type: 3}
         weaponName: "\uACF5\uB300\uC9C0 \uD0C4\uB3C4\uD0C4"
         weaponPrice: 450
         description: 
     - Key: 14
       Value:
-        weaponIconSprite: {fileID: 0}
+        weaponIconSprite: {fileID: -1055497102, guid: 451125f74276ea04e89126d17e50ce3d,
+          type: 3}
         weaponName: "\uC9C0\uB2A5\uD615 \uD655\uC0B0\uD0C4"
         weaponPrice: 600
         description: 
     - Key: 15
       Value:
-        weaponIconSprite: {fileID: 0}
+        weaponIconSprite: {fileID: 72246596, guid: 451125f74276ea04e89126d17e50ce3d,
+          type: 3}
         weaponName: "\uD1B5\uD569\uC9C1\uACA9\uD0C4"
         weaponPrice: 660
         description: 
     - Key: 16
       Value:
-        weaponIconSprite: {fileID: 0}
+        weaponIconSprite: {fileID: 668737142, guid: 451125f74276ea04e89126d17e50ce3d,
+          type: 3}
         weaponName: "\uB808\uC774\uC800 \uC720\uB3C4 \uD3ED\uD0C4"
         weaponPrice: 660
         description: 

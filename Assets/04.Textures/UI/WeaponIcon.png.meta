@@ -110,7 +110,7 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: GuidedBullet
+      name: WeaponIcon_0
       rect:
         serializedVersion: 2
         x: 0
@@ -118,20 +118,20 @@ TextureImporter:
         width: 32
         height: 32
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 004436d0d31a9e649bacc84a32341dc1
-      internalID: -15560317
+      spriteID: c91c333a09c1ef8439414d6f71b74b53
+      internalID: 281646276
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: M206_Flare
+      name: WeaponIcon_1
       rect:
         serializedVersion: 2
         x: 32
@@ -139,20 +139,20 @@ TextureImporter:
         width: 32
         height: 32
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 8efd51282ee097142a25b70bf21a0b98
-      internalID: 937308335
+      spriteID: 635550fed66d7f94dbc9729ff6d761b3
+      internalID: -958168467
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: MJN_68
+      name: WeaponIcon_2
       rect:
         serializedVersion: 2
         x: 64
@@ -160,20 +160,20 @@ TextureImporter:
         width: 32
         height: 32
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 829d1c461fd0a6349a971b92e4b3695f
-      internalID: -806560430
+      spriteID: 68be7596776fe2a47ad801b9011a448b
+      internalID: 1792578634
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: MJN_61
+      name: WeaponIcon_3
       rect:
         serializedVersion: 2
         x: 96
@@ -181,20 +181,20 @@ TextureImporter:
         width: 32
         height: 32
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: e4e7fc8355833c3499c4e5e8906250ed
-      internalID: -1837622833
+      spriteID: 479586df94f67ef41a4adc8f2ee38d53
+      internalID: -729112534
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: DragonFire
+      name: WeaponIcon_4
       rect:
         serializedVersion: 2
         x: 0
@@ -208,8 +208,239 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: c99f7821e75e01b429a1a0b42cdc19be
-      internalID: -1886483878
+      spriteID: 969b4f064a004824b8603b31a62a7156
+      internalID: -259124140
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: WeaponIcon_5
+      rect:
+        serializedVersion: 2
+        x: 32
+        y: 64
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2a6ec066476b40745a2d490d8957181b
+      internalID: 1688924207
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: WeaponIcon_6
+      rect:
+        serializedVersion: 2
+        x: 64
+        y: 64
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c95596a5c9bded64caca30dc63b096e4
+      internalID: -1542686118
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: WeaponIcon_7
+      rect:
+        serializedVersion: 2
+        x: 96
+        y: 64
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 161af0f98d983de4686b7ce4a088ab45
+      internalID: -266086079
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: WeaponIcon_8
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 32
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f29af964962631e47bbec94e01091cde
+      internalID: -1544519007
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: WeaponIcon_9
+      rect:
+        serializedVersion: 2
+        x: 32
+        y: 32
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3117736c90e2f6b4c95f4492a3dd9f11
+      internalID: -948670328
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: WeaponIcon_10
+      rect:
+        serializedVersion: 2
+        x: 64
+        y: 32
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e565207e8ee3755479da8ef8ea8335da
+      internalID: -541075229
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: WeaponIcon_11
+      rect:
+        serializedVersion: 2
+        x: 96
+        y: 32
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8b67cdd06c814064396a0258111733cc
+      internalID: 1701357568
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: WeaponIcon_12
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 0
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 66de8c4a48492a4439a93ccdb2f33c16
+      internalID: -1256832810
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: WeaponIcon_13
+      rect:
+        serializedVersion: 2
+        x: 32
+        y: 0
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c3f4b8fcf87921a4695dc5c6f0d56ded
+      internalID: -1055497102
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: WeaponIcon_14
+      rect:
+        serializedVersion: 2
+        x: 64
+        y: 0
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d90014d2f44364744bb36b316c505ff4
+      internalID: 72246596
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: WeaponIcon_15
+      rect:
+        serializedVersion: 2
+        x: 96
+        y: 0
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f5dcddb85c6b02640b6f7c6e02d6396a
+      internalID: 668737142
       vertices: []
       indices: 
       edges: []
@@ -225,11 +456,22 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      DragonFire: -1886483878
-      GuidedBullet: -15560317
-      M206_Flare: 937308335
-      MJN_61: -1837622833
-      MJN_68: -806560430
+      WeaponIcon_0: 281646276
+      WeaponIcon_1: -958168467
+      WeaponIcon_10: -541075229
+      WeaponIcon_11: 1701357568
+      WeaponIcon_12: -1256832810
+      WeaponIcon_13: -1055497102
+      WeaponIcon_14: 72246596
+      WeaponIcon_15: 668737142
+      WeaponIcon_2: 1792578634
+      WeaponIcon_3: -729112534
+      WeaponIcon_4: -259124140
+      WeaponIcon_5: 1688924207
+      WeaponIcon_6: -1542686118
+      WeaponIcon_7: -266086079
+      WeaponIcon_8: -1544519007
+      WeaponIcon_9: -948670328
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
