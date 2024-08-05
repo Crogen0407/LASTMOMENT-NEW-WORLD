@@ -274,7 +274,7 @@ MonoBehaviour:
   whatIsPlayer:
     serializedVersion: 2
     m_Bits: 64
-  recognitionRange: 1000
+  recognitionRange: 500
   _explosionRadius: 0
   enemyType: 20
   _dropItemType: 3

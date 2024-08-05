@@ -11646,7 +11646,8 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls: []
   m_text: "\uCD5C\uADFC \uC5C5\uB370\uC774\uD2B8 - \uC2A4\uD14C\uC774\uC9C0 4\uAC1C
-    \uC644\uC131 / \uB4DC\uB798\uACE4 \uD30C\uC774\uC5B4 \uCD94\uAC00"
+    \uC644\uC131 / \uADF8 \uC678 \uB2E4\uC218 \uBCF4\uC2A4 \uBD04 \uCD94\uAC00 /
+    \uC5EC\uB7EC \uD50C\uB808\uC774\uC5B4\uBE14 \uBB34\uAE30 \uCD94\uAC00"
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: b685d1e975b10b44ca17ded9afb766aa, type: 2}
   m_sharedMaterial: {fileID: 8047484301347629023, guid: b685d1e975b10b44ca17ded9afb766aa,
