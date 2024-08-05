@@ -65,22 +65,26 @@ MonoBehaviour:
       Value:
         coolTime: 3
         attackCount: 15
-        weaponEffectPrefab: {fileID: 0}
+        weaponEffectPrefab: {fileID: 8210434154388601080, guid: ec4c6989663212649870bcdc06991799,
+          type: 3}
     - Key: 9
       Value:
         coolTime: 10
         attackCount: 13
-        weaponEffectPrefab: {fileID: 0}
+        weaponEffectPrefab: {fileID: 8210434154388601080, guid: b31f2e4bf9db9e044b56e6d9587b80ff,
+          type: 3}
     - Key: 10
       Value:
         coolTime: 10
         attackCount: 13
-        weaponEffectPrefab: {fileID: 0}
+        weaponEffectPrefab: {fileID: 8210434154388601080, guid: b50c60cae7f48ca49965889dac3f0f4a,
+          type: 3}
     - Key: 11
       Value:
         coolTime: 10
         attackCount: 13
-        weaponEffectPrefab: {fileID: 0}
+        weaponEffectPrefab: {fileID: 8210434154388601080, guid: f188816102250f74d9f2456e4142ee79,
+          type: 3}
     - Key: 12
       Value:
         coolTime: 20
@@ -100,9 +104,11 @@ MonoBehaviour:
       Value:
         coolTime: 10
         attackCount: 8
-        weaponEffectPrefab: {fileID: 0}
+        weaponEffectPrefab: {fileID: 8210434154388601080, guid: a6cb4806c7df83e4c92c2ba87c23d7a7,
+          type: 3}
     - Key: 16
       Value:
         coolTime: 10
         attackCount: 8
-        weaponEffectPrefab: {fileID: 0}
+        weaponEffectPrefab: {fileID: 8210434154388601080, guid: 1c289e0b94de42847ae76ead05be9784,
+          type: 3}

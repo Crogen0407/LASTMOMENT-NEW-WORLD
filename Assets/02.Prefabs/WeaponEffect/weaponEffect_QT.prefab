@@ -9859,5 +9859,5 @@ MonoBehaviour:
   attackRange: 20
   duration: 10
   _explosionEffectPoolType: 0
-  _speed: 10
-  _damaged: 10
+  _speed: 200
+  _damaged: 20

@@ -40,7 +40,7 @@ MeshFilter:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 339997531279721240}
-  m_Mesh: {fileID: 8306531050766005001, guid: 327bad988d5eff44eb008faec2ef022e, type: 3}
+  m_Mesh: {fileID: 2112419429693604789, guid: 327bad988d5eff44eb008faec2ef022e, type: 3}
 --- !u!23 &7845168429852143566
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -96,7 +96,7 @@ GameObject:
   - component: {fileID: 7466721032965774018}
   - component: {fileID: -4977489044171086811}
   m_Layer: 15
-  m_Name: weaponEffect_GUA
+  m_Name: weaponEffect_SATAM
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -187,11 +187,11 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 128
   _attackPossiableCount: 10
-  attackRange: 10
+  attackRange: 15
   duration: 5
   _explosionEffectPoolType: 0
   _speed: 350
-  _damaged: 10
+  _damaged: 8
 --- !u!1001 &7190726933078238312
 PrefabInstance:
   m_ObjectHideFlags: 0
