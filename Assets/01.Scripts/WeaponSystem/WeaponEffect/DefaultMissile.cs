@@ -15,17 +15,28 @@ public class DefaultMissile : WeaponEffect
     public override void Init(Vector3 attackDirection, Transform parent = null)
     {
         base.Init(attackDirection, null);
-        transform.DOLocalMoveY(transform.position.y - 1, 1);
         SoundManager.Instance.PlaySFX(_fireAudioType, transform.position);
         _targetPos = transform.position + transform.forward * duration * _speed;
+        transform.DOMove(_targetPos, duration);
     }
 
-    private void FixedUpdate()
+    private void OnCollisionEnter(Collision other)
     {
-        Physics.OverlapSphereNonAlloc(transform.position, attackRange, _attackTargets, _whatIsEnemy);
 
-        transform.DOMove(_targetPos, duration/_speed);
+        if (other.transform.TryGetComponent(out HealthSystem healthSystem))
+        {
+            healthSystem.Hp -= _damaged;
+        }
+        else if (other.transform.transform.parent.TryGetComponent(out HealthSystem healthSystemInParent))
+        {
+            healthSystemInParent.Hp -= _damaged;
+        }
 
+        Destroy(gameObject);
+    }
+
+    private void Update()
+	{
         if (duration < _curLifeTime)
         {
             Destroy(gameObject);
@@ -34,6 +45,14 @@ public class DefaultMissile : WeaponEffect
         {
             _curLifeTime += Time.deltaTime;
         }
+    }
+
+	private void FixedUpdate()
+    {
+        if(Physics.OverlapSphereNonAlloc(transform.position, attackRange, _attackTargets, _whatIsEnemy) > 0)
+		{
+            Destroy(gameObject);
+		}
     }
 
     private void OnDestroy()

@@ -6,6 +6,7 @@ using UnityEngine;
 public class GuidedBullet : WeaponEffect
 {
     private Collider _attackTarget;
+    private bool _isTargetting;
     [SerializeField] private PoolType _explosionEffectPoolType;
     [SerializeField] private float _speed = 10f;
     [SerializeField] private float _damaged = 10f;
@@ -13,8 +14,6 @@ public class GuidedBullet : WeaponEffect
     public override void Init(Vector3 attackDirection, Transform parent = null)
     {
         base.Init(attackDirection, null);
-        Sequence seq = DOTween.Sequence();
-        seq.Append(transform.DOLocalMoveY(transform.position.y-1, 1));
 
         _attackTarget = _attackTargets[0];
         for (int i = 1; i < _attackTargets.Length; ++i)
@@ -26,12 +25,11 @@ public class GuidedBullet : WeaponEffect
             }
         }
         SoundManager.Instance.PlaySFX(_fireAudioType, transform.position);
+        transform.DOMove(transform.position + (transform.forward * duration * _speed), duration);
     }
 
     private void OnCollisionEnter(Collision other)
     {
-        Destroy(gameObject);
-
         if (other.transform.TryGetComponent(out HealthSystem healthSystem))
         {
             healthSystem.Hp -= _damaged;
@@ -40,21 +38,12 @@ public class GuidedBullet : WeaponEffect
         {
             healthSystemInParent.Hp -= _damaged;
         }
+
+        Destroy(gameObject);
     }
 
-    private void FixedUpdate()
-    {
-        Physics.OverlapSphereNonAlloc(transform.position, attackRange, _attackTargets, _whatIsEnemy);
-
-        if (_attackTarget != null)
-        {
-            transform.DOMove(_attackTarget.transform.position, duration / _speed);
-            transform.forward = (_attackTarget.transform.position - transform.position).normalized;
-        }
-        else
-        {
-            transform.DOMove(transform.position + (transform.forward * _speed), duration);
-        }
+	private void Update()
+	{
         if (duration < _curLifeTime)
         {
             Destroy(gameObject);
@@ -62,6 +51,19 @@ public class GuidedBullet : WeaponEffect
         else
         {
             _curLifeTime += Time.deltaTime;
+        }
+    }
+
+	private void FixedUpdate()
+    {
+        if (_isTargetting) return;
+
+        if (Physics.OverlapSphereNonAlloc(transform.position, attackRange, _attackTargets, _whatIsEnemy) > 0)
+		{
+            _isTargetting = true;
+            transform.DOKill();
+            transform.DOMove(_attackTarget.transform.position, duration / _speed);
+            transform.forward = (_attackTarget.transform.position - transform.position).normalized;
         }
     }
 

@@ -155,7 +155,12 @@ namespace Crogen.CrogenHierarchy.Editor.HierarchyElement
             #region DrawToggle
 
             Rect togglePosition = new Rect(new Vector2(32, selectionRect.y), new Vector2(selectionRect.height, selectionRect.height));
-            gameObject.SetActive(GUI.Toggle(togglePosition, gameObject.activeSelf, string.Empty));            
+            bool toggleBoolean = GUI.Toggle(togglePosition, gameObject.activeSelf, string.Empty);
+            if (gameObject.activeSelf != toggleBoolean)
+			{
+                gameObject.SetActive(toggleBoolean);
+                EditorUtility.SetDirty(gameObject);
+            }
 
             #endregion
             #region DrawLine

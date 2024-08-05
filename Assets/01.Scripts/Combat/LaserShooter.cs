@@ -47,8 +47,8 @@ public class LaserShooter : MonoBehaviour
 
    public void ChargeEffectActive(bool active)
    {
-      Init();
-      _chargeEffect.SetActive(active);
+        Init();
+        _chargeEffect.SetActive(active);
    }
 
    private void CoroutineDissolveActive(bool active)

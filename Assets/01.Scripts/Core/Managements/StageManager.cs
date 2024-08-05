@@ -56,7 +56,6 @@ public class StageManager : MonoSingleton<StageManager>
          TalkContent.Instance.OnTalk("System", "ST-091, 본부로 귀환합니다", 1, null, () =>
          {
             int sceneIndex = _stageListData.list.FindIndex(x => x.stageName == SceneManager.GetActiveScene().name);
-            Debug.Log(sceneIndex);
             GameDataManager.Instance.GameData.clearStageArray[sceneIndex] = 1;
             GameDataManager.Instance.SaveData();
             SceneLoadingManager.Instance.LoadingScene(SceneNames.LobbyScene, 5f);

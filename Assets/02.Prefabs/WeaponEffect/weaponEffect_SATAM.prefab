@@ -189,7 +189,7 @@ MonoBehaviour:
   _attackPossiableCount: 10
   attackRange: 15
   duration: 5
-  _explosionEffectPoolType: 0
+  _explosionEffectPoolType: 11
   _speed: 350
   _damaged: 8
 --- !u!1001 &7190726933078238312

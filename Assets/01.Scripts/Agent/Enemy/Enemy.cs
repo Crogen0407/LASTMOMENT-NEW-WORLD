@@ -33,10 +33,10 @@ public class Enemy : Agent<EnemyStateEnum>
 
     public override void SetDead()
     {
+        _itemManager.DropItem(transform.position, _dropItemType);
         if (Physics.SphereCast(transform.position, recognitionRange, Vector3.up, out RaycastHit hit, whatIsPlayer))
         {
             Debug.Log("Die");
-            _itemManager.DropItem(transform.position, _dropItemType);
             _cameraManager.SetPlayerCameraShack(1, 10, 5);
         }
         base.SetDead();

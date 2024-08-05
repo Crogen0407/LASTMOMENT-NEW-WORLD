@@ -29,13 +29,14 @@ public class StageSelectContent : MonoBehaviour
         int maxClearStageIndex = 0;
         for (int i = 0; i < clearStageArray.Length; ++i)
         {
+            maxClearStageIndex = i + 1;
             if (clearStageArray[i] == 0)
             {
-                maxClearStageIndex = i+1;
                 if (maxClearStageIndex > _stageListData.list.Count)
                     maxClearStageIndex = _stageListData.list.Count;
                 break;
             }
+
         }
         
         _rectTransform = transform as RectTransform;
@@ -44,7 +45,7 @@ public class StageSelectContent : MonoBehaviour
             int index = i;
             StageElement stageElement = Instantiate(_stageElementPrefab, _scrollContent);
             stageElement.SetText(_stageListData.list[index].uiStageName);
-            stageElement.SetMissionClear(i<maxClearStageIndex-1);
+            stageElement.SetMissionClear(clearStageArray[i] == 1);
             stageElement.AddListener(() =>
             {
                 SceneLoadingManager.Instance.LoadingScene(_stageListData.list[index].stageName);

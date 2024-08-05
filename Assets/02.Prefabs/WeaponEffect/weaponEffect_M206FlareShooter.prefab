@@ -45,7 +45,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _attackAudioType: 0
-  _fireAudioType: 16
+  _fireAudioType: 12
   _whatIsEnemy:
     serializedVersion: 2
     m_Bits: 128

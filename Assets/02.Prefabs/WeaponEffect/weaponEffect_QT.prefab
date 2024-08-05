@@ -9858,6 +9858,6 @@ MonoBehaviour:
   _attackPossiableCount: 10
   attackRange: 20
   duration: 10
-  _explosionEffectPoolType: 0
+  _explosionEffectPoolType: 11
   _speed: 200
   _damaged: 20
