@@ -2100,8 +2100,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 659b0d4acd8dc284890e2c2e6b6aac23, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _hp: 300
-  maxHp: 300
+  _hp: 500
+  maxHp: 500
   isImpassible: 0
   isDie: 0
   _dieEffect: {fileID: 4152319267778169592, guid: b85a46eb8db2ac541a9c4f3285228bf0,

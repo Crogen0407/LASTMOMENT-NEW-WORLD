@@ -19,11 +19,11 @@ public class Flare : MonoPoolingObject
 
     private void OnCollisionEnter(Collision other)
     {
-        if (other.transform.TryGetComponent(out HealthSystem healthSystem))
+        if (other.transform.TryGetComponent(out EnemyHealthSystem healthSystem))
         {
             healthSystem.Hp -= damage;
         }
-        else if (other.transform.transform.parent.TryGetComponent(out HealthSystem healthSystemInParent))
+        else if (other.transform.transform.parent.TryGetComponent(out EnemyHealthSystem healthSystemInParent))
         {
             healthSystemInParent.Hp -= damage;
         }

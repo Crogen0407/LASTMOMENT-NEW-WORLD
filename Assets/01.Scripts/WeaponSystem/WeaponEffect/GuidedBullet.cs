@@ -15,15 +15,7 @@ public class GuidedBullet : WeaponEffect
     {
         base.Init(attackDirection, null);
 
-        _attackTarget = _attackTargets[0];
-        for (int i = 1; i < _attackTargets.Length; ++i)
-        {
-            if (Vector3.Distance(_attackTarget.transform.position, transform.position) >
-                Vector3.Distance(_attackTargets[i].transform.position, transform.position))
-            {
-                _attackTarget = _attackTargets[i];
-            }
-        }
+        _attackTargets = new Collider[1];
         SoundManager.Instance.PlaySFX(_fireAudioType, transform.position);
         transform.DOMove(transform.position + (transform.forward * duration * _speed), duration);
     }
@@ -62,8 +54,8 @@ public class GuidedBullet : WeaponEffect
 		{
             _isTargetting = true;
             transform.DOKill();
-            transform.DOMove(_attackTarget.transform.position, duration / _speed);
-            transform.forward = (_attackTarget.transform.position - transform.position).normalized;
+            transform.DOMove(_attackTargets[0].transform.position, duration / _speed);
+            transform.forward = (_attackTargets[0].transform.position - transform.position).normalized;
         }
     }
 

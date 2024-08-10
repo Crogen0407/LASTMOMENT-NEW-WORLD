@@ -1213,11 +1213,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 659b0d4acd8dc284890e2c2e6b6aac23, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _hp: 100
-  maxHp: 100
+  _hp: 200
+  maxHp: 200
   isImpassible: 0
   isDie: 0
-  _dieEffect: {fileID: 0}
+  _dieEffect: {fileID: 4152319267778169592, guid: b85a46eb8db2ac541a9c4f3285228bf0,
+    type: 3}
 --- !u!114 &7879351533810892970
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1231,7 +1232,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   <DefaultSpeed>k__BackingField: 50
-  <MaxSpeed>k__BackingField: 100
+  <MaxSpeed>k__BackingField: 50
   <CurSpeed>k__BackingField: 0
   busterVFXMaterials: []
   _rotateSpeed: 5
