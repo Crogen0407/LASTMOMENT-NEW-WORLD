@@ -20378,7 +20378,6 @@ GameObject:
   - component: {fileID: 1221399132}
   - component: {fileID: 1221399131}
   - component: {fileID: 1221399130}
-  - component: {fileID: 1221399129}
   - component: {fileID: 1221399128}
   - component: {fileID: 1221399127}
   - component: {fileID: 1221399126}
@@ -20416,9 +20415,6 @@ MonoBehaviour:
     enable: 1
   - name: PlayerAttack
     component: {fileID: 1221399130}
-    enable: 1
-  - name: ACMSystem
-    component: {fileID: 1221399129}
     enable: 1
   - name: AgentEffectGenerator
     component: {fileID: 1221399128}
@@ -20495,19 +20491,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _vfxHighBusters:
   - {fileID: 1026028481}
---- !u!114 &1221399129
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1221399124}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1a78d782e1b44ccfaa54cb2777dfb19d, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  acmDataList: {fileID: 11400000, guid: 23953a12413db944f9f651c889e418a9, type: 2}
 --- !u!114 &1221399130
 MonoBehaviour:
   m_ObjectHideFlags: 0

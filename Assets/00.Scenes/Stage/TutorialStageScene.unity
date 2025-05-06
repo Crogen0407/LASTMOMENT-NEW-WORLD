@@ -38351,7 +38351,6 @@ GameObject:
   - component: {fileID: 1204702522}
   - component: {fileID: 1204702521}
   - component: {fileID: 1204702520}
-  - component: {fileID: 1204702519}
   - component: {fileID: 1204702518}
   - component: {fileID: 1204702517}
   - component: {fileID: 1204702516}
@@ -38381,29 +38380,26 @@ MonoBehaviour:
   - name: Transform
     component: {fileID: 1204702523}
     enable: 0
-  - name: Player
-    component: {fileID: 1204702522}
+  - name: 
+    component: {fileID: 0}
     enable: 1
-  - name: PlayerMovement
-    component: {fileID: 1204702521}
+  - name: 
+    component: {fileID: 0}
     enable: 1
-  - name: PlayerAttack
-    component: {fileID: 1204702520}
+  - name: 
+    component: {fileID: 0}
     enable: 1
-  - name: ACMSystem
-    component: {fileID: 1204702519}
+  - name: 
+    component: {fileID: 0}
     enable: 1
-  - name: AgentEffectGenerator
-    component: {fileID: 1204702518}
+  - name: 
+    component: {fileID: 0}
     enable: 1
-  - name: Rigidbody
-    component: {fileID: 1204702517}
+  - name: 
+    component: {fileID: 0}
     enable: 1
-  - name: PlayerHealthSystem
-    component: {fileID: 1204702516}
-    enable: 1
-  - name: HierarchyInfo
-    component: {fileID: 1204702515}
+  - name: 
+    component: {fileID: 0}
     enable: 1
   lineColor: {r: 0, g: 1, b: 0, a: 1}
   textColor: {r: 1, g: 1, b: 1, a: 1}
@@ -38468,19 +38464,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _vfxHighBusters:
   - {fileID: 1033568296}
---- !u!114 &1204702519
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1204702514}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1a78d782e1b44ccfaa54cb2777dfb19d, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  acmDataList: {fileID: 11400000, guid: 23953a12413db944f9f651c889e418a9, type: 2}
 --- !u!114 &1204702520
 MonoBehaviour:
   m_ObjectHideFlags: 0
